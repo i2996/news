@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T23:36:54.268765+09:00",
+  "generated_at": "2026-10-11T00:01:18.288005+09:00",
   "items": [
     {
       "topic": "트럼프 노벨상 불만 폭발 남북한 전쟁 내가 막고 있다",
@@ -79,99 +79,100 @@
       "rank": 2
     },
     {
-      "topic": "박기창 주우크라이나 한국 대사 결국 귀국 정부 본국 소환 결정 이틀 만",
-      "final_headline": "[속보] 박기창 주우크라이나 한국 대사 결국 귀국···정부 ‘본국 소환’ 결정 이틀 만",
+      "topic": "한동훈 딸 스펙 수사 무마 의혹에 민주당 남의 딸은 탈탈 털더니 한동훈 민주당의 망상",
+      "final_headline": "민주 “남의 딸 탈탈 털던 한동훈, 딸 수사는 덮었나” 연일 공세…한 “망상”",
       "status": "진행 중",
       "timeline": [
         {
-          "time": "10:12",
-          "summary": "[속보] 박기창 주우크라이나 한국 대사 결국 귀국···정부 ‘본국 소환’ 결정 이틀 만",
+          "time": "15:23",
+          "summary": "한동훈 딸 스펙 수사 무마 의혹에…민주당 “남의 딸은 탈탈 털더니” 한동훈 “민주당의 망상”",
           "source": "경향신문",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE14ZEhZZ25icUt6OHloOEItRHpVX0ZuRHdhZG5ISG50R0Nya1BDbHFvZGpmd1A2YUtubWQ5OWRkNkFiRzJNamdacTZ0QXl2RGMtZXEyVnk2aFZJUdIBX0FVX3lxTE1tSWxDOTk3VjdUS2tzWmFxNVFWaVZwR1BKRkFVNGJCVU1CYjhsdVJqd2RweGR5YzBRcGRmdmRQUWhhLTdKRVRSUkROWUlQazVBU01aeWh3TjhOMy1idEs0?oc=5"
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1qMFg4YXd2ejJGNHRlQk9uUDFRWHR6RDRuZDgydjBjQUVxZ3NuMm5fT3Brb1B1VzMyakUwV0JlMHNqYjZyeXREZUMydkd1ODZNXzhqQ0Q3Y1NIQdIBX0FVX3lxTFBLUzdzWkVGTGd6QWpnSmhfZTJTZG1uVjB1VzdlYnM4c25LNDFmQ2lYbDJQeUllYWEtZlRyWEljZ1RaTmFfVXNaVmhsNnRyZUJ6Q1JPcHc3bGNmYW9CdXhr?oc=5"
+        },
+        {
+          "time": "21:47",
+          "summary": "민주 “남의 딸 탈탈 털던 한동훈, 딸 수사는 덮었나” 연일 공세…한 “망상”",
+          "source": "한겨레",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5RWUxpdzVDbS0yZU5IT0kza1dZOGxBcTJYcDZJbkNNWS1Wc3BDVmNsSkc5MHVxbk5tRExMR3hpRDFYNDM0aG9lRC1ETlRPdWlaRUZKaU5Wd2NTd2dLZXo4ZjZVMlY4d1BsSERSWXBsZzRHMC03?oc=5"
         }
       ],
-      "timeline_text": "10:12 [속보] 박기창 주우크라이나 한국 대사 결국 귀국···정부 ‘본국 소환’ 결정 이틀 만",
+      "timeline_text": "15:23 한동훈 딸 스펙 수사 무마 의혹에…민주당 “남의 딸은 탈탈 털더니” 한동훈 “민주당의 망상” -> 21:47 민주 “남의 딸 탈탈 털던 한동훈, 딸 수사는 덮었나” 연일 공세…한 “망상”",
       "original_links": [
         {
-          "source": "경향신문",
-          "title": "[속보] 박기창 주우크라이나 한국 대사 결국 귀국···정부 ‘본국 소환’ 결정 이틀 만",
-          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE14ZEhZZ25icUt6OHloOEItRHpVX0ZuRHdhZG5ISG50R0Nya1BDbHFvZGpmd1A2YUtubWQ5OWRkNkFiRzJNamdacTZ0QXl2RGMtZXEyVnk2aFZJUdIBX0FVX3lxTE1tSWxDOTk3VjdUS2tzWmFxNVFWaVZwR1BKRkFVNGJCVU1CYjhsdVJqd2RweGR5YzBRcGRmdmRQUWhhLTdKRVRSUkROWUlQazVBU01aeWh3TjhOMy1idEs0?oc=5"
+          "source": "한겨레",
+          "title": "민주 “남의 딸 탈탈 털던 한동훈, 딸 수사는 덮었나” 연일 공세…한 “망상”",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5RWUxpdzVDbS0yZU5IT0kza1dZOGxBcTJYcDZJbkNNWS1Wc3BDVmNsSkc5MHVxbk5tRExMR3hpRDFYNDM0aG9lRC1ETlRPdWlaRUZKaU5Wd2NTd2dLZXo4ZjZVMlY4d1BsSERSWXBsZzRHMC03?oc=5"
         },
+        {
+          "source": "경향신문",
+          "title": "한동훈 딸 스펙 수사 무마 의혹에…민주당 “남의 딸은 탈탈 털더니” 한동훈 “민주당의 망상”",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1qMFg4YXd2ejJGNHRlQk9uUDFRWHR6RDRuZDgydjBjQUVxZ3NuMm5fT3Brb1B1VzMyakUwV0JlMHNqYjZyeXREZUMydkd1ODZNXzhqQ0Q3Y1NIQdIBX0FVX3lxTFBLUzdzWkVGTGd6QWpnSmhfZTJTZG1uVjB1VzdlYnM4c25LNDFmQ2lYbDJQeUllYWEtZlRyWEljZ1RaTmFfVXNaVmhsNnRyZUJ6Q1JPcHc3bGNmYW9CdXhr?oc=5"
+        }
+      ],
+      "article_count": 2,
+      "source_count": 2,
+      "latest_at": "2026-10-10T21:47:00+09:00",
+      "rank": 3
+    },
+    {
+      "topic": "홍준표 김부겸 밀었지만 대구시민들 진심 안 받아줘 지역감정 더 당해봐야 알게 될는지",
+      "final_headline": "홍준표 \"TK위해 김부겸 밀었는데...지역감정에 몰락\"",
+      "status": "진행 중",
+      "timeline": [
+        {
+          "time": "14:24",
+          "summary": "홍준표 \"김부겸 밀었지만 대구시민들 진심 안 받아줘…지역감정, 더 당해봐야 알게 될는지\"",
+          "source": "매일신문",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBfOG90ZUxKdXJEc19wMVljOU9DemEwS1hqd2RvNUpkQUJiRnZoS0dqdTNjMGVReU10U08wWUxvems0a3hiX2ltMGFBb2h0ejUxMUY1d3FtZ2szVmxzV1RnMjR3?oc=5"
+        },
+        {
+          "time": "16:21",
+          "summary": "홍준표 \"TK위해 김부겸 밀었는데...지역감정에 몰락\"",
+          "source": "이데일리",
+          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNd3BIaHBaYzk0TVJzX0lNb09sd2NBdU50TkZDWC16TklVV21MdlhlU0ItMGstdGpRck5icTBqcTczU0dQMktlSmdHcVE5eVhZVjgwc2picVBLWXVNMDgyekF0MEdOVS1ZeDZKN2ktU1ZLUTlXLXY1MWsyVXh3cmhlcw?oc=5"
+        }
+      ],
+      "timeline_text": "14:24 홍준표 \"김부겸 밀었지만 대구시민들 진심 안 받아줘…지역감정, 더 당해봐야 알게 될는지\" -> 16:21 홍준표 \"TK위해 김부겸 밀었는데...지역감정에 몰락\"",
+      "original_links": [
+        {
+          "source": "이데일리",
+          "title": "홍준표 \"TK위해 김부겸 밀었는데...지역감정에 몰락\"",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNd3BIaHBaYzk0TVJzX0lNb09sd2NBdU50TkZDWC16TklVV21MdlhlU0ItMGstdGpRck5icTBqcTczU0dQMktlSmdHcVE5eVhZVjgwc2picVBLWXVNMDgyekF0MEdOVS1ZeDZKN2ktU1ZLUTlXLXY1MWsyVXh3cmhlcw?oc=5"
+        },
+        {
+          "source": "매일신문",
+          "title": "홍준표 \"김부겸 밀었지만 대구시민들 진심 안 받아줘…지역감정, 더 당해봐야 알게 될는지\"",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBfOG90ZUxKdXJEc19wMVljOU9DemEwS1hqd2RvNUpkQUJiRnZoS0dqdTNjMGVReU10U08wWUxvems0a3hiX2ltMGFBb2h0ejUxMUY1d3FtZ2szVmxzV1RnMjR3?oc=5"
+        }
+      ],
+      "article_count": 2,
+      "source_count": 2,
+      "latest_at": "2026-10-10T16:21:09+09:00",
+      "rank": 4
+    },
+    {
+      "topic": "주우크라 대사 소환 귀국 포로 한국행 공개에 정부 18년 만의 강경 조치",
+      "final_headline": "주우크라 대사 소환 귀국…‘포로 한국행’ 공개에 정부, 18년 만의 강경 조치",
+      "status": "진행 중",
+      "timeline": [
+        {
+          "time": "20:08",
+          "summary": "주우크라 대사 소환 귀국…‘포로 한국행’ 공개에 정부, 18년 만의 강경 조치",
+          "source": "한겨레",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5oT2FfS0FJdVAzZDBSQk9fZ3ZOeDJ1X0p4aXRzRm1IZEtPUkY0TVJuZTZkV21zdEpZeFVZWUJaNE4yYUswdk9kekxQVFpSTmpncUJfaF9QMEVROC1vMHo4aDU2Z1VMSWRyNW04?oc=5"
+        }
+      ],
+      "timeline_text": "20:08 주우크라 대사 소환 귀국…‘포로 한국행’ 공개에 정부, 18년 만의 강경 조치",
+      "original_links": [
         {
           "source": "한겨레",
           "title": "주우크라 대사 소환 귀국…‘포로 한국행’ 공개에 정부, 18년 만의 강경 조치",
           "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5oT2FfS0FJdVAzZDBSQk9fZ3ZOeDJ1X0p4aXRzRm1IZEtPUkY0TVJuZTZkV21zdEpZeFVZWUJaNE4yYUswdk9kekxQVFpSTmpncUJfaF9QMEVROC1vMHo4aDU2Z1VMSWRyNW04?oc=5"
         }
       ],
-      "article_count": 2,
-      "source_count": 2,
+      "article_count": 1,
+      "source_count": 1,
       "latest_at": "2026-10-10T20:08:00+09:00",
-      "rank": 3
-    },
-    {
-      "topic": "이 대통령 대구 마트 천장 붕괴사고 관련 인명 구조에 총력 다하라 지시",
-      "final_headline": "“무대에 오르면 사고다” 양상국 ‘놀뭐’ 95 서울가요제 혹평 속 탈락",
-      "status": "진행 중",
-      "timeline": [
-        {
-          "time": "12:47",
-          "summary": "이 대통령, 대구 마트 천장 붕괴사고 관련 \"인명 구조에 총력 다하라\" 지시",
-          "source": "MBC 뉴스",
-          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFAtNlRvYnZILXdNbWMzWUdBVENPWDJBWEpmSHRFbVF2RHRVaGxKV182dksxaXdibUM1M09xUDNFWXdLei1vUUQ1Y0I2QWN3SmpMZGc0QXZwdXAxUTZkSUl3d0tfbjRXSE1LNThYRmFwTzdJLVlBb24xLdIBeEFVX3lxTFBJZ1ZPMl8zTTlOa0d3bENROTNsd3pfMnE2ZmlxcWFQLVRkWVFlZHZmUkVmSDhkMGZDUEF6MmpNNlhSRzFucjFMeWpTSGRmRlpDVTMwTWVSYmZtZi1mTXJqSVFsaEdKYWFBOHZoVElmcUxMb0M2bWw2Zw?oc=5"
-        },
-        {
-          "time": "19:48",
-          "summary": "“무대에 오르면 사고다” 양상국 ‘놀뭐’ 95 서울가요제 혹평 속 탈락",
-          "source": "매일경제",
-          "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBzVjVxa1NSck9iQWQySURERU16WUQ5eU5aTHU5WEdDczJnXzlCTUZYUndoRk8xXzBMTTliZHJFVEZUVUNidlpYcGJqY0Rrd2Z0ZHFNdWQ2QWk0UDVzMDhFeTczbUYwZw?oc=5"
-        }
-      ],
-      "timeline_text": "12:47 이 대통령, 대구 마트 천장 붕괴사고 관련 \"인명 구조에 총력 다하라\" 지시 -> 19:48 “무대에 오르면 사고다” 양상국 ‘놀뭐’ 95 서울가요제 혹평 속 탈락",
-      "original_links": [
-        {
-          "source": "매일경제",
-          "title": "“무대에 오르면 사고다” 양상국 ‘놀뭐’ 95 서울가요제 혹평 속 탈락",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBzVjVxa1NSck9iQWQySURERU16WUQ5eU5aTHU5WEdDczJnXzlCTUZYUndoRk8xXzBMTTliZHJFVEZUVUNidlpYcGJqY0Rrd2Z0ZHFNdWQ2QWk0UDVzMDhFeTczbUYwZw?oc=5"
-        },
-        {
-          "source": "MBC 뉴스",
-          "title": "이 대통령, 대구 마트 천장 붕괴사고 관련 \"인명 구조에 총력 다하라\" 지시",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFAtNlRvYnZILXdNbWMzWUdBVENPWDJBWEpmSHRFbVF2RHRVaGxKV182dksxaXdibUM1M09xUDNFWXdLei1vUUQ1Y0I2QWN3SmpMZGc0QXZwdXAxUTZkSUl3d0tfbjRXSE1LNThYRmFwTzdJLVlBb24xLdIBeEFVX3lxTFBJZ1ZPMl8zTTlOa0d3bENROTNsd3pfMnE2ZmlxcWFQLVRkWVFlZHZmUkVmSDhkMGZDUEF6MmpNNlhSRzFucjFMeWpTSGRmRlpDVTMwTWVSYmZtZi1mTXJqSVFsaEdKYWFBOHZoVElmcUxMb0M2bWw2Zw?oc=5"
-        }
-      ],
-      "article_count": 2,
-      "source_count": 2,
-      "latest_at": "2026-10-10T19:48:29+09:00",
-      "rank": 4
-    },
-    {
-      "topic": "오세훈 사퇴설 서울시 허위사실 사이버수사 요청",
-      "final_headline": "’오세훈 사퇴설’ 확산…서울시 “허위사실, 사이버수사 요청“",
-      "status": "진행 중",
-      "timeline": [
-        {
-          "time": "11:12",
-          "summary": "’오세훈 사퇴설’ 확산…서울시 “허위사실, 사이버수사 요청“",
-          "source": "연합뉴스TV",
-          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1YalBVa3FYOXNPcXVWRDN5aFBIWXQtd3NsMzY2NGFJUnVUX3U4d2EzQWM2ejhsVkdlVGU3UGVNQlJIUEtLWTNlUkN0V2hVOXdHM25QOVZwT3JiRTdoRGtYYjMtUWJrUFU?oc=5"
-        }
-      ],
-      "timeline_text": "11:12 ’오세훈 사퇴설’ 확산…서울시 “허위사실, 사이버수사 요청“",
-      "original_links": [
-        {
-          "source": "연합뉴스TV",
-          "title": "’오세훈 사퇴설’ 확산…서울시 “허위사실, 사이버수사 요청“",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1YalBVa3FYOXNPcXVWRDN5aFBIWXQtd3NsMzY2NGFJUnVUX3U4d2EzQWM2ejhsVkdlVGU3UGVNQlJIUEtLWTNlUkN0V2hVOXdHM25QOVZwT3JiRTdoRGtYYjMtUWJrUFU?oc=5"
-        },
-        {
-          "source": "연합뉴스",
-          "title": "與 \"한동훈, 딸 사건 덮었나\"…연일 수사개입 의혹 공세",
-          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBNRHlOUElWbXpMNlhVZ1FtbjBQQ2U5WVJsT19sYW5iSmFsZzNtYlUyRjVxS0RFSG8xU1VCbHVmc3F2WmI0cTlCdV9SUjd2aFdjVTVTTV9mZDkybDDSAWBBVV95cUxPMlhPdVRWM1lOY1lid1kxd3FFSkxJVTh5cGd6MXFEVFgySGlFZXlwd0JOQWxzZ1BiUUljcHRmSFg2VzYwY0lrVjdVMmtTdDFkVlV3cWxTVTlXZXhBM0t3Vjc?oc=5"
-        }
-      ],
-      "article_count": 2,
-      "source_count": 2,
-      "latest_at": "2026-10-10T11:17:41+09:00",
       "rank": 5
     }
   ]
