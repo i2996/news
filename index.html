@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>오늘의 핵심 Top 5</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="theme-color" content="#1a56db">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Top5">
+<style>
+:root{--bg:#f1f5f9;--card:#fff;--tx:#0f172a;--sub:#64748b;--line:#e2e8f0;--pri:#1a56db;--ok:#15803d;--okbg:#dcfce7;--ing:#b45309;--ingbg:#fef3c7}
+@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--sub:#94a3b8;--line:#334155;--pri:#60a5fa;--ok:#86efac;--okbg:#14532d;--ing:#fcd34d;--ingbg:#451a03}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.55 -apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{position:sticky;top:0;background:var(--bg);padding:14px 16px 10px;display:flex;align-items:center;gap:8px;z-index:2;border-bottom:1px solid var(--line)}
+header h1{font-size:18px;margin:0;flex:1}header small{color:var(--sub);display:block;font-weight:400;font-size:12px}
+button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:999px;padding:6px 12px}
+main{max-width:640px;margin:0 auto;padding:12px 14px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.rank{background:var(--pri);color:#fff;border-radius:8px;min-width:24px;height:24px;display:grid;place-items:center;font-weight:700;font-size:13px}
+.topic{font-weight:700;flex:1}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;font-weight:600}
+.done{background:var(--okbg);color:var(--ok)}.ing{background:var(--ingbg);color:var(--ing)}
+.head{font-size:16px;font-weight:600;margin:4px 0 8px}
+.meta{color:var(--sub);font-size:12px}
+details{margin-top:8px}summary{cursor:pointer;color:var(--pri);font-size:13px}
+ol{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--line)}
+li{position:relative;padding:0 0 10px 12px;font-size:14px}
+li::before{content:"";position:absolute;left:-19px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--pri)}
+li b{color:var(--sub);font-weight:600;margin-right:6px;font-variant-numeric:tabular-nums}
+li:last-child{padding-bottom:0}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.links a{font-size:12px;color:var(--pri);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.empty,.hint{color:var(--sub);text-align:center;padding:20px 0;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>오늘의 핵심 Top 5<small id="upd">불러오는 중…</small></h1>
+  <button id="install" hidden>설치</button>
+  <button id="bell" hidden>🔔 알림</button>
+  <button id="refresh" aria-label="새로고침">↻</button>
+</header>
+<main>
+  <div id="list"></div>
+  <p class="hint" id="ios" hidden>아이폰은 공유 버튼 → "홈 화면에 추가"로 설치하세요.</p>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safe = u => /^https?:\/\//.test(u || "") ? u : "#";
+const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}}, set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+
+function render(d){
+  const t = new Date(d.generated_at);
+  $("#upd").textContent = "업데이트 " + t.toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
+  if(!d.items || !d.items.length){ $("#list").innerHTML = '<p class="empty">표시할 브리핑이 없어요.</p>'; return; }
+  $("#list").innerHTML = d.items.map(it => {
+    const done = it.status === "상황 종료";
+    const tl = (it.timeline || []).map(s => `<li><b>${esc(s.time)}</b>${esc(s.summary)}</li>`).join("");
+    const links = (it.original_links || []).map(l => `<a href="${esc(safe(l.url))}" target="_blank" rel="noopener">${esc(l.source || "원문")}</a>`).join("");
+    return `<article class="card">
+      <div class="top"><span class="rank">${esc(it.rank)}</span><span class="topic">${esc(it.topic)}</span>
+        <span class="badge ${done ? "done" : "ing"}">${esc(it.status)}</span></div>
+      <div class="head">${esc(it.final_headline)}</div>
+      <div class="meta">기사 ${esc(it.article_count)}건 · 언론사 ${esc(it.source_count)}곳</div>
+      <details ${it.rank === 1 ? "open" : ""}><summary>하루 전개 보기</summary><ol>${tl}</ol></details>
+      <div class="links">${links}</div></article>`;
+  }).join("");
+}
+
+async function notifyIfNew(d){
+  const last = store.get("lastSeen");
+  store.set("lastSeen", d.generated_at);
+  if(!last || last === d.generated_at || !("Notification" in window) || Notification.permission !== "granted") return;
+  const reg = await navigator.serviceWorker.getRegistration();
+  const first = d.items && d.items[0];
+  if(reg && first) reg.showNotification("새 브리핑이 도착했어요", {body: first.final_headline, icon: "icons/icon-192.png", tag: "briefing"});
+}
+
+async function load(){
+  try{
+    const r = await fetch("briefing.json?t=" + Date.now(), {cache:"no-store"});
+    const d = await r.json();
+    render(d); notifyIfNew(d);
+  }catch(e){ $("#list").innerHTML = '<p class="empty">브리핑을 불러오지 못했어요.</p>'; }
+}
+$("#refresh").onclick = load;
+document.addEventListener("visibilitychange", () => { if(!document.hidden) load(); });
+setInterval(() => { if(!document.hidden) load(); }, 10 * 60 * 1000);
+
+// 설치 버튼 (안드로이드/데스크톱 크롬)
+let dp;
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); dp = e; $("#install").hidden = false; });
+$("#install").onclick = async () => { if(!dp) return; dp.prompt(); await dp.userChoice; dp = null; $("#install").hidden = true; };
+window.addEventListener("appinstalled", () => { $("#install").hidden = true; });
+if(/iphone|ipad/i.test(navigator.userAgent) && !navigator.standalone) $("#ios").hidden = false;
+
+// 알림 허용 버튼
+if("Notification" in window && Notification.permission === "default") $("#bell").hidden = false;
+$("#bell").onclick = async () => { const p = await Notification.requestPermission(); if(p !== "default") $("#bell").hidden = true; };
+
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+load();
+</script>
+</body>
+</html>
