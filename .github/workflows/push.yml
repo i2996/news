@@ -1,0 +1,20 @@
+name: send-push
+on:
+  schedule:
+    - cron: "30 22 * * *"   # 매일 07:30 KST (UTC 22:30)
+  workflow_dispatch:         # 수동 실행(테스트)용
+permissions:
+  contents: read
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pywebpush
+      - run: python send_push.py
+        env:
+          PUSH_SUBSCRIPTION: ${{ secrets.PUSH_SUBSCRIPTION }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
