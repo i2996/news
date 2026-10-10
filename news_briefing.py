@@ -1,484 +1,311 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-오늘의 핵심 Top 5 브리핑 파이프라인
-
-핵심 아이디어
-  1) 기사 제목에서 '상태어(돌입/타결/철회...)'를 제거한 뒤 유사도를 계산한다.
-     -> "총파업 돌입"과 "파업 철회"가 같은 토픽으로 묶인다.
-  2) 토픽(Storyline) 단위로 점수를 매겨 Top N을 뽑는다. (토픽당 1슬롯)
-  3) 토픽 안에서는 발행시각 순으로 정렬하고, 가장 최신의 '결정적(상태어 포함)' 기사를
-     대표 헤드라인으로 삼는다. 타임라인은 상태가 바뀌는 지점만 요약한다.
-
-의존성: 표준 라이브러리만 사용 (LLM 보정은 선택: pip install anthropic)
-
-사용 예
-  python news_briefing.py --demo                       # 샘플 데이터로 동작 확인
-  python news_briefing.py                              # 구글 뉴스 RSS 기본 피드
-  python news_briefing.py --feeds URL1 URL2 --hours 24 --top 5 --out briefing.json
-  python news_briefing.py --llm                        # ANTHROPIC_API_KEY 필요, 토픽명/타임라인 문장 보정
+실제 RSS 기사 수집 -> 개별 기사 -> 관련 기사 그룹 -> 분야 분류 -> TOP 5
+원칙: 샘플/가짜 기사는 만들지 않는다. 수집에 실패해도 실패 상태만 기록한다.
+  python news_briefing.py --out briefing.json
 """
-import argparse
-import json
-import math
-import os
-import re
-import sys
-import urllib.request
+import argparse, hashlib, json, math, os, re, sys, urllib.request
 import xml.etree.ElementTree as ET
-from collections import defaultdict
-from dataclasses import dataclass, field
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html import unescape
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 KST = timezone(timedelta(hours=9))
+CATS = ["정치", "경제", "사회", "국제", "과학·IT", "문화·생활", "주식"]
+UA = "Mozilla/5.0 (compatible; todays-news-pwa/2.0)"
+GQ = "hl=ko&gl=KR&ceid=KR:ko"
+TOP_URL = f"https://news.google.com/rss?{GQ}"
 
-DEFAULT_FEEDS = [
-    "https://news.google.com/rss?hl=ko&gl=KR&ceid=KR:ko",
-    "https://news.google.com/rss/headlines/section/topic/NATION?hl=ko&gl=KR&ceid=KR:ko",
-    "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko",
-    "https://news.google.com/rss/headlines/section/topic/WORLD?hl=ko&gl=KR&ceid=KR:ko",
+
+def gt(t):
+    return f"https://news.google.com/rss/headlines/section/topic/{t}?{GQ}"
+
+
+YNA, KHAN, HK = "https://www.yna.co.kr/rss/", "https://www.khan.co.kr/rss/rssdata/", "https://www.hankyung.com/feed/"
+# (매체명 | None=구글이 제공, URL, 분야 | (후보분야...) | None)
+# 매체가 직접 분류한 RSS 섹션을 우선 사용하므로 제목 키워드 하나로 분야가 정해지지 않는다.
+FEEDS = [
+    ("연합뉴스", YNA + "politics.xml", "정치"), ("연합뉴스", YNA + "economy.xml", "경제"),
+    ("연합뉴스", YNA + "society.xml", "사회"), ("연합뉴스", YNA + "international.xml", "국제"),
+    ("연합뉴스", YNA + "culture.xml", "문화·생활"),
+    ("경향신문", KHAN + "politic_news.xml", "정치"), ("경향신문", KHAN + "economy_news.xml", "경제"),
+    ("경향신문", KHAN + "society_news.xml", "사회"), ("경향신문", KHAN + "kh_world.xml", "국제"),
+    ("경향신문", KHAN + "culture_news.xml", "문화·생활"),
+    ("한국경제", HK + "finance", "주식"), ("한국경제", HK + "economy", "경제"),
+    ("한국경제", HK + "it", "과학·IT"), ("한국경제", HK + "politics", "정치"),
+    ("한국경제", HK + "society", "사회"), ("한국경제", HK + "international", "국제"),
+    (None, gt("NATION"), ("정치", "사회")), (None, gt("WORLD"), "국제"), (None, gt("BUSINESS"), "경제"),
+    (None, gt("TECHNOLOGY"), "과학·IT"), (None, gt("SCIENCE"), "과학·IT"),
+    (None, gt("ENTERTAINMENT"), "문화·생활"), (None, gt("HEALTH"), "문화·생활"),
+    (None, TOP_URL, None),  # 구글 뉴스 주요 뉴스: 노출 순서를 중요도 신호 중 하나로만 사용
 ]
 
-# ---------------------------------------------------------------------------
-# 상태어 사전 (도메인에 맞게 자유롭게 추가/수정)
-# ---------------------------------------------------------------------------
-# 최종 결과/종료 상태
-FINAL_WORDS = [
-    "타결", "철회", "진화", "해제", "종료", "종식", "합의", "정상화",
-    "운행재개", "완료", "검거", "마무리", "귀가", "복구완료",
-    "동결", "확정", "가결",
-]
-# 후속/파생 기사 (최종어가 있어도 '그 사건의 최종 상태 기사'로 보지 않음)
-DERIVATIVE_WORDS = ["이후", "여파", "파장", "에도"]
-# 이 단어가 같이 있으면 '최종'이 아니라 아직 진행 중으로 본다 (예: 철회 요구, 타결 임박)
-HEDGE_WORDS = [
-    "불발", "무산", "결렬", "난항", "요구", "촉구", "거부", "반발",
-    "가능성", "전망", "임박", "예고", "검토", "시사", "압박",
-]
-# 진행/중간 과정
-ONGOING_WORDS = HEDGE_WORDS + [
-    "돌입", "확산", "발생", "시작", "대치", "진행", "속보", "긴급",
-    "비상", "경고", "발령", "급증", "격화",
-]
-STATE_WORDS = sorted(set(FINAL_WORDS + ONGOING_WORDS), key=len, reverse=True)
-# 상태어 뒤에 붙은 조사/어미("결렬로", "완료에도", "타결됐다")까지 함께 제거
-_STATE_RE = re.compile(
-    "(?:" + "|".join(re.escape(w) for w in STATE_WORDS) + ")"
-    "(?:에도|에는|으로|로|은|는|이|가|을|를|도|됐다|했다|한다|된다|되며|하며|하고)?"
-)
-
-STOPWORDS = {
-    "단독", "종합", "오늘", "어제", "관련", "대한", "위해", "이번", "지난", "최근",
-    "이후", "여파", "파장", "전격", "결국", "극적", "사진", "영상", "포토", "현장", "논란", "상황", "한편",
-    "정부", "뉴스", "기자", "대표", "오전", "오후", "내일", "올해", "다시",
+KW = {  # 분야가 불분명한 피드에서만 사용: 서로 다른 키워드 2개 이상 + 2위와 격차가 있어야 분류
+    "정치": "대통령 국회 여당 야당 국민의힘 민주당 총리 장관 대통령실 탄핵 선거 공천 특검 법안 국정감사 의원 청문회",
+    "경제": "금리 환율 물가 수출 무역 기업 부동산 실적 투자 은행 예산 세금 관세 성장률 고용 대출 아파트 분양",
+    "사회": "경찰 검찰 법원 재판 화재 붕괴 사망 구조 폭행 학교 교육 노조 파업 병원 한파 폭우 지진 구속 체포 실종",
+    "국제": "미국 중국 일본 러시아 우크라이나 유럽 이스라엘 가자 트럼프 푸틴 시진핑 유엔 나토 이란 대만 백악관 영국 프랑스 독일 중동",
+    "과학·IT": "AI 인공지능 반도체 스마트폰 갤럭시 아이폰 소프트웨어 우주 로켓 연구팀 배터리 로봇 누리호 챗GPT 클라우드 해킹",
+    "문화·생활": "영화 드라마 가수 배우 콘서트 예능 공연 전시 여행 음식 건강 패션 웹툰 앨범 개봉 시청률 축제",
+    "주식": "코스피 코스닥 증시 주가 종목 외국인 순매수 상장 공모주 시가총액 ETF 급등 급락 개미 투자자",
 }
-# 여러 사건에 공통으로 나오는 일반어: 단어쌍 매칭에서 제외 (서로 다른 파업이 합쳐지는 것 방지)
-GENERIC_WORDS = {
-    "노조", "협상", "총파업", "파업", "회의", "발표", "계획", "추진", "논의",
-    "의혹", "사건", "사고", "시위", "기자회견", "조사", "수사", "대책", "회장",
-}
-# 지역명 등: 단독으로는 같은 사건의 근거가 되지 못함
-PLACE_GRAMS = {"서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "한국", "미국", "중국", "일본"}
-JOSA2 = ("에서", "으로", "에게", "까지", "부터")
-JOSA1 = tuple("은는이가을를의에도로과와")
+KW = {k: v.split() for k, v in KW.items()}
+COMPAT = {frozenset(p) for p in [("정치", "사회"), ("경제", "주식"), ("경제", "과학·IT")]}
+
+FINAL = ["타결", "철회", "진화", "해제", "종료", "종식", "합의", "정상화", "운행재개", "완료", "검거", "마무리", "동결", "확정", "가결"]
+HEDGE = ["불발", "무산", "결렬", "난항", "요구", "촉구", "거부", "반발", "가능성", "전망", "임박", "예고", "검토", "시사"]
+ONGOING = HEDGE + ["돌입", "확산", "발생", "시작", "대치", "진행", "속보", "긴급", "비상", "경고", "발령", "급증", "격화"]
+DERIV = ["이후", "여파", "파장", "에도"]
+_STATE = re.compile("(?:" + "|".join(map(re.escape, sorted(set(FINAL + ONGOING), key=len, reverse=True))) + ")"
+                    "(?:에도|에는|으로|로|은|는|이|가|을|를|도|됐다|했다|한다|된다|되며|하며|하고)?")
+STOP = set("""단독 종합 속보 오늘 어제 내일 관련 대한 위해 이번 지난 최근 전격 결국 극적 사진 영상 포토 현장 논란 상황 한편 기자
+사고 사건 지시 발표 계획 추진 논의 의혹 조사 수사 대책 회의 회장 대표 정부 올해 다시 이후 여파 파장 영향 전망 가능성 오전 오후
+개최 예정 확대 강화 추가 처음 최대 최고 역대 신규 주요 공개 제기 주장 요구 촉구 강조 밝혀 밝혔다 대통령 노조 총파업 파업 협상""".split())  # 여러 사건에 공통으로 나오는 일반어는 근거에서 제외
+JOSA2, JOSA1 = ("에서", "으로", "에게", "까지", "부터"), tuple("은는이가을를의에도로과와")
 
 
-# ---------------------------------------------------------------------------
-# 데이터 모델
-# ---------------------------------------------------------------------------
-@dataclass
-class Article:
-    title: str
-    source: str
-    link: str
-    published_at: datetime
-    stripped: str = ""                      # 상태어 제거 제목 (토픽명 후보)
-    tokens: list = field(default_factory=list)
-    grams: set = field(default_factory=set)
-    pairs: set = field(default_factory=set)  # 인접 단어쌍 (예: ("강원","산불"))
-    flat: str = ""                           # 공백 제거한 제목(일반어 포함 여부 확인용)
-    stage: str = "neutral"                  # final | ongoing | neutral
-    marker: str = ""                        # 매칭된 상태어
+# ---------------------------------------------------------------- 수집
+def clean(s):
+    return re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
 
 
-# ---------------------------------------------------------------------------
-# 1. RSS 수집
-# ---------------------------------------------------------------------------
-def fetch_feed(url, timeout=15):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (news-briefing/1.0)"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
-
-
-def parse_rss(xml_bytes):
-    """RSS 2.0 <item> 파싱. 구글 뉴스의 '제목 - 언론사' 형식도 분리한다."""
-    root = ET.fromstring(xml_bytes)
-    channel_title = (root.findtext("channel/title") or "").strip()
-    out = []
-    for it in root.iter("item"):
-        title = unescape((it.findtext("title") or "").strip())
-        link = (it.findtext("link") or "").strip()
-        pub = it.findtext("pubDate")
-        if not title or not pub:
-            continue
+def parse_dt(s):
+    if not s:
+        return None
+    try:
+        d = parsedate_to_datetime(s)
+    except (TypeError, ValueError):
         try:
-            dt = parsedate_to_datetime(pub)
-        except (TypeError, ValueError):
+            d = datetime.fromisoformat(s.strip().replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    return (d if d.tzinfo else d.replace(tzinfo=KST)).astimezone(KST)
+
+
+def canon(u):
+    p = urlsplit(u)
+    q = [] if p.netloc.endswith("news.google.com") else [
+        (k, v) for k, v in parse_qsl(p.query) if not k.startswith("utm_") and k not in ("fbclid", "gclid")]
+    return urlunsplit((p.scheme, p.netloc.lower(), p.path.rstrip("/"), urlencode(q), ""))
+
+
+def parse_feed(xml, feed_src):
+    out = []
+    for it in ET.fromstring(xml).iter("item"):
+        title, link = clean(it.findtext("title")), (it.findtext("link") or "").strip()
+        t = parse_dt(it.findtext("pubDate") or it.findtext("{http://purl.org/dc/elements/1.1/}date"))
+        if not title or not link or not t:
+            continue                                   # 발행 시각을 알 수 없는 항목은 쓰지 않음
+        s = it.find("source")
+        src = clean(s.text) if s is not None and s.text else (feed_src or "")
+        if src and title.endswith(" - " + src):
+            title = title[:-len(src) - 3]
+        elif not src and " - " in title:
+            title, src = title.rsplit(" - ", 1)
+        if not src:
             continue
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        src_el = it.find("source")
-        source = (src_el.text or "").strip() if src_el is not None and src_el.text else ""
-        if source and title.endswith(" - " + source):
-            title = title[: -len(source) - 3]
-        elif not source and " - " in title:
-            title, source = title.rsplit(" - ", 1)
-        out.append(Article(title.strip(), (source or channel_title).strip(), link, dt.astimezone(KST)))
+        d = clean(it.findtext("description"))
+        summ = d if len(d) >= 25 and title[:12] not in d else ""   # 제목 반복형(구글 뉴스) 설명은 요약으로 쓰지 않음
+        out.append({"title": title.strip(), "url": link, "source": src.strip(), "t": t,
+                    "summary": (summ[:140] + "…") if len(summ) > 140 else summ})
     return out
 
 
-def collect(feeds, hours, now=None):
-    now = now or datetime.now(KST)
-    since = now - timedelta(hours=hours)
-    seen, arts = set(), []
-    for url in feeds:
+def kw_classify(title, allowed=None):
+    sc = sorted(((sum(k in title for k in KW[c]), c) for c in (allowed or CATS)), reverse=True)
+    second = sc[1][0] if len(sc) > 1 else 0
+    return sc[0][1] if sc[0][0] >= 2 and sc[0][0] - second >= 1 else "미분류"
+
+
+def collect(hours, now):
+    def job(f):
         try:
-            items = parse_rss(fetch_feed(url))
-        except Exception as e:  # 한 피드 실패가 전체를 막지 않도록
-            print(f"[경고] 피드 수집 실패: {url} ({e})", file=sys.stderr)
-            continue
-        for a in items:
-            key = a.link or a.title
-            if key in seen or not (since <= a.published_at <= now + timedelta(hours=1)):
+            req = urllib.request.Request(f[1], headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return f, parse_feed(r.read(), f[0]), None
+        except Exception as e:
+            return f, [], f"{type(e).__name__}: {e}"[:100]
+
+    with ThreadPoolExecutor(8) as ex:
+        results = list(ex.map(job, FEEDS))
+    since, arts, status, seen = now - timedelta(hours=hours), {}, [], {}
+    for f, items, err in results:
+        status.append({"name": f"{f[0] or 'Google 뉴스'} · {urlsplit(f[1]).path.rsplit('/', 1)[-1] or 'top'}",
+                       "ok": err is None, "count": len(items), "error": err})
+        for pos, a in enumerate(items):
+            if not (since <= a["t"] <= now + timedelta(hours=1)):
                 continue
-            seen.add(key)
-            arts.append(a)
-    return arts
+            fc = f[2]
+            cat = fc if isinstance(fc, str) else kw_classify(a["title"], fc)
+            tp = 1 - pos / len(items) if f[1] == TOP_URL else 0
+            key, key2 = canon(a["url"]), (a["source"], re.sub(r"\W", "", a["title"]).lower())
+            prev = arts.get(key) or seen.get(key2)       # 같은 URL 또는 같은 매체의 동일 제목만 중복 처리
+            if prev:
+                prev["tp"] = max(prev["tp"], tp)
+                if prev["cat"] == "미분류" and cat != "미분류":
+                    prev["cat"] = cat
+                continue
+            a.update(id=hashlib.sha1(key.encode()).hexdigest()[:10], cat=cat, tp=tp)
+            arts[key] = seen[key2] = a
+    for a in arts.values():
+        if a["cat"] == "경제" and sum(k in a["title"] for k in KW["주식"]) >= 2:
+            a["cat"] = "주식"
+        if a["cat"] == "미분류" and a["tp"]:
+            a["cat"] = kw_classify(a["title"])
+    return list(arts.values()), status
 
 
-# ---------------------------------------------------------------------------
-# 2. 기사 전처리: 상태 분류 + 토픽 시그니처
-# ---------------------------------------------------------------------------
-def classify(title):
-    """(stage, marker) 반환. 최종어가 있어도 헤지어가 함께 있으면 진행 중으로 본다."""
+# ---------------------------------------------------------------- 관련 기사 묶기
+def stage(title):
     t = title.replace(" ", "")
-    if any(w in t for w in DERIVATIVE_WORDS):
-        return "neutral", ""
-    hedge = any(h in t for h in HEDGE_WORDS)
-    fin = next((w for w in FINAL_WORDS if w in t), None)
-    if fin and not hedge:
-        return "final", fin
-    ong = next((w for w in ONGOING_WORDS if w in t), None)
-    if ong:
-        return "ongoing", ong
-    return "neutral", ""
+    if any(w in t for w in DERIV):
+        return "neutral"
+    fin = any(w in t for w in FINAL)
+    if fin and not any(h in t for h in HEDGE):
+        return "final"
+    return "ongoing" if any(w in t for w in ONGOING) else "neutral"
 
 
-def tokenize(text):
+def prep(a):
+    a["stage"] = stage(a["title"])
+    s = re.sub(r"[^\w\s]", " ", _STATE.sub(" ", a["title"]))
     toks = []
-    for t in re.findall(r"[가-힣]{2,}|[A-Za-z0-9]{2,}", text):
+    for t in re.findall(r"[가-힣]{2,}|[A-Za-z0-9]{2,}", s):
         if t.isascii():
             t = t.lower()
         elif len(t) >= 4 and t.endswith(JOSA2):
             t = t[:-2]
         elif len(t) >= 3 and t.endswith(JOSA1):
             t = t[:-1]
-        if t in STOPWORDS or t.endswith(("됐다", "했다", "한다", "된다")):
-            continue
-        toks.append(t)
-    return toks
+        if len(t) >= 4 and t.endswith(("사고", "사건")):
+            t = t[:-2]                                   # 붕괴사고 -> 붕괴
+        if t not in STOP and not t.endswith(("됐다", "했다", "한다", "된다")):
+            toks.append(t)
+    a["tok"] = set(toks)
 
 
-def make_grams(tokens):
-    """토큰 내부 문자 2-gram -> '총파업'/'파업', '시내버스'/'버스' 같은 형태 차이를 흡수."""
-    g = set()
-    for t in tokens:
-        if t.isascii() or len(t) == 2:
-            g.add(t)
-        else:
-            g.update(t[i:i + 2] for i in range(len(t) - 1))
-    return g
+def link_score(a, b, w):
+    """같은 사건일 때만 0보다 큰 값. 애매하면 0(=합치지 않음)."""
+    if abs((a["t"] - b["t"]).total_seconds()) > 30 * 3600:
+        return 0
+    if "미분류" not in (a["cat"], b["cat"]) and a["cat"] != b["cat"] and frozenset((a["cat"], b["cat"])) not in COMPAT:
+        return 0                                         # 분야가 다르면 합치지 않음
+    if len(a["tok"]) < 3 or len(b["tok"]) < 3:
+        return 0
+    sh = a["tok"] & b["tok"]
+    if not (len(sh) >= 3 or (len(sh) == 2 and any(len(t) >= 3 for t in sh))):  # 공통 3개 이상, 또는 2개 중 고유어(3자↑) 포함
+        return 0
+    return sum(w[t] for t in sh) / sum(w[t] for t in a["tok"] | b["tok"])  # 희귀 단어일수록 가중
 
 
-def prepare(a):
-    a.stage, a.marker = classify(a.title)
-    stripped = _STATE_RE.sub(" ", a.title)          # 상태어 제거 후 비교 (핵심!)
-    stripped = re.sub(r"[^\w\s]", " ", stripped)
-    a.stripped = re.sub(r"\s+", " ", stripped).strip() or a.title
-    a.flat = a.stripped.replace(" ", "")
-    a.tokens = [t for t in tokenize(a.stripped) if t not in GENERIC_WORDS]  # 일반어는 유사도에서 제외
-    a.grams = make_grams(a.tokens)
-    a.pairs = set(zip(a.tokens, a.tokens[1:]))
-    return a
-
-
-def dice(a, b):
-    if not a or not b:
-        return 0.0, 0
-    shared = len(a & b)
-    return 2 * shared / (len(a) + len(b)), shared
-
-
-# ---------------------------------------------------------------------------
-# 3. 토픽 클러스터링 (Union-Find, 입력 순서 무관)
-# ---------------------------------------------------------------------------
-def is_same_topic(x, y, threshold):
-    """링크 조건 (둘 중 하나)
-       A) 문자 2-gram이 3개 이상 겹치고 Dice >= threshold
-       B) 인접 단어쌍(장소+사건 등)을 공유하고 2-gram이 2개 이상 겹침
-       C) 지역명이 아닌 고유 2-gram 1개 이상 + 동일한 일반 사건어 공유
-    """
-    sim, shared = dice(x.grams, y.grams)
-    if shared >= 3 and sim >= threshold:
-        return True
-    if x.pairs & y.pairs and shared >= 2:
-        return True
-    # C) 고유 단서 1개 + 같은 일반 사건어(파업/수사 등) 공유 (예: "버스" + "파업")
-    ng = (x.grams & y.grams) - PLACE_GRAMS
-    return bool(ng) and any(g in x.flat and g in y.flat for g in GENERIC_WORDS)
-
-
-def cluster(articles, threshold=0.45):
-    n = len(articles)
-    parent = list(range(n))
-
-    def find(x):
-        while parent[x] != x:
-            parent[x] = parent[parent[x]]
-            x = parent[x]
-        return x
-
+def cluster(arts, w, link=0.3, avg=0.2):
+    n, sim = len(arts), {}
     for i in range(n):
         for j in range(i + 1, n):
-            if is_same_topic(articles[i], articles[j], threshold):
-                parent[find(i)] = find(j)
-
-    groups = defaultdict(list)
-    for i, a in enumerate(articles):
-        groups[find(i)].append(a)
-    return [sorted(g, key=lambda a: a.published_at) for g in groups.values()]
-
-
-# ---------------------------------------------------------------------------
-# 4. 토픽 점수 / 최종 상태 / 타임라인
-# ---------------------------------------------------------------------------
-def topic_score(arts, now):
-    sources = len({a.source for a in arts})
-    latest = max(a.published_at for a in arts)
-    age_h = max((now - latest).total_seconds() / 3600, 0)
-    recency = 1.0 if age_h <= 6 else 0.5 if age_h <= 12 else 0.0
-    return 2 * sources + math.log1p(len(arts)) + recency
-
-
-def pick_headline(arts):
-    """가장 최신의 '결정적' 기사 (final/ongoing). 없으면 최신 기사."""
-    decisive = [a for a in arts if a.stage != "neutral"]
-    pool = decisive or arts
-    last_t = max(a.published_at for a in pool)
-    tied = [a for a in pool if a.published_at == last_t]
-    tied.sort(key=lambda a: a.stage == "final", reverse=True)
-    return tied[0]
-
-
-def medoid_topic(arts):
-    """다른 기사들과 평균 유사도가 가장 높은 기사의 '상태어 제거 제목'을 토픽명으로."""
-    if len(arts) == 1:
-        return arts[0].stripped
-    best, best_s = arts[0], -1
-    for a in arts:
-        s = sum(dice(a.grams, b.grams)[0] for b in arts if b is not a)
-        if s > best_s:
-            best, best_s = a, s
-    return best.stripped
-
-
-def build_timeline(arts, headline):
-    """상태어가 바뀌는 지점만 남겨 하루 전개를 압축한다."""
-    steps, last_key = [], object()
-    for a in arts:
-        key = a.marker or None
-        if not steps or key != last_key or a is headline:
-            if a.stage == "neutral" and steps and a is not headline:
-                continue  # 중간의 상태어 없는 기사는 생략
-            steps.append(a)
-            last_key = key
-    if len(steps) > 8:
-        steps = steps[:1] + steps[-7:]
-    day0 = arts[-1].published_at.date()
-    out = []
-    for a in steps:
-        fmt = "%H:%M" if a.published_at.date() == day0 else "%m-%d %H:%M"
-        out.append({
-            "time": a.published_at.strftime(fmt),
-            "summary": a.title,
-            "source": a.source,
-            "link": a.link,
-        })
-    return out
-
-
-def build_item(arts, now):
-    headline = pick_headline(arts)
-    status = "상황 종료" if headline.stage == "final" else "진행 중"
-    timeline = build_timeline(arts, headline)
-    links, seen = [], set()
-    ordered = [headline] + [a for a in arts if a is not headline]
-    for a in ordered:
-        if a.source in seen and len(links) >= 2:
+            s = link_score(arts[i], arts[j], w)
+            if s >= link:
+                sim[(i, j)] = s
+    cl, where = {i: [i] for i in range(n)}, list(range(n))
+    for (i, j), s in sorted(sim.items(), key=lambda x: -x[1]):
+        ci, cj = where[i], where[j]
+        if ci == cj:
             continue
-        seen.add(a.source)
-        links.append({"source": a.source, "title": a.title, "url": a.link})
-        if len(links) >= 5:
-            break
-    return {
-        "topic": medoid_topic(arts),
-        "final_headline": headline.title,
-        "status": status,
-        "timeline": timeline,
-        "timeline_text": " -> ".join(f"{t['time']} {t['summary']}" for t in timeline),
-        "original_links": links,
-        "article_count": len(arts),
-        "source_count": len({a.source for a in arts}),
-        "latest_at": max(a.published_at for a in arts).isoformat(),
-        "_score": round(topic_score(arts, now), 3),
-    }
+        A, B = cl[ci], cl[cj]
+        if sum(sim.get((min(x, y), max(x, y)), 0) for x in A for y in B) / (len(A) * len(B)) >= avg:  # 연쇄 병합 방지
+            cl[ci] = A + B
+            for x in B:
+                where[x] = ci
+            del cl[cj]
+    return [[arts[i] for i in c] for c in cl.values()]
 
 
-# ---------------------------------------------------------------------------
-# 5. (선택) LLM 보정: 토픽명/상태/타임라인 문장만 다듬는다. 실패 시 규칙 기반 결과 유지.
-# ---------------------------------------------------------------------------
-def llm_polish(item, arts):
-    try:
-        import anthropic
-        client = anthropic.Anthropic()
-        lines = "\n".join(
-            f"{a.published_at:%m-%d %H:%M} | {a.source} | {a.title}" for a in arts[:30]
-        )
-        prompt = (
-            "아래는 같은 사건을 다룬 기사 제목들(시간순)입니다. JSON만 출력하세요.\n"
-            '{"topic":"핵심 토픽명(15자 내외)","status":"상황 종료 또는 진행 중",'
-            '"timeline":[{"time":"HH:MM","summary":"한 줄 요약"}]}\n'
-            "규칙: 가장 최신 기사를 기준으로 현재 상태를 판단하고, 기사에 없는 내용은 만들지 말고, "
-            "시간순으로 최대 6개 단계만 쓰세요.\n\n" + lines
-        )
-        resp = client.messages.create(
-            model=os.getenv("NEWS_LLM_MODEL", "claude-sonnet-5-5"),
-            max_tokens=1000,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = re.sub(r"```json|```", "", resp.content[0].text).strip()
-        data = json.loads(text)
-        if data.get("topic"):
-            item["topic"] = data["topic"]
-        if data.get("status") in ("상황 종료", "진행 중"):
-            item["status"] = data["status"]
-        if isinstance(data.get("timeline"), list) and data["timeline"]:
-            item["timeline"] = [
-                {"time": s.get("time", ""), "summary": s.get("summary", "")}
-                for s in data["timeline"]
-            ]
-            item["timeline_text"] = " -> ".join(
-                f"{t['time']} {t['summary']}" for t in item["timeline"]
-            )
-    except Exception as e:
-        print(f"[경고] LLM 보정 생략: {e}", file=sys.stderr)
-    return item
+# ---------------------------------------------------------------- 그룹/TOP 5
+def make_group(members, now):
+    m = sorted(members, key=lambda a: a["t"])
+    pool = [a for a in m if a["stage"] != "neutral"] or m          # 기존 기사 중 최신의 결정적 보도를 대표로 (제목을 새로 만들지 않음)
+    last = max(a["t"] for a in pool)
+    rep = sorted([a for a in pool if a["t"] == last], key=lambda a: a["stage"] != "final")[0]
+    cats = Counter(a["cat"] for a in m if a["cat"] != "미분류")
+    srcs, tp = len({a["source"] for a in m}), max(a["tp"] for a in m)
+    age = (now - m[-1]["t"]).total_seconds() / 3600
+    rec = 1.0 if age <= 6 else 0.6 if age <= 12 else 0.3 if age <= 24 else 0
+    summ = rep["summary"] or next((a["summary"] for a in reversed(m) if a["summary"]), "")
+    reasons = [f"{srcs}개 언론사 보도"] if srcs > 1 else []
+    if tp >= 0.4:
+        reasons.append("구글 뉴스 주요 뉴스 상위 노출")
+    if age <= 6:
+        reasons.append("최근 6시간 내 보도")
+    return {"id": "g_" + rep["id"], "rep_id": rep["id"], "article_ids": [a["id"] for a in m],
+            "category": cats.most_common(1)[0][0] if cats else "미분류", "summary": summ,
+            "status": "상황 종료" if rep["stage"] == "final" and len(m) > 1 else None,
+            "source_count": srcs, "latest": m[-1]["t"], "tp": tp, "age": age,
+            "score": round(2 * min(srcs, 6) + 5 * tp + 3 * rec + 0.5 * math.log1p(len(m)), 2), "reasons": reasons}
 
 
-# ---------------------------------------------------------------------------
-# 6. 파이프라인
-# ---------------------------------------------------------------------------
-def run_pipeline(articles, top=5, threshold=0.45, use_llm=False, now=None):
-    now = now or datetime.now(KST)
-    articles = [prepare(a) for a in articles]
-    groups = cluster(articles, threshold=threshold)
-    ranked = sorted(groups, key=lambda g: topic_score(g, now), reverse=True)[:top]  # 토픽당 1슬롯
-    result = []
-    for rank, g in enumerate(ranked, 1):
-        item = build_item(g, now)
-        if use_llm:
-            item = llm_polish(item, g)
-        item["rank"] = rank
-        result.append(item)
-    return result
-
-
-def to_text(result, now):
-    lines = [f"=== 오늘의 핵심 Top {len(result)} ({now:%Y-%m-%d %H:%M} KST) ===", ""]
-    for it in result:
-        lines += [
-            f"{it['rank']}. {it['topic']}  [{it['status']}]",
-            f"   최종 헤드라인: {it['final_headline']}",
-            f"   타임라인: {it['timeline_text']}",
-            f"   (기사 {it['article_count']}건 / 언론사 {it['source_count']}곳)",
-            "   원문: " + " | ".join(l["url"] for l in it["original_links"][:3]),
-            "",
-        ]
-    return "\n".join(lines)
-
-
-# ---------------------------------------------------------------------------
-# 데모 데이터 (네트워크 없이 로직 검증용)
-# ---------------------------------------------------------------------------
-def demo_articles(now):
-    d = now.replace(hour=0, minute=0, second=0, microsecond=0)
-
-    def A(h, m, title, src):
-        return Article(title, src, f"https://example.com/{src}/{h:02d}{m:02d}", d + timedelta(hours=h, minutes=m))
-
-    return [
-        A(4, 10, "서울 시내버스 노조 협상 결렬로 총파업 돌입", "A일보"),
-        A(5, 30, "서울 버스 총파업 돌입, 출근길 대란", "B뉴스"),
-        A(8, 20, "버스 파업 이틀째 시민 불편 확산", "C방송"),
-        A(11, 40, "서울 버스 노사 막판 협상 재개", "A일보"),
-        A(15, 5, "서울 버스 노사 극적 타결, 임금 합의", "B뉴스"),
-        A(15, 40, "서울 버스 파업 철회, 오후 4시부터 정상 운행", "D신문"),
-        A(2, 15, "강원 산불 확산, 주민 대피령 발령", "C방송"),
-        A(9, 0, "강원 산불 헬기 30대 투입, 진화 작업 진행", "A일보"),
-        A(17, 30, "강원 산불 주불 진화 완료, 대피령 해제", "D신문"),
-        A(18, 10, "강원 산불 진화 완료에도 잔불 감시 계속", "B뉴스"),
-        A(10, 0, "한국은행 기준금리 동결 결정", "A일보"),
-        A(10, 5, "한은 기준금리 동결, 연 2.5% 유지", "B뉴스"),
-        A(10, 30, "한국은행 금리 동결 이후 환율 변동", "C방송"),
-        A(13, 0, "반도체 수출 3개월 연속 증가", "D신문"),
-        A(14, 0, "철강업계 노조 총파업 예고, 협상 난항", "C방송"),
-    ]
+def build(arts, now, per_cat=40):
+    for a in arts:
+        prep(a)
+    df = Counter(t for a in arts for t in a["tok"])
+    w = {t: math.log((len(arts) + 1) / (c + 1)) + 1 for t, c in df.items()}
+    groups = [make_group(c, now) for c in cluster(arts, w)]
+    # TOP 5: 근거(여러 언론사 보도 또는 구글 주요 뉴스 상위 노출)가 있는 그룹만, 같은 사건은 1회만
+    ev = sorted([g for g in groups if (g["source_count"] > 1 or g["tp"] >= 0.4) and g["age"] <= 24],
+                key=lambda g: -g["score"])
+    mode = "ranked" if len(ev) >= 5 else ("list" if ev else "none")
+    top_items = [{"group_id": g["id"], "rank": i + 1 if mode == "ranked" else None, "score": g["score"],
+                  "reasons": g["reasons"]} for i, g in enumerate(ev[:5])]
+    by_cat = {c: [g["id"] for g in sorted((g for g in groups if g["category"] == c), key=lambda g: g["latest"], reverse=True)[:per_cat]]
+              for c in CATS + ["미분류"]}
+    keep = {i for ids in by_cat.values() for i in ids} | {t["group_id"] for t in top_items}
+    kg = [g for g in groups if g["id"] in keep]
+    ids = {i for g in kg for i in g["article_ids"]}
+    out_arts = [{"id": a["id"], "title": a["title"], "url": a["url"], "source": a["source"],
+                 "published_at": a["t"].isoformat(), "category": a["cat"], "summary": a["summary"]}
+                for a in arts if a["id"] in ids]
+    for g in kg:
+        g["latest"] = g["latest"].isoformat()
+        for k in ("tp", "age", "score", "reasons"):
+            g.pop(k)
+    note = "보도량·노출 신호로 앱이 자동 선정한 결과이며 언론사·편집국의 공식 순위가 아닙니다."
+    if mode == "list":
+        note = "여러 언론사가 다룬 주요 이슈가 5개 미만이라 순위 없이 '주요 뉴스'로 보여드려요. " + note
+    return out_arts, kg, {"mode": mode, "note": note, "items": top_items}, by_cat
 
 
 def main():
-    ap = argparse.ArgumentParser(description="오늘의 핵심 Top N 브리핑")
-    ap.add_argument("--feeds", nargs="*", default=DEFAULT_FEEDS, help="RSS 피드 URL들")
-    ap.add_argument("--hours", type=int, default=24, help="수집 시간 범위(시간)")
-    ap.add_argument("--top", type=int, default=5)
-    ap.add_argument("--threshold", type=float, default=0.45, help="클러스터링 유사도(낮을수록 많이 병합)")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="briefing.json")
+    ap.add_argument("--hours", type=int, default=36)
     ap.add_argument("--format", choices=["text", "json"], default="text")
-    ap.add_argument("--out", help="JSON 결과 저장 경로 (PWA 등에서 사용)")
-    ap.add_argument("--llm", action="store_true", help="LLM으로 토픽명/타임라인 보정")
-    ap.add_argument("--demo", action="store_true", help="샘플 데이터로 실행")
     args = ap.parse_args()
-
     now = datetime.now(KST)
-    if args.demo:
-        now = now.replace(hour=19, minute=0, second=0, microsecond=0)
-        articles = demo_articles(now)
-    else:
-        articles = collect(args.feeds, args.hours, now)
-    if not articles:
-        print("수집된 기사가 없습니다.", file=sys.stderr)
-        sys.exit(1)
-
-    result = run_pipeline(articles, args.top, args.threshold, args.llm, now)
-    payload = {"generated_at": now.isoformat(), "items": [{k: v for k, v in r.items() if k != "_score"} for r in result]}
-
-    if args.out:
-        with open(args.out, "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=2)
+    arts, feeds = collect(args.hours, now)
+    ok = sum(f["ok"] for f in feeds)
+    state = "failed" if not ok else "empty" if not arts else "partial" if ok < len(feeds) else "ok"
+    msg = {"failed": "모든 뉴스 피드 수집에 실패했어요.", "empty": "피드는 응답했지만 최근 기사가 없어요.",
+           "partial": f"일부 피드 {len(feeds) - ok}곳 수집에 실패했어요.", "ok": ""}[state]
+    last_ok = now.isoformat() if state != "failed" else None
+    if state == "failed" and os.path.exists(args.out):
+        try:
+            last_ok = json.load(open(args.out, encoding="utf-8")).get("status", {}).get("last_success_at")
+        except Exception:
+            pass
+    a_out, groups, top, by_cat = build(arts, now) if arts else ([], [], {"mode": "none", "note": "", "items": []}, {})
+    data = {"generated_at": now.isoformat(),
+            "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds},
+            "articles": a_out, "groups": groups, "top": top, "by_category": by_cat}
+    with open(args.out, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=1)
+    print(f"[{state}] 피드 {ok}/{len(feeds)} 성공, 기사 {len(arts)}건, 그룹 {len(groups)}개, TOP 모드={top['mode']}", file=sys.stderr)
+    for f in feeds:
+        if not f["ok"]:
+            print(f"  ✗ {f['name']}: {f['error']}", file=sys.stderr)
     if args.format == "json":
-        print(json.dumps(payload, ensure_ascii=False, indent=2))
-    else:
-        print(to_text(result, now))
+        print(json.dumps(data, ensure_ascii=False))
 
 
 if __name__ == "__main__":
