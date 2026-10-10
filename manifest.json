@@ -1,6 +1,6 @@
 {
-  "name": "오늘의 핵심 Top 5",
-  "short_name": "Top5",
+  "name": "The Press",
+  "short_name": "The Press",
   "description": "하루 동안의 전개를 최종 상태 기준으로 정리한 뉴스 브리핑",
   "start_url": "./",
   "scope": "./",

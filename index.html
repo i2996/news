@@ -3,127 +3,154 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>오늘의 핵심 Top 5</title>
+<title>The Press</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta name="theme-color" content="#f5efe3">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="오늘의 핵심">
+<meta name="apple-mobile-web-app-title" content="The Press">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5efe3;--ink:#1c1b19;--sub:#6d665a;--rule:#cdc3ae;--soft:#ece4d2;--sage:#dfe8dc;--sageT:#4d6b52;--blue:#dfe7ee;--blueT:#46627a;
+:root{--bg:#f5efe3;--ink:#1c1b19;--sub:#6d665a;--rule:#cdc3ae;--soft:#ece4d2;--sage:#dfe8dc;--sageT:#4d6b52;--blue:#dfe7ee;--blueT:#46627a;--hl:#f3df7a;
 --serif:"Noto Serif KR","Nanum Myeongjo","AppleMyungjo",Georgia,serif;--sans:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif}
 @media(prefers-color-scheme:dark){:root{--bg:#1b1916;--ink:#ece6d9;--sub:#a39b8c;--rule:#403b33;--soft:#26231f;--sage:#27352a;--sageT:#a9c7ad;--blue:#222d37;--blueT:#a9c1d6}}
 *{box-sizing:border-box}html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);padding-top:env(safe-area-inset-top)}
-main{max-width:640px;margin:0 auto;padding:0 18px calc(76px + env(safe-area-inset-bottom))}
-a{color:inherit}button{font:inherit;color:inherit}
-.mast{text-align:center;padding:16px 0 10px;border-bottom:3px double var(--ink);position:relative}
-.date{font-size:12px;color:var(--sub);letter-spacing:.04em}
-.title{font:900 30px/1.2 var(--serif);margin:4px 0 0;letter-spacing:.06em}
-.mast button{position:absolute;right:0;top:14px;border:1px solid var(--rule);background:none;border-radius:2px;padding:2px 8px;font-size:12px;color:var(--sub)}
-#install{left:0;right:auto}
-.kick{font-size:12px;font-weight:700;color:var(--blueT);letter-spacing:.08em;margin:16px 0 4px}
-.lead h2{font:900 24px/1.35 var(--serif);margin:0 0 6px}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);padding-top:env(safe-area-inset-top);touch-action:manipulation}
+main{max-width:1100px;margin:0 auto;padding:0 18px calc(76px + env(safe-area-inset-bottom))}
+a{color:inherit}button{font:inherit;color:inherit}ul,ol{list-style:none;margin:0;padding:0}
+.mast{text-align:center;padding:14px 0 0;position:relative}
+.title{font:900 42px/1.1 "Playfair Display",Georgia,serif;margin:0;letter-spacing:.01em}
+.dl{display:flex;justify-content:space-between;gap:6px;font-size:12px;color:var(--ink);border-top:3px double var(--ink);border-bottom:1px solid var(--ink);margin-top:10px;padding:4px 2px}
+.mast .tb{position:absolute;top:10px;border:1px solid var(--rule);background:none;border-radius:2px;padding:1px 8px;font-size:12px;color:var(--sub)}
+#refresh{right:0}#install{left:0}
+.ch{font:900 18px var(--serif);text-align:center;border-bottom:3px double var(--ink);padding-bottom:5px;margin:22px 0 6px}
+.kick{font-size:12px;font-weight:700;color:var(--blueT);letter-spacing:.08em;margin:14px 0 4px}
+.lead h2{font:900 26px/1.35 var(--serif);margin:0 0 6px}
 .lead a,.ti h3 a,.rt a{text-decoration:none}
-.sh{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);margin:26px 0 0;padding:6px 0}
-.sh span:first-child{font:700 16px var(--serif)}.cnt{font-size:12px;color:var(--sub)}
-.note{font-size:12px;color:var(--sub);margin:8px 0 0}
-ol,ul{list-style:none;margin:0;padding:0}
-.ti{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule)}
-.no{font:900 26px/1 var(--serif);color:var(--rule);min-width:26px;text-align:center;padding-top:2px}
-.ti h3{font:700 17px/1.45 var(--serif);margin:0 0 3px}
+.sm{margin:6px 0 2px;font-size:14.5px;line-height:1.7}
+.sm2{font-size:15.5px;line-height:1.75}
 .mt{font-size:12px;color:var(--sub)}
-.sm{margin:6px 0 2px;font-size:14px;color:var(--ink);opacity:.85}
 .why{font-size:11px;color:var(--sub);margin-top:4px}
-.tag{font-size:11px;padding:0 6px;border-radius:2px;background:var(--sage);color:var(--sageT);margin-left:4px}
-.tag.b{background:var(--blue);color:var(--blueT)}
+.tag{font-size:11px;padding:0 6px;border-radius:2px;background:var(--sage);color:var(--sageT);margin-left:4px}.tag.b{background:var(--blue);color:var(--blueT)}
+.ti{display:flex;gap:12px;padding:13px 0;border-bottom:1px dotted var(--sub)}
+.no{font:900 24px/1 var(--serif);min-width:28px}
+.ti h3{font:700 17px/1.45 var(--serif);margin:0 0 3px}
+.dt{background:none;border:0;padding:0;margin-left:8px;font-size:12px;color:var(--blueT);text-decoration:underline}
 details{margin-top:6px}summary{cursor:pointer;font-size:12px;color:var(--blueT)}
 .rel{margin:6px 0 0;padding-left:10px;border-left:2px solid var(--rule)}.rel li{padding:3px 0 3px 8px;font-size:13px}
-.chips{display:flex;gap:6px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:none}
-.chips a{white-space:nowrap;font-size:13px;text-decoration:none;border:1px solid var(--rule);border-radius:2px;padding:3px 10px}
-.lst li{padding:11px 0;border-bottom:1px solid var(--rule)}
-.rt{font:500 15.5px/1.5 var(--serif)}
-.more{width:100%;margin-top:8px;padding:8px;background:none;border:1px solid var(--rule);border-radius:2px;font-size:13px;color:var(--sub)}
-.empty{font-size:13px;color:var(--sub);padding:12px 0}
-.banner{border:1px solid var(--rule);background:var(--soft);padding:12px 14px;margin:18px 0}
-.banner b{font:700 15px var(--serif)}.banner p{margin:4px 0 0;font-size:13px;color:var(--sub)}
-.strip{margin-top:28px;padding:8px 0;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12px;color:var(--sub)}
-.strip i{font-style:normal;padding:0 5px;border:1px solid var(--rule);border-radius:2px;margin-right:3px}
-.strip i.on{background:var(--sage);color:var(--sageT);border-color:var(--sage)}
+.hd{padding:9px 0;border-bottom:1px solid var(--rule)}.hd b{font-size:12px;color:var(--blueT);cursor:pointer;display:block}
+.hd a{font:700 15px/1.45 var(--serif);text-decoration:none}
+.tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--ink);margin-top:16px;scrollbar-width:none}
+.tabs button{flex:none;background:none;border:0;border-bottom:3px solid transparent;padding:8px 12px;font-size:14px;color:var(--sub)}
+.tabs button.on{color:var(--ink);font-weight:700;border-color:var(--ink)}
+.lst li{padding:13px 0;border-bottom:1px solid var(--rule)}.rt{font:700 16px/1.5 var(--serif)}
+.more{width:100%;margin-top:10px;padding:8px;background:none;border:1px solid var(--rule);font-size:13px;color:var(--sub)}
+.empty,.note{font-size:12.5px;color:var(--sub);padding:8px 0}
+.banner{border:1px solid var(--rule);background:var(--soft);padding:12px 14px;margin:18px 0}.banner b{font:700 15px var(--serif)}.banner p{margin:4px 0 0;font-size:13px;color:var(--sub)}
+.strip{margin-top:26px;padding:8px 0;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12px;color:var(--sub)}
+.strip i{font-style:normal;padding:0 5px;border:1px solid var(--rule);margin-right:3px}.strip i.on{background:var(--sage);color:var(--sageT);border-color:var(--sage)}
 .strip button{margin-left:auto;background:none;border:0;color:var(--blueT);padding:0;font-size:12px}
-nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--bg);border-top:1px solid var(--ink);padding-bottom:env(safe-area-inset-bottom)}
-nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;padding:8px 0;color:var(--sub);font-size:12px}
-nav button.on{color:var(--ink);font-weight:700}nav svg{width:20px;height:20px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);margin-top:18px}
-.stat{padding:10px 4px;text-align:center;border-right:1px solid var(--rule)}.stat:last-child{border:0}
+nav.bar{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--bg);border-top:1px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);z-index:5}
+nav.bar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;padding:8px 0;color:var(--sub);font-size:12px}
+nav.bar button.on{color:var(--ink);font-weight:700}nav.bar svg{width:20px;height:20px}
+.lh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:16px}
+.lh h2{font:900 26px var(--serif);margin:0}.lh p{margin:2px 0;font:700 16px var(--serif)}
+.stamp{width:44px;height:44px;display:inline-block;transform:rotate(var(--r,-8deg))}.stamp.big{width:76px;height:76px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);margin-top:14px}
+.stat{padding:8px 4px;text-align:center;border-right:1px solid var(--rule)}.stat:last-child{border:0}
 .stat b{display:block;font:900 20px var(--serif)}.stat span{font-size:11px;color:var(--sub)}
-.mnav{display:flex;align-items:center;justify-content:space-between;margin:16px 0 8px;font:700 16px var(--serif)}
-.mnav button{border:1px solid var(--rule);background:none;border-radius:2px;padding:2px 12px}
+.mnav{display:flex;align-items:center;justify-content:space-between;margin:10px 0 8px;font:700 16px var(--serif)}.mnav button{border:1px solid var(--rule);background:none;padding:2px 12px}
 .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.wd{text-align:center;font-size:11px;color:var(--sub)}
-.cell{aspect-ratio:1/1.15;border:1px solid var(--rule);padding:3px;position:relative;display:flex;flex-direction:column;align-items:center}
-.cell.empty{border:0}.cell.today{border:2px solid var(--ink)}
-.dn{font-size:11px;color:var(--sub);align-self:flex-start}.paper{width:60%;max-width:30px}
-.vc{position:absolute;bottom:2px;font-size:10px;color:var(--sub)}
-.row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.btn{border:1px solid var(--ink);background:none;border-radius:2px;padding:6px 12px;font-size:13px}.btn.pri{background:var(--ink);color:var(--bg)}
-.sec p{font-size:13px;color:var(--sub);margin:6px 0}
+.cell{aspect-ratio:1/1.1;border-bottom:1px solid var(--rule);padding:2px;position:relative;display:flex;flex-direction:column;align-items:center}
+.cell.empty{border:0}.cell.today .dn{background:var(--ink);color:var(--bg);border-radius:8px;padding:0 5px}
+.dn{font-size:11px;color:var(--sub);align-self:flex-start}.cell .stamp{width:78%;max-width:34px}
+.vc{position:absolute;bottom:1px;font-size:10px;color:var(--sub)}
+.sb{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 14px;margin:16px 0 8px}
+.scrap{position:relative;filter:drop-shadow(0 1px 1px rgba(0,0,0,.28));cursor:pointer;transform:rotate(var(--r,0deg));color:#1c1b19}
+.scrap .in{background:#fffaf0;padding:18px 12px 20px;min-height:120px;clip-path:polygon(0 0,100% 0,100% 95%,94% 100%,88% 95%,80% 100%,72% 95%,63% 100%,55% 95%,46% 100%,38% 95%,29% 100%,20% 95%,11% 100%,5% 96%,0 100%)}
+.scrap::before{content:"";position:absolute;top:-7px;left:50%;width:54px;height:16px;margin-left:-27px;background:rgba(214,196,150,.8);transform:rotate(-4deg);z-index:1}
+.scrap:nth-child(even)::before{left:18%;transform:rotate(5deg)}
+.scrap h4{font:700 13.5px/1.4 var(--serif);margin:0 0 4px}.scrap .mt{color:#6d665a}.scrap p{font-size:12.5px;line-height:1.6;margin:6px 0 0}
+mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);color:#1c1b19;padding:0 1px}
+.bars{display:flex;gap:8px;align-items:flex-end;height:150px;border-bottom:2px solid var(--ink);margin-top:12px;padding:0 4px}
+.bw{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:11px}
+.bar{width:100%;border:1.5px solid var(--ink);background:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 6px)}
+.bl{display:flex;gap:8px;padding:4px 4px 0}.bl span{flex:1;text-align:center;font-size:11px;color:var(--sub)}
+.btn{border:1px solid var(--ink);background:none;padding:6px 12px;font-size:13px}.btn.pri{background:var(--ink);color:var(--bg)}
+.row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.sec p{font-size:13px;color:var(--sub);margin:6px 0}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
+#modal.show{opacity:1;pointer-events:auto}
+.sheet{background:#fffaf0;color:#1c1b19;width:100%;max-width:640px;max-height:88vh;overflow:auto;padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-top:4px double #1c1b19;transform:translateY(40px) scale(.98);transition:transform .28s ease}
+#modal.show .sheet{transform:none}
+.sheet h2{font:900 21px/1.4 var(--serif);margin:4px 0 4px}.sheet .mt{color:#6d665a}
+.s{cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.hint{font-size:12px;color:#6d665a;border:1px dashed #b9ae95;padding:6px 8px;margin:10px 0}
+@media(min-width:720px){
+ .title{font-size:60px}.lead h2{font-size:36px}
+ .home{display:grid;grid-template-columns:1.25fr 1fr .8fr}
+ .home>section{padding:0 22px;border-left:1px solid var(--ink)}.home>section:first-child{border:0;padding-left:0}.home>section:last-child{padding-right:0}
+ .sb{grid-template-columns:repeat(3,1fr)}.sm{font-size:15px}
+}
 </style>
 </head>
 <body>
 <main>
-  <header class="mast"><button id="install" hidden>설치</button><div class="date" id="date"></div><h1 class="title">오늘의 핵심</h1><button id="refresh" aria-label="새로고침">새로고침</button></header>
-  <section id="viewNews">
-    <div id="banner"></div><div id="lead"></div><div id="top"></div>
-    <div id="catWrap"></div><div class="strip" id="strip"></div>
+  <header class="mast"><button class="tb" id="install" hidden>설치</button><h1 class="title">The Press</h1><button class="tb" id="refresh">새로고침</button>
+    <div class="dl"><span id="date"></span><span id="issue"></span><span>오늘의 조간</span></div></header>
+  <section id="vHome">
+    <div id="banner"></div>
+    <div class="home"><section id="lead"></section><section id="top"></section><section id="catHead"></section></div>
+    <div class="strip" id="strip"></div>
     <p class="note" id="ios" hidden>아이폰은 공유 버튼 → "홈 화면에 추가"로 설치하세요.</p>
   </section>
-  <section id="viewLog" hidden>
-    <div class="stats">
-      <div class="stat"><b id="sMonth">0</b><span>이번 달 읽은 날</span></div>
-      <div class="stat"><b id="sStreak">0</b><span>연속 읽기</span></div>
-      <div class="stat"><b id="sRead">0</b><span>오늘 읽은 기사</span></div>
-      <div class="stat"><b id="sToday">0</b><span>오늘 방문</span></div>
-    </div>
+  <section id="vNews" hidden><div class="tabs" id="tabs"></div><div id="catList"></div></section>
+  <section id="vLog" hidden>
+    <div class="lh"><div><h2>나의 독서 일지</h2><p id="wk"></p></div><div id="wkStamp"></div></div>
+    <div class="stats"><div class="stat"><b id="sMonth">0</b><span>이번 달 읽은 날</span></div><div class="stat"><b id="sStreak">0</b><span>연속 읽기</span></div><div class="stat"><b id="sToday">0</b><span>오늘 방문</span></div></div>
     <div class="mnav"><button id="prev">‹</button><span id="mTitle"></span><button id="next">›</button></div>
     <div class="grid" id="cal"></div>
-    <p class="note">신문 그림 = 기사를 읽은 날 · 숫자 = 방문 횟수 (이 기기에만 저장)</p>
-    <div class="sh"><span>푸시 알림</span></div>
-    <div class="sec"><p id="pushState"></p>
-      <div class="row"><button class="btn pri" id="pushOn">푸시 켜기</button></div>
+    <div class="ch">나의 스크랩북</div><p class="note" style="text-align:center">조각을 누르면 기사가 펼쳐져요 · 기사에서 문장을 두 번 탭하면 형광펜</p><div class="sb" id="sb"></div>
+    <div class="ch">분야별 구독 패턴 <span class="mt">(최근 30일 읽은 기사)</span></div><div id="pat"></div>
+    <div class="ch">푸시 알림</div>
+    <div class="sec"><p id="pushState"></p><div class="row"><button class="btn pri" id="pushOn">푸시 켜기</button></div>
       <div class="row" id="pushCopy" hidden><button class="btn" id="cpSub">① PUSH_SUBSCRIPTION 복사</button><button class="btn" id="cpKey">② VAPID_PRIVATE_KEY 복사</button></div>
       <p>복사한 값은 GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret에 <b>이름 그대로</b> 저장하세요. 매일 아침 7:30에 푸시가 와요.</p></div>
   </section>
 </main>
-<nav>
-  <button id="tabNews" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h11v16H7a2 2 0 0 1-2-2z"/><path d="M16 8h3v10a2 2 0 0 1-2 2"/><path d="M8 8h5M8 12h5M8 16h3"/></svg>오늘의 신문</button>
-  <button id="tabLog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>기록</button>
+<div id="modal"><div class="sheet" id="sheet"></div></div>
+<nav class="bar">
+  <button id="tHome" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-6h4v6"/></svg>홈</button>
+  <button id="tNews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h11v16H7a2 2 0 0 1-2-2z"/><path d="M16 8h3v10a2 2 0 0 1-2 2"/><path d="M8 8h5M8 12h5M8 16h3"/></svg>뉴스</button>
+  <button id="tLog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>기록</button>
 </nav>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safe = u => /^https?:\/\//.test(u || "") ? u : "#";
 const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}}, set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
-const CATS = ["정치","경제","사회","국제","과학·IT","문화·생활","주식"];
-const label = c => c === "미분류" ? "기타" : c;
-const when = iso => { const d = new Date(iso), t = d.toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit",hour12:false});
-  return d.toDateString() === new Date().toDateString() ? t : `${d.getMonth()+1}/${d.getDate()} ${t}`; };
+const CATS = ["정치","경제","사회","국제","과학·IT","문화·생활","주식"], label = c => c === "미분류" ? "기타" : c;
+const when = iso => { const d = new Date(iso), t = d.toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit",hour12:false}); return d.toDateString() === new Date().toDateString() ? t : `${d.getMonth()+1}/${d.getDate()} ${t}`; };
+const sents = t => ((t || "").match(/[^.!?。]+[.!?。]?\s*/g) || []).map(s => s.trim()).filter(Boolean);
 $("#date").textContent = new Date().toLocaleDateString("ko-KR",{year:"numeric",month:"long",day:"numeric",weekday:"long"});
 
-/* ---------- 읽음/방문 기록 (이 기기 localStorage) ---------- */
+/* ---------- 기록 (이 기기 localStorage) ---------- */
 const key = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
 const getStats = () => { try { return JSON.parse(store.get("stats") || "{}"); } catch(e) { return {}; } };
 function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:0, r:0}; fn(s[k]); store.set("stats", JSON.stringify(s)); }
-function markCat(c){ if(c){ bump(o => { (o.c = o.c || {})[c] = 1; }); renderStrip(); } }
-document.addEventListener("click", e => {
-  const l = e.target.closest("a.al");
-  if(l){ bump(o => { o.r = 1; o.a = o.a || []; if(!o.a.includes(l.dataset.id)) o.a.push(l.dataset.id); if(l.dataset.cat){ (o.c = o.c || {})[l.dataset.cat] = 1; } }); renderStrip(); }
-  const m = e.target.closest(".more");
-  if(m){ const c = m.dataset.c; shown[c] = (shown[c] || 3) + 10; markCat(c); renderCats(); }
-});
+const issueNo = () => Object.values(getStats()).filter(s => s.r).length;            // 제 N호 = 신문을 읽은 누적 일수
+const renderIssue = () => { $("#issue").textContent = `제 ${issueNo().toLocaleString("ko-KR")}호`; };
+function markRead(id, cat){
+  bump(o => { o.r = 1; o.a = o.a || []; if(!o.a.includes(id)){ o.a.push(id); o.n = o.n || {}; o.n[cat || "미분류"] = (o.n[cat || "미분류"] || 0) + 1; } if(cat){ (o.c = o.c || {})[cat] = 1; } });
+  renderIssue(); renderStrip();
+}
+function renderStrip(){
+  const s = getStats()[key(new Date())] || {}, c = s.c || {};
+  $("#strip").innerHTML = `<span>오늘 읽은 기사 <b>${(s.a || []).length}</b>건</span><span>${CATS.map(x => `<i class="${c[x] ? "on" : ""}">${x}</i>`).join("")}</span><button id="toLog">기록 ›</button>`;
+  $("#toLog").onclick = () => show("log");
+}
 bump(o => { o.v++; });
 let hiddenAt = Date.now();
 document.addEventListener("visibilitychange", () => {
@@ -131,48 +158,92 @@ document.addEventListener("visibilitychange", () => {
   if(Date.now() - hiddenAt > 30 * 60 * 1000) bump(o => { o.v++; });
   load();
 });
-function renderStrip(){
-  const s = getStats()[key(new Date())] || {}, c = s.c || {};
-  $("#strip").innerHTML = `<span>오늘 읽은 기사 <b>${(s.a || []).length}</b>건</span><span>${CATS.map(x => `<i class="${c[x] ? "on" : ""}">${x}</i>`).join("")}</span><button id="toLog">기록 ›</button>`;
-  $("#toLog").onclick = () => show("log");
-}
 
-/* ---------- 기록 탭 ---------- */
-const PAPER = '<svg class="paper" viewBox="0 0 24 24"><path d="M4 3h16v15l-2 2-2-2-2 2-2-2-2 2-2-2-2 2-2-2z" fill="#fff" stroke="#6d665a" stroke-width="1.2"/><rect x="7" y="6" width="10" height="3" rx="1" fill="#1c1b19"/><path d="M7 12h10M7 15h6" stroke="#9a9384" stroke-width="1.5" stroke-linecap="round"/></svg>';
+/* ---------- 스크랩북 ---------- */
+const getScraps = () => { try { return JSON.parse(store.get("scraps") || "[]"); } catch(e) { return []; } };
+const setScraps = s => store.set("scraps", JSON.stringify(s));
+function stampSVG(t1, t2, color){ return `<svg class="stamp" viewBox="0 0 40 40" style="color:${color}"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="20" cy="20" r="14.5" fill="none" stroke="currentColor" stroke-width=".9"/><text x="20" y="${t2 ? 18 : 24}" text-anchor="middle" font-size="${t2 ? 8 : 11}" font-weight="700" fill="currentColor" font-family="serif">${t1}</text>${t2 ? `<text x="20" y="28" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor" font-family="serif">${t2}</text>` : ""}</svg>`; }
+const INK = ["#b4493f","#34608a","#4a4a46"];
 let cur = new Date(); cur.setDate(1);
 function streak(st){ let n = 0, d = new Date(); if(!(st[key(d)] || {}).r) d.setDate(d.getDate() - 1); while((st[key(d)] || {}).r){ n++; d.setDate(d.getDate() - 1); } return n; }
 function renderLog(){
-  const st = getStats(), y = cur.getFullYear(), m = cur.getMonth(), today = key(new Date());
+  const st = getStats(), y = cur.getFullYear(), m = cur.getMonth(), today = key(new Date()), now = new Date();
   const first = new Date(y, m, 1).getDay(), days = new Date(y, m + 1, 0).getDate();
   let html = "일월화수목금토".split("").map(w => `<div class="wd">${w}</div>`).join(""), read = 0;
   for(let i = 0; i < first; i++) html += '<div class="cell empty"></div>';
   for(let d = 1; d <= days; d++){
     const k = key(new Date(y, m, d)), s = st[k] || {};
     if(s.r) read++;
-    html += `<div class="cell${k === today ? " today" : ""}"><span class="dn">${d}</span>${s.r ? PAPER : ""}${s.v ? `<span class="vc">${s.v}회</span>` : ""}</div>`;
+    html += `<div class="cell${k === today ? " today" : ""}"><span class="dn">${d}</span>${s.r ? `<span class="stamp" style="--r:${(d * 37 % 24) - 12}deg">${stampSVG("완독", "", INK[d % 3]).replace(/^<svg class="stamp"/, '<svg style="width:100%"')}</span>` : ""}${s.v ? `<span class="vc">${s.v}회</span>` : ""}</div>`;
   }
   $("#cal").innerHTML = html; $("#mTitle").textContent = `${y}년 ${m + 1}월`;
-  $("#sMonth").textContent = read; $("#sStreak").textContent = streak(st);
-  $("#sRead").textContent = ((st[today] || {}).a || []).length; $("#sToday").textContent = (st[today] || {}).v || 0;
+  $("#sMonth").textContent = read; $("#sStreak").textContent = streak(st); $("#sToday").textContent = (st[today] || {}).v || 0;
+  let wd = 0, wa = 0; for(let i = 0; i < 7; i++){ const o = st[key(new Date(now.getFullYear(), now.getMonth(), now.getDate() - i))] || {}; wd += o.r ? 1 : 0; wa += (o.a || []).length; }
+  $("#wk").textContent = `이번 주 읽은 신문 ${wd}부 / 기사 ${wa}건`;
+  $("#wkStamp").innerHTML = stampSVG("READ", Math.round(wd / 7 * 100) + "%", INK[1]).replace('class="stamp"', 'class="stamp big"');
+  renderScraps(); renderPattern();
+}
+function renderScraps(){
+  const sc = getScraps();
+  $("#sb").innerHTML = sc.length ? sc.map((s, i) => { const h = s.hl || [];
+    return `<div class="scrap" data-i="${i}" style="--r:${(i * 53 % 5) - 2}deg"><div class="in"><h4>${esc(s.title)}</h4><div class="mt">${esc(s.source)} · ${esc(label(s.category || ""))}</div>
+      <p>${h.length ? h.slice(0, 3).map(t => `<mark>${esc(t)}</mark>`).join(" ") : esc((s.summary || "").slice(0, 90))}</p></div></div>`; }).join("")
+    : '<p class="empty" style="grid-column:1/-1">아직 스크랩한 기사가 없어요. 기사 옆 "상세·스크랩"에서 문장을 두 번 탭해 보세요.</p>';
+}
+function renderPattern(){
+  const st = getStats(), tot = {}; let all = 0;
+  for(let i = 0; i < 30; i++){ const n = (st[key(new Date(Date.now() - i * 864e5))] || {}).n || {}; for(const c in n){ tot[c] = (tot[c] || 0) + n[c]; all += n[c]; } }
+  if(!all){ $("#pat").innerHTML = '<p class="empty">기사를 읽으면 분야별 비율이 쌓여요.</p>'; return; }
+  const cs = CATS.concat(["미분류"]).filter(c => tot[c]), max = Math.max(...cs.map(c => tot[c]));
+  $("#pat").innerHTML = `<div class="bars">${cs.map(c => `<div class="bw">${Math.round(tot[c] / all * 100)}%<div class="bar" style="height:${Math.max(8, tot[c] / max * 118)}px"></div></div>`).join("")}</div><div class="bl">${cs.map(c => `<span>${label(c)}</span>`).join("")}</div>`;
 }
 $("#prev").onclick = () => { cur.setMonth(cur.getMonth() - 1); renderLog(); };
 $("#next").onclick = () => { cur.setMonth(cur.getMonth() + 1); renderLog(); };
-function show(v){
-  $("#viewNews").hidden = v !== "news"; $("#viewLog").hidden = v !== "log";
-  $("#tabNews").classList.toggle("on", v === "news"); $("#tabLog").classList.toggle("on", v === "log");
-  if(v === "log"){ renderLog(); renderPush(); }
-  scrollTo(0, 0);
-}
-$("#tabNews").onclick = () => show("news"); $("#tabLog").onclick = () => show("log");
 
-/* ---------- 홈: 뉴스 ---------- */
-let D = null, A = {}, G = {}, shown = {};
+/* ---------- 기사 상세 모달 + 더블탭 형광펜 ---------- */
+let R = null, lastTap = {el: null, t: 0};
+function openReader(o){ R = o; drawReader(); $("#modal").classList.add("show"); }
+const closeReader = () => { $("#modal").classList.remove("show"); if($("#vLog").hidden === false) renderScraps(); };
+function drawReader(){
+  const sc = getScraps().find(s => s.id === R.id), hl = sc ? sc.hl || [] : [], ss = sents(R.summary);
+  $("#sheet").innerHTML = `<div class="row" style="justify-content:space-between;margin:0"><span class="mt">${esc(label(R.category || ""))}</span><button class="btn" id="rx">닫기</button></div>
+    <h2>${esc(R.title)}</h2><div class="mt">${esc(R.source)} · ${when(R.published_at)}${R.src ? `<span class="tag">${R.src === "ai" ? "AI 요약" : "매체 제공 요약"}</span>` : ""}</div>
+    <div class="hint">문장을 <b>두 번 탭</b>하면 형광펜이 칠해지고 스크랩북에 저장돼요.</div>
+    <div class="sm2" id="rb">${ss.length ? ss.map(t => `<span class="s${hl.includes(t) ? " hl" : ""}">${esc(t)}</span> `).join("") : '<span class="mt">제공된 요약이 없어요. 원문에서 확인해 주세요.</span>'}</div>
+    <div class="row"><button class="btn pri" id="rsc">${sc ? "스크랩 해제" : "스크랩"}</button><a class="btn al" data-id="${esc(R.id)}" data-cat="${esc(R.category)}" href="${esc(safe(R.url))}" target="_blank" rel="noopener" style="text-decoration:none">원문 보기 ↗</a></div>`;
+  $("#rx").onclick = closeReader;
+  $("#rsc").onclick = () => { let l = getScraps(); l = l.some(s => s.id === R.id) ? l.filter(s => s.id !== R.id) : [{...R, hl: [], at: Date.now()}, ...l]; setScraps(l); drawReader(); };
+  $("#rb").onclick = e => {
+    const el = e.target.closest(".s"); if(!el) return;
+    const now = Date.now(), dbl = lastTap.el === el && now - lastTap.t < 350; lastTap = {el, t: now};
+    if(!dbl) return;
+    const t = el.textContent.trim(); let l = getScraps(), s = l.find(x => x.id === R.id);
+    if(!s){ s = {...R, hl: [], at: Date.now()}; l.unshift(s); }
+    s.hl = (s.hl || []).includes(t) ? s.hl.filter(x => x !== t) : [...(s.hl || []), t];
+    setScraps(l); el.classList.toggle("hl"); $("#rsc").textContent = "스크랩 해제"; navigator.vibrate && navigator.vibrate(15);
+  };
+}
+$("#modal").addEventListener("click", e => { if(e.target.id === "modal") closeReader(); });
+$("#sb").addEventListener("click", e => { const c = e.target.closest(".scrap"); if(c) openReader(getScraps()[+c.dataset.i]); });
+
+/* ---------- 홈/뉴스 ---------- */
+let D = null, A = {}, G = {}, shown = {}, catSel = "정치";
 const artLink = a => `<a class="al" data-id="${esc(a.id)}" data-cat="${esc(a.category)}" href="${esc(safe(a.url))}" target="_blank" rel="noopener">${esc(a.title)}</a>`;
 const metaOf = (g, a) => `${esc(a.source)} · ${when(a.published_at)}${g.source_count > 1 ? ` · ${g.source_count}개 언론사` : ""}${g.status ? `<span class="tag">${esc(g.status)}</span>` : ""}`;
+const detailBtn = (a, g) => `<button class="dt" data-a="${esc(a.id)}" data-g="${esc(g.id)}">상세·스크랩</button>`;
+const sumOf = g => g.summary ? `<p class="sm">${esc(g.summary)}</p><div class="mt">${g.summary_src === "ai" ? "AI 요약 (원문 본문 기반)" : "매체 제공 요약"}</div>` : "";
 function related(g){
   const rest = g.article_ids.filter(i => i !== g.rep_id).map(i => A[i]).filter(Boolean).sort((x, y) => new Date(y.published_at) - new Date(x.published_at));
   return rest.length ? `<details><summary>관련 기사 ${rest.length}건 (언론사별 원문)</summary><ul class="rel">${rest.map(a => `<li>${artLink(a)} <span class="mt">${esc(a.source)} · ${when(a.published_at)}</span></li>`).join("")}</ul></details>` : "";
 }
+document.addEventListener("click", e => {
+  const l = e.target.closest("a.al"); if(l) markRead(l.dataset.id, l.dataset.cat);
+  const d = e.target.closest(".dt");
+  if(d){ const a = A[d.dataset.a], g = G[d.dataset.g]; markRead(a.id, a.category);
+    openReader({id: a.id, title: a.title, source: a.source, url: a.url, published_at: a.published_at, category: a.category, summary: (g.rep_id === a.id && g.summary) || a.summary || "", src: g.rep_id === a.id ? g.summary_src : (a.summary ? "feed" : null)}); }
+  const m = e.target.closest(".more"); if(m){ shown[catSel] = (shown[catSel] || 5) + 10; renderCatList(); }
+  const c = e.target.closest("[data-go]"); if(c){ catSel = c.dataset.go; show("news"); }
+});
 const box = (t, d) => `<div class="banner"><b>${t}</b><p>${d}</p></div>`;
 function renderBanner(st){
   const bad = (st.feeds || []).filter(x => !x.ok);
@@ -184,55 +255,50 @@ function renderBanner(st){
   if(st.state === "partial") return `<p class="note">일부 출처 ${bad.length}곳은 수집하지 못했어요.</p>${list}`;
   return "";
 }
-function renderTop(){
-  const t = D.top || {items: []}, items = t.items.map(i => ({i, g: G[i.group_id]})).filter(x => x.g && A[x.g.rep_id]);
-  if(!D.groups.length){ $("#lead").innerHTML = $("#top").innerHTML = ""; return; }
-  if(!items.length){
-    $("#lead").innerHTML = "";
-    $("#top").innerHTML = `<div class="sh"><span>오늘의 TOP 5</span></div><p class="empty">여러 언론사 보도나 노출 같은 중요도 근거가 부족해 TOP 5를 만들지 않았어요. 아래 분야별 뉴스를 확인해 보세요.</p>`;
-    return;
+function renderHome(){
+  const t = D.top, items = t.items.map(i => ({i, g: G[i.group_id]})).filter(x => x.g && A[x.g.rep_id]), ranked = t.mode === "ranked";
+  if(!D.groups.length){ $("#lead").innerHTML = $("#top").innerHTML = $("#catHead").innerHTML = ""; return; }
+  if(!items.length){ $("#lead").innerHTML = ""; $("#top").innerHTML = `<div class="ch">TOP 5 기사</div><p class="empty">중요도 근거(여러 언론사 보도·노출)가 부족해 TOP 5를 만들지 않았어요. 분야별 뉴스를 확인해 보세요.</p>`; }
+  else {
+    const f = items[0], fa = A[f.g.rep_id];
+    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead"><h2>${artLink(fa)}</h2><div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g)}${related(f.g)}</div>`;
+    $("#top").innerHTML = `<div class="ch">${ranked ? "TOP 5 기사" : "주요 기사"}</div><p class="note">${esc(t.note)}</p><ol>${items.map(({i, g}, n) => { const a = A[g.rep_id];
+      return `<li class="ti"><span class="no">${ranked ? String(i.rank).padStart(2, "0") : "·"}</span><div><h3>${artLink(a)}</h3><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
+        ${n === 0 ? '<div class="why">오늘의 헤드라인 기사</div>' : sumOf(g)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${n === 0 ? "" : related(g)}</div></li>`; }).join("")}</ol>`;
   }
-  const f = items[0], fa = A[f.g.rep_id], ranked = t.mode === "ranked";
-  $("#lead").innerHTML = `<div class="lead"><div class="kick">${ranked ? "오늘의 주요 이슈" : "주요 뉴스"}</div><h2>${artLink(fa)}</h2><div class="mt">${metaOf(f.g, fa)}</div></div>`;
-  $("#top").innerHTML = `<div class="sh"><span>${ranked ? "오늘의 TOP 5" : "오늘의 주요 뉴스"}</span><span class="cnt">앱 자체 선정</span></div>
-    <p class="note">${esc(t.note)}</p>
-    <ol>${items.map(({i, g}) => { const a = A[g.rep_id]; return `<li class="ti"><span class="no">${ranked ? i.rank : "·"}</span><div>
-      <h3>${artLink(a)}</h3><div class="mt">${metaOf(g, a)}</div>${g.summary ? `<p class="sm">${esc(g.summary)}</p>` : ""}
-      <div class="why">${esc((i.reasons || []).join(" · "))}</div>${related(g)}</div></li>`; }).join("")}</ol>`;
+  const by = D.by_category || {};
+  $("#catHead").innerHTML = `<div class="ch">분야별 헤드라인</div>` + CATS.map(c => { const g = G[(by[c] || [])[0]], a = g && A[g.rep_id];
+    return `<div class="hd"><b data-go="${esc(c)}">[${c}] ›</b>${a ? `${artLink(a)}<div class="mt">${metaOf(g, a)}</div>` : '<span class="mt">아직 기사가 없어요</span>'}</div>`; }).join("");
 }
-function renderCats(){
-  if(!D.groups.length){ $("#catWrap").innerHTML = ""; return; }
-  const inTop = new Set((D.top.items || []).map(i => i.group_id)), by = D.by_category || {};
-  const cats = CATS.concat((by["미분류"] || []).length ? ["미분류"] : []);
-  $("#catWrap").innerHTML = `<div class="sh"><span>분야별 뉴스</span><span class="cnt">TOP 5 밖의 기사도 모두 볼 수 있어요</span></div>
-    <nav class="chips" style="position:static;border:0;display:flex;padding:12px 0 2px">${cats.map((c, i) => `<a href="#sec-${i}">${label(c)}</a>`).join("")}</nav>` +
-    cats.map((c, i) => {
-      const ids = (by[c] || []).filter(id => G[id]), n = shown[c] || 3;
-      const rows = ids.slice(0, n).map(id => { const g = G[id], a = A[g.rep_id]; if(!a) return "";
-        return `<li><div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}</div>${related(g)}</li>`; }).join("");
-      return `<section id="sec-${i}"><div class="sh"><span>${label(c)}</span><span class="cnt">${ids.length}건</span></div>
-        ${rows ? `<ul class="lst">${rows}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>'}
-        ${ids.length > n ? `<button class="more" data-c="${esc(c)}">더 보기 (${ids.length - n})</button>` : ""}</section>`;
-    }).join("");
+function renderCatList(){
+  const by = D ? D.by_category || {} : {}, cats = CATS.concat((by["미분류"] || []).length ? ["미분류"] : []);
+  $("#tabs").innerHTML = cats.map(c => `<button class="${c === catSel ? "on" : ""}" data-go="${esc(c)}">${label(c)}</button>`).join("");
+  if(!D || !D.groups.length){ $("#catList").innerHTML = '<p class="empty">표시할 기사가 없어요.</p>'; return; }
+  const inTop = new Set(D.top.items.map(i => i.group_id)), ids = (by[catSel] || []).filter(id => G[id]), n = shown[catSel] || 5;
+  $("#catList").innerHTML = (ids.length ? `<ul class="lst">${ids.slice(0, n).map(id => { const g = G[id], a = A[g.rep_id];
+    return `<li><div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${g.summary ? `<p class="sm">${esc(g.summary)}</p>` : ""}${related(g)}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
+    (ids.length > n ? `<button class="more">더 보기 (${ids.length - n})</button>` : "");
 }
 function render(d){
   D = d; D.groups = d.groups || []; D.top = d.top || {items: []};
   A = Object.fromEntries((d.articles || []).map(a => [a.id, a])); G = Object.fromEntries(D.groups.map(g => [g.id, g]));
-  const st = d.status || {state: "pending"};
-  $("#banner").innerHTML = renderBanner(st);
-  renderTop(); renderCats(); renderStrip();
+  $("#banner").innerHTML = renderBanner(d.status || {state: "pending"});
+  renderHome(); renderCatList(); renderStrip();
 }
 async function load(){
-  try{
-    const r = await fetch("briefing.json?t=" + Date.now(), {cache:"no-store"});
-    if(!r.ok) throw new Error(r.status);
-    render(await r.json());
-  }catch(e){
-    $("#banner").innerHTML = box("브리핑 파일을 불러오지 못했어요", "네트워크 연결을 확인하거나 저장소에 briefing.json이 있는지 확인해 주세요.");
-  }
+  try{ const r = await fetch("briefing.json?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) throw new Error(r.status); render(await r.json()); }
+  catch(e){ $("#banner").innerHTML = box("브리핑 파일을 불러오지 못했어요", "네트워크 연결을 확인하거나 저장소에 briefing.json이 있는지 확인해 주세요."); }
 }
 $("#refresh").onclick = load;
 setInterval(() => { if(!document.hidden) load(); }, 10 * 60 * 1000);
+
+function show(v){
+  $("#vHome").hidden = v !== "home"; $("#vNews").hidden = v !== "news"; $("#vLog").hidden = v !== "log";
+  for(const [id, n] of [["tHome","home"],["tNews","news"],["tLog","log"]]) $("#" + id).classList.toggle("on", v === n);
+  if(v === "news") renderCatList(); if(v === "log"){ renderLog(); renderPush(); }
+  scrollTo(0, 0);
+}
+$("#tHome").onclick = () => show("home"); $("#tNews").onclick = () => show("news"); $("#tLog").onclick = () => show("log");
 
 /* ---------- 웹푸시 설정 (키는 이 기기에서 만들고 밖으로 전송하지 않음) ---------- */
 const b64u = {
@@ -245,8 +311,7 @@ async function ensureKeys(){
   const kp = await crypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign"]);
   const j = await crypto.subtle.exportKey("jwk", kp.privateKey);
   k = {priv: j.d, pub: b64u.enc(new Uint8Array([4, ...b64u.dec(j.x), ...b64u.dec(j.y)]))};
-  store.set("vapid", JSON.stringify(k));
-  return k;
+  store.set("vapid", JSON.stringify(k)); return k;
 }
 async function setupPush(){
   if(!("PushManager" in window)) throw new Error("이 브라우저는 푸시를 지원하지 않아요 (아이폰은 홈 화면에 설치 후 사용)");
@@ -267,14 +332,13 @@ $("#pushOn").onclick = async () => { try { await setupPush(); } catch(e) { alert
 $("#cpSub").onclick = () => copy(store.get("sub") || "");
 $("#cpKey").onclick = () => { try { copy(JSON.parse(store.get("vapid")).priv); } catch(e) {} };
 
-/* ---------- 설치 ---------- */
 let dp;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); dp = e; $("#install").hidden = false; });
 $("#install").onclick = async () => { if(!dp) return; dp.prompt(); await dp.userChoice; dp = null; $("#install").hidden = true; };
 window.addEventListener("appinstalled", () => { $("#install").hidden = true; });
 if(/iphone|ipad/i.test(navigator.userAgent) && !navigator.standalone) $("#ios").hidden = false;
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
-renderStrip(); load();
+renderIssue(); renderStrip(); load();
 </script>
 </body>
 </html>

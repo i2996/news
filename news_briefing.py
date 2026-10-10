@@ -111,7 +111,7 @@ def parse_feed(xml, feed_src):
         d = clean(it.findtext("description"))
         summ = d if len(d) >= 25 and title[:12] not in d else ""   # 제목 반복형(구글 뉴스) 설명은 요약으로 쓰지 않음
         out.append({"title": title.strip(), "url": link, "source": src.strip(), "t": t,
-                    "summary": (summ[:140] + "…") if len(summ) > 140 else summ})
+                    "summary": summ[:500]})
     return out
 
 
@@ -240,7 +240,7 @@ def make_group(members, now):
     if age <= 6:
         reasons.append("최근 6시간 내 보도")
     return {"id": "g_" + rep["id"], "rep_id": rep["id"], "article_ids": [a["id"] for a in m],
-            "category": cats.most_common(1)[0][0] if cats else "미분류", "summary": summ,
+            "category": cats.most_common(1)[0][0] if cats else "미분류", "summary": summ, "summary_src": "feed" if summ else None,
             "status": "상황 종료" if rep["stage"] == "final" and len(m) > 1 else None,
             "source_count": srcs, "latest": m[-1]["t"], "tp": tp, "age": age,
             "score": round(2 * min(srcs, 6) + 5 * tp + 3 * rec + 0.5 * math.log1p(len(m)), 2), "reasons": reasons}
@@ -276,6 +276,61 @@ def build(arts, now, per_cat=40):
     return out_arts, kg, {"mode": mode, "note": note, "items": top_items}, by_cat
 
 
+SUM_PROMPT = ("아래 기사 본문을 읽고, 독자가 원문을 보지 않아도 사건의 핵심(누가·무엇을·언제·왜, 현재 상태)을 알 수 있게 "
+              "3~4문장으로 요약하세요. 본문에 없는 내용은 쓰지 말고, 각 문장은 '~다.'로 끝내고, 요약문만 출력하세요.")
+
+
+def fetch_text(url):
+    """기사 본문 <p> 텍스트만 추출 (요약 입력용. 앱에는 저장하지 않음)"""
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=15) as r:
+            h = r.read().decode("utf-8", "ignore")
+    except Exception:
+        return ""
+    h = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", h)
+    t = " ".join(p for p in (clean(x) for x in re.findall(r"(?is)<p[^>]*>(.*?)</p>", h)) if len(p) > 40)
+    return t[:3500] if len(t) >= 300 else ""
+
+
+def ask_llm(prompt):
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        return None
+    body = json.dumps({"model": os.environ.get("NEWS_SUMMARY_MODEL", "claude-haiku-5-5"), "max_tokens": 600,
+                       "messages": [{"role": "user", "content": prompt}]}).encode()
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, headers={
+        "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.load(r)["content"][0]["text"].strip()
+    except Exception as e:
+        print(f"  요약 실패: {e}", file=sys.stderr)
+        return None
+
+
+def add_summaries(groups, arts, top, prev):
+    """TOP 항목만: 원문이 직접 열리는 기사 본문(최대 2개 매체)을 읽고 요약. 키/본문이 없으면 RSS 요약만 사용(지어내지 않음)."""
+    A, G = {a["id"]: a for a in arts}, {g["id"]: g for g in groups}
+    for it in top["items"]:
+        g = G[it["group_id"]]
+        if prev.get(g["rep_id"]):
+            g["summary"], g["summary_src"] = prev[g["rep_id"]], "ai"      # 같은 대표 기사면 재사용(호출 절약)
+            continue
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            continue
+        texts = []
+        for i in [g["rep_id"]] + [x for x in g["article_ids"] if x != g["rep_id"]]:
+            a = A[i]
+            t = "" if "news.google.com" in a["url"] else fetch_text(a["url"])  # 구글 중계 링크는 본문 접근 불가
+            if t:
+                texts.append(f"[{a['source']}] {a['title']}\n{t}")
+            if len(texts) == 2:
+                break
+        s = ask_llm(SUM_PROMPT + "\n\n" + "\n\n".join(texts)) if texts else None
+        if s:
+            g["summary"], g["summary_src"] = s, "ai"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="briefing.json")
@@ -295,6 +350,13 @@ def main():
         except Exception:
             pass
     a_out, groups, top, by_cat = build(arts, now) if arts else ([], [], {"mode": "none", "note": "", "items": []}, {})
+    prev = {}
+    if os.path.exists(args.out):
+        try:
+            prev = {g["rep_id"]: g["summary"] for g in json.load(open(args.out, encoding="utf-8")).get("groups", []) if g.get("summary_src") == "ai"}
+        except Exception:
+            pass
+    add_summaries(groups, a_out, top, prev)
     data = {"generated_at": now.isoformat(),
             "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds},
             "articles": a_out, "groups": groups, "top": top, "by_category": by_cat}

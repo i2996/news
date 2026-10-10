@@ -24,7 +24,7 @@ if not lines:
 
 sub = json.loads(os.environ["PUSH_SUBSCRIPTION"].strip())
 key = os.environ["VAPID_PRIVATE_KEY"].strip()
-payload = json.dumps({"title": "오늘의 핵심", "body": "\n".join(lines)}, ensure_ascii=False)
+payload = json.dumps({"title": "The Press", "body": "\n".join(lines)}, ensure_ascii=False)
 try:
     webpush(subscription_info=sub, data=payload, vapid_private_key=key,
             vapid_claims={"sub": "mailto:briefing-bot@users.noreply.github.com"})
