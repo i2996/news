@@ -15,11 +15,12 @@
 :root{--bg:#f1f5f9;--card:#fff;--tx:#0f172a;--sub:#64748b;--line:#e2e8f0;--pri:#1a56db;--ok:#15803d;--okbg:#dcfce7;--ing:#b45309;--ingbg:#fef3c7}
 @media(prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--sub:#94a3b8;--line:#334155;--pri:#60a5fa;--ok:#86efac;--okbg:#14532d;--ing:#fcd34d;--ingbg:#451a03}}
 *{box-sizing:border-box}html,body{margin:0}
-body{background:var(--bg);color:var(--tx);font:15px/1.55 -apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-header{position:sticky;top:0;background:var(--bg);padding:14px 16px 10px;display:flex;align-items:center;gap:8px;z-index:2;border-bottom:1px solid var(--line)}
+body{background:var(--bg);color:var(--tx);font:15px/1.55 -apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;padding-top:env(safe-area-inset-top)}
+header{position:sticky;top:env(safe-area-inset-top);background:var(--bg);padding:14px 16px 10px;display:flex;align-items:center;gap:8px;z-index:2;border-bottom:1px solid var(--line)}
 header h1{font-size:18px;margin:0;flex:1}header small{color:var(--sub);display:block;font-weight:400;font-size:12px}
 button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:999px;padding:6px 12px}
-main{max-width:640px;margin:0 auto;padding:12px 14px 40px}
+button.pri{background:var(--pri);border-color:var(--pri);color:#fff}
+main{max-width:640px;margin:0 auto;padding:12px 14px calc(84px + env(safe-area-inset-bottom))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
 .top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .rank{background:var(--pri);color:#fff;border-radius:8px;min-width:24px;height:24px;display:grid;place-items:center;font-weight:700;font-size:13px}
@@ -37,25 +38,119 @@ li:last-child{padding-bottom:0}
 .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .links a{font-size:12px;color:var(--pri);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
 .empty,.hint{color:var(--sub);text-align:center;padding:20px 0;font-size:13px}
+.readwrap{text-align:center;margin:4px 0 8px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav button{flex:1;border:0;border-radius:0;background:none;padding:12px 0;color:var(--sub);font-size:14px}
+nav button.on{color:var(--pri);font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--sub)}
+.mnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.wd{text-align:center;font-size:12px;color:var(--sub)}
+.cell{aspect-ratio:1/1.15;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:3px;position:relative;display:flex;flex-direction:column;align-items:center}
+.cell.empty{background:none;border:0}.cell.today{border-color:var(--pri);border-width:2px}
+.dn{font-size:11px;color:var(--sub);align-self:flex-start}
+.paper{width:60%;max-width:30px;margin-top:1px}
+.vc{position:absolute;bottom:2px;font-size:10px;color:var(--sub)}
+.sec h3{margin:0 0 6px;font-size:15px}.sec p{margin:4px 0;font-size:13px;color:var(--sub)}
+.row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 </style>
 </head>
 <body>
 <header>
   <h1>오늘의 핵심 Top 5<small id="upd">불러오는 중…</small></h1>
   <button id="install" hidden>설치</button>
-  <button id="bell" hidden>🔔 알림</button>
   <button id="refresh" aria-label="새로고침">↻</button>
 </header>
 <main>
-  <div id="list"></div>
-  <p class="hint" id="ios" hidden>아이폰은 공유 버튼 → "홈 화면에 추가"로 설치하세요.</p>
+  <section id="viewNews">
+    <div id="list"></div>
+    <div class="readwrap"><button id="readBtn"></button></div>
+    <p class="hint" id="ios" hidden>아이폰은 공유 버튼 → "홈 화면에 추가"로 설치하세요.</p>
+  </section>
+  <section id="viewLog" hidden>
+    <div class="stats">
+      <div class="stat"><b id="sMonth">0</b><span>이번 달 읽은 날</span></div>
+      <div class="stat"><b id="sStreak">0</b><span>연속 읽기(일)</span></div>
+      <div class="stat"><b id="sToday">0</b><span>오늘 방문(회)</span></div>
+    </div>
+    <div class="card">
+      <div class="mnav"><button id="prev">‹</button><span id="mTitle"></span><button id="next">›</button></div>
+      <div class="grid" id="cal"></div>
+      <p class="meta" style="margin:8px 0 0">신문 그림 = 읽은 날 · 숫자 = 그날 방문 횟수 (이 기기에만 저장돼요)</p>
+    </div>
+    <div class="card sec">
+      <h3>🔔 푸시 알림</h3>
+      <p id="pushState"></p>
+      <div class="row"><button class="pri" id="pushOn">푸시 켜기</button></div>
+      <div class="row" id="pushCopy" hidden>
+        <button id="cpSub">① PUSH_SUBSCRIPTION 복사</button>
+        <button id="cpKey">② VAPID_PRIVATE_KEY 복사</button>
+      </div>
+      <p>복사한 값은 GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret에 <b>이름 그대로</b> 각각 저장하세요. 이후 매일 아침 7:30에 푸시가 와요.</p>
+    </div>
+  </section>
 </main>
+<nav>
+  <button id="tabNews" class="on">📰 브리핑</button>
+  <button id="tabLog">🗓 기록</button>
+</nav>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safe = u => /^https?:\/\//.test(u || "") ? u : "#";
 const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}}, set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 
+/* ---------- 읽음/방문 기록 (이 기기 localStorage) ---------- */
+const key = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+const getStats = () => { try { return JSON.parse(store.get("stats") || "{}"); } catch(e) { return {}; } };
+function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:0, r:0}; fn(s[k]); store.set("stats", JSON.stringify(s)); }
+const markRead = () => { bump(o => { o.r = 1; }); updateReadBtn(); };
+function updateReadBtn(){ const r = (getStats()[key(new Date())] || {}).r; $("#readBtn").textContent = r ? "📰 오늘 읽음 ✓ (누르면 취소)" : "오늘 다 읽었어요"; $("#readBtn").className = r ? "" : "pri"; }
+$("#readBtn").onclick = () => { const r = (getStats()[key(new Date())] || {}).r; bump(o => { o.r = r ? 0 : 1; }); updateReadBtn(); };
+$("#list").addEventListener("click", e => { if(e.target.closest("summary,a")) markRead(); });  // 펼치기/원문 클릭 = 읽음
+
+bump(o => { o.v++; });   // 앱을 열 때마다 방문 +1
+let hiddenAt = Date.now();
+document.addEventListener("visibilitychange", () => {
+  if(document.hidden){ hiddenAt = Date.now(); return; }
+  if(Date.now() - hiddenAt > 30 * 60 * 1000) bump(o => { o.v++; });   // 30분 넘게 비웠다가 돌아오면 새 방문
+  load();
+});
+
+const PAPER = '<svg class="paper" viewBox="0 0 24 24"><path d="M4 3h16v15l-2 2-2-2-2 2-2-2-2 2-2-2-2 2-2-2z" fill="#fff" stroke="#64748b" stroke-width="1.2"/><rect x="7" y="6" width="10" height="3" rx="1" fill="#0f172a"/><path d="M7 12h10M7 15h6" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>';
+let cur = new Date(); cur.setDate(1);
+function streak(st){ let n = 0, d = new Date(); if(!(st[key(d)] || {}).r) d.setDate(d.getDate() - 1); while((st[key(d)] || {}).r){ n++; d.setDate(d.getDate() - 1); } return n; }
+function renderLog(){
+  const st = getStats(), y = cur.getFullYear(), m = cur.getMonth(), today = key(new Date());
+  const first = new Date(y, m, 1).getDay(), days = new Date(y, m + 1, 0).getDate();
+  let html = "일월화수목금토".split("").map(w => `<div class="wd">${w}</div>`).join(""), read = 0;
+  for(let i = 0; i < first; i++) html += '<div class="cell empty"></div>';
+  for(let d = 1; d <= days; d++){
+    const k = key(new Date(y, m, d)), s = st[k] || {};
+    if(s.r) read++;
+    html += `<div class="cell${k === today ? " today" : ""}"><span class="dn">${d}</span>${s.r ? PAPER : ""}${s.v ? `<span class="vc">${s.v}회</span>` : ""}</div>`;
+  }
+  $("#cal").innerHTML = html;
+  $("#mTitle").textContent = `${y}년 ${m + 1}월`;
+  $("#sMonth").textContent = read;
+  $("#sStreak").textContent = streak(st);
+  $("#sToday").textContent = (st[today] || {}).v || 0;
+}
+$("#prev").onclick = () => { cur.setMonth(cur.getMonth() - 1); renderLog(); };
+$("#next").onclick = () => { cur.setMonth(cur.getMonth() + 1); renderLog(); };
+
+function show(v){
+  $("#viewNews").hidden = v !== "news"; $("#viewLog").hidden = v !== "log";
+  $("#tabNews").classList.toggle("on", v === "news"); $("#tabLog").classList.toggle("on", v === "log");
+  if(v === "log"){ renderLog(); renderPush(); }
+  scrollTo(0, 0);
+}
+$("#tabNews").onclick = () => show("news");
+$("#tabLog").onclick = () => show("log");
+
+/* ---------- 브리핑 ---------- */
 function render(d){
   const t = new Date(d.generated_at);
   $("#upd").textContent = "업데이트 " + t.toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
@@ -73,8 +168,7 @@ function render(d){
       <div class="links">${links}</div></article>`;
   }).join("");
 }
-
-async function notifyIfNew(d){
+async function notifyIfNew(d){   // 앱이 열려 있을 때의 알림
   const last = store.get("lastSeen");
   store.set("lastSeen", d.generated_at);
   if(!last || last === d.generated_at || !("Notification" in window) || Notification.permission !== "granted") return;
@@ -82,7 +176,6 @@ async function notifyIfNew(d){
   const first = d.items && d.items[0];
   if(reg && first) reg.showNotification("새 브리핑이 도착했어요", {body: first.final_headline, icon: "icons/icon-192.png", tag: "briefing"});
 }
-
 async function load(){
   try{
     const r = await fetch("briefing.json?t=" + Date.now(), {cache:"no-store"});
@@ -91,21 +184,51 @@ async function load(){
   }catch(e){ $("#list").innerHTML = '<p class="empty">브리핑을 불러오지 못했어요.</p>'; }
 }
 $("#refresh").onclick = load;
-document.addEventListener("visibilitychange", () => { if(!document.hidden) load(); });
 setInterval(() => { if(!document.hidden) load(); }, 10 * 60 * 1000);
 
-// 설치 버튼 (안드로이드/데스크톱 크롬)
+/* ---------- 웹푸시 설정 (키는 이 기기에서 만들고 밖으로 전송하지 않음) ---------- */
+const b64u = {
+  enc: b => btoa(String.fromCharCode(...new Uint8Array(b))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""),
+  dec: s => Uint8Array.from(atob(s.replace(/-/g,"+").replace(/_/g,"/").padEnd(Math.ceil(s.length / 4) * 4, "=")), c => c.charCodeAt(0))
+};
+async function ensureKeys(){
+  let k = null; try { k = JSON.parse(store.get("vapid")); } catch(e) {}
+  if(k) return k;
+  const kp = await crypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign"]);
+  const j = await crypto.subtle.exportKey("jwk", kp.privateKey);
+  k = {priv: j.d, pub: b64u.enc(new Uint8Array([4, ...b64u.dec(j.x), ...b64u.dec(j.y)]))};
+  store.set("vapid", JSON.stringify(k));
+  return k;
+}
+async function setupPush(){
+  if(!("PushManager" in window)) throw new Error("이 브라우저는 푸시를 지원하지 않아요 (아이폰은 홈 화면에 설치 후 사용)");
+  if(await Notification.requestPermission() !== "granted") throw new Error("알림 권한을 허용해야 해요");
+  const reg = await navigator.serviceWorker.ready, k = await ensureKeys();
+  let sub = await reg.pushManager.getSubscription();
+  if(sub){ const ck = sub.options && sub.options.applicationServerKey; if(!ck || b64u.enc(ck) !== k.pub){ await sub.unsubscribe(); sub = null; } }
+  if(!sub) sub = await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: b64u.dec(k.pub)});
+  store.set("sub", JSON.stringify(sub.toJSON()));
+}
+function renderPush(){
+  const on = !!store.get("sub") && !!store.get("vapid") && "Notification" in window && Notification.permission === "granted";
+  $("#pushState").textContent = on ? "이 기기에서 구독됨 · 아래 값을 GitHub Secrets에 저장하면 푸시가 전송돼요." : "아직 꺼져 있어요. 켜면 알림 권한을 요청해요.";
+  $("#pushCopy").hidden = !on;
+  $("#pushOn").textContent = on ? "다시 구독" : "푸시 켜기";
+}
+async function copy(text){ try { await navigator.clipboard.writeText(text); alert("복사했어요"); } catch(e) { prompt("길게 눌러 복사하세요", text); } }
+$("#pushOn").onclick = async () => { try { await setupPush(); } catch(e) { alert(e.message); } renderPush(); };
+$("#cpSub").onclick = () => copy(store.get("sub") || "");
+$("#cpKey").onclick = () => { try { copy(JSON.parse(store.get("vapid")).priv); } catch(e) {} };
+
+/* ---------- 설치 ---------- */
 let dp;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); dp = e; $("#install").hidden = false; });
 $("#install").onclick = async () => { if(!dp) return; dp.prompt(); await dp.userChoice; dp = null; $("#install").hidden = true; };
 window.addEventListener("appinstalled", () => { $("#install").hidden = true; });
 if(/iphone|ipad/i.test(navigator.userAgent) && !navigator.standalone) $("#ios").hidden = false;
 
-// 알림 허용 버튼
-if("Notification" in window && Notification.permission === "default") $("#bell").hidden = false;
-$("#bell").onclick = async () => { const p = await Notification.requestPermission(); if(p !== "default") $("#bell").hidden = true; };
-
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+updateReadBtn();
 load();
 </script>
 </body>

@@ -1,4 +1,4 @@
-const VER = "top5-v2";
+const VER = "top5-v3";
 const SHELL = ["./", "index.html", "manifest.json", "icons/icon-192.png", "icons/icon-512.png"];
 const DATA = new URL("briefing.json", self.registration.scope).href;
 
@@ -24,4 +24,16 @@ self.addEventListener("fetch", e => {
 self.addEventListener("notificationclick", e => {
   e.notification.close();
   e.waitUntil(clients.matchAll({type: "window"}).then(cs => cs.length ? cs[0].focus() : clients.openWindow("./")));
+});
+
+// 서버에서 온 웹푸시 (앱이 닫혀 있어도 표시됨)
+self.addEventListener("push", e => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; } catch (_) { d = {body: e.data ? e.data.text() : ""}; }
+  e.waitUntil(self.registration.showNotification(d.title || "오늘의 핵심 Top 5", {
+    body: d.body || "새 브리핑이 도착했어요",
+    icon: "icons/icon-192.png",
+    badge: "icons/icon-192.png",
+    tag: "briefing"
+  }));
 });
