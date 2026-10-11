@@ -6,6 +6,7 @@
   python news_briefing.py --out briefing.json
 """
 import argparse, hashlib, json, math, os, re, sys, time, urllib.error, urllib.request
+from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
@@ -333,13 +334,96 @@ SUM_PROMPT = ("아래 기사 본문을 읽고, 독자가 원문을 보지 않아
               "3~4문장으로 요약하세요. 본문에 없는 내용은 쓰지 말고, 각 문장은 '~다.'로 끝내고, 요약문만 출력하세요.")
 
 
+_VOID = {"br", "img", "hr", "meta", "link", "input", "source", "area", "base", "col", "embed", "param", "track", "wbr"}
+_SKIP = {"script", "style", "noscript", "nav", "aside", "footer", "header", "form", "iframe", "svg", "button", "figcaption", "select"}
+_SKIPCLS = re.compile(r"(?:^|[-_\s])(?:ads?|adv\w*|adsense|banner|comment\w*|reply|related\w*|recommend\w*|share|sns|copyright|"
+                      r"byline|reporter|login|promo\w*|sponsor\w*|popular|rank\w*|breadcrumb|toolbar)(?:[-_\s]|$)", re.I)
+
+
+class _Body(HTMLParser):
+    """<p> 문단만 모으되 광고·댓글·추천기사·공유·푸터 같은 영역 안의 문단은 버린다. <article> 안의 문단을 우선 사용."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.st, self.cur, self.all, self.art = [], None, [], []
+
+    def blocked(self):
+        return any(b for _, b in self.st)
+
+    def flush(self):
+        if self.cur is not None:
+            t = "".join(self.cur).strip()
+            if t:
+                self.all.append(t)
+                if any(x == "article" for x, _ in self.st):
+                    self.art.append(t)
+        self.cur = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag in _VOID:
+            return
+        if tag == "p":
+            self.flush()
+        cls = " ".join(v or "" for k, v in attrs if k in ("class", "id"))
+        self.st.append((tag, tag in _SKIP or bool(_SKIPCLS.search(cls))))
+        if tag == "p" and not self.blocked():
+            self.cur = []
+
+    def handle_endtag(self, tag):
+        if tag in _VOID or tag not in [t for t, _ in self.st]:
+            return
+        if tag == "p":
+            self.flush()
+        while self.st and self.st.pop()[0] != tag:
+            pass
+
+    def handle_data(self, d):
+        if self.cur is not None and not self.blocked():
+            self.cur.append(d)
+
+
+def extract_paras(h):
+    p = _Body()
+    try:
+        p.feed(h)
+        p.flush()
+    except Exception:
+        pass
+    out = []
+    for t in (p.art if len(p.art) >= 2 else p.all):
+        t = re.sub(r"\s+", " ", t).strip()
+        if len(t) < 30:
+            continue
+        if re.search(r"ⓒ|무단\s*전재|저작권자|재배포\s*금지", t):
+            break                                            # 저작권 문구부터는 본문이 아님
+        if re.search(r"\S+@\S+\.\S+|▶|▷|구독하기|기사제보|댓글", t):
+            continue
+        out.append(t)
+    if out:
+        out[0] = clean_summary("\x00", out[0]) or out[0]      # 첫 문단의 (서울=연합뉴스) 기자 표기 제거
+    return out
+
+
+def cut_body(paras, cap):
+    """보관할 본문 분량 제한(문단 단위). cap<=0이면 본문을 저장하지 않음."""
+    if cap <= 0:
+        return [], False
+    out, n = [], 0
+    for p in paras:
+        if n >= cap:
+            return out, True
+        out.append(p)
+        n += len(p)
+    return out, False
+
+
 def fetch_page(url):
-    """기사 페이지에서 (본문 <p> 텍스트, og:image) 추출. 본문은 요약 입력용으로만 쓰고 앱에는 저장하지 않음."""
+    """기사 페이지에서 (요약 입력용 본문 텍스트, og:image, 본문 문단 목록) 추출"""
     try:
         with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=15) as r:
             h = r.read().decode("utf-8", "ignore")
     except Exception:
-        return "", ""
+        return "", "", []
     img = ""
     for pat in (r"<meta[^>]+property=[\"']og:image[\"'][^>]+content=[\"']([^\"']+)",
                 r"<meta[^>]+content=[\"']([^\"']+)[\"'][^>]+property=[\"']og:image[\"']"):
@@ -348,9 +432,9 @@ def fetch_page(url):
             img = unescape(m.group(1)).strip()
             break
     img = "https:" + img if img.startswith("//") else img.replace("http://", "https://", 1)
-    h = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", h)
-    t = " ".join(p for p in (clean(x) for x in re.findall(r"(?is)<p[^>]*>(.*?)</p>", h)) if len(p) > 40)
-    return (t[:3500] if len(t) >= 300 else ""), (img if img.startswith("https://") else "")
+    paras = extract_paras(h)
+    t = " ".join(paras)[:3500]
+    return (t if len(t) >= 300 else ""), (img if img.startswith("https://") else ""), paras
 
 
 def fetch_text(url):
@@ -365,26 +449,34 @@ def prio(top, by_cat, n):
     return order
 
 
-def fill_images(arts, groups, top, by_cat, prev_img):
-    """대표 이미지: RSS 이미지 -> 원문 페이지 og:image(링크가 직접 열리는 기사만). 결과(없음 포함)는 캐시."""
+def fill_pages(arts, groups, top, by_cat, old):
+    """원문 페이지에서 대표 이미지(og:image)와 본문 일부를 추출(링크가 직접 열리는 기사만).
+    광고·댓글 영역은 건너뛰고, 본문은 NEWS_BODY_CHARS(기본 1200자)까지만 보관. 결과(없음 포함)는 캐시."""
     A, G = {a["id"]: a for a in arts}, {g["id"]: g for g in groups}
+    cap = int(os.environ.get("NEWS_BODY_CHARS") or 1200)
     for a in arts:
-        a["image"] = a.get("image") or prev_img.get(a["id"], "")
+        o = old.get(a["id"], {})
+        a["image"] = a.get("image") or o.get("image", "")
+        if "body" in o:
+            a["body"], a["body_more"] = o["body"], o.get("body_more", False)
     todo = []
     for gid in prio(top, by_cat, 40):
         g = G.get(gid)
         if not g:
             continue
         ids = [g["rep_id"]] + [x for x in g["article_ids"] if x != g["rep_id"]]
-        if any(A[i]["image"] for i in ids):
+        if any(A[i].get("body") for i in ids) and any(A[i]["image"] for i in ids):
             continue
-        c = next((A[i] for i in ids if "news.google.com" not in A[i]["url"] and i not in prev_img), None)
+        c = next((A[i] for i in ids if "news.google.com" not in A[i]["url"] and "body" not in A[i]), None)
         if c:
             todo.append(c)
-    todo = todo[:int(os.environ.get("NEWS_IMAGE_MAX") or 60)]
+    todo = todo[:int(os.environ.get("NEWS_PAGE_MAX") or 60)]
     with ThreadPoolExecutor(6) as ex:
-        for a, (_, img) in zip(todo, ex.map(lambda a: fetch_page(a["url"]), todo)):
-            a["image"] = img
+        results = list(ex.map(lambda a: fetch_page(a["url"]), todo))
+    for a, (text, img, paras) in zip(todo, results):
+        a["image"] = a["image"] or img
+        a["_text"] = text
+        a["body"], a["body_more"] = cut_body(paras, cap)
     for g in groups:
         g["image"] = next((A[i]["image"] for i in [g["rep_id"]] + g["article_ids"] if A[i]["image"]), "")
 
@@ -444,7 +536,7 @@ def add_summaries(groups, arts, top, by_cat, prev):
         texts = []
         for i in [g["rep_id"]] + [x for x in g["article_ids"] if x != g["rep_id"]]:
             a = A[i]
-            t = "" if "news.google.com" in a["url"] else fetch_text(a["url"])  # 구글 중계 링크는 본문 접근 불가
+            t = a.get("_text") or ("" if "news.google.com" in a["url"] else fetch_text(a["url"]))  # 구글 중계 링크는 본문 접근 불가
             if t:
                 texts.append(f"[{a['source']}] {a['title']}\n{t}")
             if len(texts) == 2:
@@ -498,9 +590,10 @@ def main():
         except Exception:
             old = {}
     prev = {g["rep_id"]: g["summary"] for g in old.get("groups", []) if g.get("summary_src") == "ai"}
-    prev_img = {a["id"]: a.get("image", "") for a in old.get("articles", []) if "image" in a}
-    fill_images(a_out, groups, top, by_cat, prev_img)
+    fill_pages(a_out, groups, top, by_cat, {a["id"]: a for a in old.get("articles", [])})
     sm = add_summaries(groups, a_out, top, by_cat, prev)
+    for a in a_out:
+        a.pop("_text", None)                                   # 요약 입력용 임시 텍스트는 저장하지 않음
     data = {"generated_at": now.isoformat(),
             "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds, "summary": sm},
             "articles": a_out, "groups": groups, "top": top, "by_category": by_cat}

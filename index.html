@@ -12,45 +12,48 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="The Press">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
+@font-face { font-family: 'Yeongwol'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2507-2@1.0/YeongwolTTF-Regular.woff2') format('woff2'); font-weight: normal; font-display: swap; }
 :root{--bg:#F5F5F5;--ink:#1c1b19;--sub:#6d665a;--rule:#cdc3ae;--soft:#ece4d2;--sage:#dfe8dc;--sageT:#4d6b52;--blue:#dfe7ee;--blueT:#46627a;--hl:#f3df7a;
 --serif:"Noto Serif KR","Nanum Myeongjo","AppleMyungjo",Georgia,serif;--sans:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif}
 @media(prefers-color-scheme:dark){:root{--bg:#1b1916;--ink:#ece6d9;--sub:#a39b8c;--rule:#403b33;--soft:#26231f;--sage:#27352a;--sageT:#a9c7ad;--blue:#222d37;--blueT:#a9c1d6}}
 *{box-sizing:border-box}html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);padding-top:env(safe-area-inset-top);touch-action:manipulation}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);padding-top:env(safe-area-inset-top);touch-action:manipulation}
 main{max-width:1100px;margin:0 auto;padding:0 18px calc(76px + env(safe-area-inset-bottom))}
 a{color:inherit}button{font:inherit;color:inherit}ul,ol{list-style:none;margin:0;padding:0}
 .mast{text-align:center;padding:14px 0 0;position:relative}
-.title{font:400 46px/1.15 "Lobster","Playfair Display",cursive;margin:0;letter-spacing:.02em}
-.dl{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;font-size:12px;color:var(--ink);border-top:3px double var(--ink);border-bottom:1px solid var(--ink);margin-top:10px;padding:4px 2px}
+.title{font:normal 46px/1.2 "Yeongwol","Noto Serif KR",Georgia,serif;margin:0}
+.dl{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;font-size:12px;border-top:3px double var(--ink);border-bottom:1px solid var(--ink);margin-top:10px;padding:4px 2px}
 .dl span:first-child{text-align:left}.dl span:last-child{text-align:right}.dl span:nth-child(2){text-align:center;font-weight:700}
 .mast .tb{position:absolute;top:10px;border:1px solid var(--rule);background:none;border-radius:2px;padding:1px 8px;font-size:12px;color:var(--sub)}
 #refresh{right:0}#install{left:0}
 .ch{font:900 18px var(--serif);text-align:center;border-bottom:3px double var(--ink);padding-bottom:5px;margin:22px 0 6px}
-.kick{font-size:12px;font-weight:700;color:var(--blueT);letter-spacing:.08em;margin:14px 0 4px}
-.lead h2{font:900 26px/1.35 var(--serif);margin:0 0 6px}
-.lead a,.ti h3 a,.rt a{text-decoration:none}
-.sm{margin:6px 0 2px;font-size:14.5px;line-height:1.7}
-.sm2{font-size:15.5px;line-height:1.75}
-.mt{font-size:12px;color:var(--sub)}
-.why{font-size:11px;color:var(--sub);margin-top:4px}
-.tag{font-size:11px;padding:0 6px;border-radius:2px;background:var(--sage);color:var(--sageT);margin-left:4px}.tag.b{background:var(--blue);color:var(--blueT)}
-.ti{padding:14px 0;border-bottom:1px dotted var(--sub)}.ti .hr{display:flex;gap:10px;align-items:baseline}
-.no{font:900 22px/1.3 var(--serif);min-width:26px}
-.ti h3{font:700 17px/1.45 var(--serif);margin:0 0 3px}
-.dt{background:none;border:0;padding:0;margin-left:8px;font-size:12px;color:var(--blueT);text-decoration:underline}
-details{margin-top:6px}summary{cursor:pointer;font-size:12px;color:var(--blueT)}
-.rel{margin:6px 0 0;padding-left:10px;border-left:2px solid var(--rule)}.rel li{padding:3px 0 3px 8px;font-size:13px}
-.hd{padding:9px 0;border-bottom:1px solid var(--rule)}.hd b{font-size:12px;color:var(--blueT);cursor:pointer;display:block}
-.hd a{font:700 15px/1.45 var(--serif);text-decoration:none}
+.mt{font-size:12.5px;color:var(--sub)}.why{font-size:11px;color:var(--sub);margin-top:6px}
+.tag{font-size:11px;padding:0 6px;border-radius:2px;background:var(--sage);color:var(--sageT);margin-left:4px;white-space:nowrap}.tag.b{background:var(--blue);color:var(--blueT)}
+/* 기사 카드 */
+.cd{padding:14px 0;border-bottom:1px solid var(--rule)}
+.cd .hr{display:flex;gap:10px;align-items:baseline}.no{font:900 22px/1.3 var(--serif);min-width:26px}
+.cd h3{font:700 19px/1.45 var(--serif);margin:0 0 4px}.cd h2{font:900 27px/1.4 var(--serif);margin:0 0 6px}
+.cd a.ot{text-decoration:none}
+.imw{position:relative;margin:0 0 8px}.imw img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--soft)}
+.cat{position:absolute;top:8px;right:8px;background:rgba(28,27,25,.85);color:#fff;font-size:12px;padding:2px 9px;border-radius:2px}
+.imw.nm{display:flex;justify-content:flex-end;margin:0 0 4px}.imw.nm .cat{position:static;background:var(--soft);color:var(--ink)}
+.sm{margin:8px 0 2px;font-size:16.5px;line-height:1.75}
+.act{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.act button,.act a{border:1px solid var(--rule);background:none;padding:4px 11px;font-size:13px;text-decoration:none;color:var(--ink);border-radius:2px}
+.act .scbtn.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.s{cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);color:#1c1b19;padding:0 1px}
+.hd{padding:10px 0;border-bottom:1px solid var(--rule)}.hd b{font-size:12px;color:var(--blueT);cursor:pointer;display:block}
+.hd a{font:700 16px/1.45 var(--serif);text-decoration:none}
 .tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--ink);margin-top:16px;scrollbar-width:none}
 .tabs button{flex:none;background:none;border:0;border-bottom:3px solid transparent;padding:8px 12px;font-size:14px;color:var(--sub)}
 .tabs button.on{color:var(--ink);font-weight:700;border-color:var(--ink)}
-.lst li{padding:14px 0;border-bottom:1px solid var(--rule)}.tc{flex:1;min-width:0}
-.th{width:86px;height:66px;object-fit:cover;flex:none;border:1px solid var(--rule)}
-.lim{width:100%;aspect-ratio:16/9;object-fit:cover;margin:0 0 8px;display:block}.rt{font:700 16px/1.5 var(--serif)}
-.more{width:100%;margin-top:10px;padding:8px;background:none;border:1px solid var(--rule);font-size:13px;color:var(--sub)}
+.swin{animation:swin .2s ease}@keyframes swin{from{opacity:.2;transform:translateX(var(--dx,20px))}to{opacity:1;transform:none}}
+.endm{text-align:center;font-size:12px;color:var(--sub);padding:18px 0}
+details{margin-top:6px}summary{cursor:pointer;font-size:12.5px;color:var(--blueT)}
+.rel{margin:6px 0 0;padding-left:10px;border-left:2px solid var(--rule)}.rel li{padding:3px 0 3px 8px;font-size:13px}
 .empty,.note{font-size:12.5px;color:var(--sub);padding:8px 0}
 .banner{border:1px solid var(--rule);background:var(--soft);padding:12px 14px;margin:18px 0}.banner b{font:700 15px var(--serif)}.banner p{margin:4px 0 0;font-size:13px;color:var(--sub)}
 .strip{margin-top:26px;padding:8px 0;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12px;color:var(--sub)}
@@ -59,6 +62,21 @@ details{margin-top:6px}summary{cursor:pointer;font-size:12px;color:var(--blueT)}
 nav.bar{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--bg);border-top:1px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);z-index:5}
 nav.bar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;padding:8px 0;color:var(--sub);font-size:12px}
 nav.bar button.on{color:var(--ink);font-weight:700}nav.bar svg{width:20px;height:20px}
+/* 집중형 읽기 화면: 기사 하나가 한 화면, 스크롤하면 다음 기사 */
+#reader{position:fixed;inset:0;background:var(--bg);z-index:30;display:none;flex-direction:column}#reader.show{display:flex}
+.rtop{display:flex;justify-content:space-between;align-items:center;padding:calc(8px + env(safe-area-inset-top)) 14px 8px;border-bottom:1px solid var(--ink);font-size:13px}
+.rtop button{border:1px solid var(--rule);background:none;padding:3px 12px;border-radius:2px}
+#rc{flex:1;min-height:0;overflow-y:auto;scroll-snap-type:y proximity;-webkit-overflow-scrolling:touch}
+.rs{min-height:100%;scroll-snap-align:start;padding:16px 18px calc(18px + env(safe-area-inset-bottom));max-width:680px;margin:0 auto;display:flex;flex-direction:column}
+.rs+.rs{border-top:3px double var(--ink)}
+.rh{font:900 27px/1.4 var(--serif);margin:6px 0 10px}
+.rsum{font-size:18px;line-height:1.85;margin:6px 0 12px}
+.rbt{border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}.rbt p{font-size:17.5px;line-height:1.9;margin:0 0 14px}
+.rs .act{margin-top:auto;padding-top:18px}
+#shs{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;z-index:40}#shs.show{display:flex}
+.shc{background:var(--bg);width:100%;max-width:520px;margin:0 auto;padding:16px 16px calc(16px + env(safe-area-inset-bottom));border-top:4px double var(--ink);display:flex;flex-direction:column;gap:8px}
+.shc h3{margin:0 0 4px;font:700 15px/1.4 var(--serif)}
+/* 기록 */
 .lh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:16px}
 .lh h2{font:900 26px var(--serif);margin:0}.lh p{margin:2px 0;font:700 16px var(--serif)}
 .stamp{width:44px;height:44px;display:inline-block;transform:rotate(var(--r,-8deg))}.stamp.big{width:76px;height:76px}
@@ -77,25 +95,17 @@ nav.bar button.on{color:var(--ink);font-weight:700}nav.bar svg{width:20px;height
 .scrap::before{content:"";position:absolute;top:-7px;left:50%;width:54px;height:16px;margin-left:-27px;background:rgba(214,196,150,.8);transform:rotate(-4deg);z-index:1}
 .scrap:nth-child(even)::before{left:18%;transform:rotate(5deg)}
 .scrap h4{font:700 13.5px/1.4 var(--serif);margin:0 0 4px}.scrap .mt{color:#6d665a}.scrap p{font-size:12.5px;line-height:1.6;margin:6px 0 0}
-mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);color:#1c1b19;padding:0 1px}
 .bars{display:flex;gap:8px;align-items:flex-end;height:150px;border-bottom:2px solid var(--ink);margin-top:12px;padding:0 4px}
 .bw{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:11px}
 .bar{width:100%;border:1.5px solid var(--ink);background:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 6px)}
 .bl{display:flex;gap:8px;padding:4px 4px 0}.bl span{flex:1;text-align:center;font-size:11px;color:var(--sub)}
-.btn{border:1px solid var(--ink);background:none;padding:6px 12px;font-size:13px}.btn.pri{background:var(--ink);color:var(--bg)}
+.btn{border:1px solid var(--ink);background:none;padding:8px 14px;font-size:14px}.btn.pri{background:var(--ink);color:var(--bg)}
 .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.sec p{font-size:13px;color:var(--sub);margin:6px 0}
-#modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
-#modal.show{opacity:1;pointer-events:auto}
-.sheet{background:#F5F5F5;color:#1c1b19;width:100%;max-width:640px;max-height:88vh;overflow:auto;padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-top:4px double #1c1b19;transform:translateY(40px) scale(.98);transition:transform .28s ease}
-#modal.show .sheet{transform:none}
-.sheet h2{font:900 21px/1.4 var(--serif);margin:4px 0 4px}.sheet .mt{color:#6d665a}
-.s{cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
-.hint{font-size:12px;color:#6d665a;border:1px dashed #b9ae95;padding:6px 8px;margin:10px 0}
 @media(min-width:720px){
- .title{font-size:60px}.lead h2{font-size:36px}
+ .title{font-size:62px}.cd h2{font-size:36px}
  .home{display:grid;grid-template-columns:1.7fr 1fr}
  .home>section{padding:0 22px;border-left:1px solid var(--ink)}.home>section:first-child{border:0;padding-left:0}.home>section:last-child{padding-right:0}
- .sb{grid-template-columns:repeat(3,1fr)}.sm{font-size:15px}
+ .sb{grid-template-columns:repeat(3,1fr)}
 }
 </style>
 </head>
@@ -115,16 +125,20 @@ mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,
     <div class="stats"><div class="stat"><b id="sMonth">0</b><span>이번 달 읽은 날</span></div><div class="stat"><b id="sStreak">0</b><span>연속 읽기</span></div><div class="stat"><b id="sToday">0</b><span>오늘 방문</span></div></div>
     <div class="mnav"><button id="prev">‹</button><span id="mTitle"></span><button id="next">›</button></div>
     <div class="grid" id="cal"></div>
-    <div class="ch">나의 스크랩북</div><p class="note" style="text-align:center">조각을 누르면 기사가 펼쳐져요 · 기사에서 문장을 두 번 탭하면 형광펜</p><div class="sb" id="sb"></div>
+    <div class="ch">나의 스크랩북</div><p class="note" style="text-align:center">조각을 누르면 기사가 열려요 · 기사 문장을 두 번 탭하면 형광펜(부분 스크랩)</p><div class="sb" id="sb"></div>
     <div class="ch">분야별 구독 패턴 <span class="mt">(최근 30일 읽은 기사)</span></div><div id="pat"></div>
     <div class="ch">푸시 알림</div>
     <div class="sec"><p id="pushState"></p><div class="row"><button class="btn pri" id="pushOn">푸시 켜기</button></div>
       <div class="row" id="pushCopy" hidden><button class="btn" id="cpSub">① PUSH_SUBSCRIPTION 복사</button><button class="btn" id="cpKey">② VAPID_PRIVATE_KEY 복사</button></div>
       <p>복사한 값은 GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret에 <b>이름 그대로</b> 저장하세요. 매일 아침 7:30에 푸시가 와요.</p></div>
+    <div class="ch">기록 백업</div>
+    <div class="sec"><p>읽은 날·스크랩은 이 기기에만 저장돼요. 앱 데이터를 지우면 사라지니 가끔 백업해 두세요.</p>
+      <div class="row"><button class="btn" id="bkOut">백업 복사</button><button class="btn" id="bkIn">백업 붙여넣기(복원)</button></div></div>
     <div class="ch">수집 상태</div><div class="sec" id="statBox"></div>
   </section>
 </main>
-<div id="modal"><div class="sheet" id="sheet"></div></div>
+<div id="reader"><div class="rtop"><button id="rclose">✕ 닫기</button><span id="rpos"></span><span style="width:60px"></span></div><div id="rc"></div></div>
+<div id="shs"><div class="shc"><h3 id="sht"></h3><button class="btn pri" id="shCard">카드 이미지로 공유</button><button class="btn" id="shLink">링크 공유</button><button class="btn" id="shX">닫기</button></div></div>
 <nav class="bar">
   <button id="tHome" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-6h4v6"/></svg>홈</button>
   <button id="tNews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h11v16H7a2 2 0 0 1-2-2z"/><path d="M16 8h3v10a2 2 0 0 1-2 2"/><path d="M8 8h5M8 12h5M8 16h3"/></svg>뉴스</button>
@@ -137,13 +151,16 @@ const safe = u => /^https?:\/\//.test(u || "") ? u : "#";
 const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}}, set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 const CATS = ["정치","경제","사회","국제","과학·IT","문화·생활","주식"], label = c => c === "미분류" ? "기타" : c;
 const when = iso => { const d = new Date(iso), t = d.toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit",hour12:false}); return d.toDateString() === new Date().toDateString() ? t : `${d.getMonth()+1}/${d.getDate()} ${t}`; };
-const sents = t => ((t || "").match(/[^.!?。]+[.!?。]?\s*/g) || []).map(s => s.trim()).filter(Boolean);
+const sents = t => (String(t || "").match(/.+?(?:[.!?。]+["”')\]]*(?=\s|$)|$)/gs) || []).map(s => s.trim()).filter(Boolean);   // "2.5%" 같은 소수점에서는 끊지 않음
 const nd = new Date(); $("#date").textContent = `${nd.getFullYear()}년 ${nd.getMonth()+1}월 ${nd.getDate()}일 ${"일월화수목금토"[nd.getDay()]}요일`;
+if(navigator.storage && navigator.storage.persist) navigator.storage.persist();   // 브라우저가 기록을 임의로 지우지 않도록 요청
 
 /* ---------- 기록 (이 기기 localStorage) ---------- */
 const key = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
 const getStats = () => { try { return JSON.parse(store.get("stats") || "{}"); } catch(e) { return {}; } };
 function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:0, r:0}; fn(s[k]); store.set("stats", JSON.stringify(s)); }
+const RESTORE_DAYS = ["2026-10-10", "2026-10-11"];   // 데이터 삭제로 사라진 완독일 복구(이미 있으면 그대로 둠)
+(function(){ const s = getStats(); let ch = false; for(const d of RESTORE_DAYS){ const o = s[d] = s[d] || {v:0, r:0}; if(!o.r){ o.r = 1; ch = true; } } if(ch) store.set("stats", JSON.stringify(s)); })();
 const issueNo = () => Object.values(getStats()).filter(s => s.r).length;            // 제 N호 = 신문을 읽은 누적 일수
 const renderIssue = () => { $("#issue").textContent = `제${issueNo().toLocaleString("ko-KR")}호`; };
 function markRead(id, cat){
@@ -163,9 +180,34 @@ document.addEventListener("visibilitychange", () => {
   load();
 });
 
-/* ---------- 스크랩북 ---------- */
+/* ---------- 스크랩/하이라이트 ---------- */
 const getScraps = () => { try { return JSON.parse(store.get("scraps") || "[]"); } catch(e) { return []; } };
 const setScraps = s => store.set("scraps", JSON.stringify(s));
+const snap = o => { const {others, why, ...r} = o; return r; };
+function toggleFull(aid){            // 전체 스크랩
+  const o = objOf(aid); if(!o) return; let l = getScraps(), s = l.find(x => x.id === aid);
+  if(!s) l.unshift({...snap(o), hl: [], full: true, at: Date.now()});
+  else if(s.full){ s.full = false; if(!(s.hl || []).length) l = l.filter(x => x.id !== aid); }
+  else s.full = true;
+  setScraps(l); syncScrapUI();
+}
+function toggleHL(aid, text){        // 문장 하이라이트 = 부분 스크랩
+  const o = objOf(aid); if(!o) return; let l = getScraps(), s = l.find(x => x.id === aid);
+  if(!s){ s = {...snap(o), hl: [], full: false, at: Date.now()}; l.unshift(s); }
+  s.hl = (s.hl || []).includes(text) ? s.hl.filter(x => x !== text) : [...(s.hl || []), text];
+  if(!s.hl.length && !s.full) l = l.filter(x => x.id !== aid);
+  setScraps(l); syncScrapUI(); navigator.vibrate && navigator.vibrate(15);
+}
+function syncScrapUI(){
+  const m = Object.fromEntries(getScraps().map(s => [s.id, s]));
+  document.querySelectorAll(".scbtn").forEach(b => { const s = m[b.dataset.a], p = s && (s.hl || []).length;
+    b.textContent = s && s.full ? "★ 스크랩됨" : p ? "☆ 부분 스크랩됨" : "☆ 스크랩"; b.classList.toggle("on", !!(s && (s.full || p))); });
+  document.querySelectorAll(".s").forEach(e => { const s = m[e.dataset.id]; e.classList.toggle("hl", !!(s && (s.hl || []).includes(e.textContent.trim()))); });
+  if(!$("#vLog").hidden) renderScraps();
+}
+let lastTap = {el: null, t: 0};
+
+/* ---------- 기록 탭 ---------- */
 function stampSVG(t1, t2, color){ return `<svg class="stamp" viewBox="0 0 40 40" style="color:${color}"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="20" cy="20" r="14.5" fill="none" stroke="currentColor" stroke-width=".9"/><text x="20" y="${t2 ? 18 : 24}" text-anchor="middle" font-size="${t2 ? 8 : 11}" font-weight="700" fill="currentColor" font-family="serif">${t1}</text>${t2 ? `<text x="20" y="28" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor" font-family="serif">${t2}</text>` : ""}</svg>`; }
 const INK = ["#b4493f","#34608a","#4a4a46"];
 let cur = new Date(); cur.setDate(1);
@@ -188,11 +230,11 @@ function renderLog(){
   renderScraps(); renderPattern(); renderStatus();
 }
 function renderScraps(){
-  const sc = getScraps();
+  const sc = getScraps(); CTX.scrap = sc.map(s => s.id);
   $("#sb").innerHTML = sc.length ? sc.map((s, i) => { const h = s.hl || [];
-    return `<div class="scrap" data-i="${i}" style="--r:${(i * 53 % 5) - 2}deg"><div class="in"><h4>${esc(s.title)}</h4><div class="mt">${esc(s.source)} · ${esc(label(s.category || ""))}</div>
+    return `<div class="scrap" data-open="scrap:${i}" style="--r:${(i * 53 % 5) - 2}deg"><div class="in"><h4>${esc(s.title)}</h4><div class="mt">${esc(s.source)} · ${esc(label(s.category || ""))} · ${s.full ? "전체" : "부분"}</div>
       <p>${h.length ? h.slice(0, 3).map(t => `<mark>${esc(t)}</mark>`).join(" ") : esc((s.summary || "").slice(0, 90))}</p></div></div>`; }).join("")
-    : '<p class="empty" style="grid-column:1/-1">아직 스크랩한 기사가 없어요. 기사 옆 "상세·스크랩"에서 문장을 두 번 탭해 보세요.</p>';
+    : '<p class="empty" style="grid-column:1/-1">아직 스크랩한 기사가 없어요. 기사 카드의 "스크랩"을 누르거나 문장을 두 번 탭해 보세요.</p>';
 }
 function renderPattern(){
   const st = getStats(), tot = {}; let all = 0;
@@ -203,55 +245,120 @@ function renderPattern(){
 }
 $("#prev").onclick = () => { cur.setMonth(cur.getMonth() - 1); renderLog(); };
 $("#next").onclick = () => { cur.setMonth(cur.getMonth() + 1); renderLog(); };
+$("#bkOut").onclick = () => copy(JSON.stringify({stats: getStats(), scraps: getScraps()}));
+$("#bkIn").onclick = () => {
+  const t = prompt("백업한 내용을 붙여넣으세요"); if(!t) return;
+  try{ const d = JSON.parse(t), s = getStats();
+    for(const k in (d.stats || {})){ const a = s[k] || {}, b = d.stats[k];
+      s[k] = {...b, ...a, v: Math.max(a.v || 0, b.v || 0), r: (a.r || b.r) ? 1 : 0, a: [...new Set([...(a.a || []), ...(b.a || [])])], c: {...(b.c || {}), ...(a.c || {})}, n: {...(b.n || {}), ...(a.n || {})}}; }
+    store.set("stats", JSON.stringify(s)); const ids = new Set(getScraps().map(x => x.id));
+    setScraps([...getScraps(), ...(d.scraps || []).filter(x => !ids.has(x.id))]); renderLog(); renderIssue(); alert("복원했어요");
+  }catch(e){ alert("형식이 올바르지 않아요"); }
+};
 
-/* ---------- 기사 상세 모달 + 더블탭 형광펜 ---------- */
-let R = null, lastTap = {el: null, t: 0};
-function openReader(o){ R = o; drawReader(); $("#modal").classList.add("show"); }
-const closeReader = () => { $("#modal").classList.remove("show"); if($("#vLog").hidden === false) renderScraps(); };
-function drawReader(){
-  const sc = getScraps().find(s => s.id === R.id), hl = sc ? sc.hl || [] : [], ss = sents(R.summary);
-  $("#sheet").innerHTML = `<div class="row" style="justify-content:space-between;margin:0"><span class="mt">${esc(label(R.category || ""))}</span><button class="btn" id="rx">닫기</button></div>
-    <h2>${esc(R.title)}</h2><div class="mt">${esc(R.source)} · ${when(R.published_at)}${R.src ? `<span class="tag">${R.src === "ai" ? "AI 요약" : "매체 제공 요약"}</span>` : ""}</div>
-    <div class="hint">문장을 <b>두 번 탭</b>하면 형광펜이 칠해지고 스크랩북에 저장돼요.</div>
-    <div class="sm2" id="rb">${ss.length ? ss.map(t => `<span class="s${hl.includes(t) ? " hl" : ""}">${esc(t)}</span> `).join("") : '<span class="mt">제공된 요약이 없어요. 원문에서 확인해 주세요.</span>'}</div>
-    <div class="row"><button class="btn pri" id="rsc">${sc ? "스크랩 해제" : "스크랩"}</button><a class="btn al" data-id="${esc(R.id)}" data-cat="${esc(R.category)}" href="${esc(safe(R.url))}" target="_blank" rel="noopener" style="text-decoration:none">원문 보기 ↗</a></div>`;
-  $("#rx").onclick = closeReader;
-  $("#rsc").onclick = () => { let l = getScraps(); l = l.some(s => s.id === R.id) ? l.filter(s => s.id !== R.id) : [{...R, hl: [], at: Date.now()}, ...l]; setScraps(l); drawReader(); };
-  $("#rb").onclick = e => {
-    const el = e.target.closest(".s"); if(!el) return;
-    const now = Date.now(), dbl = lastTap.el === el && now - lastTap.t < 350; lastTap = {el, t: now};
-    if(!dbl) return;
-    const t = el.textContent.trim(); let l = getScraps(), s = l.find(x => x.id === R.id);
-    if(!s){ s = {...R, hl: [], at: Date.now()}; l.unshift(s); }
-    s.hl = (s.hl || []).includes(t) ? s.hl.filter(x => x !== t) : [...(s.hl || []), t];
-    setScraps(l); el.classList.toggle("hl"); $("#rsc").textContent = "스크랩 해제"; navigator.vibrate && navigator.vibrate(15);
-  };
-}
-$("#modal").addEventListener("click", e => { if(e.target.id === "modal") closeReader(); });
-$("#sb").addEventListener("click", e => { const c = e.target.closest(".scrap"); if(c) openReader(getScraps()[+c.dataset.i]); });
-
-/* ---------- 홈/뉴스 ---------- */
-let D = null, A = {}, G = {}, shown = {}, catSel = "정치";
-const artLink = a => `<a class="al" data-id="${esc(a.id)}" data-cat="${esc(a.category)}" href="${esc(safe(a.url))}" target="_blank" rel="noopener">${esc(a.title)}</a>`;
-const metaOf = (g, a) => `${esc(a.source)} · ${when(a.published_at)}${g.source_count > 1 ? ` · ${g.source_count}개 언론사` : ""}${g.status ? `<span class="tag">${esc(g.status)}</span>` : ""}`;
-const detailBtn = (a, g) => `<button class="dt" data-a="${esc(a.id)}" data-g="${esc(g.id)}">상세·스크랩</button>`;
+/* ---------- 기사 데이터 → 화면용 객체 ---------- */
+let D = null, A = {}, G = {}, GBY = {}, CTX = {}, WHY = {}, shown = {}, catSel = "정치";
 const complete = t => /[.!?。”"')\]다요]$/.test((t || "").trim());      // 중간에 잘린 매체 요약은 숨김
-const imgTag = (g, cls) => g.image ? `<img class="${cls}" src="${esc(safe(g.image))}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
-const sumOf = g => (g.summary_src === "ai" || (g.summary && complete(g.summary)))
-  ? `<p class="sm">${esc(g.summary)}<span class="tag">${g.summary_src === "ai" ? "AI 요약" : "매체 제공"}</span></p>` : "";   // 요약이 없으면 제목만
-function related(g){
-  const rest = g.article_ids.filter(i => i !== g.rep_id).map(i => A[i]).filter(Boolean).sort((x, y) => new Date(y.published_at) - new Date(x.published_at));
-  return rest.length ? `<details><summary>관련 기사 ${rest.length}건 (언론사별 원문)</summary><ul class="rel">${rest.map(a => `<li>${artLink(a)} <span class="mt">${esc(a.source)} · ${when(a.published_at)}</span></li>`).join("")}</ul></details>` : "";
+function objOf(aid){
+  const a = A[aid], g = GBY[aid];
+  if(!a || !g) return getScraps().find(s => s.id === aid) || null;     // 이번 브리핑에 없으면 저장해 둔 사본 사용
+  const isRep = g.rep_id === aid, sm = (isRep ? g.summary : a.summary) || "", ok = (isRep && g.summary_src === "ai") || complete(sm);
+  const bs = [a, ...g.article_ids.map(i => A[i])].find(x => x && x.body && x.body.length);   // 본문은 같은 사건의 기사 중 추출에 성공한 것
+  return {id: a.id, title: a.title, source: a.source, url: a.url, published_at: a.published_at, category: a.category, image: a.image || (isRep ? g.image : "") || "",
+    summary: ok ? sm : "", src: ok ? (isRep && g.summary_src === "ai" ? "ai" : "feed") : null, status: g.status || null, nsrc: g.source_count, why: WHY[g.id] || "",
+    body: bs ? bs.body : [], body_src: bs ? bs.source : "", body_more: bs ? !!bs.body_more : false,
+    others: g.article_ids.filter(i => i !== aid).map(i => A[i]).filter(Boolean).map(x => ({title: x.title, source: x.source, url: x.url, published_at: x.published_at}))};
 }
+const sentsHTML = (id, t) => sents(t).map(x => `<span class="s" data-id="${esc(id)}">${esc(x)}</span>`).join(" ");
+const metaOf = o => `${esc(o.source)} · ${when(o.published_at)}${o.nsrc > 1 ? ` · ${o.nsrc}개 언론사` : ""}${o.status ? `<span class="tag">${esc(o.status)}</span>` : ""}`;
+const sumTag = o => `<span class="tag">${o.src === "ai" ? "AI 요약" : "매체 제공"}</span>`;
+const imgBlock = (o, open) => o.image
+  ? `<div class="imw" ${open}><img src="${esc(safe(o.image))}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('nm');this.remove()"><span class="cat">${esc(label(o.category || "미분류"))}</span></div>`
+  : `<div class="imw nm" ${open}><span class="cat">${esc(label(o.category || "미분류"))}</span></div>`;     // 이미지가 없어도 같은 자리에 분야 표시
+const actHTML = o => `<div class="act"><button class="scbtn" data-a="${esc(o.id)}">☆ 스크랩</button><button class="shbtn" data-a="${esc(o.id)}">공유</button><a class="al" data-id="${esc(o.id)}" data-cat="${esc(o.category)}" href="${esc(safe(o.url))}" target="_blank" rel="noopener">원문 ↗</a></div>`;
+function cardHTML(name, i, o, opt = {}){
+  const open = `data-open="${name}:${i}"`, H = opt.lead ? "h2" : "h3";
+  return `<article class="cd">${imgBlock(o, open)}<div class="hr">${opt.no ? `<span class="no">${opt.no}</span>` : ""}<${H}><a href="#" class="ot" ${open}>${esc(o.title)}</a></${H}></div>
+    <div class="mt">${metaOf(o)}${opt.top ? '<span class="tag b">TOP</span>' : ""}</div>${o.summary ? `<p class="sm">${sentsHTML(o.id, o.summary)}${sumTag(o)}</p>` : ""}${actHTML(o)}</article>`;
+}
+
+/* ---------- 집중형 읽기 화면: 기사 하나 = 한 화면, 스크롤하면 다음 기사 ---------- */
+let RD = {n: 0}, rdObs = null;
+function readerSection(id, k){
+  const o = objOf(id); if(!o) return "";
+  const body = (o.body || []).map(p => `<p>${sentsHTML(o.id, p)}</p>`).join("");
+  return `<section class="rs" data-k="${k}" data-id="${esc(o.id)}">${imgBlock(o, "")}<div class="mt">${metaOf(o)}</div><h1 class="rh">${esc(o.title)}</h1>
+    ${o.summary ? `<p class="rsum">${sentsHTML(o.id, o.summary)}${sumTag(o)}</p>` : ""}
+    ${body ? `<div class="rbt">${body}<p class="mt">${o.body_more ? `… 이하는 원문에서 이어서 읽을 수 있어요` : "원문 본문"} · ${esc(o.body_src)} (광고·댓글 제외)</p></div>` : ""}
+    ${o.others && o.others.length ? `<details><summary>같은 사건을 다룬 다른 기사 ${o.others.length}건</summary><ul class="rel">${o.others.map(x => `<li><a href="${esc(safe(x.url))}" target="_blank" rel="noopener">${esc(x.title)}</a> <span class="mt">${esc(x.source)} · ${when(x.published_at)}</span></li>`).join("")}</ul></details>` : ""}
+    ${o.why ? `<div class="why">${esc(o.why)}</div>` : ""}${actHTML(o)}</section>`;
+}
+function openReader(name, i){
+  const ids = CTX[name] || []; if(!ids.length) return;
+  RD = {name, i, n: ids.length}; const rc = $("#rc");
+  rc.innerHTML = ids.map(readerSection).join("");
+  $("#reader").classList.add("show"); document.body.style.overflow = "hidden"; syncScrapUI();
+  const secs = [...rc.querySelectorAll(".rs")]; if(secs[i]) secs[i].scrollIntoView({block: "start"});
+  if(rdObs) rdObs.disconnect();
+  rdObs = new IntersectionObserver(es => es.forEach(e => { if(!e.isIntersecting) return;
+    $("#rpos").textContent = `${+e.target.dataset.k + 1} / ${RD.n}`; const o = objOf(e.target.dataset.id); if(o) markRead(o.id, o.category); }), {root: rc, rootMargin: "-45% 0px -45% 0px"});
+  secs.forEach(s => rdObs.observe(s)); $("#rpos").textContent = `${i + 1} / ${RD.n}`;
+  history.pushState({r: 1}, "");
+}
+function hideReader(){ $("#reader").classList.remove("show"); document.body.style.overflow = ""; if(rdObs) rdObs.disconnect(); if(!$("#vLog").hidden) renderScraps(); }
+$("#rclose").onclick = () => { if(history.state && history.state.r) history.back(); else hideReader(); };
+window.addEventListener("popstate", () => { if($("#reader").classList.contains("show")) hideReader(); });
+
+/* ---------- 공유: 카드 이미지 / 링크 ---------- */
+let SH = null;
+function openShare(aid){ SH = objOf(aid); if(!SH) return; $("#sht").textContent = SH.title; $("#shs").classList.add("show"); }
+const closeShare = () => $("#shs").classList.remove("show");
+async function cardBlob(o){
+  const hl = (getScraps().find(s => s.id === o.id) || {}).hl || [];
+  try{ await Promise.all([document.fonts.load("48px Yeongwol"), document.fonts.load('700 50px "Noto Serif KR"'), document.fonts.load('400 36px "Noto Serif KR"')]); }catch(e){}
+  const W = 1080, P = 88, SER = '"Noto Serif KR","Nanum Myeongjo",AppleMyungjo,Georgia,serif', c = document.createElement("canvas"), x = c.getContext("2d");
+  const wrap = (t, font, mw) => { x.font = font; const out = []; let l = ""; for(const ch of t){ if(x.measureText(l + ch).width > mw && l){ out.push(l); l = ch === " " ? "" : ch; } else l += ch; } if(l) out.push(l); return out; };
+  const tF = `700 50px ${SER}`, bF = `400 36px ${SER}`, tl = wrap(o.title, tF, W - 2 * P);
+  let blocks = (hl.length ? hl : (o.summary ? [o.summary] : [])).map(t => wrap(t, bF, W - 2 * P)), left = hl.length ? 14 : 9;
+  blocks = blocks.map(b => { const r = b.slice(0, Math.max(left, 0)); if(b.length > r.length && r.length) r[r.length - 1] = r[r.length - 1].slice(0, -1) + "…"; left -= r.length; return r; }).filter(b => b.length);
+  const nl = blocks.reduce((n, b) => n + b.length, 0), H = Math.max(1080, 300 + tl.length * 74 + (nl ? 60 : 0) + nl * 60 + blocks.length * 22 + 170);
+  c.width = W; c.height = H;
+  x.fillStyle = "#F5F5F5"; x.fillRect(0, 0, W, H); x.fillStyle = "#1c1b19"; x.textAlign = "center"; x.textBaseline = "alphabetic";
+  x.font = '66px Yeongwol, "Noto Serif KR", serif'; x.fillText("The Press", W / 2, 128);
+  x.fillRect(P, 160, W - 2 * P, 4); x.fillRect(P, 170, W - 2 * P, 1.5);
+  x.font = `26px ${SER}`; x.fillStyle = "#6d665a"; x.fillText(`${label(o.category || "")} · ${new Date(o.published_at).toLocaleDateString("ko-KR", {year: "numeric", month: "long", day: "numeric"})}`, W / 2, 214);
+  x.textAlign = "left"; let y = 300; x.fillStyle = "#1c1b19"; x.font = tF; tl.forEach(l => { x.fillText(l, P, y); y += 74; });
+  if(nl){ y += 6; x.fillStyle = "#cdc3ae"; x.fillRect(P, y, W - 2 * P, 2); y += 56; x.font = bF;
+    blocks.forEach(b => { b.forEach(l => { if(hl.length){ x.fillStyle = "#f3df7a"; x.fillRect(P - 6, y - 36, x.measureText(l).width + 12, 50); } x.fillStyle = "#1c1b19"; x.fillText(l, P, y); y += 60; }); y += 22; }); }
+  x.fillStyle = "#6d665a"; x.font = `26px ${SER}`; x.fillText(`${o.source}${o.url ? " · " + o.url.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] : ""}`, P, H - 70);
+  x.textAlign = "right"; x.font = '36px Yeongwol, "Noto Serif KR", serif'; x.fillText("The Press", W - P, H - 66);
+  return await new Promise(r => c.toBlob(r, "image/png"));
+}
+async function shareCard(o){
+  const blob = await cardBlob(o), file = new File([blob], "the-press.png", {type: "image/png"});
+  if(navigator.canShare && navigator.canShare({files: [file]})){ try{ await navigator.share({files: [file], title: o.title, text: o.title + "\n" + o.url}); return; }catch(e){ if(e.name === "AbortError") return; } }
+  const u = URL.createObjectURL(blob), a = document.createElement("a"); a.href = u; a.download = "the-press.png"; a.click(); setTimeout(() => URL.revokeObjectURL(u), 8000);   // 공유를 지원하지 않으면 이미지 저장
+}
+async function shareLink(o){
+  if(navigator.share){ try{ await navigator.share({title: o.title, text: o.title, url: o.url}); return; }catch(e){ if(e.name === "AbortError") return; } }
+  copy(o.url);
+}
+$("#shCard").onclick = async () => { const o = SH; closeShare(); if(o) await shareCard(o); };
+$("#shLink").onclick = async () => { const o = SH; closeShare(); if(o) await shareLink(o); };
+$("#shX").onclick = closeShare; $("#shs").addEventListener("click", e => { if(e.target.id === "shs") closeShare(); });
+
+/* ---------- 전역 클릭: 문장 더블탭 하이라이트, 열기, 스크랩, 공유 ---------- */
 document.addEventListener("click", e => {
+  const s = e.target.closest(".s");
+  if(s){ const now = Date.now(), dbl = lastTap.el === s && now - lastTap.t < 350; lastTap = {el: s, t: now}; if(dbl) toggleHL(s.dataset.id, s.textContent.trim()); return; }
+  const op = e.target.closest("[data-open]"); if(op){ e.preventDefault(); const [n, i] = op.dataset.open.split(":"); openReader(n, +i); return; }
+  const sc = e.target.closest(".scbtn"); if(sc){ toggleFull(sc.dataset.a); return; }
+  const sh = e.target.closest(".shbtn"); if(sh){ openShare(sh.dataset.a); return; }
   const l = e.target.closest("a.al"); if(l) markRead(l.dataset.id, l.dataset.cat);
-  const d = e.target.closest(".dt");
-  if(d){ const a = A[d.dataset.a], g = G[d.dataset.g]; markRead(a.id, a.category);
-    const isRep = g.rep_id === a.id, sm = (isRep ? g.summary : a.summary) || "", ok = (isRep && g.summary_src === "ai") || complete(sm);
-    openReader({id: a.id, title: a.title, source: a.source, url: a.url, published_at: a.published_at, category: a.category, summary: ok ? sm : "", src: ok ? (g.rep_id === a.id && g.summary_src === "ai" ? "ai" : "feed") : null}); }
-  const m = e.target.closest(".more"); if(m){ shown[catSel] = (shown[catSel] || 5) + 10; renderCatList(); }
-  const c = e.target.closest("[data-go]"); if(c){ catSel = c.dataset.go; show("news"); }
+  const g = e.target.closest("[data-go]"); if(g){ catSel = g.dataset.go; show("news"); }
 });
+
+/* ---------- 홈 ---------- */
 const box = (t, d) => `<div class="banner"><b>${t}</b><p>${d}</p></div>`;
 function renderBanner(st){
   const bad = (st.feeds || []).filter(x => !x.ok);
@@ -260,68 +367,94 @@ function renderBanner(st){
   if(st.state === "pending") return box("아직 수집 전이에요", "GitHub Actions에서 update-briefing을 실행하면 실제 뉴스가 채워져요.");
   if(st.state === "failed") return box("뉴스 수집에 실패했어요", "샘플이나 가짜 기사로 대체하지 않아요. 잠시 후 새로고침해 주세요." + last + list);
   if(st.state === "empty") return box("수집된 기사가 없어요", "뉴스 피드는 응답했지만 최근 기사가 없어요." + list);
-  if(st.state === "partial") return `<p class="note">일부 출처 ${bad.length}곳은 수집하지 못했어요.</p>${list}`;
   return "";
-}
-function renderStatus(){
-  const box_ = $("#statBox"), st = D && D.status; if(!box_) return;
-  if(!st){ box_.innerHTML = "<p>아직 불러온 상태 정보가 없어요.</p>"; return; }
-  const feeds = st.feeds || [], bad = feeds.filter(x => !x.ok), ko = {ok:"정상", partial:"일부 출처 수집 실패", failed:"수집 실패", empty:"기사 없음", pending:"수집 전"}[st.state] || st.state;
-  box_.innerHTML = `<p>수집 상태: <b>${esc(ko)}</b>${st.message ? " · " + esc(st.message) : ""}</p>
-    <p>수집 기사 ${st.article_count || 0}건${feeds.length ? ` · 출처 ${feeds.length - bad.length}/${feeds.length}곳 성공` : ""}${st.last_success_at ? ` · 마지막 성공 ${when(st.last_success_at)}` : ""}</p>
-    ${bad.length ? `<details><summary>실패한 출처 ${bad.length}곳</summary><ul class="rel">${bad.map(x => `<li>${esc(x.name)} <span class="mt">${esc(x.error || "")}</span></li>`).join("")}</ul></details>` : ""}${sumNote(st.summary)}`;
 }
 function sumNote(m){
   if(!m || m.state === "none") return "";
   if(m.state === "no_key") return '<p class="note">AI 요약: GEMINI_API_KEY가 설정되지 않아 건너뛰었어요.</p>';
   return `<p class="note">AI 요약: 신규 ${m.new}건 · 저장된 요약 ${m.cached}건${m.no_body ? ` · 본문을 읽을 수 없는 기사 ${m.no_body}건` : ""}${m.failed ? ` · API 실패 ${m.failed}건 (${esc(m.error || "원인 불명")})` : ""}</p>`;
 }
+function renderStatus(){
+  const b = $("#statBox"), st = D && D.status; if(!b) return;
+  if(!st){ b.innerHTML = "<p>아직 불러온 상태 정보가 없어요.</p>"; return; }
+  const feeds = st.feeds || [], bad = feeds.filter(x => !x.ok), ko = {ok:"정상", partial:"일부 출처 수집 실패", failed:"수집 실패", empty:"기사 없음", pending:"수집 전"}[st.state] || st.state;
+  b.innerHTML = `<p>수집 상태: <b>${esc(ko)}</b>${st.message ? " · " + esc(st.message) : ""}</p>
+    <p>수집 기사 ${st.article_count || 0}건${feeds.length ? ` · 출처 ${feeds.length - bad.length}/${feeds.length}곳 성공` : ""}${st.last_success_at ? ` · 마지막 성공 ${when(st.last_success_at)}` : ""}</p>
+    ${bad.length ? `<details><summary>실패한 출처 ${bad.length}곳</summary><ul class="rel">${bad.map(x => `<li>${esc(x.name)} <span class="mt">${esc(x.error || "")}</span></li>`).join("")}</ul></details>` : ""}${sumNote(st.summary)}`;
+}
 let endObs = null, endTimer = null;
-function watchEnd(all){   // TOP 영역 끝까지 스크롤하면 그날 기사를 읽은 것으로 기록
+function watchEnd(){   // TOP 영역 끝까지 스크롤하면 그날 기사를 읽은 것으로 기록
   if(endObs) endObs.disconnect(); clearTimeout(endTimer);
-  const el = $("#topEnd"); if(!el || !all.length || !("IntersectionObserver" in window)) return;
+  const el = $("#topEnd"), ids = CTX.top || []; if(!el || !ids.length || !("IntersectionObserver" in window)) return;
   endObs = new IntersectionObserver(es => es.forEach(e => { clearTimeout(endTimer);
-    if(e.isIntersecting) endTimer = setTimeout(() => { if(!document.hidden) all.forEach(({g}) => { const a = A[g.rep_id]; markRead(a.id, a.category); }); }, 700); }));
+    if(e.isIntersecting) endTimer = setTimeout(() => { if(!document.hidden) ids.forEach(id => { const o = objOf(id); if(o) markRead(o.id, o.category); }); }, 700); }));
   endObs.observe(el);
 }
 function renderHome(){
-  const t = D.top, all = t.items.map(i => ({i, g: G[i.group_id]})).filter(x => x.g && A[x.g.rep_id]), ranked = t.mode === "ranked";
+  const t = D.top, gs = t.items.map(i => G[i.group_id]).filter(g => g && A[g.rep_id]), ranked = t.mode === "ranked", by = D.by_category || {};
   if(!D.groups.length){ $("#lead").innerHTML = $("#top").innerHTML = $("#catHead").innerHTML = ""; return; }
-  if(!all.length){ $("#lead").innerHTML = ""; $("#top").innerHTML = `<div class="ch">TOP 5 기사</div><p class="empty">중요도 근거(여러 언론사 보도·노출)가 부족해 TOP 5를 만들지 않았어요. 분야별 뉴스를 확인해 보세요.</p>`; }
+  CTX.top = gs.map(g => g.rep_id);
+  if(!gs.length){ $("#lead").innerHTML = ""; $("#top").innerHTML = `<div class="ch">TOP 5 기사</div><p class="empty">중요도 근거(여러 언론사 보도·노출)가 부족해 TOP 5를 만들지 않았어요. 분야별 뉴스를 확인해 보세요.</p>`; }
   else {
-    const f = all[0], fa = A[f.g.rep_id], rest = all.slice(1);   // 1위=헤드라인, 2~6위=TOP 5(01~05)
-    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead">${imgTag(f.g, "lim")}<h2>${artLink(fa)}</h2><div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g)}${related(f.g)}</div>`;
-    $("#top").innerHTML = (rest.length ? `<div class="ch">${ranked ? "TOP 5 기사" : "주요 기사"}</div><p class="note">${esc(t.note)}</p><ol>${rest.map(({i, g}, n) => { const a = A[g.rep_id];
-      return `<li class="ti">${imgTag(g, "lim")}<div class="hr"><span class="no">${ranked ? String(n + 1).padStart(2, "0") : "·"}</span><h3>${artLink(a)}</h3></div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
-        ${sumOf(g)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${related(g)}</li>`; }).join("")}</ol>` : "") + '<div id="topEnd"></div>';
+    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div>` + cardHTML("top", 0, objOf(gs[0].rep_id), {lead: 1});
+    const rest = gs.slice(1);
+    $("#top").innerHTML = (rest.length ? `<div class="ch">${ranked ? "TOP 5 기사" : "주요 기사"}</div><p class="note">${esc(t.note)}</p>` + rest.map((g, n) => cardHTML("top", n + 1, objOf(g.rep_id), {no: ranked ? String(n + 1).padStart(2, "0") : ""})).join("") : "") + '<div id="topEnd"></div>';
   }
-  const by = D.by_category || {};
+  CTX.head = []; let hi = 0;
   $("#catHead").innerHTML = `<div class="ch">분야별 헤드라인</div>` + CATS.map(c => { const g = G[(by[c] || [])[0]], a = g && A[g.rep_id];
-    return `<div class="hd"><b data-go="${esc(c)}">[${c}] ›</b>${a ? `${artLink(a)}<div class="mt">${metaOf(g, a)}</div>` : '<span class="mt">아직 기사가 없어요</span>'}</div>`; }).join("");
-  watchEnd(all);
+    if(!a) return `<div class="hd"><b data-go="${esc(c)}">[${c}] ›</b><span class="mt">아직 기사가 없어요</span></div>`;
+    CTX.head.push(a.id); const o = objOf(a.id);
+    return `<div class="hd"><b data-go="${esc(c)}">[${c}] ›</b><a href="#" class="ot" data-open="head:${hi++}">${esc(a.title)}</a><div class="mt">${metaOf(o)}</div></div>`; }).join("");
+  syncScrapUI(); watchEnd();
 }
-function renderCatList(){
-  const by = D ? D.by_category || {} : {}, cats = CATS.concat((by["미분류"] || []).length ? ["미분류"] : []);
+
+/* ---------- 뉴스 탭: 무한 스크롤 + 좌우 스와이프로 분야 이동 ---------- */
+let catObs = null;
+const catNames = () => CATS.concat(((D && D.by_category) || {})["미분류"] && D.by_category["미분류"].length ? ["미분류"] : []);
+const catIds = () => (((D && D.by_category) || {})[catSel] || []).filter(id => G[id]);
+function renderCatList(dx){
+  const cats = catNames();
   $("#tabs").innerHTML = cats.map(c => `<button class="${c === catSel ? "on" : ""}" data-go="${esc(c)}">${label(c)}</button>`).join("");
+  const on = $("#tabs .on"); if(on) on.scrollIntoView({inline: "center", block: "nearest"});
+  if(catObs) catObs.disconnect();
   if(!D || !D.groups.length){ $("#catList").innerHTML = '<p class="empty">표시할 기사가 없어요.</p>'; return; }
-  const inTop = new Set(D.top.items.map(i => i.group_id)), ids = (by[catSel] || []).filter(id => G[id]), n = shown[catSel] || 5;
-  $("#catList").innerHTML = (ids.length ? `<ul class="lst">${ids.slice(0, n).map(id => { const g = G[id], a = A[g.rep_id];
-    return `<li>${imgTag(g, "lim")}<div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${sumOf(g)}${related(g)}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
-    (ids.length > n ? `<button class="more">더 보기 (${ids.length - n})</button>` : "");
+  const ids = catIds(), inTop = new Set((D.top.items || []).map(i => i.group_id)); CTX.cat = ids.map(id => G[id].rep_id);
+  if(!ids.length){ $("#catList").innerHTML = '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>'; return; }
+  const n = shown[catSel] = Math.min(shown[catSel] || 6, ids.length);
+  $("#catList").innerHTML = `<div id="catItems" class="${dx ? "swin" : ""}" style="--dx:${dx || 0}px">${ids.slice(0, n).map((id, i) => cardHTML("cat", i, objOf(G[id].rep_id), {top: inTop.has(id)})).join("")}</div><div class="endm" id="catEnd">${n >= ids.length ? "마지막 기사예요" : "불러오는 중…"}</div>`;
+  syncScrapUI();
+  if(n < ids.length){ catObs = new IntersectionObserver(es => { if(es.some(e => e.isIntersecting)) moreCat(); }, {rootMargin: "700px"}); catObs.observe($("#catEnd")); }
 }
+function moreCat(){   // 더 보기 버튼 없이, 끝에 가까워지면 다음 기사들을 자동으로 붙임
+  const ids = catIds(), from = shown[catSel] || 6, to = Math.min(from + 6, ids.length), inTop = new Set((D.top.items || []).map(i => i.group_id));
+  shown[catSel] = to;
+  $("#catItems").insertAdjacentHTML("beforeend", ids.slice(from, to).map((id, j) => cardHTML("cat", from + j, objOf(G[id].rep_id), {top: inTop.has(id)})).join(""));
+  syncScrapUI(); const end = $("#catEnd");
+  if(to >= ids.length){ catObs.disconnect(); end.textContent = "마지막 기사예요"; } else { catObs.unobserve(end); catObs.observe(end); }
+}
+let sx = 0, sy = 0, skipSwipe = false;
+$("#vNews").addEventListener("touchstart", e => { const t = e.touches[0]; sx = t.clientX; sy = t.clientY; skipSwipe = !!e.target.closest(".tabs"); }, {passive: true});
+$("#vNews").addEventListener("touchend", e => {
+  if(skipSwipe) return; const t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+  if(Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.6) return;
+  const cats = catNames(), i = cats.indexOf(catSel) + (dx < 0 ? 1 : -1); if(i < 0 || i >= cats.length) return;
+  catSel = cats[i]; renderCatList(dx < 0 ? 24 : -24); scrollTo(0, 0);
+}, {passive: true});
+
 function render(d){
   D = d; D.groups = d.groups || []; D.top = d.top || {items: []};
   A = Object.fromEntries((d.articles || []).map(a => [a.id, a])); G = Object.fromEntries(D.groups.map(g => [g.id, g]));
+  GBY = {}; D.groups.forEach(g => g.article_ids.forEach(i => { GBY[i] = g; }));
+  WHY = Object.fromEntries((D.top.items || []).map(i => [i.group_id, (i.reasons || []).join(" · ")]));
   $("#banner").innerHTML = D.groups.length ? "" : renderBanner(d.status || {state: "pending"});   // 기사가 있으면 홈에는 상태 문구를 띄우지 않음(기록 탭 하단에 표시)
-  renderStatus();
-  renderHome(); renderCatList(); renderStrip();
+  renderStatus(); renderHome(); renderCatList(); renderStrip();
 }
 async function load(){
   try{ const r = await fetch("briefing.json?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) throw new Error(r.status); render(await r.json()); }
   catch(e){ $("#banner").innerHTML = box("브리핑 파일을 불러오지 못했어요", "네트워크 연결을 확인하거나 저장소에 briefing.json이 있는지 확인해 주세요."); }
 }
 $("#refresh").onclick = load;
-setInterval(() => { if(!document.hidden) load(); }, 10 * 60 * 1000);
+setInterval(() => { if(!document.hidden && !$("#reader").classList.contains("show")) load(); }, 10 * 60 * 1000);
 
 function show(v){
   $("#vHome").hidden = v !== "home"; $("#vNews").hidden = v !== "news"; $("#vLog").hidden = v !== "log";
