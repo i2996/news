@@ -332,8 +332,8 @@ async function cardBlob(o){
     blocks.forEach(b => { b.forEach(l => { if(hl.length){ x.fillStyle = "#f3df7a"; x.fillRect(P - 6, y - 36, x.measureText(l).width + 12, 50); } x.fillStyle = "#1c1b19"; x.fillText(l, P, y); y += 60; }); y += 22; }); }
   x.fillStyle = "#6d665a"; x.font = `26px ${SER}`; x.fillText(`${o.source}${o.url ? " · " + o.url.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] : ""}`, P, H - 70);
   const logo = await new Promise(r => { const i = new Image(); i.onload = () => r(i); i.onerror = () => r(null); i.src = "icons/icon-192.png"; });   // 앱 아이콘(같은 출처라 캔버스 저장 가능)
-  x.textAlign = "right"; x.fillStyle = "#1c1b19"; x.font = `700 34px ${SER}`; x.fillText("신문 한 입", W - P, H - 70);
-  if(logo){ const tw = x.measureText("신문 한 입").width; x.drawImage(logo, W - P - tw - 14 - 72, H - 116, 72, 72); }
+  x.textAlign = "right"; x.fillStyle = "#6d665a"; x.font = '36px Yeongwol, "Noto Serif KR", serif'; x.fillText("신문 한 입", W - P, H - 66);   // 처음 The Press 워터마크와 같은 글꼴·크기·색
+  if(logo){ const tw = x.measureText("신문 한 입").width; x.globalAlpha = 0.65; x.drawImage(logo, W - P - tw - 12 - 44, H - 101, 44, 44); x.globalAlpha = 1; }
   return await new Promise(r => c.toBlob(r, "image/png"));
 }
 async function shareCard(o){
