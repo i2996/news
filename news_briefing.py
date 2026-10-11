@@ -97,6 +97,41 @@ def canon(u):
     return urlunsplit((p.scheme, p.netloc.lower(), p.path.rstrip("/"), urlencode(q), ""))
 
 
+_BRACKET = re.compile(r"^[\(\[【<〈《]\s*[^\)\]】>〉》]{1,25}[\)\]】>〉》]\s*")
+_BYLINE = re.compile(r"^(?:[가-힣A-Za-z0-9·]{1,10}\s+)?[가-힣]{2,4}\s*(?:선임|수석|인턴)?(?:기자|특파원|통신원)(?![가-힣])\s*(?:[=ㅣ|/]\s*)?")
+_OUTLET = re.compile(r"기자|특파원|뉴스|뉴시스|연합|일보|신문|경제|방송|미디어|통신|TV")
+
+
+def clean_summary(title, d):
+    """매체 제공 요약 정리: 제목 반복·(서울=연합뉴스)·기자 이름·사진/저작권 문구를 지우고, 잘린 끝은 마지막 완결 문장까지만 남김"""
+    t = d.strip()
+    if t.startswith(title):
+        t = t[len(title):].strip()
+    elif title[:12] in t[:len(title) + 10]:
+        return ""                                            # 제목을 변형해 반복한 설명(구글 뉴스형)은 요약이 아님
+    for _ in range(4):                                      # 앞쪽 군더더기를 반복해서 제거
+        n = t
+        t = re.sub(r"^(?:입력|등록|수정)\s*\d{4}[-.]\d{1,2}[-.]\d{1,2}\.?\s*(?:\d{1,2}:\d{2})?\s*", "", t)
+        t = _BRACKET.sub("", t)                             # (서울=연합뉴스) [속보] 【앵커】 등
+        t = _BYLINE.sub("", t)                              # 홍길동 기자 =
+        m = re.match(r"^(.{0,40}?)\s*=\s*", t)             # 서울=뉴시스 홍길동 기자 = 본문
+        if m and _OUTLET.search(m.group(1)):
+            t = t[m.end():]
+        t = t.lstrip(" -·:|ㅣ=)]】")
+        if t == n:
+            break
+    t = re.sub(r"[\(\[]\s*(?:사진|영상|자료사진|그래픽)[^\)\]]{0,40}[\)\]]", " ", t)          # (사진=OOO)
+    t = re.sub(r"\S+@\S+\.\S+", " ", t)                                                 # 이메일
+    t = re.split(r"ⓒ|무단\s*전재|저작권자|\(끝\)|▶", t)[0]                                  # 저작권/연관기사 문구 이후 삭제
+    t = re.sub(r"\s+", " ", t).strip()
+    if len(t) < 25:
+        return ""
+    if not re.search(r"[.!?。”\"')\]]$", t):                  # 잘린 끝 -> 마지막 완결 문장까지
+        k = max(t.rfind(". "), t.rfind("? "), t.rfind("! "))
+        t = t[:k + 1] if k >= 20 else ""
+    return t
+
+
 def item_image(it, raw_desc):
     """RSS 항목의 이미지: media:thumbnail/content, enclosure, 설명 속 <img> 순서"""
     for ch in it:
@@ -126,7 +161,7 @@ def parse_feed(xml, feed_src):
         if not src:
             continue
         d = clean(it.findtext("description"))
-        summ = d if len(d) >= 25 and title[:12] not in d else ""   # 제목 반복형(구글 뉴스) 설명은 요약으로 쓰지 않음
+        summ = clean_summary(title, d)
         out.append({"title": title.strip(), "url": link, "source": src.strip(), "t": t,
                     "summary": summ[:500],
                     "image": item_image(it, it.findtext("description"))})
