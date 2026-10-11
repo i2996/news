@@ -15,7 +15,8 @@ jobs:
           python-version: "3.12"
       - name: 브리핑 생성
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # 선택: 없으면 AI 요약 없이 동작
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}   # 선택: 없으면 AI 요약 없이 동작
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}      # 선택: 비우면 기본 모델 사용
         run: python news_briefing.py --out briefing.json --format json > /dev/null
       - name: 변경 시 커밋
         run: |
