@@ -47,7 +47,9 @@ details{margin-top:6px}summary{cursor:pointer;font-size:12px;color:var(--blueT)}
 .tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--ink);margin-top:16px;scrollbar-width:none}
 .tabs button{flex:none;background:none;border:0;border-bottom:3px solid transparent;padding:8px 12px;font-size:14px;color:var(--sub)}
 .tabs button.on{color:var(--ink);font-weight:700;border-color:var(--ink)}
-.lst li{padding:13px 0;border-bottom:1px solid var(--rule)}.rt{font:700 16px/1.5 var(--serif)}
+.lst li{padding:13px 0;border-bottom:1px solid var(--rule);display:flex;gap:12px}.tc{flex:1;min-width:0}
+.th{width:86px;height:66px;object-fit:cover;flex:none;filter:grayscale(1) contrast(1.05);border:1px solid var(--rule)}
+.lim{width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.05);margin:8px 0;display:block}.rt{font:700 16px/1.5 var(--serif)}
 .more{width:100%;margin-top:10px;padding:8px;background:none;border:1px solid var(--rule);font-size:13px;color:var(--sub)}
 .empty,.note{font-size:12.5px;color:var(--sub);padding:8px 0}
 .banner{border:1px solid var(--rule);background:var(--soft);padding:12px 14px;margin:18px 0}.banner b{font:700 15px var(--serif)}.banner p{margin:4px 0 0;font-size:13px;color:var(--sub)}
@@ -232,7 +234,11 @@ let D = null, A = {}, G = {}, shown = {}, catSel = "정치";
 const artLink = a => `<a class="al" data-id="${esc(a.id)}" data-cat="${esc(a.category)}" href="${esc(safe(a.url))}" target="_blank" rel="noopener">${esc(a.title)}</a>`;
 const metaOf = (g, a) => `${esc(a.source)} · ${when(a.published_at)}${g.source_count > 1 ? ` · ${g.source_count}개 언론사` : ""}${g.status ? `<span class="tag">${esc(g.status)}</span>` : ""}`;
 const detailBtn = (a, g) => `<button class="dt" data-a="${esc(a.id)}" data-g="${esc(g.id)}">상세·스크랩</button>`;
-const sumOf = g => g.summary ? `<p class="sm">${esc(g.summary)}</p><div class="mt">${g.summary_src === "ai" ? "AI 요약 (원문 본문 기반)" : "매체 제공 요약"}</div>` : "";
+const complete = t => /[.!?。”"')\]다요]$/.test((t || "").trim());      // 중간에 잘린 매체 요약은 숨김
+const imgTag = (g, cls) => g.image ? `<img class="${cls}" src="${esc(safe(g.image))}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
+const sumOf = (g, force) => (g.summary_src === "ai" || (g.summary && complete(g.summary)))
+  ? `<p class="sm">${esc(g.summary)}</p><div class="mt">${g.summary_src === "ai" ? "AI 요약 (원문 본문 기반)" : "매체 제공 요약"}</div>`
+  : (force ? '<p class="mt">AI 요약을 준비 중이거나 본문을 읽을 수 없는 기사예요 · 원문에서 확인하세요</p>' : "");
 function related(g){
   const rest = g.article_ids.filter(i => i !== g.rep_id).map(i => A[i]).filter(Boolean).sort((x, y) => new Date(y.published_at) - new Date(x.published_at));
   return rest.length ? `<details><summary>관련 기사 ${rest.length}건 (언론사별 원문)</summary><ul class="rel">${rest.map(a => `<li>${artLink(a)} <span class="mt">${esc(a.source)} · ${when(a.published_at)}</span></li>`).join("")}</ul></details>` : "";
@@ -241,7 +247,8 @@ document.addEventListener("click", e => {
   const l = e.target.closest("a.al"); if(l) markRead(l.dataset.id, l.dataset.cat);
   const d = e.target.closest(".dt");
   if(d){ const a = A[d.dataset.a], g = G[d.dataset.g]; markRead(a.id, a.category);
-    openReader({id: a.id, title: a.title, source: a.source, url: a.url, published_at: a.published_at, category: a.category, summary: (g.rep_id === a.id && g.summary) || a.summary || "", src: g.rep_id === a.id ? g.summary_src : (a.summary ? "feed" : null)}); }
+    const isRep = g.rep_id === a.id, sm = (isRep ? g.summary : a.summary) || "", ok = (isRep && g.summary_src === "ai") || complete(sm);
+    openReader({id: a.id, title: a.title, source: a.source, url: a.url, published_at: a.published_at, category: a.category, summary: ok ? sm : "", src: ok ? (g.rep_id === a.id && g.summary_src === "ai" ? "ai" : "feed") : null}); }
   const m = e.target.closest(".more"); if(m){ shown[catSel] = (shown[catSel] || 5) + 10; renderCatList(); }
   const c = e.target.closest("[data-go]"); if(c){ catSel = c.dataset.go; show("news"); }
 });
@@ -267,10 +274,10 @@ function renderHome(){
   if(!items.length){ $("#lead").innerHTML = ""; $("#top").innerHTML = `<div class="ch">TOP 5 기사</div><p class="empty">중요도 근거(여러 언론사 보도·노출)가 부족해 TOP 5를 만들지 않았어요. 분야별 뉴스를 확인해 보세요.</p>`; }
   else {
     const f = items[0], fa = A[f.g.rep_id];
-    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead"><h2>${artLink(fa)}</h2><div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g)}${related(f.g)}</div>`;
+    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead"><h2>${artLink(fa)}</h2>${imgTag(f.g, "lim")}<div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g, true)}${related(f.g)}</div>`;
     $("#top").innerHTML = `<div class="ch">${ranked ? "TOP 5 기사" : "주요 기사"}</div><p class="note">${esc(t.note)}</p><ol>${items.map(({i, g}, n) => { const a = A[g.rep_id];
-      return `<li class="ti"><span class="no">${ranked ? String(i.rank).padStart(2, "0") : "·"}</span><div><h3>${artLink(a)}</h3><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
-        ${n === 0 ? '<div class="why">오늘의 헤드라인 기사</div>' : sumOf(g)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${n === 0 ? "" : related(g)}</div></li>`; }).join("")}</ol>`;
+      return `<li class="ti"><span class="no">${ranked ? String(i.rank).padStart(2, "0") : "·"}</span><div class="tc"><h3>${artLink(a)}</h3><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
+        ${n === 0 ? '<div class="why">오늘의 헤드라인 기사</div>' : sumOf(g, true)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${n === 0 ? "" : related(g)}</div>${n === 0 ? "" : imgTag(g, "th")}</li>`; }).join("")}</ol>`;
   }
   const by = D.by_category || {};
   $("#catHead").innerHTML = `<div class="ch">분야별 헤드라인</div>` + CATS.map(c => { const g = G[(by[c] || [])[0]], a = g && A[g.rep_id];
@@ -282,7 +289,7 @@ function renderCatList(){
   if(!D || !D.groups.length){ $("#catList").innerHTML = '<p class="empty">표시할 기사가 없어요.</p>'; return; }
   const inTop = new Set(D.top.items.map(i => i.group_id)), ids = (by[catSel] || []).filter(id => G[id]), n = shown[catSel] || 5;
   $("#catList").innerHTML = (ids.length ? `<ul class="lst">${ids.slice(0, n).map(id => { const g = G[id], a = A[g.rep_id];
-    return `<li><div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${sumOf(g)}${related(g)}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
+    return `<li><div class="tc"><div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${sumOf(g)}${related(g)}</div>${imgTag(g, "th")}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
     (ids.length > n ? `<button class="more">더 보기 (${ids.length - n})</button>` : "");
 }
 function render(d){

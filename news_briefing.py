@@ -41,6 +41,10 @@ FEEDS = [
     (None, gt("NATION"), ("정치", "사회")), (None, gt("WORLD"), "국제"), (None, gt("BUSINESS"), "경제"),
     (None, gt("TECHNOLOGY"), "과학·IT"), (None, gt("SCIENCE"), "과학·IT"),
     (None, gt("ENTERTAINMENT"), "문화·생활"), (None, gt("HEALTH"), "문화·생활"),
+    # 직접 링크를 주는 한국 언론사 RSS 모음(akngs/knews-rss, 커뮤니티 제공·주소 미확인 → 실패하면 앱에 표시됨)
+    *[(None, f"https://akngs.github.io/knews-rss/categories/{n}.xml", c, "knews-rss")
+      for n, c in [("politics", "정치"), ("economy", "경제"), ("society", "사회"), ("international", "국제"),
+                   ("culture", "문화·생활"), ("tech", "과학·IT"), ("it", "과학·IT"), ("science", "과학·IT")]],
     (None, TOP_URL, None),  # 구글 뉴스 주요 뉴스: 노출 순서를 중요도 신호 중 하나로만 사용
 ]
 
@@ -93,6 +97,17 @@ def canon(u):
     return urlunsplit((p.scheme, p.netloc.lower(), p.path.rstrip("/"), urlencode(q), ""))
 
 
+def item_image(it, raw_desc):
+    """RSS 항목의 이미지: media:thumbnail/content, enclosure, 설명 속 <img> 순서"""
+    for ch in it:
+        t, u = ch.tag.rsplit("}", 1)[-1], ch.attrib.get("url", "")
+        if u and (t == "thumbnail" or (t in ("content", "enclosure") and (
+                "image" in ch.attrib.get("type", "") + ch.attrib.get("medium", "") or re.search(r"\.(jpe?g|png|webp)", u, re.I)))):
+            return u.replace("http://", "https://", 1)
+    m = re.search(r"<img[^>]+src=[\"']([^\"']+)", raw_desc or "")
+    return m.group(1).replace("http://", "https://", 1) if m else ""
+
+
 def parse_feed(xml, feed_src):
     out = []
     for it in ET.fromstring(xml).iter("item"):
@@ -107,11 +122,14 @@ def parse_feed(xml, feed_src):
         elif not src and " - " in title:
             title, src = title.rsplit(" - ", 1)
         if not src:
+            src = urlsplit(link).netloc.replace("www.", "")   # 출처 표기가 없으면 도메인으로 표시
+        if not src:
             continue
         d = clean(it.findtext("description"))
         summ = d if len(d) >= 25 and title[:12] not in d else ""   # 제목 반복형(구글 뉴스) 설명은 요약으로 쓰지 않음
         out.append({"title": title.strip(), "url": link, "source": src.strip(), "t": t,
-                    "summary": summ[:500]})
+                    "summary": summ[:500],
+                    "image": item_image(it, it.findtext("description"))})
     return out
 
 
@@ -134,7 +152,7 @@ def collect(hours, now):
         results = list(ex.map(job, FEEDS))
     since, arts, status, seen = now - timedelta(hours=hours), {}, [], {}
     for f, items, err in results:
-        status.append({"name": f"{f[0] or 'Google 뉴스'} · {urlsplit(f[1]).path.rsplit('/', 1)[-1] or 'top'}",
+        status.append({"name": f"{f[0] or (f[3] if len(f) > 3 else 'Google 뉴스')} · {urlsplit(f[1]).path.rsplit('/', 1)[-1] or 'top'}",
                        "ok": err is None, "count": len(items), "error": err})
         for pos, a in enumerate(items):
             if not (since <= a["t"] <= now + timedelta(hours=1)):
@@ -264,7 +282,7 @@ def build(arts, now, per_cat=40):
     kg = [g for g in groups if g["id"] in keep]
     ids = {i for g in kg for i in g["article_ids"]}
     out_arts = [{"id": a["id"], "title": a["title"], "url": a["url"], "source": a["source"],
-                 "published_at": a["t"].isoformat(), "category": a["cat"], "summary": a["summary"]}
+                 "published_at": a["t"].isoformat(), "category": a["cat"], "summary": a["summary"], "image": a.get("image", "")}
                 for a in arts if a["id"] in ids]
     for g in kg:
         g["latest"] = g["latest"].isoformat()
@@ -280,20 +298,68 @@ SUM_PROMPT = ("아래 기사 본문을 읽고, 독자가 원문을 보지 않아
               "3~4문장으로 요약하세요. 본문에 없는 내용은 쓰지 말고, 각 문장은 '~다.'로 끝내고, 요약문만 출력하세요.")
 
 
-def fetch_text(url):
-    """기사 본문 <p> 텍스트만 추출 (요약 입력용. 앱에는 저장하지 않음)"""
+def fetch_page(url):
+    """기사 페이지에서 (본문 <p> 텍스트, og:image) 추출. 본문은 요약 입력용으로만 쓰고 앱에는 저장하지 않음."""
     try:
         with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=15) as r:
             h = r.read().decode("utf-8", "ignore")
     except Exception:
-        return ""
+        return "", ""
+    img = ""
+    for pat in (r"<meta[^>]+property=[\"']og:image[\"'][^>]+content=[\"']([^\"']+)",
+                r"<meta[^>]+content=[\"']([^\"']+)[\"'][^>]+property=[\"']og:image[\"']"):
+        m = re.search(pat, h, re.I)
+        if m:
+            img = unescape(m.group(1)).strip()
+            break
+    img = "https:" + img if img.startswith("//") else img.replace("http://", "https://", 1)
     h = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", h)
     t = " ".join(p for p in (clean(x) for x in re.findall(r"(?is)<p[^>]*>(.*?)</p>", h)) if len(p) > 40)
-    return t[:3500] if len(t) >= 300 else ""
+    return (t[:3500] if len(t) >= 300 else ""), (img if img.startswith("https://") else "")
+
+
+def fetch_text(url):
+    return fetch_page(url)[0]
+
+
+def prio(top, by_cat, n):
+    """처리 우선순위: TOP -> 분야별 최신 기사를 분야 번갈아"""
+    order = [i["group_id"] for i in top["items"]]
+    for r in range(n):
+        order += [by_cat[c][r] for c in CATS + ["미분류"] if len(by_cat.get(c, [])) > r]
+    return order
+
+
+def fill_images(arts, groups, top, by_cat, prev_img):
+    """대표 이미지: RSS 이미지 -> 원문 페이지 og:image(링크가 직접 열리는 기사만). 결과(없음 포함)는 캐시."""
+    A, G = {a["id"]: a for a in arts}, {g["id"]: g for g in groups}
+    for a in arts:
+        a["image"] = a.get("image") or prev_img.get(a["id"], "")
+    todo = []
+    for gid in prio(top, by_cat, 40):
+        g = G.get(gid)
+        if not g:
+            continue
+        ids = [g["rep_id"]] + [x for x in g["article_ids"] if x != g["rep_id"]]
+        if any(A[i]["image"] for i in ids):
+            continue
+        c = next((A[i] for i in ids if "news.google.com" not in A[i]["url"] and i not in prev_img), None)
+        if c:
+            todo.append(c)
+    todo = todo[:int(os.environ.get("NEWS_IMAGE_MAX") or 60)]
+    with ThreadPoolExecutor(6) as ex:
+        for a, (_, img) in zip(todo, ex.map(lambda a: fetch_page(a["url"]), todo)):
+            a["image"] = img
+    for g in groups:
+        g["image"] = next((A[i]["image"] for i in [g["rep_id"]] + g["article_ids"] if A[i]["image"]), "")
+
+
+LAST_ERR = ""
 
 
 def ask_llm(prompt):
     """Gemini API(무료 등급 가능). 429(분당 한도)면 한 번 기다렸다가 재시도."""
+    global LAST_ERR
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return None
@@ -310,11 +376,14 @@ def ask_llm(prompt):
             return "".join(p.get("text", "") for p in parts).strip() or None
         except urllib.error.HTTPError as e:
             if e.code != 429:
-                print(f"  요약 실패: HTTP {e.code} (GEMINI_MODEL '{model}'이 맞는지 확인)", file=sys.stderr)
+                LAST_ERR = f"HTTP {e.code} (모델명 '{model}' 또는 키 확인)"
+                print("  요약 실패: " + LAST_ERR, file=sys.stderr)
                 return None
         except Exception as e:
+            LAST_ERR = str(e)[:80]
             print(f"  요약 실패: {e}", file=sys.stderr)
             return None
+    LAST_ERR = "429 사용 한도 초과"
     return None
 
 
@@ -326,10 +395,8 @@ def add_summaries(groups, arts, top, by_cat, prev):
         if prev.get(g["rep_id"]):
             g["summary"], g["summary_src"] = prev[g["rep_id"]], "ai"
     if not os.environ.get("GEMINI_API_KEY"):
-        return
-    order = [i["group_id"] for i in top["items"]]
-    for r in range(15):
-        order += [by_cat[c][r] for c in CATS + ["미분류"] if len(by_cat.get(c, [])) > r]
+        return {"state": "no_key"}
+    order = prio(top, by_cat, 15)
     todo, seen = [], set()
     for gid in order:
         g = G.get(gid)
@@ -351,19 +418,23 @@ def add_summaries(groups, arts, top, by_cat, prev):
             return g, None, False
         return g, ask_llm(SUM_PROMPT + "\n\n" + "\n\n".join(texts)), True
 
-    done = fails = 0
+    done = fails = no_body = failed = 0
     for g in todo:
         g, summ, called = work(g)
+        if not called:
+            no_body += 1                    # 본문을 읽을 수 없는 기사(구글 중계 링크 등)
+            continue
         if summ:
             g["summary"], g["summary_src"], done, fails = summ, "ai", done + 1, 0
-        elif called:
-            fails += 1
-            if fails >= 4:   # 연속 실패 = 일일/분당 한도 가능성 -> 이번 실행은 여기서 중단
+        else:
+            failed, fails = failed + 1, fails + 1
+            if fails >= 4:                  # 연속 실패 = 일일/분당 한도 가능성 -> 이번 실행은 중단
                 print("  연속 실패로 이번 실행의 AI 요약을 중단합니다.", file=sys.stderr)
                 break
-        if called:
-            time.sleep(4)    # 무료 등급 분당 한도 보호
-    print(f"  AI 요약 신규 {done}건 (대상 {len(todo)}건, 캐시 재사용 {sum(1 for g in groups if prev.get(g['rep_id']))}건)", file=sys.stderr)
+        time.sleep(4)                       # 무료 등급 분당 한도 보호
+    cached = sum(1 for g in groups if g.get("summary_src") == "ai") - done
+    print(f"  AI 요약 신규 {done}건 (대상 {len(todo)}건, 본문 없음 {no_body}건, 실패 {failed}건, 캐시 {cached}건)", file=sys.stderr)
+    return {"state": "ok", "new": done, "targets": len(todo), "no_body": no_body, "failed": failed, "cached": cached, "error": LAST_ERR}
 
 
 def main():
@@ -385,15 +456,18 @@ def main():
         except Exception:
             pass
     a_out, groups, top, by_cat = build(arts, now) if arts else ([], [], {"mode": "none", "note": "", "items": []}, {})
-    prev = {}
+    old = {}
     if os.path.exists(args.out):
         try:
-            prev = {g["rep_id"]: g["summary"] for g in json.load(open(args.out, encoding="utf-8")).get("groups", []) if g.get("summary_src") == "ai"}
+            old = json.load(open(args.out, encoding="utf-8"))
         except Exception:
-            pass
-    add_summaries(groups, a_out, top, by_cat, prev)
+            old = {}
+    prev = {g["rep_id"]: g["summary"] for g in old.get("groups", []) if g.get("summary_src") == "ai"}
+    prev_img = {a["id"]: a.get("image", "") for a in old.get("articles", []) if "image" in a}
+    fill_images(a_out, groups, top, by_cat, prev_img)
+    sm = add_summaries(groups, a_out, top, by_cat, prev)
     data = {"generated_at": now.isoformat(),
-            "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds},
+            "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds, "summary": sm},
             "articles": a_out, "groups": groups, "top": top, "by_category": by_cat}
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)

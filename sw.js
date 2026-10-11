@@ -1,4 +1,4 @@
-const VER = "top5-v7";
+const VER = "top5-v8";
 const SHELL = ["./", "index.html", "manifest.json", "icons/icon-192.png", "icons/icon-512.png"];
 const DATA = new URL("briefing.json", self.registration.scope).href;
 
