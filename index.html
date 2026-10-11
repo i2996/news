@@ -7,12 +7,12 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
-<meta name="theme-color" content="#f5efe3">
+<meta name="theme-color" content="#F5F5F5">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="The Press">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Lobster&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F5F5F5;--ink:#1c1b19;--sub:#6d665a;--rule:#cdc3ae;--soft:#ece4d2;--sage:#dfe8dc;--sageT:#4d6b52;--blue:#dfe7ee;--blueT:#46627a;--hl:#f3df7a;
 --serif:"Noto Serif KR","Nanum Myeongjo","AppleMyungjo",Georgia,serif;--sans:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif}
@@ -22,7 +22,7 @@ body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);padding-top
 main{max-width:1100px;margin:0 auto;padding:0 18px calc(76px + env(safe-area-inset-bottom))}
 a{color:inherit}button{font:inherit;color:inherit}ul,ol{list-style:none;margin:0;padding:0}
 .mast{text-align:center;padding:14px 0 0;position:relative}
-.title{font:900 42px/1.1 "Playfair Display",Georgia,serif;margin:0;letter-spacing:.01em}
+.title{font:400 46px/1.15 "Lobster","Playfair Display",cursive;margin:0;letter-spacing:.02em}
 .dl{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;font-size:12px;color:var(--ink);border-top:3px double var(--ink);border-bottom:1px solid var(--ink);margin-top:10px;padding:4px 2px}
 .dl span:first-child{text-align:left}.dl span:last-child{text-align:right}.dl span:nth-child(2){text-align:center;font-weight:700}
 .mast .tb{position:absolute;top:10px;border:1px solid var(--rule);background:none;border-radius:2px;padding:1px 8px;font-size:12px;color:var(--sub)}
@@ -121,6 +121,7 @@ mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,
     <div class="sec"><p id="pushState"></p><div class="row"><button class="btn pri" id="pushOn">푸시 켜기</button></div>
       <div class="row" id="pushCopy" hidden><button class="btn" id="cpSub">① PUSH_SUBSCRIPTION 복사</button><button class="btn" id="cpKey">② VAPID_PRIVATE_KEY 복사</button></div>
       <p>복사한 값은 GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret에 <b>이름 그대로</b> 저장하세요. 매일 아침 7:30에 푸시가 와요.</p></div>
+    <div class="ch">수집 상태</div><div class="sec" id="statBox"></div>
   </section>
 </main>
 <div id="modal"><div class="sheet" id="sheet"></div></div>
@@ -184,7 +185,7 @@ function renderLog(){
   let wd = 0, wa = 0; for(let i = 0; i < 7; i++){ const o = st[key(new Date(now.getFullYear(), now.getMonth(), now.getDate() - i))] || {}; wd += o.r ? 1 : 0; wa += (o.a || []).length; }
   $("#wk").textContent = `이번 주 읽은 신문 ${wd}부 / 기사 ${wa}건`;
   $("#wkStamp").innerHTML = stampSVG("READ", Math.round(wd / 7 * 100) + "%", INK[1]).replace('class="stamp"', 'class="stamp big"');
-  renderScraps(); renderPattern();
+  renderScraps(); renderPattern(); renderStatus();
 }
 function renderScraps(){
   const sc = getScraps();
@@ -262,6 +263,14 @@ function renderBanner(st){
   if(st.state === "partial") return `<p class="note">일부 출처 ${bad.length}곳은 수집하지 못했어요.</p>${list}`;
   return "";
 }
+function renderStatus(){
+  const box_ = $("#statBox"), st = D && D.status; if(!box_) return;
+  if(!st){ box_.innerHTML = "<p>아직 불러온 상태 정보가 없어요.</p>"; return; }
+  const feeds = st.feeds || [], bad = feeds.filter(x => !x.ok), ko = {ok:"정상", partial:"일부 출처 수집 실패", failed:"수집 실패", empty:"기사 없음", pending:"수집 전"}[st.state] || st.state;
+  box_.innerHTML = `<p>수집 상태: <b>${esc(ko)}</b>${st.message ? " · " + esc(st.message) : ""}</p>
+    <p>수집 기사 ${st.article_count || 0}건${feeds.length ? ` · 출처 ${feeds.length - bad.length}/${feeds.length}곳 성공` : ""}${st.last_success_at ? ` · 마지막 성공 ${when(st.last_success_at)}` : ""}</p>
+    ${bad.length ? `<details><summary>실패한 출처 ${bad.length}곳</summary><ul class="rel">${bad.map(x => `<li>${esc(x.name)} <span class="mt">${esc(x.error || "")}</span></li>`).join("")}</ul></details>` : ""}${sumNote(st.summary)}`;
+}
 function sumNote(m){
   if(!m || m.state === "none") return "";
   if(m.state === "no_key") return '<p class="note">AI 요약: GEMINI_API_KEY가 설정되지 않아 건너뛰었어요.</p>';
@@ -303,7 +312,8 @@ function renderCatList(){
 function render(d){
   D = d; D.groups = d.groups || []; D.top = d.top || {items: []};
   A = Object.fromEntries((d.articles || []).map(a => [a.id, a])); G = Object.fromEntries(D.groups.map(g => [g.id, g]));
-  $("#banner").innerHTML = renderBanner(d.status || {state: "pending"}) + sumNote((d.status || {}).summary);
+  $("#banner").innerHTML = D.groups.length ? "" : renderBanner(d.status || {state: "pending"});   // 기사가 있으면 홈에는 상태 문구를 띄우지 않음(기록 탭 하단에 표시)
+  renderStatus();
   renderHome(); renderCatList(); renderStrip();
 }
 async function load(){
