@@ -23,7 +23,8 @@ main{max-width:1100px;margin:0 auto;padding:0 18px calc(76px + env(safe-area-ins
 a{color:inherit}button{font:inherit;color:inherit}ul,ol{list-style:none;margin:0;padding:0}
 .mast{text-align:center;padding:14px 0 0;position:relative}
 .title{font:900 42px/1.1 "Playfair Display",Georgia,serif;margin:0;letter-spacing:.01em}
-.dl{display:flex;justify-content:space-between;gap:6px;font-size:12px;color:var(--ink);border-top:3px double var(--ink);border-bottom:1px solid var(--ink);margin-top:10px;padding:4px 2px}
+.dl{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;font-size:12px;color:var(--ink);border-top:3px double var(--ink);border-bottom:1px solid var(--ink);margin-top:10px;padding:4px 2px}
+.dl span:first-child{text-align:left}.dl span:last-child{text-align:right}.dl span:nth-child(2){text-align:center;font-weight:700}
 .mast .tb{position:absolute;top:10px;border:1px solid var(--rule);background:none;border-radius:2px;padding:1px 8px;font-size:12px;color:var(--sub)}
 #refresh{right:0}#install{left:0}
 .ch{font:900 18px var(--serif);text-align:center;border-bottom:3px double var(--ink);padding-bottom:5px;margin:22px 0 6px}
@@ -134,7 +135,7 @@ const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}}
 const CATS = ["정치","경제","사회","국제","과학·IT","문화·생활","주식"], label = c => c === "미분류" ? "기타" : c;
 const when = iso => { const d = new Date(iso), t = d.toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit",hour12:false}); return d.toDateString() === new Date().toDateString() ? t : `${d.getMonth()+1}/${d.getDate()} ${t}`; };
 const sents = t => ((t || "").match(/[^.!?。]+[.!?。]?\s*/g) || []).map(s => s.trim()).filter(Boolean);
-$("#date").textContent = new Date().toLocaleDateString("ko-KR",{year:"numeric",month:"long",day:"numeric",weekday:"long"});
+const nd = new Date(); $("#date").textContent = `${nd.getFullYear()}. ${nd.getMonth()+1}. ${nd.getDate()}. ${"일월화수목금토"[nd.getDay()]}요일`;
 
 /* ---------- 기록 (이 기기 localStorage) ---------- */
 const key = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
@@ -255,6 +256,11 @@ function renderBanner(st){
   if(st.state === "partial") return `<p class="note">일부 출처 ${bad.length}곳은 수집하지 못했어요.</p>${list}`;
   return "";
 }
+function sumNote(m){
+  if(!m || m.state === "none") return "";
+  if(m.state === "no_key") return '<p class="note">AI 요약: GEMINI_API_KEY가 설정되지 않아 건너뛰었어요.</p>';
+  return `<p class="note">AI 요약: 신규 ${m.new}건 · 저장된 요약 ${m.cached}건${m.no_body ? ` · 본문을 읽을 수 없는 기사 ${m.no_body}건` : ""}${m.failed ? ` · API 실패 ${m.failed}건 (${esc(m.error || "원인 불명")})` : ""}</p>`;
+}
 function renderHome(){
   const t = D.top, items = t.items.map(i => ({i, g: G[i.group_id]})).filter(x => x.g && A[x.g.rep_id]), ranked = t.mode === "ranked";
   if(!D.groups.length){ $("#lead").innerHTML = $("#top").innerHTML = $("#catHead").innerHTML = ""; return; }
@@ -276,13 +282,13 @@ function renderCatList(){
   if(!D || !D.groups.length){ $("#catList").innerHTML = '<p class="empty">표시할 기사가 없어요.</p>'; return; }
   const inTop = new Set(D.top.items.map(i => i.group_id)), ids = (by[catSel] || []).filter(id => G[id]), n = shown[catSel] || 5;
   $("#catList").innerHTML = (ids.length ? `<ul class="lst">${ids.slice(0, n).map(id => { const g = G[id], a = A[g.rep_id];
-    return `<li><div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${g.summary ? `<p class="sm">${esc(g.summary)}</p>` : ""}${related(g)}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
+    return `<li><div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${sumOf(g)}${related(g)}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
     (ids.length > n ? `<button class="more">더 보기 (${ids.length - n})</button>` : "");
 }
 function render(d){
   D = d; D.groups = d.groups || []; D.top = d.top || {items: []};
   A = Object.fromEntries((d.articles || []).map(a => [a.id, a])); G = Object.fromEntries(D.groups.map(g => [g.id, g]));
-  $("#banner").innerHTML = renderBanner(d.status || {state: "pending"});
+  $("#banner").innerHTML = renderBanner(d.status || {state: "pending"}) + sumNote((d.status || {}).summary);
   renderHome(); renderCatList(); renderStrip();
 }
 async function load(){
