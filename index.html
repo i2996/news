@@ -334,8 +334,8 @@ async function cardBlob(o){
   const logo = await new Promise(r => { const i = new Image(); i.onload = () => r(i); i.onerror = () => r(null); i.src = "icons/icon-192.png"; });   // 앱 아이콘(같은 출처라 캔버스 저장 가능)
  x.textAlign = "right";
 x.fillStyle = "#6d665a";
-x.globalAlpha = 0.45;
-x.font = '28px "Yeongwol", serif';
+x.globalAlpha = 0.65;
+x.font = '30px "Yeongwol", serif';
 x.fillText("신문 한 입", W - P, H - 66);
 
 if (logo) {
