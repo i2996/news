@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-10-11T20:01:33.848682+09:00",
+ "generated_at": "2026-10-11T21:01:58.890397+09:00",
  "status": {
   "state": "partial",
   "message": "일부 피드 1곳 수집에 실패했어요.",
-  "last_success_at": "2026-10-11T20:01:33.848682+09:00",
-  "article_count": 1882,
+  "last_success_at": "2026-10-11T21:01:58.890397+09:00",
+  "article_count": 1902,
   "feeds": [
    {
     "name": "연합뉴스 · politics.xml",
@@ -111,7 +111,7 @@
    {
     "name": "Google 뉴스 · WORLD",
     "ok": true,
-    "count": 29,
+    "count": 38,
     "error": null
    },
    {
@@ -205,11 +205,91 @@
    "targets": 30,
    "no_body": 0,
    "failed": 4,
-   "cached": 8,
-   "error": "The read operation timed out"
+   "cached": 5,
+   "error": "429 사용 한도 초과"
   }
  },
  "articles": [
+  {
+   "id": "2348222e07",
+   "title": "李대통령 \"'좌아하게' 주장하고 설득하는 게 진짜 이기는 길\"",
+   "url": "https://www.yna.co.kr/view/AKR20261011051700001",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:46:00+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 고동욱 기자 = 이재명 대통령은 11일 \"민주주의 공론의 장에서 이성적이며 사실에 기반한 합리적 토론이 사라지면 위험하다\"고 ...",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/08/PYH2026100822070001300_P2.jpg"
+  },
+  {
+   "id": "bf0c7bfec4",
+   "title": "靑 \"李대통령 골프장서 대구사고 수습지시\"…주진우 \"황제골프\"(종합2보)",
+   "url": "https://www.yna.co.kr/view/AKR20261011028152001",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:33:18+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 고동욱 설승은 조다운 안정훈 기자 = 청와대는 이재명 대통령이 지난 10일 대구 상가 천장 붕괴 사고 당시 골프장에 있었던 것...",
+   "image": "https://img.yna.co.kr/photo/cms/2026/05/06/59/PCM20260506000059990_P2.jpg"
+  },
+  {
+   "id": "77245b9aef",
+   "title": "與 \"한동훈 딸 논문 대필\"…韓 \"김민석 아들 위해 法발의\"(종합)",
+   "url": "https://www.yna.co.kr/view/AKR20261011018051001",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:32:12+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 조다운 안정훈 기자 = 더불어민주당은 11일 무소속 한동훈 의원의 딸의 고등학생 시절 대필 의혹을 재차 집중 부각하며 공세를 ...",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/09/15/PYH2026091522120001300_P2.jpg"
+  },
+  {
+   "id": "45e4355f9e",
+   "title": "조현, 중동 재외국민 안전대책 점검…사우디 전역에 '출국권고'",
+   "url": "https://www.yna.co.kr/view/AKR20261011049700504",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:15:05+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 김지헌 기자 = 외교부는 11일 조현 장관이 중동 15개 공관과 상황점검회의를 개최해 중동 지역 정세를 평가하고 현지 체류 재...",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049700504_01_i_P2.jpg"
+  },
+  {
+   "id": "a3088701af",
+   "title": "與 \"임은정 감찰, 상식적 조치\"…野 \"윤호중의 자기모순\"(종합)",
+   "url": "https://www.yna.co.kr/view/AKR20261011032652001",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:10:27+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 김연정 안정훈 기자 = 여야는 11일 윤호중 행정안전부 장관이 임은정 광주지방중수청장에 대해 감찰을 지시한 것을 두고 \"상식적...",
+   "image": "https://img.yna.co.kr/photo/cms/2026/10/11/02/PCM20261011000002990_P2.jpg"
+  },
+  {
+   "id": "f5388eaaed",
+   "title": "與 \"임은정 감찰, 상식적 조치…상사 인사에 왈가왈부 어불성설\"",
+   "url": "https://www.yna.co.kr/view/AKR20261011032600001",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T15:29:18+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 안정훈 기자 = 더불어민주당은 11일 윤호중 행정안전부 장관이 11일 임은정 광주지방중수청장에 대해 감찰을 지시한 것과 관련 ...",
+   "image": "https://img.yna.co.kr/photo/cms/2024/12/18/16/PCM20241218000116054_P2.jpg"
+  },
+  {
+   "id": "97cef164ef",
+   "title": "靑 \"李대통령 골프장서 대구사고 신속수습지시\"…주진우 \"황제골프\"(종합)",
+   "url": "https://www.yna.co.kr/view/AKR20261011028151001",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T15:23:33+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 고동욱 설승은 조다운 안정훈 기자 = 청와대는 이재명 대통령이 지난 10일 대구 상가 천장 붕괴 사고 당시 골프장에 있었던 것...",
+   "image": "https://img.yna.co.kr/photo/cms/2026/05/06/59/PCM20260506000059990_P2.jpg"
+  },
+  {
+   "id": "8177a432b3",
+   "title": "靑 \"李대통령, 골프장서 대구 붕괴사고 보고받고 신속수습 지시\"",
+   "url": "https://www.yna.co.kr/view/AKR20261011028100001",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T14:27:14+09:00",
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 고동욱 설승은 기자 = 청와대는 이재명 대통령이 지난 10일 대구 상가 천장 붕괴 사고 당시 골프장에 있었던 것은 사실이지만,...",
+   "image": "https://img.yna.co.kr/photo/cms/2026/05/06/59/PCM20260506000059990_P2.jpg"
+  },
   {
    "id": "e171bba15b",
    "title": "정점식 \"'농지·치안·주식참사' 송미령·윤호중·이억원 사퇴해야\"",
@@ -239,6 +319,16 @@
    "category": "정치",
    "summary": "(서울=연합뉴스) 황윤기 기자 = 이재명 대통령은 10일 이른바 SNS 메시지 정치에 대한 일각의 비판과 관련, \"품격 없다, 권위 없다 비난하...",
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/02/PYH2026100218040001300_P2.jpg"
+  },
+  {
+   "id": "d4562365b4",
+   "title": "이형일, 경제현안간담회서 온누리상품권·민생물가 논의",
+   "url": "https://www.yna.co.kr/view/AKR20261011050200002",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:27:40+09:00",
+   "category": "경제",
+   "summary": "(세종=연합뉴스) 이대희 기자 = 이형일 부총리 겸 재정경제부 장관은 11일 경제현안간담회를 열고 전통시장 온누리상품권 환급 개선방안, 민생물가...",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/07/PYH2026100706630001300_P2.jpg"
   },
   {
    "id": "bc48549adc",
@@ -301,14 +391,34 @@
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/09/PYH2026100904360001301_P2.jpg"
   },
   {
-   "id": "c7984573f8",
-   "title": "[마켓인사이트] 삼성전자 역대급 실적에도 짓눌린 코스피, 반등 가능성은",
-   "url": "https://www.yna.co.kr/view/AKR20261010015700008",
+   "id": "41f4aa2e76",
+   "title": "서울대도 6년간 28차례 해킹 피해…개인정보 1천여건 유출",
+   "url": "https://www.yna.co.kr/view/AKR20261011050100004",
    "source": "연합뉴스",
-   "published_at": "2026-10-11T06:00:03+09:00",
-   "category": "경제",
-   "summary": "(서울=연합뉴스) 황철환 기자 = 지난 한 주 국내 주식시장은 미국 국채금리 고공행진과 삼성전자 실적발표 직후 셀온(Sell-on·호재 속 가격...",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/08/PYH2026100818220001300_P2.jpg"
+   "published_at": "2026-10-11T20:21:48+09:00",
+   "category": "사회",
+   "summary": "(서울=연합뉴스) 이의진 기자 = 서울대에서 최근 6년간 해킹 피해로 유출된 개인정보 규모가 1천건이 넘는 것으로 11일 파악됐다.",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011050100004_01_i_P2.jpg"
+  },
+  {
+   "id": "7ac0fc1c34",
+   "title": "[날씨] 전국 흐리고 수도권 소나기…제주·전남에도 비",
+   "url": "https://www.yna.co.kr/view/AKR20261011040700004",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:00:01+09:00",
+   "category": "사회",
+   "summary": "(서울=연합뉴스) 이의진 기자 = 월요일인 12일은 전국이 흐리고 수도권 등 중부지방에는 소나기 소식이 있겠다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/09/PYH2026100903260001300_P2.jpg"
+  },
+  {
+   "id": "1b011bdec8",
+   "title": "경찰, 말다툼하던 아내 머리 돌덩이로 내리친 70대 검거",
+   "url": "https://www.yna.co.kr/view/AKR20261011048600061",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T19:59:21+09:00",
+   "category": "사회",
+   "summary": "(수원=연합뉴스) 김지원 기자 = 말다툼을 벌이던 아내의 머리에 돌을 내리쳐 다치게 한 70대 남성이 경찰에 붙잡혔다.",
+   "image": "https://img.yna.co.kr/photo/cms/2025/08/05/26/PCM20250805000026990_P2.jpg"
   },
   {
    "id": "2c3960ba18",
@@ -401,6 +511,16 @@
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/11/PYH2026101105910005700_P2.jpg"
   },
   {
+   "id": "34adba991c",
+   "title": "행안장관 \"임은정 감찰 지시\"…林 \"안타깝고 서글퍼\"(종합2보)",
+   "url": "https://www.yna.co.kr/view/AKR20261011020852530",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T15:28:47+09:00",
+   "category": "사회",
+   "summary": "(서울=연합뉴스) 양정우 정다움 기자 = 윤호중 행정안전부 장관이 11일 김지용 초대 중대범죄수사청장 후보자를 공개 비판해 온 임은정 광주지방중...",
+   "image": "https://img.yna.co.kr/photo/cms/2026/10/11/02/PCM20261011000002990_P2.jpg"
+  },
+  {
    "id": "90c2f143b8",
    "title": "울산 마라톤대회서 14명 열탈진 증세로 병원 이송",
    "url": "https://www.yna.co.kr/view/AKR20261011021300057",
@@ -409,16 +529,6 @@
    "category": "사회",
    "summary": "(울산=연합뉴스) 허광무 기자 = 11일 오전 울산에서 열린 '2026 울산마라톤대회'에서 14명의 참가자가 열탈진 증세를 보여 병원으로 이송됐...",
    "image": "https://img.yna.co.kr/photo/cms/2021/07/15/28/PCM20210715000128990_P2.jpg"
-  },
-  {
-   "id": "0adebfa797",
-   "title": "연휴 마지막날 9시기준 부산-서울 4시간50분…오후 4∼5시 절정",
-   "url": "https://www.yna.co.kr/view/AKR20261011012500004",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T09:06:09+09:00",
-   "category": "사회",
-   "summary": "(서울=연합뉴스) 전재훈 기자 = 한글날 사흘 연휴 마지막 날인 11일 오전 귀경 차량이 몰리며 서울 방향 고속도로에서 정체가 발생할 전망이다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/09/27/PYH2026092704660001300_P2.jpg"
   },
   {
    "id": "a8227e2bc4",
@@ -441,26 +551,6 @@
    "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/08/AKR20261008172400064_01_i_P2.jpg"
   },
   {
-   "id": "3dae4900b0",
-   "title": "국선변호인 선정 신청했는데 판단없이 선고…대법 \"방어권 침해\"",
-   "url": "https://www.yna.co.kr/view/AKR20261010042500004",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T07:30:00+09:00",
-   "category": "사회",
-   "summary": "(서울=연합뉴스) 이미령 기자 = 1심에서 실형을 선고받은 피고인이 항소심에서 국선변호인 선정을 청구했는데 법원이 아무런 결정을 하지 않고 선고...",
-   "image": "https://img.yna.co.kr/photo/cms/2018/12/04/39/PCM20181204011139990_P2.jpg"
-  },
-  {
-   "id": "545d40bd24",
-   "title": "경기교육청, '독감 출근 교사 사망' 유치원 원장에 정직 2개월",
-   "url": "https://www.yna.co.kr/view/AKR20261008112600065",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T07:27:01+09:00",
-   "category": "사회",
-   "summary": "(부천=연합뉴스) 황정환 기자 = 경기 부천의 한 사립유치원 교사가 독감으로 고열에 시달리면서도 계속 출근하다가 사망한 것과 관련해 해당 유치원...",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/08/AKR20261008112600065_01_i_P2.jpg"
-  },
-  {
    "id": "8198566327",
    "title": "'109시간만에 진화' 인천 쿠팡 화재 원인 '리튬배터리' 추정",
    "url": "https://www.yna.co.kr/view/AKR20261008125500065",
@@ -469,6 +559,46 @@
    "category": "사회",
    "summary": "(인천=연합뉴스) 홍현기 기자 = 3개월 전 발생한 인천 쿠팡 물류센터 대형화재가 리튬배터리에서 시작된 것으로 추정된다는 감정 결과가 나왔으나 ...",
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/07/28/PYH2026072814220001300_P2.jpg"
+  },
+  {
+   "id": "182229883d",
+   "title": "中·파키스탄, 이달 첫 육군 합동훈련…고산지대서 대테러 작전",
+   "url": "https://www.yna.co.kr/view/AKR20261011049600083",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:31:25+09:00",
+   "category": "국제",
+   "summary": "(베이징=연합뉴스) 한종구 특파원 = 중국과 파키스탄이 이달 중하순 중국 신장위구르자치구에서 처음으로 육군 합동훈련을 실시한다.",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049600083_01_i_P2.jpg"
+  },
+  {
+   "id": "a7aa5eec5b",
+   "title": "파키스탄, 야당 거점 지역에 비상사태 선포…주총리 등 체포",
+   "url": "https://www.yna.co.kr/view/AKR20261011050500084",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:28:49+09:00",
+   "category": "국제",
+   "summary": "(하노이=연합뉴스) 박진형 특파원 = 파키스탄 정부가 북서부 카이베르 파크툰크와주에 비상사태를 선포, 제1야당 파키스탄정의운동(PTI)이 이끄는...",
+   "image": "https://img.yna.co.kr/photo/reuters/2026/10/11/PRU20261011257801009_P2.jpg"
+  },
+  {
+   "id": "374038936b",
+   "title": "日, 대만 유사시 위기감 높지만 10명 중 8명 \"자위대 개입 반대\"",
+   "url": "https://www.yna.co.kr/view/AKR20261011049900073",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:23:27+09:00",
+   "category": "국제",
+   "summary": "(도쿄=연합뉴스) 이도연 특파원 = 일본인 10명 중 7명 이상이 중국의 대만 관련 무력 사용에 위기감을 느끼지만, 자위대의 전투 참여에는 대다...",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049900073_01_i_P2.jpg"
+  },
+  {
+   "id": "b6ca6b4fa1",
+   "title": "내전중 예멘 가려다…지부티 이주민 선박 전복 109명 사망",
+   "url": "https://www.yna.co.kr/view/AKR20261011048500079",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T19:59:46+09:00",
+   "category": "국제",
+   "summary": "(카이로=연합뉴스) 김상훈 특파원 = 아프리카 북동부 지부티 앞바다에서 이주민을 태운 선박이 침몰해 최소 109명이 숨지고 116명이 실종됐다고...",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011048500079_01_i_P2.jpg"
   },
   {
    "id": "c7f02b7290",
@@ -531,46 +661,6 @@
    "image": "https://img.yna.co.kr/photo/ap/2026/10/10/PAP20261010031801009_P2.jpg"
   },
   {
-   "id": "4503f37139",
-   "title": "英정보기관 수장들, AI 악용에 \"중대한 안보 위협\" 경고",
-   "url": "https://www.yna.co.kr/view/AKR20261011041500085",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T17:49:15+09:00",
-   "category": "국제",
-   "summary": "(런던=연합뉴스) 김지연 특파원 = 영국 정보기관 수장들이 인공지능(AI)을 중대한 국가안보 위협이라고 정부에 경고했다고 일간 더타임스가 11일...",
-   "image": "https://img.yna.co.kr/photo/ap/2025/10/16/PAP20251016191701009_P2.jpg"
-  },
-  {
-   "id": "17f5156225",
-   "title": "애플 팀 쿡, CEO 퇴임 후 첫 중국행…광저우·칭화대 등 방문",
-   "url": "https://www.yna.co.kr/view/AKR20261011041000083",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T17:41:10+09:00",
-   "category": "국제",
-   "summary": "(베이징=연합뉴스) 정성조 특파원 = 애플의 팀 쿡 의장이 지난달 최고경영자(CEO) 퇴임 후 처음으로 중국을 방문했다.",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011041000083_01_i_P2.jpg"
-  },
-  {
-   "id": "9ffca2aafe",
-   "title": "머스크도 \"우크라 새 지도자 필요\"…러 특사 \"의견 일치\"",
-   "url": "https://www.yna.co.kr/view/AKR20261011039900108",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T17:15:02+09:00",
-   "category": "국제",
-   "summary": "(이스탄불=연합뉴스) 김동호 특파원 = 스페이스X의 스타링크 위성인터넷으로 우크라이나를 지원해온 일론 머스크 테슬라 최고경영자(CEO)가 우크라...",
-   "image": "https://img.yna.co.kr/photo/reuters/2026/10/09/PRU20261009306701009_P2.jpg"
-  },
-  {
-   "id": "9278b73cb2",
-   "title": "러시아, 페스트균 연구원 사망 일주일 지나도 병원체 미공개",
-   "url": "https://www.yna.co.kr/view/AKR20261011039200009",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T17:11:17+09:00",
-   "category": "국제",
-   "summary": "(서울=연합뉴스) 고일환 기자 = 시베리아 방역 연구소에서 원인불명의 폐렴 사망이 보고된 뒤 일주일이 넘었지만 러시아 당국은 사망 원인 병원체를...",
-   "image": "https://img.yna.co.kr/photo/reuters/2026/10/08/PRU20261008220401009_P2.jpg"
-  },
-  {
    "id": "efc408a879",
    "title": "후티 반군 \"사우디 공항·영공 이용 말라…성지 빼고 전면 타격\"",
    "url": "https://www.yna.co.kr/view/AKR20261011039700079",
@@ -579,16 +669,6 @@
    "category": "국제",
    "summary": "(카이로=연합뉴스) 김상훈 특파원 = 사우디아라비아 수도 리야드 공항을 공격해 엄청난 인명 피해를 초래했던 예멘의 친이란 반군 후티가 또다시 사...",
    "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011039700079_01_i_P2.jpg"
-  },
-  {
-   "id": "012e32d7b7",
-   "title": "최태원 \"미중 증설시 우리 점유율 줄어…최대한 빨리 뭔가 해야\"",
-   "url": "https://www.yna.co.kr/view/AKR20261011036900089",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T17:07:22+09:00",
-   "category": "국제",
-   "summary": "(상하이=연합뉴스) 차병섭 특파원 = 최태원 SK그룹 회장이 11일(현지시간) 호남 반도체 클러스터 사업과 관련해 \"우리도 최대한 빠른 속도로 ...",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011036900089_01_i_P2.jpg"
   },
   {
    "id": "3694cbf0ee",
@@ -641,6 +721,36 @@
    "image": "https://img.yna.co.kr/photo/etc/epa/2026/10/10/PEP20261010148201009_P2.jpg"
   },
   {
+   "id": "4572c1ea4a",
+   "title": "'스위니토드' 4년 만에 10주년 공연…조승우·전미도 출연",
+   "url": "https://www.yna.co.kr/view/AKR20261011049800005",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:27:00+09:00",
+   "category": "문화·생활",
+   "summary": "(서울=연합뉴스) 조윤희 기자 = 뮤지컬 '스위니토드'가 4년 만에 10주년 기념 공연으로 돌아온다.",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049800005_02_i_P2.jpg"
+  },
+  {
+   "id": "8b75043d98",
+   "title": "\"도심을 거대한 미술관으로\"…대전 서구 아트페스티벌 마무리",
+   "url": "https://www.yna.co.kr/view/AKR20261011024800063",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:00:01+09:00",
+   "category": "문화·생활",
+   "summary": "(대전=연합뉴스) 이재림 기자 = 대전 서구는 9일부터 사흘간 샘머리·보라매공원 일원에서 연 2026 대전 서구 아트페스티벌을 성공적으로 마무리...",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011024800063_01_i_P2.jpg"
+  },
+  {
+   "id": "5a07da7a93",
+   "title": "백제문화제 공주서 폐막…9일간 113만명 찾아",
+   "url": "https://www.yna.co.kr/view/AKR20261011042300063",
+   "source": "연합뉴스",
+   "published_at": "2026-10-11T20:00:01+09:00",
+   "category": "문화·생활",
+   "summary": "(공주=연합뉴스) 김준호 기자 = 충남의 대표 역사문화축제인 제72회 백제문화제가 11일 공주에서 폐막식을 끝으로 9일간 일정을 마무리했다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/04/PYH2026100402570006300_P2.jpg"
+  },
+  {
    "id": "ca40895d17",
    "title": "홍천 인삼·한우 명품축제 성료…10만명 방문·매출 15억원",
    "url": "https://www.yna.co.kr/view/AKR20261011042800062",
@@ -691,36 +801,6 @@
    "image": "https://img.yna.co.kr/photo/cms/2018/08/14/62/PCM20180814000262005_P2.jpg"
   },
   {
-   "id": "1b2dc896a0",
-   "title": "BTS, 페루 첫 공연에 15만명 환호…\"251억 관광 경제효과\" 전망",
-   "url": "https://www.yna.co.kr/view/AKR20261011034400005",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T15:50:41+09:00",
-   "category": "문화·생활",
-   "summary": "(서울=연합뉴스) 김선우 기자 = 그룹 방탄소년단(BTS)이 지난 7일과 9∼10일(이하 현지시간) 페루 리마 에스타디오 산 마르코스에서 월드투...",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011034400005_01_i_P2.jpg"
-  },
-  {
-   "id": "502cec796a",
-   "title": "청원생명축제 성황리 폐막…열흘간 63만명 방문",
-   "url": "https://www.yna.co.kr/view/AKR20261011034000064",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T15:29:11+09:00",
-   "category": "문화·생활",
-   "summary": "(청주=연합뉴스) 이성민 기자 = 청주 청원생명축제가 열흘간 63만명의 방문객을 모으고 11일 폐막했다.",
-   "image": "https://img.yna.co.kr/photo/cms/2021/05/10/27/PCM20210510000027064_P2.jpg"
-  },
-  {
-   "id": "f771f326ab",
-   "title": "동시 작가 충주에 모인다…내달 7∼8일 제3회 전국동시인대회",
-   "url": "https://www.yna.co.kr/view/AKR20261011033400005",
-   "source": "연합뉴스",
-   "published_at": "2026-10-11T15:18:02+09:00",
-   "category": "문화·생활",
-   "summary": "(서울=연합뉴스) 김기훈 기자 = '제3회 전국동시인대회'가 다음 달 7∼8일 충북 충주시 유네스코국제무예센터 국제회의실에서 열린다고 동시 전문...",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011033400005_01_i_P2.jpg"
-  },
-  {
    "id": "32d02cc6c8",
    "title": "이 대통령 “품격 없다 비난해도 SNS 소통 계속할 것”…SNS 정치 논란 정면돌파",
    "url": "https://www.khan.co.kr/article/202610111450001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
@@ -751,13 +831,203 @@
    "image": ""
   },
   {
-   "id": "51585fa977",
-   "title": "이재명 대통령, 대구 천장 붕괴 사고에 “구조 총력” 지시",
-   "url": "https://www.khan.co.kr/article/202610101234001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+   "id": "17782ba449",
+   "title": "업계 ‘충전시간 단축’ 경쟁 중인데 정부는 ‘빨리 충전하면 돈 더 내라’",
+   "url": "https://www.khan.co.kr/article/202610112030005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
    "source": "경향신문",
-   "published_at": "2026-10-10T12:34:00+09:00",
-   "category": "정치",
-   "summary": "이재명 대통령이 지난 6일 청와대에서 열린 국무회의에서 발언하고 있다. 청와대사진기자단이재명 대통령은 10일 대구에서 발생한 천장 붕괴 사고와 관련해 인명 구조에 총력을 다하라고 지시했다.이 대통령은 이날 김종철 경찰청장 직무대행에게 사고를 보고 받은 뒤, 인명 구조에 총력을 다하고 사고 수습에 만전을 기할 것을 관계 기관에 지시했다고 강유정 청와대 수석 ···",
+   "published_at": "2026-10-11T20:30:00+09:00",
+   "category": "경제",
+   "summary": "전기차 ‘초급속 충전’ 요금 인상중 4분대 달성, 미 400㎾급 확대국내 망 기준은 여전히 350㎾급인프라·이용 경험 함께 개선해야BMW ‘더 뉴 iX3’ 차량이 인천 영종도 BMW 드라이빙센터에 있는 ‘400㎾ 초급속 충전기’를 이용해 충전을 하고 있다. BMW코리아 제공‘빨리 충전하면 돈을 더 낸다.’ 국내에서는 정부가 공공 전기차 충전요금 체계를 개편···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000308700029031.jpg"
+  },
+  {
+   "id": "da7896be36",
+   "title": "10%에서 70%까지 단 ‘4분30초’…전기차 충전 ‘속도전’, 이젠 인프라로 ‘2차전’",
+   "url": "https://www.khan.co.kr/article/202610112029005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:29:00+09:00",
+   "category": "경제",
+   "summary": "중 전기차 판매 성장세 둔화 속지리·BYD ‘초 단위’ 시간 싸움“물리적 한계” 속 망 확장 경쟁전력 소모·배터리 열화 부담에더 촘촘한 충전·전력망 승부처초급속 뒤처진 한국, 숙제 산적중국 지리그룹의 초고속 충전용 스마트 충전 스테이션에서 전기차가 충전을 하고 있다. 지리 홈페이지 갈무리‘단 4분30초.’ 지난달 23일 중국 저장성 닝보에서 열린 지리자동차···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000308600029081.jpg"
+  },
+  {
+   "id": "9074fdfc34",
+   "title": "‘개방형 AI’ 두 얼굴…한번 풀면 회수 불가, 안전장치도 허술",
+   "url": "https://www.khan.co.kr/article/202610112014025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:14:02+09:00",
+   "category": "경제",
+   "summary": "국내 금융권 해킹 지목된 중국 ‘아르텍스 비공개’, 복사본은 유통314만개가 공유 플랫폼 올라와…개발사의 통제 어려워 악용 소지국내 금융권 해킹에 쓰인 오픈소스 인공지능(AI) 도구의 개발자가 공개를 중단했지만 복사본은 여전히 유통되고 있는 것으로 나타났다. 누구나 가져다 고쳐 쓸 수 있는 개방형 AI의 경우, 한번 풀린 기술은 악용돼도 막기 어려워 사용의···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "dedf81575e",
+   "title": "제조 명장 통한 AI 모델 개발…기술 전수 보상 체계는 허술",
+   "url": "https://www.khan.co.kr/article/202610112014015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:14:01+09:00",
+   "category": "경제",
+   "summary": "산업부, 조선·자동차 등 과제 선정인건비 대비 ‘연구수당 20%’ 권고30개 중 14개가 미달, 실효성 의문정부가 제조 명장의 숙련 기술을 인공지능(AI)에 학습시켜 제조업의 경쟁력을 높이려 하지만, 정작 기술을 제공하는 명장에 대한 보상 체계는 허술한 것으로 나타났다.11일 국회 산업통상자원중소벤처기업위원회 전은수 더불어민주당 의원이 한국산업기술기획평가원···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "aff6fd0b57",
+   "title": "살인사건 허위 제보에 멋대로 비자 신청…앤트로픽, 선 넘는 AI에 인터넷 차단",
+   "url": "https://www.khan.co.kr/article/202610112014005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:14:00+09:00",
+   "category": "경제",
+   "summary": "미국 인공지능(AI) 기업 앤트로픽이 자사 AI 모델 ‘클로드’의 돌발행동이 잇따르자 내부 시험망의 인터넷 접속을 잠정 차단했다. 경찰에 살인사건을 허위로 제보하고, 정부에 비자 신청서 20건을 제출하는 등 허가받지 않은 행동까지 벌인 데 따른 조치다.11일 정보기술(IT) 업계에 따르면 앤트로픽은 지난 9일(현지시간) 보고서에서 일부 고위험 시험에 적용하···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "6859480759",
+   "title": "[포토뉴스]LG ‘시그니처’ 10주년…뉴욕서 갈라쇼",
+   "url": "https://www.khan.co.kr/article/202610112010045/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:10:04+09:00",
+   "category": "경제",
+   "summary": "LG전자가 지난 8일(현지시간) LG시그니처 미국 진출 10주년을 맞아 뉴욕 구겐하임 미술관에서 기념갈라쇼를 열었다고 밝혔다. LG전자는 북미 프리미엄·빌트인 가전시장 공략에 나선다.",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000342200028881.jpg"
+  },
+  {
+   "id": "e0e1f01872",
+   "title": "연휴 대목에도 매출 반등 없어…홈플러스 ‘분리매각’ 가나",
+   "url": "https://www.khan.co.kr/article/202610112010035/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:10:03+09:00",
+   "category": "경제",
+   "summary": "이달 초 목표치의 30% 안팎 그쳐실적 악화 ‘통매각’ 무산 가능성점포 쪼개 팔면 고용불안 더 커져한글날 연휴 마지막 날인 11일 서울의 한 홈플러스 매장이 한산한 모습을 보이고 있다. 연합뉴스매출 부진을 겪는 홈플러스가 대형마트를 통째로 매각할 인수자를 찾지 못할 경우 분리매각 수순에 들어갈 것으로 전망된다. 11일 유통업계에 따르면 홈플러스의 이달 초 ···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000333500028851.jpg"
+  },
+  {
+   "id": "999c75dd3b",
+   "title": "파리에 뜬 ‘이설’…롯데홈쇼핑, 뷰티 등 팝업 스토어, 중소기업 ‘K브랜드’ 수출 플랫폼",
+   "url": "https://www.khan.co.kr/article/202610112010025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:10:02+09:00",
+   "category": "경제",
+   "summary": "롯데홈쇼핑이 프랑스 파리에서 K브랜드 수출 플랫폼 ‘이설(Eeseol)’ 팝업 스토어를 열고 국내 중소 브랜드의 유럽 시장 진출을 지원한다고 11일 밝혔다.오는 11월30일까지 ‘뷰티 콤플렉스 스토어’를 콘셉트로 여는 이번 팝업 스토어에는 국내 중소기업 33개사 40여개 브랜드가 참여한다. 스킨케어, 메이크업, 헤어, 보디 등 상품을 비교하고 체험할 수 있···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "40ec19a412",
+   "title": "고준위 방폐장 공모, 내년 본격화…‘9수’ 끊을 지원책 관건",
+   "url": "https://www.khan.co.kr/article/202610112010015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:10:01+09:00",
+   "category": "경제",
+   "summary": "약 40년간 9차례 실패…출범 1년 고준위위, 사전 준비 작업 마쳐임시시설 2030년 포화…주민 동의 얻을 ‘파격적 인센티브’ 주목출범 1년을 맞은 고준위방사성폐기물관리위원회(고준위위)가 올해 안에 부지 선정을 위한 사전 작업을 마치고 내년부터 공모 절차를 본격화한다. 약 40년간 실패해온 고준위 방사성폐기물 처분장 부지 확보에 다시 시동이 걸리는 것이다.···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "74f54bc605",
+   "title": "“반도체 성과급, 소비 진작 효과 제한적”",
+   "url": "https://www.khan.co.kr/article/202610112010005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:10:00+09:00",
+   "category": "경제",
+   "summary": "국회 예정처 “일시적인 소득 증가”반도체 호황으로 기업 실적과 임금이 크게 늘고 있지만, 소득 증가가 민간소비 확대로 이어지는 효과는 제한적일 것이라는 분석이 나왔다.11일 국회예산정책처가 최근 발표한 ‘2027년 NABO 경제전망: 2026~2030’ 보고서를 보면, 예정처는 내년 민간소비 증가율을 2.0%로 전망했다. 기존 전망치(1.8%)보다 0.2%···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "b7303e2dbc",
+   "title": "야당 “국채 발행 줄여 이자 부담 낮춰야”…정부 “미래기금은 장기 재정 관리 측면”",
+   "url": "https://www.khan.co.kr/article/202610112009015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:09:01+09:00",
+   "category": "경제",
+   "summary": "미래대응기금 놓고 국감서 논쟁목적·사업범위도 ‘포괄적’ 지적정부가 내년 162조원 규모의 미래대응기금(미래기금) 신설을 추진하는 가운데 기금 적립의 효율성과 사업 범위를 둘러싼 논란이 국정감사에서 불거졌다. 지난 8일 국회 재정경제기획위원회 국정감사에서 야당은 국채를 발행하면서 미래기금에 104조4000억원을 쌓는 것은 사실상 ‘빚을 내 저축하는 구조’라고···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "0900f18a73",
+   "title": "‘재산 등록·부동산 취득 제한 위반’ LH 임직원들 솜방망이 징계",
+   "url": "https://www.khan.co.kr/article/202610112009005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:09:00+09:00",
+   "category": "경제",
+   "summary": "적발된 29건 모두 가장 낮은 ‘견책’김미애 의원 “수위 적정성 점검을”한국토지주택공사(LH) 임직원들이 재산 등록과 부동산 취득 제한 관련 의무를 위반하고도 모두 가장 낮은 수준의 징계인 ‘견책’만 받은 것으로 드러났다.국회 국토교통위원회 김미애 국민의힘 의원이 11일 LH에서 제출받아 공개한 자료에 따르면, 2022년부터 올해 8월까지 LH 임직원 징계···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "646cb99115",
+   "title": "‘퇴근길’ 개미들, 삼전 사고 하닉 팔았다",
+   "url": "https://www.khan.co.kr/article/202610112008025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:08:02+09:00",
+   "category": "경제",
+   "summary": "애프터마켓 한 달, 분석해보니한국거래소가 퇴근길(오후 4~8시) 주식 거래가 가능한 애프터마켓을 개장한 지 약 한 달이 되는 가운데 개인 투자자가 가장 많이 사들인 종목은 삼성전자 우선주였다. 반면 외국인은 SK하이닉스를 가장 많이 순매수해 엇갈린 매매 양상을 보였다. 특히 애프터마켓에선 하루 평균 500번의 변동성 완화장치가 발동돼 변동성 관리가 향후 과···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "bd19620010",
+   "title": "비정기 세무조사 70%는 ‘탈루’ 때문",
+   "url": "https://www.khan.co.kr/article/202610112008015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:08:01+09:00",
+   "category": "경제",
+   "summary": "국세청 선정사유 통계 첫 공개개인사업자, 전체 건수의 37%부과세액은 전체의 90% 달해지난해 실시된 국세청의 비정기 세무조사 10건 중 7건 이상은 명백한 탈루 혐의에 따른 것으로 드러났다. 국세청의 비정기 세무조사 선정사유별 통계가 공개된 것은 이번이 처음이다.최근 5년간 비정기 세무조사는 정기조사보다 건수는 적었지만 전체 부과세액에서 차지하는 비율은 ···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "408db6fcae",
+   "title": "스타벅스, ‘탱크데이’ 5개월 만에 결제액 1위",
+   "url": "https://www.khan.co.kr/article/202610112008005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:08:00+09:00",
+   "category": "경제",
+   "summary": "스타벅스가 ‘탱크데이’ 마케팅 사태 이후 5개월 만에 신용·체크카드 추정 결제액 기준 국내 커피 브랜드 1위 자리에 다시 올랐다.11일 인공지능(AI) 테크기업 아이지에이웍스의 모바일인덱스 집계를 보면, 지난달 스타벅스의 신용·체크카드 추정 결제액은 1210억8000만원으로, 전달(1161억2000만원)보다 4.3% 증가했다. 투썸의 지난달 결제액은 110···",
+   "image": ""
+  },
+  {
+   "id": "3d5436c4cc",
+   "title": "김승연 회장 “난관 이겨내야 100년·200년 한화로 도약”",
+   "url": "https://www.khan.co.kr/article/202610112000015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:00:01+09:00",
+   "category": "경제",
+   "summary": "창립 74주년 기념사에서 밝혀‘AI 기술 경쟁력 확보’도 강조김승연 한화그룹 회장(사진)이 창립 74주년을 맞아 급변하는 경영환경에 대응하기 위해 현실을 직시하고 주인의식과 도전정신을 발휘할 것을 임직원들에게 당부했다.11일 한화그룹에 따르면 김 회장은 지난 9일 임직원에게 전한 창립기념사에서 “낙관주의는 결코 설 자리가 없다”며 “끊임없는 지정학적 분쟁,···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000314900028681.jpg"
+  },
+  {
+   "id": "aaf3fb7567",
+   "title": "반도체 성과급 66% 뛰었지만…예정처 “소비 진작 효과는 제한적”",
+   "url": "https://www.khan.co.kr/article/202610111644001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T16:44:00+09:00",
+   "category": "경제",
+   "summary": "삼성전자와 SK하이닉스. 경향신문 자료사진반도체 호황으로 기업 실적과 임금이 크게 늘고 있지만, 소득 증가가 민간소비 확대로 이어지는 효과는 제한적일 것이라는 분석이 나왔다. 임금 상승이 일부 산업의 일시적 성과급에 집중된 데다 주식·부동산 등 자산가격 상승에 따른 혜택도 고소득층에 쏠려 있기 때문이다. 산업별·소득계층별 격차가 소비 양극화로 이어질 수 있···",
+   "image": ""
+  },
+  {
+   "id": "4c37aba5f1",
+   "title": "한번 풀면 회수 불가, 안전장치도 허술…금융권 해킹이 드러낸 ‘개방형 AI’ 딜레마",
+   "url": "https://www.khan.co.kr/article/202610111622001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T16:22:00+09:00",
+   "category": "경제",
+   "summary": "세계 최대 오픈소스 AI 플랫폼 허깅페이스 홈페이지 화면.국내 금융권 해킹에 쓰인 오픈소스 인공지능(AI) 도구의 개발자가 공개를 중단했지만 복사본은 여전히 유통되고 있는 것으로 나타났다. 누구나 가져다 고쳐 쓸 수 있는 개방형 AI의 경우, 한번 풀린 기술은 악용돼도 막기 어려워 사용의 편의성 못지 않게 안전성 역시 중요하게 확보해야 한다는 지적이 나온다···",
+   "image": ""
+  },
+  {
+   "id": "d4fb257920",
+   "title": "롯데홈쇼핑, 프랑스 파리에서 K-브랜드 수출 플랫폼 ‘이설’ 팝업",
+   "url": "https://www.khan.co.kr/article/202610111513001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T15:13:00+09:00",
+   "category": "경제",
+   "summary": "롯데홈쇼핑 제공롯데홈쇼핑이 프랑스 파리에서 K-브랜드 수출 플랫폼 ‘이설(Eeseol)’ 팝업 스토어를 열고 국내 중소 브랜드의 유럽 시장 진출을 지원한다고 11일 밝혔다.오는 11월 30일까지 ‘뷰티 콤플렉스 스토어’를 콘셉트로 여는 이번 팝업 스토어에는 에 국내 중소기업 33개사 40여 개 브랜드가 참여한다. 스킨케어, 메이크업, 헤어, 바디 등 상품을···",
+   "image": ""
+  },
+  {
+   "id": "4b05f88db1",
+   "title": "[단독]국세청 비정기 세무조사 70% 이상 ‘탈루 혐의’…선정사유 첫 공개",
+   "url": "https://www.khan.co.kr/article/202610111457011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T14:57:01+09:00",
+   "category": "경제",
+   "summary": "국세청 세종청사 전경. 국세청 제공지난해 실시된 국세청의 비정기 세무조사 10건 중 7건 이상은 명백한 탈루 혐의에 따른 것으로 나타났다. 국세청의 비정기 세무조사 선정사유별 통계가 공개된 것은 이번이 처음이다. 최근 5년간 비정기 세무조사는 정기조사보다 건수는 적었지만 전체 부과세액에서 차지하는 비율은 훨씬 높았다.국회 재정경제기획위원회 소속 정태호 더불···",
    "image": ""
   },
   {
@@ -768,6 +1038,26 @@
    "published_at": "2026-10-11T13:49:00+09:00",
    "category": "주식",
    "summary": "8일 오전 서울 중구 하나은행 본점 딜링룸에 코스피가 표시돼 있다. 연합뉴스한국거래소가 퇴근길(오후 4~8시) 주식 거래가 가능한 애프터마켓을 개장한 지 약 한 달이 되는 가운데 애프터마켓에서 개인 투자자가 가장 많이 사들인 종목은 삼성전자 우선주로 나타났다. 반면 외국인은 SK하이닉스를 가장 많이 순매수해 엇갈린 매매 양상을 보였다.특히 애프터마켓에선 하···",
+   "image": ""
+  },
+  {
+   "id": "7445676d30",
+   "title": "살인사건 허위 제보에 비자 신청까지…‘선 넘은’ AI에 앤트로픽, 인터넷 차단",
+   "url": "https://www.khan.co.kr/article/202610111100021/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T11:00:02+09:00",
+   "category": "경제",
+   "summary": "클로드로고와 로봇 손. 로이터연합뉴스미국 인공지능(AI) 기업 앤트로픽이 자사 AI 모델 ‘클로드’의 돌발행동이 잇따르자 내부 시험망의 인터넷 접속을 잠정 차단했다. 경찰에 살인사건 허위 제보를 하고 정부에 비자 신청서 20건을 제출하는 등 허가받지 않은 행동까지 벌인 데 따른 조치다.11일 정보기술(IT) 업계에 따르면 앤트로픽은 지난 9일(현지시간) 보···",
+   "image": ""
+  },
+  {
+   "id": "747d02b86e",
+   "title": "김승연 회장, 창립 74주년 “난관에 정면대응해야 100년·200년 한화”",
+   "url": "https://www.khan.co.kr/article/202610111059001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T10:59:00+09:00",
+   "category": "경제",
+   "summary": "김승연 한화그룹 회장. 한화그룹 제공김승연 한화그룹 회장이 창립 74주년을 맞아 급변하는 경영환경에 대응하기 위해 현실을 직시하고 주인의식과 도전정신을 발휘할 것을 임직원들에게 당부했다.11일 한화그룹에 따르면 김 회장은 지난 9일 임직원에게 전한 창립기념사에서 “낙관주의는 결코 설 자리가 없다”며 “끊임없는 지정학적 분쟁, 급격한 국내외 산업환경 변화 등···",
    "image": ""
   },
   {
@@ -788,6 +1078,66 @@
    "published_at": "2026-10-11T09:44:00+09:00",
    "category": "경제",
    "summary": "현대차 인도 차량 라인업. 현대자동차 제공9월까지 988만4960대…연내 돌파 유력SUV 비중 70% 육박, 2030년 80% 목표현대자동차가 인도 진출 30여년 만에 현지 누적 판매 1000만대 돌파를 눈앞에 뒀다.현대차는 인도자동차공업협회(SIAM) 집계 기준으로 1998년 첸나이공장에서 쌍트로를 생산해 판매를 시작한 이후 올해 9월까지 누적 988만4···",
+   "image": ""
+  },
+  {
+   "id": "84e79ae5fd",
+   "title": "대구 상가 천장 붕괴, 7년간 ‘징조’ 방치",
+   "url": "https://www.khan.co.kr/article/202610112057035/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:57:03+09:00",
+   "category": "사회",
+   "summary": "마감재 붕괴 사고 현장 가보니국과수·경찰, 붕괴 원인 합동 감식 국립과학수사연구원과 경찰 감식반이 11일 대구 북구 관음동의 한 상가건물 2층에서 전날 발생한 천장 마감재 붕괴 원인을 밝히기 위한 합동 현장 감식을 하고 있다. 연합뉴스대구 북구 관음동 상가건물 천장 마감재 붕괴사고 현장에서 11일 만난 주민 김모씨(51)는 과거에도 건물 천장이 내려앉는 ···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000322400029241.jpg"
+  },
+  {
+   "id": "b7657e1c74",
+   "title": "예체능 병역특례 ‘개편’ 술렁…‘마일리지제’ 등 대안 거론",
+   "url": "https://www.khan.co.kr/article/202610112057025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:57:02+09:00",
+   "category": "사회",
+   "summary": "병력 자원 부족 탓 폐지론 우세 속도입 취지 맞춰 기준 상향 유지론도입영 연기·대체복무 확대 등 제시2026 아이치·나고야 아시안게임에 출전한 일부 국가대표 선수들의 부적절한 행동을 계기로 병역특례 제도 개편론이 재점화하며 각종 대안이 제시되고 있다.정부는 병역특례를 점차 축소하겠다고 공언하며 폐지 가능성까지 언급하고 있다. 지난 5일 국회 국민동의청원 홈···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "d522d65de4",
+   "title": "170억 들인 외국인 기숙사, 절반 ‘공실’",
+   "url": "https://www.khan.co.kr/article/202610112057015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:57:01+09:00",
+   "category": "사회",
+   "summary": "한국학대학원, 유학생 유치 목적 운영…빈방은 교직원·내국인 거주교육부 산하 기관인 한국학중앙연구원이 외국인 유학생 유치를 위해 약 170억원을 들여 지은 기숙사의 절반가량이 장기간 공실 상태인 것으로 나타났다. 빈방을 채우기 위해 내국인 학생과 교직원에게도 기숙사를 배정한 것으로 확인됐다.11일 국회 교육위원회 소속 고민정 더불어민주당 의원실이 한국학중앙연···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "cadfd42191",
+   "title": "‘울산공업축제’, 4년 만에 또 이름 바꾸나",
+   "url": "https://www.khan.co.kr/article/202610112032015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:32:01+09:00",
+   "category": "사회",
+   "summary": "1967년 시작 이후 이미 세 차례 변경…시, 축제명·방향성 재검토시민들 “콘텐츠 발굴부터 먼저” 전문가들 “지역경제에 도움 돼야”울산공업축제 기간 열린 ‘울산미래박람회’에서 지난 10일 시민들이 확장현실(XR) 등 미래 첨단기술을 체험하고 있다.“축제명이 계속 바뀌는 것 자체가 지역 대표축제로서 정체성을 떨어뜨리는 것 같아요.”울산공업축제 현장에서 지난 ···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000330500029091.jpg"
+  },
+  {
+   "id": "7116b51ebc",
+   "title": "말다툼하다 아내 머리 돌덩이로 내리친 70대···살인미수 혐의 체포",
+   "url": "https://www.khan.co.kr/article/202610112020001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:20:00+09:00",
+   "category": "사회",
+   "summary": "경찰 마크. 경향신문 자료사진말다툼하다 아내의 머리에 돌을 내리쳐 다치게 한 70대 남성이 경찰에 붙잡혔다.경기 수원팔달경찰서는 살인미수 혐의로 A씨를 현행범 체포해 조사하고 있다고 11일 밝혔다.A씨는 이날 오전 10시쯤 수원시 팔달구 매산동의 한 숙박업소 앞 노상에서 아내인 70대 B씨의 머리를 돌로 여러 차례 내리친 혐의를 받는다.해당 숙박업소 업주인···",
+   "image": ""
+  },
+  {
+   "id": "3950d18b69",
+   "title": "창원 고철창고 화재, 이틀째 진화 중 ‘난항’",
+   "url": "https://www.khan.co.kr/article/202610112015001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:15:00+09:00",
+   "category": "사회",
+   "summary": "화재 현장. 창원소방본부 제공지난 10일 오후 경남 창원의 고철 자재창고에서 발생한 화재가 이틀째 꺼지지 않고 있다.11일 창원소방본부에 따르면 불은 지난 10일 오후 6시 55분쯤 성산구의 한 철강 공장 내 창고에서 발생했다.일반 철골 구조로 된 창고 내부에는 2만t으로 추정되는 고철 더미가 보관된 것으로 파악됐다.화재 발생 이후 연기와 타는 냄새가 퍼지···",
    "image": ""
   },
   {
@@ -831,16 +1181,6 @@
    "image": ""
   },
   {
-   "id": "4aab1caf02",
-   "title": "‘독감 출근 교사 사망’ 부천 사립유치원 원장, 정직 2개월 징계 처분",
-   "url": "https://www.khan.co.kr/article/202610110904001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-   "source": "경향신문",
-   "published_at": "2026-10-11T09:04:00+09:00",
-   "category": "사회",
-   "summary": "경기도교육청, 국가공무원법 ‘성실 의무 위반’ 판단강경숙 의원 “솜방망이 처벌, 특별감사 재실시 해야”독감에 시달리다 숨진 부천의 한 유치원 교사가 생전 지인과 나눈 메시지 내용. 전국교직원노동조합 제공경기 부천의 한 사립유치원 교사가 독감으로 고열에 시달리면서도 출근을 계속하다 숨진 사건과 관련해 해당 유치원 원장이 정직 2개월 징계 처분을 받았다.11일···",
-   "image": ""
-  },
-  {
    "id": "4141b9ed18",
    "title": "경찰, 대구 상가 천장 붕괴 ‘수사전담팀’ 구성…11일 국과수 합동감식",
    "url": "https://www.khan.co.kr/article/202610101932001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
@@ -851,24 +1191,94 @@
    "image": ""
   },
   {
-   "id": "29dcbf57a3",
-   "title": "사우디 리야드 공항 피격에 미국인 포함 321명 사상···트럼프 “군사개입 검토”",
-   "url": "https://www.khan.co.kr/article/202610111724001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "id": "dea35f7a69",
+   "title": "인도 ‘유권자 명부 조작 의혹’ 시위 확산…바퀴벌레당 지지자·시위대 6000명 구금",
+   "url": "https://www.khan.co.kr/article/202610112057005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
    "source": "경향신문",
-   "published_at": "2026-10-11T17:24:00+09:00",
+   "published_at": "2026-10-11T20:57:00+09:00",
    "category": "국제",
-   "summary": "도널드 트럼프 미국 대통령이 10일(현지시간) 메릴랜드주 앤드루스 합동기지에 전용기 에어포스원을 타고 도착해 취재진과 대화하고 있다. AP연합뉴스사우디아라비아 수도 리야드의 국제공항이 예멘의 친이란 반군 후티의 공격을 받아 최소 12명이 숨지고 309명이 다쳤다. 미국·이란 전쟁 발발 이후 걸프국에서 발생한 공격 가운데 가장 큰 인명피해다. 사망자에 미국인···",
-   "image": "https://img.khan.co.kr/news/2026/10/11/rcv.YNA.20261011.PAP20261011152801009_P1.jpg"
+   "summary": "청년들, 선관위원장 사퇴 촉구당국, 뉴델리행 열차 운행 중단사지 들려 연행되는 바퀴벌레국민당 지지자 지난 10일 인도 수도 뉴델리에서 유권자 명부 개정 과정에서 발생한 투표권 박탈 사태에 항의하는 시위에 참여했던 바퀴벌레국민당 지지자가 경찰에 연행되고 있다. 로이터연합뉴스인도의 유권자 명부 개정 과정에서 발생한 투표권 박탈 사태에 항의하는 시위가 격화하고 ···",
+   "image": ""
   },
   {
-   "id": "753cd53980",
-   "title": "맘다니가 바꾼 민주당 ‘돈의 흐름’···젊은 후원자들, 진보 후보에 거액 베팅",
-   "url": "https://www.khan.co.kr/article/202610111708001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "id": "851c3fac73",
+   "title": "후티 반군, 사우디 공항 공격에…트럼프, 군사개입 가능성",
+   "url": "https://www.khan.co.kr/article/202610112056025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
    "source": "경향신문",
-   "published_at": "2026-10-11T17:08:00+09:00",
+   "published_at": "2026-10-11T20:56:02+09:00",
    "category": "국제",
-   "summary": "조란 맘다니 뉴욕 시장이 팔레스타인 무장정파 하마스의 이스라엘 공격 3주기를 맞아 지난 7일(현지시간) 뉴욕에서 열린 집회에 참석하고 있다. AP연합뉴스조란 맘다니 뉴욕시장 당선을 계기로 미국 민주당 내 진보 진영의 정치자금 지형이 달라지고 있다. 기술·의료 분야에서 일하는 젊은 후원자들이 진보 성향 후보들에게 거액을 대기 시작하면서다. 친이스라엘 로비 단···",
-   "image": "https://img.khan.co.kr/news/2026/10/11/rcv.YNA.20261008.PAP20261008217001009_P1.jpg"
+   "summary": "미국인 1명 포함 최소 12명 사망이란전 발발 후 최대 인명 피해사우디아라비아 수도 리야드의 국제공항이 예멘의 친이란 반군 후티의 공격을 받아 최소 12명이 숨지고 309명이 다쳤다. 미국·이란 전쟁 발발 이후 걸프국에서 발생한 공격 가운데 가장 큰 인명피해다. 사망자에 미국인 1명도 포함된 가운데 도널드 트럼프 미국 대통령은 군사 개입 가능성을 시사했다.···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "b8f88d64d4",
+   "title": "교황, 미국 ‘사형 집행 생중계’ 겨냥 “인간 존엄성에 대한 공격”",
+   "url": "https://www.khan.co.kr/article/202610112056015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:56:01+09:00",
+   "category": "국제",
+   "summary": "레오 14세, 이란전쟁 고강도 비판 이어 트럼프와 다시 대립 고조공화당 의원들도 “야만적 관행” 반발…밴스 부통령 “난 안 볼 것”레오 14세 교황(사진)이 세계 사형제도반대의날인 10일(현지시간) 사형제도를 “인간 존엄성에 대한 공격”이라고 비판했다. 최근 미 국방부의 총기 난사범에 대한 사형 집행 생중계 결정을 겨냥한 것으로 풀이된다.교황은 이날 엑스에···",
+   "image": ""
+  },
+  {
+   "id": "3ca7d6ef63",
+   "title": "하이브리드카 수출 절반 포기…중, EU와 무역전쟁은 피했다",
+   "url": "https://www.khan.co.kr/article/202610112056005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:56:00+09:00",
+   "category": "국제",
+   "summary": "반덤핑 조사 등 절차 없이 합의희토류 유럽 수출 협력도 지속‘EU 시장은 지키자’ 절박감 작용중국과 유럽연합(EU)이 중국산 하이브리드카의 대유럽 수출을 현재의 절반 수준으로 줄이는 방안에 합의하며 제2의 무역 충돌을 피했다. 중국이 반덤핑 조사 등 무역 갈등을 고조시키는 절차 없이 합의한 것은 처음이다.11일 AFP통신 등에 따르면 마로시 셰프초비치 EU···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "e047641fd8",
+   "title": "트럼프, 선거 앞두고 ‘러 경유 수입’ 합의…미·우크라 갈등 고조",
+   "url": "https://www.khan.co.kr/article/202610112019025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:19:02+09:00",
+   "category": "국제",
+   "summary": "유가 낮추려 제재 일시 해제…러 ‘전쟁 자금줄 조이기’ 기조 뒤집어“우크라 새 대통령 나와야” 젤렌스키에 각 세워…종전 협상 불투명트럼프 “전 세계 경유값 하락할 것” 도널드 트럼프 미국 대통령이 10일(현지시간) 메릴랜드주 앤드루스 공군기지에서 기자들의 질문에 답하고 있다. AP연합뉴스도널드 트럼프 미국 대통령이 중간선거를 앞두고 러시아산 경유 수입을 ···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000333600028981.jpg"
+  },
+  {
+   "id": "f21926eee0",
+   "title": "EU “러 압박 완화할 때 아냐”…대러 제재 유지·확대 방침",
+   "url": "https://www.khan.co.kr/article/202610112019015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:19:01+09:00",
+   "category": "국제",
+   "summary": "유럽 정상들 “독재자와 거래하는 것은 중대한 실수” 트럼프 비판 잇따라미국과 러시아가 대규모 경유 공급 거래에 합의하자 유럽연합(EU)이 강하게 반발했다. 볼로디미르 젤렌스키 우크라이나 대통령은 유럽 각국 정상들과 통화하며 연대 강화에 나섰다.카야 칼라스 EU 외교안보 고위대표는 10일(현지시간) 엑스에서 “러시아산 디젤 제재를 중단하면 러시아가 전쟁 수행···",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "e9146f1027",
+   "title": "노벨 평화상 필라이 “트럼프 행정부의 ICC 제재, 전례 없고 용납 못할 일”",
+   "url": "https://www.khan.co.kr/article/202610112019005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:19:00+09:00",
+   "category": "국제",
+   "summary": "남아공 법조인…‘인권 증진’ 공로미, 수상 발표 직후 자산 동결 조치트럼프 “내가 받아야” 노골적 불만올해 노벨 평화상 수상자인 남아프리카공화국 출신 법조인 나바네템(나비) 필라이(사진)가 도널드 트럼프 미국 행정부의 국제형사재판소(ICC) 제재를 “전례 없고 용납할 수 없는 일”이라고 비판했다. 트럼프 행정부는 필라이 선정이 알려진 직후 ICC 제재를 발···",
+   "image": ""
+  },
+  {
+   "id": "e8c387dca2",
+   "title": "호날두 '국대 소집 중 무단이탈' 파장···포르투갈축협, 잠정 출전정지 처분",
+   "url": "https://www.khan.co.kr/article/202610112005005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:05:00+09:00",
+   "category": "국제",
+   "summary": "“내 행동은 징계받아야 한다”고 한 크리스티아누 호날두(41·알나스르·사진)가 실제로 포르투갈축구협회(FPF)의 잠정 출전정지 처분을 받았다. FPF는 지난 10일 호날두가 국가대표팀 소집 도중 캠프를 떠난 사안과 관련해 징계 절차를 시작하고 사건을 징계조사위원회에 회부했다고 밝혔다.호날두와 포르투갈 대표팀 갈등은 지난달 유럽축구연맹(UEFA) 네이션스리그···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000312200028761.jpg"
+  },
+  {
+   "id": "3ea1d21d6f",
+   "title": "백악관 새 대변인에 보수 평론가 자카리아",
+   "url": "https://www.khan.co.kr/article/202610112000005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:00:00+09:00",
+   "category": "국제",
+   "summary": "트럼프 “항상 충성스러운 지지자”보수 성향 정치 평론가인 케이티 자카리아가 신임 백악관 대변인(사진)으로 발탁됐다. 도널드 트럼프 미국 대통령은 9일(현지시간) 트루스소셜에 “자카리아를 백악관 대변인으로 임명하게 된 것을 큰 영광으로 생각한다”며 “그는 처음부터 변함없이 충성스럽고 뛰어난 지지자였으며 마가(MAGA·미국을 다시 위대하게)의 열렬한 팬이자 일···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000316700028641.jpg"
   },
   {
    "id": "59b3324053",
@@ -881,6 +1291,16 @@
    "image": ""
   },
   {
+   "id": "31af6e1c3d",
+   "title": "인도 ‘유권자 명부 조작’ 항의 시위 격화···‘바퀴벌레국민당’ 지도부 등 최소 2000명 구금",
+   "url": "https://www.khan.co.kr/article/202610111549001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "경향신문",
+   "published_at": "2026-10-11T15:49:00+09:00",
+   "category": "국제",
+   "summary": "유권자 명부서 1억3000만명 이름 삭제정부의 ‘명부 조작 의혹’에 청년 시위 확산보안군, 시위대 집결지 접근 차단2000~6000명 구금 추정뉴델리행 열차 운행 중단·인터넷 차단“1970년대 독재정권인가” 비판10일(현지시간) 인도 수도 뉴델리에서 유권자 명부 개정 과정에서 일어난 투표권 박탈 사태에 항의하는 시위가 벌어지는 도중 한 시위 참가자가 피를 ···",
+   "image": ""
+  },
+  {
    "id": "e930b9f1bc",
    "title": "노벨평화상 수상자도 트럼프 비판···“ICC 제재, 전례 없고 용납 못 해”",
    "url": "https://www.khan.co.kr/article/202610111504001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
@@ -889,6 +1309,36 @@
    "category": "국제",
    "summary": "남아프리카공화국 출신 법학자이자 전 유엔 인권최고대표인 나바네템 필레이가 2026년 노벨 평화상 수상자로 선정된 후 지난 9일(현지시간) 독일 뉘른베르크에서 열린 뉘른베르크 포럼에서 연설하고 있다. AP연합뉴스올해 노벨평화상 수상자인 남아프리카공화국 출신 법조인 나바네템(나비) 필레이가 도널드 트럼프 미국 행정부의 국제형사재판소(ICC) 제재를 “전례 없고···",
    "image": ""
+  },
+  {
+   "id": "3a1bb2eac0",
+   "title": "사각사각, 만화로 쌓은 두 소녀의 우정…35㎜ 필름에 담긴 ‘돌아갈 수 없는 순간’",
+   "url": "https://www.khan.co.kr/article/202610112020015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:20:01+09:00",
+   "category": "문화·생활",
+   "summary": "고레에다 감독이 만화 실사화한 ‘룩백’“원작 읽고 ‘왜 창작을 하는가’ 질문해”고레에다 히로카즈 감독의 신작 <룩백>의 ‘후지노’(데구치 나쓰키)와 ‘쿄모토’(마키타 아주)가 함께 만화를 그리고 있다. 메가박스 중앙 제공영화 <룩백> OST(오리지널사운드트랙) 1번 트랙 ‘[Pencil](연필)’은 음악이 아니다. 종이 위 사각사각, ···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000324800028991.jpg"
+  },
+  {
+   "id": "8113a21023",
+   "title": "독일 차트 1위 앨범에 체르니가 왜 나와요?",
+   "url": "https://www.khan.co.kr/article/202610112020005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:20:00+09:00",
+   "category": "문화·생활",
+   "summary": "SNS로 뜬 16세 피아니스트 아이히혼첫 음반에 에튀드 즉흥연주·자작곡까지독일의 16세 피아니스트 유스투스 아이히혼. 유니버설뮤직 제공독일의 16세 피아니스트 유스투스 아이히혼은 클래식 공연장보다 SNS에서 먼저 이름을 알렸다. 그의 팔로어는 80만명이 넘는다. 이 중 20% 정도는 한국인이다. 3년 전 집 거실에서 피아노 치는 모습을 휴대전화로 찍어 올린···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000321600028971.jpg"
+  },
+  {
+   "id": "85ee9aa1ad",
+   "title": "“오방가르드와 연대”…인디 아티스트들, 앨범 냈다",
+   "url": "https://www.khan.co.kr/article/202610112000025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
+   "source": "경향신문",
+   "published_at": "2026-10-11T20:00:02+09:00",
+   "category": "문화·생활",
+   "summary": "18팀 참여…오늘 ‘공범들’ 발매라이브 공연 도중 관객이 춤을 췄다는 이유로 2개월 영업정지 처분을 받은 부산의 라이브 클럽 오방가르드에 연대하는 인디 아티스트 18팀의 컴필레이션 앨범 <공범들>(사진)이 12일 발매된다. 11일 앨범 기획을 맡은 밴드 모임 별에 따르면 <공범들>에 수록된 곡은 스트리밍 사이트에 공개되지 않을 예정이며···",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000342400028661.jpg"
   },
   {
    "id": "e70351089f",
@@ -909,16 +1359,6 @@
    "category": "문화·생활",
    "summary": "고레에다 히로카즈 신작 ‘룩백’ ‘체인소맨’ 작가 단편 만화 영화로 옮겨만화 그리며 서로의 세계 넓혀간 두 소녀사계절 속 우정 섬세히 포착원작에 일상의 풍경 더해 100분으로 확장“왜 창작하는가” 질문 담아낸 35㎜ 필름영화 <룩백>(고레에다 히로카즈 감독)의 ‘후지노’(데구치 나츠키)와 ‘쿄모토’(마키타 아쥬)가 함께 만화를 그리고 있다. 메가···",
    "image": "https://img.khan.co.kr/news/2026/10/11/news-p.v1.20261004.eda5c10915374f928f11f0bcb96024eb_P1.jpg"
-  },
-  {
-   "id": "8fb5f19239",
-   "title": "“집에서 피아노 쳤을 뿐인데”···80만 팔로어 사로잡은 16세 피아니스트",
-   "url": "https://www.khan.co.kr/article/202610111614001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
-   "source": "경향신문",
-   "published_at": "2026-10-11T16:14:00+09:00",
-   "category": "문화·생활",
-   "summary": "SNS 스타 16세 피아니스트 유스투스 아이히혼도이치그라모폰 데뷔 음반 독일 차트 1위도이치그라모폰을 통해 데뷔 앨범을 발표한 16세 피아니스트 유스투스 아이히혼. 유니버설뮤직 제공독일의 16세 피아니스트 유스투스 아이히혼은 클래식 공연장보다 SNS에서 먼저 이름을 알렸다. 그의 팔로어는 80만명이 넘는다. 이 중 20% 정도는 한국인이다. 3년 전···",
-   "image": "https://img.khan.co.kr/news/2026/10/11/news-p.v1.20261007.0d8b391d09f0403aa40a6d2a69920e08_P1.jpg"
   },
   {
    "id": "1bb9bff3ee",
@@ -1161,56 +1601,6 @@
    "image": ""
   },
   {
-   "id": "6507fbbc64",
-   "title": "\"내 S&P500 팔긴 싫은데 불안해\"…서학개미 겨냥 ETF 나왔다",
-   "url": "https://www.hankyung.com/article/202610092663i",
-   "source": "한국경제",
-   "published_at": "2026-10-10T09:00:03+09:00",
-   "category": "주식",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "7d86c28d00",
-   "title": "랩 수익률, 코스피의 6배…\"수수료 더 내도 전문가 찾는다\"",
-   "url": "https://www.hankyung.com/article/2026100928971",
-   "source": "한국경제",
-   "published_at": "2026-10-10T08:29:26+09:00",
-   "category": "주식",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "12b5d0ae73",
-   "title": "자문형 랩, 두 달 만에 28% 수익",
-   "url": "https://www.hankyung.com/article/2026100928991",
-   "source": "한국경제",
-   "published_at": "2026-10-10T08:29:17+09:00",
-   "category": "주식",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "1103885d90",
-   "title": "50만원도 가입…적립식 랩 인기",
-   "url": "https://www.hankyung.com/article/2026100928981",
-   "source": "한국경제",
-   "published_at": "2026-10-10T08:28:59+09:00",
-   "category": "주식",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "e61e41dccd",
-   "title": "AI 수요 오해 풀렸지만, S&P 신기록 다가섰지만, 또 떨어진 반도체 [김현석의 월스트리트나우]",
-   "url": "https://www.hankyung.com/article/202610103221i",
-   "source": "한국경제",
-   "published_at": "2026-10-10T08:06:40+09:00",
-   "category": "주식",
-   "summary": "",
-   "image": ""
-  },
-  {
    "id": "a971b4de6b",
    "title": "현대차, 인도 누적 판매 1000만대 눈앞",
    "url": "https://www.hankyung.com/article/2026101144321",
@@ -1391,41 +1781,21 @@
    "image": ""
   },
   {
-   "id": "e94d009c75",
-   "title": "靑 '대통령 비공개 휴일 일정' 밝힌 까닭은",
-   "url": "https://www.hankyung.com/article/2026101144571",
+   "id": "ce5f02d9e7",
+   "title": "與 \"임은정 감찰은 상식적 조치…상사 인사에 왈가왈부 어불성설\"",
+   "url": "https://www.hankyung.com/article/2026101142967",
    "source": "한국경제",
-   "published_at": "2026-10-11T18:12:44+09:00",
+   "published_at": "2026-10-11T15:49:30+09:00",
    "category": "정치",
    "summary": "",
    "image": ""
   },
   {
-   "id": "6b15e2c4b3",
-   "title": "인천·전북·강원…과기원 신설법 잇단 발의",
-   "url": "https://www.hankyung.com/article/2026101144561",
+   "id": "c8cc84d8c2",
+   "title": "임은정, 윤호중 감찰 지시에 \"1호 대상이 나라니 서글퍼\"",
+   "url": "https://www.hankyung.com/article/2026101142367",
    "source": "한국경제",
-   "published_at": "2026-10-11T18:12:30+09:00",
-   "category": "정치",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "e9cb956b39",
-   "title": "중수청장 청문회·경기도 국감…與 내홍 더 커지나",
-   "url": "https://www.hankyung.com/article/2026101144581",
-   "source": "한국경제",
-   "published_at": "2026-10-11T18:12:24+09:00",
-   "category": "정치",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "a8ca323180",
-   "title": "외국어 연수 보내놓고도 '딴 부서' 배치한 외교부",
-   "url": "https://www.hankyung.com/article/2026101144531",
-   "source": "한국경제",
-   "published_at": "2026-10-11T18:12:16+09:00",
+   "published_at": "2026-10-11T14:45:21+09:00",
    "category": "정치",
    "summary": "",
    "image": ""
@@ -1441,12 +1811,42 @@
    "image": ""
   },
   {
-   "id": "d77aed5f9e",
-   "title": "李대통령, 대구 마트 천장 붕괴에 \"인명 구조 총력·수습 만전\" 지시",
-   "url": "https://www.hankyung.com/article/2026101034067",
+   "id": "b4f8b1e7d5",
+   "title": "서울대 6년간 28번 해킹 피해…개인정보 1000여건 유출",
+   "url": "https://www.hankyung.com/article/2026101146607",
    "source": "한국경제",
-   "published_at": "2026-10-10T12:20:45+09:00",
-   "category": "정치",
+   "published_at": "2026-10-11T20:33:23+09:00",
+   "category": "사회",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "eea8d2a12d",
+   "title": "마라톤대회서 열탈진 환자 속출…21명 병원 이송",
+   "url": "https://www.hankyung.com/article/2026101146467",
+   "source": "한국경제",
+   "published_at": "2026-10-11T20:11:17+09:00",
+   "category": "사회",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "2c3a051999",
+   "title": "'연어 술파티' 의혹 보고서 유출 고발건 불기소 처분",
+   "url": "https://www.hankyung.com/article/2026101146147",
+   "source": "한국경제",
+   "published_at": "2026-10-11T19:47:40+09:00",
+   "category": "사회",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "d4e0321ea3",
+   "title": "벌써 세 번째?…김성한 전 해태 타이거즈 선수 조형물 파손",
+   "url": "https://www.hankyung.com/article/2026101146097",
+   "source": "한국경제",
+   "published_at": "2026-10-11T19:36:53+09:00",
+   "category": "사회",
    "summary": "",
    "image": ""
   },
@@ -1469,16 +1869,6 @@
    "category": "사회",
    "summary": "",
    "image": "https://img.hankyung.com/photo/202610/99.15178015.1.jpg"
-  },
-  {
-   "id": "25e73f1eaf",
-   "title": "'39도 고열' 유치원 교사 출근하다 숨졌는데…원장 '정직 2개월'",
-   "url": "https://www.hankyung.com/article/2026101141927",
-   "source": "한국경제",
-   "published_at": "2026-10-11T13:53:11+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": ""
   },
   {
    "id": "0830bfb554",
@@ -1541,16 +1931,6 @@
    "image": "https://static.hankyung.com/img/logo/logo-news-sns.png?v=20201130"
   },
   {
-   "id": "52937da2db",
-   "title": "경유값 급등에 표심 흔들…러시아産 들여오는 트럼프",
-   "url": "https://www.hankyung.com/article/2026101144771",
-   "source": "한국경제",
-   "published_at": "2026-10-11T17:38:43+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": "https://img.hankyung.com/photo/202610/AA.46012452.1.jpg"
-  },
-  {
    "id": "3b4e5e9f3e",
    "title": "후티 반군 \"사우디 공항·영공 이용 말라\"…'상호주의' 맞대응 천명",
    "url": "https://www.hankyung.com/article/2026101143867",
@@ -1559,16 +1939,6 @@
    "category": "국제",
    "summary": "",
    "image": ""
-  },
-  {
-   "id": "8a1d39f2b2",
-   "title": "붓글씨 쓰고 평화공헌서 헌화..한국 찾은 美 전직 연방의원들",
-   "url": "https://www.hankyung.com/article/202610114346i",
-   "source": "한국경제",
-   "published_at": "2026-10-11T16:52:09+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": "https://img.hankyung.com/photo/202610/01.46012171.1.jpg"
   },
   {
    "id": "e718817d5d",
@@ -1591,6 +1961,16 @@
    "image": ""
   },
   {
+   "id": "cf431e721a",
+   "title": "주진우 ’황제골프’ 주장에 靑 “이 대통령, 태릉서 ’대구사고’ 신속 수습 지시“",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE14bTlGQlQydktMNldYcDh6MnVVc3pNdS10dlJrTVoyNmlvQVNURnZlRk5GOTM3SklNY2o5M1FyLS1tNUY2YUhsek12RFhZRXhHNzJSQU55M1pGNmI1d1NjNmo1ZlNpeVU?oc=5",
+   "source": "연합뉴스TV",
+   "published_at": "2026-10-11T14:32:00+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
    "id": "2b7bf2fc79",
    "title": "이 대통령, SNS·생중계 회의로 ‘정책 드라이브’ 걸다 급브레이크 반복",
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ZREUtV3hidHEyWFhBRjNHNzA0UXNaeGJ5RlhjUDJ3RXVyS2tYTUdkVTBSOHZucFZnRVlLQVVqbTJCNjR2c1Bzblo2eG5SdGxaME5DbVZGa1NpTW15ZGhobG82bmtCaFhPcjdnUUV3V29pdw?oc=5",
@@ -1601,21 +1981,11 @@
    "image": ""
   },
   {
-   "id": "4ad237dfd9",
-   "title": "민주 \"한동훈 딸 '케냐 작가 대필 의혹'\"…韓 '김민석·추미애'로 맞불",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1salpKS3lQWlNjc0FqUEJZWFJaWXlhUUZ4amlTM19vbjRPZnlpckhDSkZMcWVkb3R1NnA5N0I3Xzlha2pmcDhWZEhRX2pQbmhmUE9IcnNnVVJsdw?oc=5",
-   "source": "파이낸셜뉴스",
-   "published_at": "2026-10-11T10:18:00+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "85f77b20ca",
-   "title": "이혼 소송 중 장모 살해... 경찰 신변보호는 무용지물",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxORmp5ZnY2ZTZzYV84dUxZRk9Wd1hQemZnMXprSnJqeHFNMmlrRmlWQ1U4Ti0ybnZXV2dDdFlQbm8xbGVHR1luSHpIdkdWaW1reXl6eWlBMXZxbE1vbmdrYmVMOVZDcnZoQ3N3SjR0X2xUblUtUlBzcWV1WWJnREIwVXlPNEhvOHdldkhzSHZuYjQ?oc=5",
-   "source": "조선일보",
-   "published_at": "2026-10-11T17:52:56+09:00",
+   "id": "06268fbe98",
+   "title": "[단독]'장모 살해' 20대男, 앞서 '아내 찾아달라' 경찰에 신고",
+   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE0ybS1jMzJiYUJES2xvbmphYmZtWm9hakVjNEFOWEItMkVlVGRUY1VQeWNyTGl1Y0IwZFczMzY3V01obnN1bHduMnNhQmhfdUVDeVE?oc=5",
+   "source": "노컷뉴스",
+   "published_at": "2026-10-11T14:48:26+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -1641,11 +2011,11 @@
    "image": ""
   },
   {
-   "id": "e7b4bde6cb",
-   "title": "박지원, '김지용 반대' 추미애 겨냥 \"우리끼리 파묘하면 내란세력 부활\"",
-   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1jRGVIc2lXT2xYaFNIUEpGM21rSTVzVWVONXM0SjRxandlbWdHd3dDa2g1dkgzakFoLV9ScnEtRXRuZUZSUzZLSDhlYzU4dkg3b21hYXpJNWFFSUszc2dmTVFYWkxGbVZNNVJmY0YwUlJ2emNjcXlKTtIBeEFVX3lxTE9lV3E4NDdNMFo4TUE2eWZSSWVuT2hhdW5OMjRNdGJtRjFDVUtvMTdjY1hlU3VleUJRcVY4YXlrUkdRQTY4ekhlX05lOVVMM3NlTjZ3Z1l2XzNjWHN5dWhzSDk2eHJIeUx4MHROZTN2eVg1em9pRUlPRg?oc=5",
+   "id": "813f4014cb",
+   "title": "장동혁 \"곳곳에서 한미동맹 균열‥정동영·이종석 즉각 해임해야\"",
+   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9MQU1WdG9xcjctOU56Uy1jcTNJSUpfMy1EOXpfb0lKcm95d1lyeXU2TW1BdUNEb0VISWdYZlc5ZlFjLWcyWEIxTGZibmxZRzd2dnJZZ0lraVMycTRIZVp5VS1SSjVzdHhoWU1QUDdCc2dUcGdkMkg5WdIBeEFVX3lxTFBNaWRhN0RQNFdFOXVPX3QwNVpKcjQyVmJPeUxJLVJHaHpsQmx6YUN3QlRyMXBSSnZqUUVYTzREbVM2X1dHQmdFd2h3aS10azRDemxVeHJOVnprNEd0dmpsNXNGTXR2Y3FhV0c4ZlBZYmltWFpSbWhSRg?oc=5",
    "source": "MBC 뉴스",
-   "published_at": "2026-10-11T10:41:08+09:00",
+   "published_at": "2026-10-11T11:12:14+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -1661,31 +2031,21 @@
    "image": ""
   },
   {
+   "id": "7d4cb8e347",
+   "title": "박지원 “우리끼리 파묘하면 내란 세력 부활…추 지사는 뭘 잘했나”",
+   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE53Wk9fRlgwbDRiZHBiZ0I4LUxJb0g0LTNrb1I5VEJYRjRmVmdPejZfZEtZUHpycHBpSXNEaW1TZHJac3kwWS11TlJpOGpiSWNtaVk4b1lneXFwSnZGYWgxdWgxaWFxOTVIdTNYT2lzb0dEZlg3?oc=5",
+   "source": "한겨레",
+   "published_at": "2026-10-11T15:18:00+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
    "id": "c51afb7fa6",
    "title": "\"참고 있으니 건들지 마라\"… 與 강경파와 같은 주장 하는 이화영 변호인",
    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQNlduOVRsN1l2cWJKQUdnMHp0SVlXNy1YNEJqZUs3SXVuUjZKZmVaMmRxYlhFWlpBR0pCM28zc1JXYWJNYkxIcjZzRHotSm45QnM2VXR3Qlp4SUo3MEVWYU5QWmVqaXQ5VTNWR1hsRk9wdmYxUTJwd2w3VkZsM2EzM0lBQ1lqU2s?oc=5",
    "source": "조선일보",
    "published_at": "2026-10-11T13:30:21+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "63227f9115",
-   "title": "1만여명 달린 울산마라톤 ‘무더기’ 열탈진 증세…21명 병원 이송",
-   "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1FWmdWeFpleGZPOWxuYlE2UDlEVVZqR2IyMHVIWV9rX0s2M213V0dVOUlUdWdENkJ5Tnc3X2Vjc1BZS244Z192MnZYeDlWai05Y0x0cA?oc=5",
-   "source": "매일경제",
-   "published_at": "2026-10-11T15:51:10+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "46edfa9414",
-   "title": "농식품부·농어촌공사, 내일(12일)부터 ‘농지 전수조사 상담센터’ 운영",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Ud2EzTERabjFmQTJYRHdSVWl4M0h3c3F3WlQzVjRONGkxbE9kdzkxNmRscnlFazZBajZJWWRZTTR5dThfbXBVRXpaR3pjV004UHdsUEFlSWpwT0E?oc=5",
-   "source": "KBS 뉴스",
-   "published_at": "2026-10-11T11:34:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -1701,32 +2061,62 @@
    "image": ""
   },
   {
+   "id": "b2fda5fd8d",
+   "title": "마라톤대회서 21명 열탈진 등으로 병원 이송",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5WcXFyd2l5VWU5WkRTMWY5eXJMMzFhb0ZUQ3oyYXZEXzEzSWh6enRtSnV4R0lxSkdoRTZ4TDlQVGNZOF9IREpwY0tJMXQ0NlE2c0hpZWYyWTE4OUk?oc=5",
+   "source": "KBS 뉴스",
+   "published_at": "2026-10-11T15:52:00+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "46edfa9414",
+   "title": "농식품부·농어촌공사, 내일(12일)부터 ‘농지 전수조사 상담센터’ 운영",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Ud2EzTERabjFmQTJYRHdSVWl4M0h3c3F3WlQzVjRONGkxbE9kdzkxNmRscnlFazZBajZJWWRZTTR5dThfbXBVRXpaR3pjV004UHdsUEFlSWpwT0E?oc=5",
+   "source": "KBS 뉴스",
+   "published_at": "2026-10-11T11:34:00+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "532887daae",
+   "title": "생후 2개월 여아 멍든 채 숨져‥40대 친부 살인 혐의 체포",
+   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9uaEZ0QW9qTmZYaVNfZ3JiWnA0S0dpZjN5ZW9KejlNSF9ZenFDdTc2QzE0QmcxZHV2bndTZ0hyeXZNa0NjV1hqQzFNa0szcS02OVJFbnQxMHRVVldicGMzb285ZHdfQ3R0R0ZQS2w3ejhLSnk3dVVF0gF3QVVfeXFMTkhzeWNtWXlDMWNCazBzNTcwMklCclJib2JrOXh6MWdGcjZ3OUgya2lVbFNJQWNqdDRwRGRFSGViR3hIZlZNODBHUHlJNDlRYXNSeURRazR2WGwzUGtfUm10Nkk0V1RKX05rVXJjSDRRVWI2ZkJsOFE?oc=5",
+   "source": "MBC 뉴스",
+   "published_at": "2026-10-11T17:31:44+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "c4acaa421e",
+   "title": "경기 광주서 음주운전 차량이 오토바이 추돌…운전자 심정지",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE8zZEJWQ3pIc29xazlOc1lUN1VZeUdLN2VkcUZFQlBLYU9LekRuLWNTS3ByeE1NX2JGcFQzWkx1VWU0OUZfek43R0FQdGJsME51NEpjWXB0SmxlN1U?oc=5",
+   "source": "KBS 뉴스",
+   "published_at": "2026-10-10T11:19:00+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "a35292374c",
+   "title": "정점식 “국감 첫 주 ‘졸속·땜질·변명’ 가득…정부, 잔머리만 굴려”",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9uLUhLdzhMOHdzX3dLNzZGUkVoVGpqanNGNWNFdEVxSXFzM0gzQjZjRFdGUnNHbTdydlppNUxJX2drM3R5dlVFd1cwNXE5blJwWFNuZUx2bHFad0U?oc=5",
+   "source": "KBS 뉴스",
+   "published_at": "2026-10-11T11:39:00+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
    "id": "25285eb9ce",
    "title": "국정원 “美제공 대북정보 줄지않아“…’北미사일 외 공유 제한’ 보도 부인",
    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1BdFBoX2hfOHhfUHlzelJ2M1lma2E3d2RUbjM4dUZNRU1mX3NxLVV4OUFMcHRIbE9rS0Jjb3dSN3lZa1U1cFFGdzVfNDBReFdkWm9GOXkxcUJFUmcxd24xM0xDZloxWHM?oc=5",
    "source": "연합뉴스TV",
    "published_at": "2026-10-11T09:23:00+09:00",
    "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "013fd57cf4",
-   "title": "외국인도 한글 붓글씨…광장에 펼쳐진 한글날 100돌 축제",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA3cGZaMVZZVXBtMWNDVnhrMnBmMXhTNXBPM244RG9sb3d1NnRjdmtoaG12MDZySzlZQWJOVUU0YWYySVFzRXUwY1dMQkxyeS1FSDFvZTRFSG1vSEU?oc=5",
-   "source": "KBS 뉴스",
-   "published_at": "2026-10-10T08:21:00+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "91ca21ad4c",
-   "title": "경기교육청, ‘독감 출근 교사 사망’ 유치원 원장에 정직 2개월",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB4VVNXbDExLXZYbWRnTHh6ZUhpbklNX09peTRyRHAtcVB3dG0yRHVqeGN3elY1OXBpbDFzZGtMUU03c2EteVkzSGd1NWxKbzBGa2NwbkZ3ZGU1MjA?oc=5",
-   "source": "KBS 뉴스",
-   "published_at": "2026-10-11T14:17:00+09:00",
-   "category": "사회",
    "summary": "",
    "image": ""
   },
@@ -1756,16 +2146,6 @@
    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5taU5XVXJOREVZVFlRZ3BSTFdKZlZHa0Q0TG1DeEVwWDh2OFNGV3BvSDVtQkl6NUVTVFVHbEJYSzZOQ1lYRHlpQUVSWVE3ZGVIeFN2ODFNVUl6c3QzUm9iMkQ5M2lBREpyeVFwckMxMGxEX0RDcE5wWdIBeEFVX3lxTE5FMVpOQ3BhbzFVZjMyMGRzUmM5NGVod3E3eFdRLWU3MFlNVEU5UUpCYTl4NDgzSHRSSEQ5cnpUWGRJdktjM1BVbUVlMkpvWTZrTi1FaEw4aGRGZEdUREwtUjdXZXlhbm9OaFNaOWlidWY5TG1qcmV1TA?oc=5",
    "source": "MBC 뉴스",
    "published_at": "2026-10-11T12:21:42+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "2c5a1bd1c2",
-   "title": "생후 2개월 여아 멍든 채 숨져‥40대 친부 살인 혐의 체포",
-   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9uaEZ0QW9qTmZYaVNfZ3JiWnA0S0dpZjN5ZW9KejlNSF9ZenFDdTc2QzE0QmcxZHV2bndTZ0hyeXZNa0NjV1hqQzFNa0szcS02OVJFbnQxMHRVVldicGMzb285ZHdfQ3R0R0ZQS2w3ejhLSnk3dVVF?oc=5",
-   "source": "MBC 뉴스",
-   "published_at": "2026-10-11T17:31:44+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -1801,11 +2181,31 @@
    "image": ""
   },
   {
+   "id": "27863b87db",
+   "title": "포항 욕실 자재업체 인근 불‥인명 피해 없어",
+   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9uUmcxcnlqR2Z0S0NWNjlDWGRDMElHckNpTEpjX2ZlRm1KdTVJSlpKSzg2V1pnV2RLYklPRmZfMExuZ0ltbjRJZ0QtUDVEbnVPMkUxUmhfWWVTMUhURGJPdDRva0ZlRUxhNmp2RHluaGpQWlhMZlFZ0gF3QVVfeXFMT3hPcFZScjZIX2VzX1JmaDNHXzlhS1NHb0JWSi15cGtUSjJYUzY1TFd6a01XSWtGX3p1R1F6X28wdmJJZVVMMExqdFE4TU43Y2FyNnhvVDUxWmNIb3RGSzU3X1BqcVdpWVQyRGpwQVZJZU1NVnR3WjA?oc=5",
+   "source": "MBC 뉴스",
+   "published_at": "2026-10-10T21:49:19+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
    "id": "5ce1c83f4e",
    "title": "[단독] 경찰, 국정원 압수수색…윤석열 정부 안보실 지원 예산 수사",
    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE53WnBaSFJteF9RTzFQaUhlSGtCTU9uS0NZV09IelRITk81bGh4Q1dDRW5sa1ROQzlydWczb2daLVREWnRXcld0VWZCMjNNRjBTS3VoWDhmaXJvLVk?oc=5",
    "source": "KBS 뉴스",
    "published_at": "2026-10-11T19:31:20+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "f502a62964",
+   "title": "한 총리 “집이 삶의 목표 아닌 든든한 출발점 되도록”…공공임대주택 환경 개선 등 논의",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Oam1CMTZmWnpDa1VSMzRMZVFBak4yQVBfYjJ5YWh0WUlKSUlVZGRZRHozcEdRd19VOWJkSXdJSW5sdXV2X1J2QmhCY1JTMWMydExoeVRzQkNZZE0?oc=5",
+   "source": "KBS 뉴스",
+   "published_at": "2026-10-11T19:35:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -1821,11 +2221,11 @@
    "image": ""
   },
   {
-   "id": "27863b87db",
-   "title": "포항 욕실 자재업체 인근 불‥인명 피해 없어",
-   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9uUmcxcnlqR2Z0S0NWNjlDWGRDMElHckNpTEpjX2ZlRm1KdTVJSlpKSzg2V1pnV2RLYklPRmZfMExuZ0ltbjRJZ0QtUDVEbnVPMkUxUmhfWWVTMUhURGJPdDRva0ZlRUxhNmp2RHluaGpQWlhMZlFZ0gF3QVVfeXFMT3hPcFZScjZIX2VzX1JmaDNHXzlhS1NHb0JWSi15cGtUSjJYUzY1TFd6a01XSWtGX3p1R1F6X28wdmJJZVVMMExqdFE4TU43Y2FyNnhvVDUxWmNIb3RGSzU3X1BqcVdpWVQyRGpwQVZJZU1NVnR3WjA?oc=5",
-   "source": "MBC 뉴스",
-   "published_at": "2026-10-10T21:49:19+09:00",
+   "id": "345c7efe75",
+   "title": "정동영·이종석 교체?…사대주의 유전자 못 버리는 분단 기득권 세력",
+   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBFaVUzckJyZnhvckg5TnFBRlVkWGV6bjFWRG5rZ1JrYkVEQkJCNlZNMEpwNGMyeGZKelJ2ekEzLUxLcmtHNHFNYUd0emlNOU5UaFppY0FycEhhUDc0V1BvMzE5YWc3aEVHRUxvTlZVUDhKM0Vy?oc=5",
+   "source": "한겨레",
+   "published_at": "2026-10-11T17:10:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -1836,16 +2236,6 @@
    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBZcEZzMDFvWDNYRmdxcVhkU1JnemNvUkt4MjFodV9teVhUY3lGUVRoMktCZTJDck4ySjU3SlJnSkU5MEdydm5YQTZaaHFfYUZLcmdLTFZBTU91bmc?oc=5",
    "source": "KBS 뉴스",
    "published_at": "2026-10-10T19:40:00+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "f502a62964",
-   "title": "한 총리 “집이 삶의 목표 아닌 든든한 출발점 되도록”…공공임대주택 환경 개선 등 논의",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Oam1CMTZmWnpDa1VSMzRMZVFBak4yQVBfYjJ5YWh0WUlKSUlVZGRZRHozcEdRd19VOWJkSXdJSW5sdXV2X1J2QmhCY1JTMWMydExoeVRzQkNZZE0?oc=5",
-   "source": "KBS 뉴스",
-   "published_at": "2026-10-11T19:35:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -1891,102 +2281,52 @@
    "image": ""
   },
   {
-   "id": "9185cd19d6",
-   "title": "[속보] “대전 동구 축제장 인파 밀집 위험”…구청 “동광장로 진입 금지”",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5YNWRNQ25sd2FISUNKWVlQbUx2Q2ViQVVpVkV5ZWVKdUw5ckp1Ylh3RzVDNmtkX3p3UWlqNGhGNVMxY3BhZEhtOFVvY3BIU0x2anVrU0ZVN295akJrQnR5cTRhZnRQcGVXd1FGZDJYeVN1QQ?oc=5",
-   "source": "톱스타뉴스",
-   "published_at": "2026-10-10T18:54:05+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "345c7efe75",
-   "title": "정동영·이종석 교체?…사대주의 유전자 못 버리는 분단 기득권 세력",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBFaVUzckJyZnhvckg5TnFBRlVkWGV6bjFWRG5rZ1JrYkVEQkJCNlZNMEpwNGMyeGZKelJ2ekEzLUxLcmtHNHFNYUd0emlNOU5UaFppY0FycEhhUDc0V1BvMzE5YWc3aEVHRUxvTlZVUDhKM0Vy?oc=5",
+   "id": "1966e08db7",
+   "title": "서울 대학서 지인 여성에 흉기 휘두르고 도주한 영국인 남성…현지 검거",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB4dWkybEZFVUQ2endJWFNZYUFwZmE0bTE2bWozSmlkMVZyamVXMjRoYkpTLXlTdk9hcXZIZGhyMzZpbkZoWlJ3QU52blRHRjRTcWswWDdJb3dLdW0yd05iN3dnYnp1YXVoOGYxd3dJRzZyQQ?oc=5",
    "source": "한겨레",
-   "published_at": "2026-10-11T17:10:00+09:00",
+   "published_at": "2026-10-10T21:47:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
   },
   {
-   "id": "5f7e7fa571",
-   "title": "서울 대학에서 여성 찌른 영국인 검거‥본국 도주 9일 만",
-   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBiYjJsckVIMmE5ZHhtNVdsTC0zakIzdkdBM3ZoWE9CbmhEYm5wdWRlbVp1NVZpSnJNaVZpWjJxY1ZRdUtscWs1YzR4aDR2UlJVWGNWbmkyY3g5bEs5eXVFRFZVSFlmS2l5UHpBWTBUMG5VNGI2S19B0gF3QVVfeXFMUDlzZHA0ZEJ0ZFNGT3hoTnIwVjYzTHRWdGY1Z0ljWEhRa3ZhYTF0T3pHRUMyekdiT2U3aXVLM3V1a256V3ZPM09CYmY2M05VQTdiT1doQ2tTWXctbzR3bUQtSTRtV3o5c0pBQ1RqMVVRUWxwREVqem8?oc=5",
-   "source": "MBC 뉴스",
-   "published_at": "2026-10-10T14:30:36+09:00",
+   "id": "97b02c0658",
+   "title": "전남광주특별시, '올해의 책' 시민과 함께 고른다",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5KQlJBSndFMm40V1hFampRc3pOcENpcHhnNlRtUEgyeW9YSmh6QWdhSVkwc2xpNGphNy1BeW44ZVBib1F0MVFZczk5UjFlcG0ySG4zV3pxOHBGajJrYTZRTg?oc=5",
+   "source": "KBC광주방송",
+   "published_at": "2026-10-11T11:50:51+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
   },
   {
-   "id": "9ecd20280b",
-   "title": "안철수 “이재명 엑스에 ‘북(北)’ 한글자 없어…굴종 광대극”",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1aa2QwV05HQ1U5TWluU1JHQ3pZVmc1UjN2RDVmRjlDalpsVlZxbklyalpkMnBfODFSb1dQNGwzTG0wbzVYeC11ZUJRZk1VampG?oc=5",
-   "source": "문화일보",
-   "published_at": "2026-10-10T08:41:20+09:00",
-   "category": "미분류",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "ffc0352cbd",
-   "title": "후티 반군 \"사우디 공항·영공 이용 말라‥성지 빼고 전면 타격\"",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9DSWNqX2VEVENjZjctcXJKLURjZGIxWENULUlyNTIxY3FfQjhGdkJidU43WVB5aGZ3UmRBQkFUaHpWNTQ4bWltMERNS2ZpRURldFVEX0ZILUdNSDRvZlVaOUg4ek5qcWFEZ20wS24zYVVpMzRF0gF0QVVfeXFMTmNyUDdzOFU1SkxIWXJJM2FGeVo2cUlEOTI0TFhJb3VnZ19NNmo2OWN2OHdKc09rNFNqcVdDRDd1ejNSbXM1UVN3ZFZXODZ1amZHUVFvYkhoMDcyWXhEZDhtcGZXdlhFTDVJcWNxRzVneG9velg?oc=5",
-   "source": "MBC 뉴스",
-   "published_at": "2026-10-11T17:38:42+09:00",
+   "id": "8049defaed",
+   "title": "사우디 여행경보 3단계 상향 조정…조현 장관 중동 안전대책 점검",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFByYmF4ZGh2NlMxcUpHSVZzOTAwVDY4UDRxV0RDalpFUEdEd0oycHNtVXA1dE9qNWVPS3VOQk1lcE1EeVRqWjhBMC1vYmdPOEg2cE9NZ0NDNEFQNjd6RWRoMHJYQWRzUm8?oc=5",
+   "source": "연합뉴스TV",
+   "published_at": "2026-10-11T20:22:00+09:00",
    "category": "국제",
    "summary": "",
    "image": ""
   },
   {
-   "id": "ed956ded4a",
-   "title": "[사설]국제규범 가치 일깨운 ICC 전 재판관 노벨평화상 수상",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1LQkw4NG13MWZTaDlHTHR0VnNxZkFSMXZyN3RPQ092YXZrdVNOZ2hTbVF4YjZrRzNpeVZPdUNDTERhRlgxdnVWaTR3alVYQWt0ekFzdlV2TFV5d9IBX0FVX3lxTE1sRHEybUFNMTJJamd4dmtaaFRZYnRwOGRIcGJQZDh1R2JXX0hkdXZsbWJuby11QVdEUUlJRUxIY2F2VmdzcmZ2RjhSZWJNSnVvdVR0T19fdlI4Ry0xWGww?oc=5",
+   "id": "407db50a47",
+   "title": "“선관위원장 사퇴하라” 바퀴벌레당 시위에 인도 강경 진압…‘도시 봉쇄급’",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOOHRjS19aQmpjSzNFXzVMdmNCRl9NU01GajRhaUktTUx2SUZGX2g4Y1JtTjR6ajZVX25nQzBPN3lra3hSNmI5UDkxZGZBNWprWnVnbDhudWZaNG5DZkFqT2Nka3BadGJudmJPcXRpZzlUZVRRV2lZWEhVNFA5QVJwVVpn?oc=5",
+   "source": "한겨레",
+   "published_at": "2026-10-11T18:20:00+09:00",
+   "category": "국제",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "996a923d1e",
+   "title": "가자전쟁 3년…“매일 ‘누굴 먹이나’ 정해야 하는 어머니 심정 알아달라”",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE11dGZ3YkdjYVcxZjVmd3BOYmtyRmIycEo0UnNDVWZfamtnTm1FMGN5STV5QzVEMVQyUW1YTDBmU1dhQ0hjWnlvTFFnODhMRktyc0VmM1AwSGZhd9IBX0FVX3lxTE5ENGRPVmkzUDZ5eVlYOWtxNEdVRGZSMkVwbzVvMDdKT2Z4MVdZOFBNYnNIbWF5bUpmaWZzZURlSXJ5RlJNYTQxU0JEM2lnMTl1eENUN3ppa256ZHZjWlpn?oc=5",
    "source": "경향신문",
-   "published_at": "2026-10-11T18:25:00+09:00",
+   "published_at": "2026-10-11T19:59:00+09:00",
    "category": "국제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "9d5d0947ba",
-   "title": "美 '총살형 생중계' 추진에 교황 \"사형은 인간 존엄성 공격\"",
-   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9GLWQtMzhIWmdSNGtqVGxjUFg5RW1iVW1QbWhCaG1BYkRWZzRpZjN2MFhGQ0thS0pTeDR3MUJfcVk3Zkx1a2QwUzc1ZTRQdmhGMjkyRFJKMVp0b3Jz?oc=5",
-   "source": "뉴스핌",
-   "published_at": "2026-10-11T10:53:00+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "51a033a84d",
-   "title": "러시아, 페스트균 연구원 사망 일주일 지나도 병원체 미공개",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4zOVNqWHRyR0o1MGptd1F5cUhIcGJtQmNvalFPMU0xc1BpVl9ldTRFQkljc1VzUGJYakhFRlBlQS0tbHVQRGFReDd2WjBSMGwwZjZjWnNIYkUzdw?oc=5",
-   "source": "파이낸셜뉴스",
-   "published_at": "2026-10-11T17:57:04+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "e60fd264fd",
-   "title": "女의원 “집단성관계는 성폭행이 아니다”…코넬대 사건에 ‘제인 도’ 겨냥 [월드픽]",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxON1JlRTA1WVlLMGtYM1pMVzRGNlR4QUxGcDlPNHo3R2h0T1BPaURKUGp1ajR0bVgzWXFRVjRUT0Q2Q3RxdS0tR2xMRUpsSVY2elQ5dUYtWENxZVFZaWRaeFdCdm1RX2xGQW9BczhkSHp2N1ZVOXdCLTV3RURGeG9rNWRLQ1RnZw?oc=5",
-   "source": "서울신문",
-   "published_at": "2026-10-11T16:55:55+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "606af3dcfc",
-   "title": "외국인이 팔아도 버텼는데…코스피 ‘55조 버팀목’ 끝물[주간증시전망]",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPdy1tYXVFOUthVjN1MjFqWDZ0aFZnNkVISlpiZjFVZjdFN21hazVDQnRPSzQ4TGZkbDZ3LUZPUGJ4WjZVSEFCN281aGFNSE9sMW5YcEZNQjB2UlRUdGIwTlo0bzJpQzFGZGJOS3Nzeml3YkRqRzBLbUp6cmFKYm1TVA?oc=5",
-   "source": "이데일리",
-   "published_at": "2026-10-11T09:23:35+09:00",
-   "category": "주식",
    "summary": "",
    "image": ""
   },
@@ -2002,7 +2342,7 @@
   },
   {
    "id": "2a6cc157a8",
-   "title": "대출 묶고 갭투자 차단한 ‘10·15’ 대책 1년…중저가 아파트 매매·전세가격 뛰었다",
+   "title": "대출 묶은 ‘10·15 대책’ 1년…서울 중저가 아파트 매매·전셋값 뛰었다",
    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFAwaF94VDlaR0Z1N015cXVGUnd1R3c3eDdIR0tsdkRFdFpLSTN1OWIwWmdGeDMzVFhMX1B5YUdrNGFQZDYxR2pjeURWWXFTWHhMekJ2UXk2a0ctRThycjl1dmF3eHJpQVhT?oc=5",
    "source": "한겨레",
    "published_at": "2026-10-11T19:43:00+09:00",
@@ -2011,12 +2351,22 @@
    "image": ""
   },
   {
-   "id": "6815b60a25",
-   "title": "퇴근 후 주식거래 열었더니…개미·외국인 바구니 달랐다",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQS0NwSE1iQk1mUkRFaTdVNTlVcEltR21KN3Z2dkp2b0NHMzZ2ZWVBWkdHQ2FCVXZPSU5YNVQ1R1FtZHMwalpJRmpkN1cxTjJQSDZIWHQ1WEZXMk1EZGZrVW9rSDV5UXVpN2VUMi1nTXdydTd0dC1XTUJGaFhFdGRUdQ?oc=5",
-   "source": "이데일리",
-   "published_at": "2026-10-11T10:58:18+09:00",
+   "id": "4f5adb96de",
+   "title": "[주간증시전망] ‘삼전·닉스' 자사주 매입 막바지…외국인 매도까지 ‘첩첩산중’ - 조선비즈",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNak0xdFZHY3N6ZUxxdFlFSDhxWVY0dXcwYzhTSDFYcjhPaWFNVm5iOW5QbHZ2c2E1VDVnRjJMTHpYekdrcWZ5aTBGeGhUY3FqMVZlOU1DbmhEU2g0QWplRzg4blA1bkVORUJQNDhVOWhqMjdVMXFDd1hSOHJackJrUE1MZFdWQ3Yt0gGcAUFVX3lxTE5PRFVaempGX014TXRlWlNOLUMyWTlSb2NlQTRXVWlzZjZfQWY0UXQ2Zkh5OUZkdGhxMlJyNDB2TU0tcU11WDYxUGdPRFFiRXF6dzdFSXlkMTBwTVhJS1RTWnBjSXVMeEhlSGs4dWFiOWZQSnhzQ2ZGTDZWVjBJS0tndXhUREUtcXY2ckNVVUhPaV9CYzVVYWdRc1pKUA?oc=5",
+   "source": "Chosunbiz",
+   "published_at": "2026-10-11T06:07:36+09:00",
    "category": "주식",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "685e5acfed",
+   "title": "李대통령 \"원전 위험은 국민이, 이익은 대기업 독점…이례적 특혜 신중해야\"",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9aLWVZdGtsLVVpNnBvT3NHTDVaeW8xY2dna09jUDA3X1hYeHFyZFdaUVc2MnZLajFRUkNVdjZKUV9lZVZCQURXVENXN2JjUm5OMlBFelVIbmVhNXl6VHRCLTJ4R0M3c1c5WnVsdllvY3A?oc=5",
+   "source": "연합인포맥스",
+   "published_at": "2026-10-11T20:24:42+09:00",
+   "category": "경제",
    "summary": "",
    "image": ""
   },
@@ -2041,6 +2391,16 @@
    "image": ""
   },
   {
+   "id": "3b70cb8b77",
+   "title": "“60% 폭등하더니 18% 급락”…롤러코스터 코스피, 4분기에는?",
+   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE4tMFFXdlg5VVN1Y216ZFZSNm9BdjNkbDVGay1CWkpkXzRiRE02Y0VqR3JwLTBkMzhLRVFRNXFhUFpxQ3FYZGdaYTdJV2FmaFY2ZlE?oc=5",
+   "source": "매일경제",
+   "published_at": "2026-10-11T08:59:48+09:00",
+   "category": "주식",
+   "summary": "",
+   "image": ""
+  },
+  {
    "id": "6fd1e80a6b",
    "title": "인도 진출 30년史…현대차, 누적 판매 1천만대 돌파 초읽기",
    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9BNXVKVDJSaE1YVHF4dTR5c0t3TFZrU1FMOUx0UVVBNUFVSDM3WFRIV1U0UEw5UHpuVlhkZVVGVFhuRkhzNmxWang5Y215Qm42NEpZRENINjdsNTlVSkt2N1ZfX2E1WXlOS3BfQm93Q3g?oc=5",
@@ -2051,21 +2411,21 @@
    "image": ""
   },
   {
-   "id": "695b19b398",
-   "title": "브레이크 시험서 3대 모두 파손…2억짜리 화웨이 차 굴욕",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBpMVBNdHM3R1g3akoxWGxVeklfamJPRWh5SWtkMFpvWUNHMUpfUFBBbjVKMmZiU2JaU2x6UGlBSV9YQm1qSENxZ3AyZUU4ay1aT1NkSTlR?oc=5",
-   "source": "중앙일보",
-   "published_at": "2026-10-11T18:48:24+09:00",
-   "category": "경제",
+   "id": "062b6317ac",
+   "title": "아서 헤이즈 \"프랑스 부채위기, 비트코인 사상 최고가 이끌 것\"",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNekNNWFV4elRJTHVQZU5sbzNEX0lpbVhzN2ZaSXhSNFdBMjR2OEUzM0tZYUo1VVdZQjVLUGlKQVVSM0tIN01Ma0hGTU9RQmRKamJUY1o3aGlxVXJuNVVTdjltMk43N1lTMlE2NUVJZmZTOXBINEFfeGxTMDVfdmIyeQ?oc=5",
+   "source": "이데일리",
+   "published_at": "2026-10-11T10:19:49+09:00",
+   "category": "과학·IT",
    "summary": "",
    "image": ""
   },
   {
-   "id": "062b6317ac",
-   "title": "프랑스 위기가 비트코인엔 호재?…“연말 최고 25만달러” 전망",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNekNNWFV4elRJTHVQZU5sbzNEX0lpbVhzN2ZaSXhSNFdBMjR2OEUzM0tZYUo1VVdZQjVLUGlKQVVSM0tIN01Ma0hGTU9RQmRKamJUY1o3aGlxVXJuNVVTdjltMk43N1lTMlE2NUVJZmZTOXBINEFfeGxTMDVfdmIyeQ?oc=5",
-   "source": "이데일리",
-   "published_at": "2026-10-11T10:19:49+09:00",
+   "id": "001a41e5c6",
+   "title": "XRP 레저 결함, 단일 거래로 18조 XRP 생성 가능했다",
+   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9RU0hMRUVRelA0U2JLRmNOYnZ1UFl6SDNiMFJOLU1vSl9Ecm9feWQ0ME9YRi12MHIyWW1ZM3BqcFBkUnRrVUkzdDVaLXl4Y1N1NGxVQmdWNFI?oc=5",
+   "source": "토큰포스트",
+   "published_at": "2026-10-11T19:40:35+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
@@ -2091,11 +2451,11 @@
    "image": ""
   },
   {
-   "id": "bd27262c32",
-   "title": "XRP 레저 무단 발행 취약점, 리플엑스 재현 뒤 ‘치명적’ 평가",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1WODdIY0pEZzNVTmI0aDBQZjEwRW9UVk1GSm4tOE9laFFhOGE5S2RwZDZXcFdjRndUV3BMV2V2SjR0eVFoOHcwWGdpOW4xZldleXh5MTJSYVpfbGM?oc=5",
+   "id": "a9f0ef96fd",
+   "title": "비트코인 8만달러 도달 계약 확률 63%…일주일 새 13% 상승",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAzLTFNUTg2WmRHT1EwMWVmaHJxc1FncWYzOWlqY3JXeWMtZmtQLUU4R0JXLU9rVWdjbTFPTXY0VjQtMHhKTWU0alJsbDZmdWQwa1JDRmRvS1lXaGZ5aUl3cQ?oc=5",
    "source": "토큰포스트",
-   "published_at": "2026-10-11T13:03:10+09:00",
+   "published_at": "2026-10-11T19:47:18+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
@@ -2106,16 +2466,6 @@
    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTWUwV19DbEM1dS0yeVR4OG1zNkdFZTYwWjJEYTF5RWVTOTN5MDNYc1RIa2FrX21EajNuaFJ1elBSVVRUeTNOZDFKc2J5M0t1Ti1PeGlieUh1dFBfR0JYS19uejhrWGx2azd1cWNFSWU1Wm5BdXlxQmFudEo1NWJFVVlOZw?oc=5",
    "source": "조선일보",
    "published_at": "2026-10-11T14:42:00+09:00",
-   "category": "과학·IT",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "0c576030b4",
-   "title": "[저녁 뉴스브리핑] 태국, 비트코인·이더리움 ETF 규정 시행 外",
-   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBvYWRlb19YTWJMZHZYeHYzaWhmSjl5cUt1ZU85SDRla2pQVFB5RUU5Y254ZzVSTW1OWmNLRnNNNnBOOGxyQzhZYWVvc1RUSXh4RFlYX1E0VDI?oc=5",
-   "source": "토큰포스트",
-   "published_at": "2026-10-11T16:01:06+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
@@ -2141,21 +2491,21 @@
    "image": ""
   },
   {
-   "id": "c86210ecdc",
-   "title": "\"GTA6 엔딩까지 공개\"…유출자, 암호화폐 내걸고 락스타 압박",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE05STdfcEsyV0k0bnJRdjBMVENnd1dMeVlYNTFGLTAtYm1WR1Q1OTQtYzF4OW9VdlJDVlF6a3l0LVVQcFg2cVpHVUJ4ZkM3SHpvY3F2Mlhn?oc=5",
-   "source": "지디넷코리아",
-   "published_at": "2026-10-11T10:04:39+09:00",
-   "category": "과학·IT",
-   "summary": "",
-   "image": ""
-  },
-  {
    "id": "8f1f144bea",
    "title": "1000배 레버리지 포지션 1만2657건 청산…손실 269억원",
    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE51TlJ1SXI1clk2TmlkdmZ0d1NZSnZXVW9BZFM4YXo2NHZWUm5QM0hLVnZha0c2Tk1FZlZrLWJCeTZveThvZk54LUZfWVQ1MThobW12OXYyTGtTOVBIb2MySw?oc=5",
    "source": "토큰포스트",
    "published_at": "2026-10-11T13:42:52+09:00",
+   "category": "과학·IT",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "0c576030b4",
+   "title": "[저녁 뉴스브리핑] 태국, 비트코인·이더리움 ETF 규정 시행 外",
+   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBvYWRlb19YTWJMZHZYeHYzaWhmSjl5cUt1ZU85SDRla2pQVFB5RUU5Y254ZzVSTW1OWmNLRnNNNnBOOGxyQzhZYWVvc1RUSXh4RFlYX1E0VDI?oc=5",
+   "source": "토큰포스트",
+   "published_at": "2026-10-11T16:01:06+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
@@ -2181,21 +2531,41 @@
    "image": ""
   },
   {
-   "id": "4ecaed7f4e",
-   "title": "비트코인 7만4500달러 참고값, 과거 조정률 적용해 산출",
-   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5vLVdfa3NpQWl3VVdjdlFib1Bhb29YUHRMYm1nN1QzcllRcHQxblJzLTBJX0l0WFRycjBXZUwtTWdHT0preGZ6WlhCX3hDanJxQ2dPRWNnZmxDakw5RmpGMQ?oc=5",
-   "source": "토큰포스트",
-   "published_at": "2026-10-11T12:10:05+09:00",
+   "id": "4ec8543c30",
+   "title": "RTX 5090 생산 중단 및 GB202 칩셋을 워크스테이션 GPU용으로 배정 > 뉴스/신제품",
+   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBGQzcyaHotVWJpc0M4bWkwaVFLSC11R0p4eTR1NkR5WkNkRUJ0eUE3czlzdUJ4WnF4ek1mX3o4X25DbE1lQW83NC1xYTU?oc=5",
+   "source": "쿨엔조이",
+   "published_at": "2026-10-11T14:13:13+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
   },
   {
-   "id": "879f63f66e",
-   "title": "미 정부 가상자산 평가액, 1년 전 고점보다 160억달러 감소",
-   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1YMHpOWV83UGIwbXBucEw2UmE5T01ZVlJqTFdxNUlJWjhwa1otVlFGS3ZSWThCcFdsb1A3RHBXOXI2d1ZnVmFvdUZLb1NPZDBUaW92ZG0zMmRILUZMYXpxNA?oc=5",
+   "id": "45bcf72cbc",
+   "title": "\"80년대 이후 최악\"이라는 미국 콘솔 시장... XBOX는 '정면 돌파'",
+   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE81NDdNREJrVk5BNFE3MS12LW9UakxGeUJzWFlGWkhiYjlvTlUtTExBazRFVHpuSFd2N0J5VW93M1FzRGtITkNPdTNLOVNQQm9MUEtpRm16MVUtM2pGRnc?oc=5",
+   "source": "인벤",
+   "published_at": "2026-10-11T14:26:11+09:00",
+   "category": "과학·IT",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "9cebc5d7bc",
+   "title": "[트렌딩 나우] 글로벌 XDP 1위…한국은 ERA 선두",
+   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9nZEhTUExqcERVbWczd3lzYWd1OXptRWhkXzBQNW9ZVi1nNmxiX05vR3VoSWRTdl9jbGZXTFpYWXZGdmJKSHplX2psRExUZVEtNENqWm5Ea0U?oc=5",
    "source": "토큰포스트",
-   "published_at": "2026-10-11T12:39:43+09:00",
+   "published_at": "2026-10-11T16:01:13+09:00",
+   "category": "과학·IT",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "4ecaed7f4e",
+   "title": "비트코인 7만4500달러 참고값, 과거 조정률 적용해 산출",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5vLVdfa3NpQWl3VVdjdlFib1Bhb29YUHRMYm1nN1QzcllRcHQxblJzLTBJX0l0WFRycjBXZUwtTWdHT0preGZ6WlhCX3hDanJxQ2dPRWNnZmxDakw5RmpGMQ?oc=5",
+   "source": "토큰포스트",
+   "published_at": "2026-10-11T12:10:05+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
@@ -2211,21 +2581,21 @@
    "image": ""
   },
   {
-   "id": "ec644b2569",
-   "title": "[비트코인은 지금] 8만 달러대 강보합…거래량 급감·활성 지갑 ↓",
-   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1tUzZleGw3NXI2WGgxdnUwSkVXeG83RFVDWG9hU3pBcmktZHJPQ0lCUE45TmpFTXpZRm5kX1NoSm1PLWRfVjVldDBNaEdZbEFsZFo3dlhyTmJVTFNDZjJGZg?oc=5",
+   "id": "879f63f66e",
+   "title": "미 정부 가상자산 평가액, 1년 전 고점보다 160억달러 감소",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1YMHpOWV83UGIwbXBucEw2UmE5T01ZVlJqTFdxNUlJWjhwa1otVlFGS3ZSWThCcFdsb1A3RHBXOXI2d1ZnVmFvdUZLb1NPZDBUaW92ZG0zMmRILUZMYXpxNA?oc=5",
    "source": "토큰포스트",
-   "published_at": "2026-10-11T13:01:09+09:00",
+   "published_at": "2026-10-11T12:39:43+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
   },
   {
-   "id": "45bcf72cbc",
-   "title": "\"80년대 이후 최악\"이라는 미국 콘솔 시장... XBOX는 '정면 돌파'",
-   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE81NDdNREJrVk5BNFE3MS12LW9UakxGeUJzWFlGWkhiYjlvTlUtTExBazRFVHpuSFd2N0J5VW93M1FzRGtITkNPdTNLOVNQQm9MUEtpRm16MVUtM2pGRnc?oc=5",
-   "source": "인벤",
-   "published_at": "2026-10-11T14:26:11+09:00",
+   "id": "ec644b2569",
+   "title": "[비트코인은 지금] 8만 달러대 강보합…거래량 급감·활성 지갑 ↓",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1tUzZleGw3NXI2WGgxdnUwSkVXeG83RFVDWG9hU3pBcmktZHJPQ0lCUE45TmpFTXpZRm5kX1NoSm1PLWRfVjVldDBNaEdZbEFsZFo3dlhyTmJVTFNDZjJGZg?oc=5",
+   "source": "토큰포스트",
+   "published_at": "2026-10-11T13:01:09+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
@@ -2251,16 +2621,6 @@
    "image": ""
   },
   {
-   "id": "4ec8543c30",
-   "title": "RTX 5090 생산 중단 및 GB202 칩셋을 워크스테이션 GPU용으로 배정 > 뉴스/신제품",
-   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBGQzcyaHotVWJpc0M4bWkwaVFLSC11R0p4eTR1NkR5WkNkRUJ0eUE3czlzdUJ4WnF4ek1mX3o4X25DbE1lQW83NC1xYTU?oc=5",
-   "source": "쿨엔조이",
-   "published_at": "2026-10-11T14:13:13+09:00",
-   "category": "과학·IT",
-   "summary": "",
-   "image": ""
-  },
-  {
    "id": "df6be57251",
    "title": "노벨상 받은 ‘광유전학’, 실명 환자 눈에 빛 되찾아줬다",
    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNSHU3cmNTbXBwa0pMOWZBcmVUQzNIWlNBVVBYaFNrQTlBVjE2alJSeW5iR0xzaXVoS0JHQXBaTW1rRTE4V0RGT09iSXVKbUMySXJ2S254SEJGcVBJU1lpV1VSZk95UXNtd3ZIWjFKRVJjQ1dTSFVjYVBUZDcwbFIwZl9GQQ?oc=5",
@@ -2276,16 +2636,6 @@
    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVHFldlFYSlBnS2cyUkd6Y1N4MHI0MkJOYXdZbGNJZWFEZmNUdlZ3NHktNTJhQ0M5TEJJcmhtOU1pWEdacnhSaDluWUhkTzlNVldycWVTRFdxZjhOblNYVWRudWxpaU1PdGZLSG43N1drdEQ2YWwyYlQzRlBjY1J5d0gyNA?oc=5",
    "source": "조선일보",
    "published_at": "2026-10-11T13:34:00+09:00",
-   "category": "과학·IT",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "fba526f5c7",
-   "title": "커플이 점점 닮아간다는 ‘거울 효과’의 실체는?",
-   "url": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxQSVhpVktGbVZhUHVkM21UZnZEc0hjTUd5N2pyVE5lNlVBSkgtNlBEemxVNVJENmtJQ0xWUHkzWXk3Y0lhSk5wbVF6UjdUazFPSnJSNGZzVDh3X21fZjlOaWJNdHgybUdsOWpsS2M4NkkzRGdXaEVGZkpNU3RBMTNrOWk4ZEtTQ2d4dzZxUkJVYmluYWlPdmQ5d052LTdRd1JQck5MZWN3eWQ1RUdnenRXb0lHUV9NMFZYVFZyclVVZENMTkMxeFJHUDV6bWVrUDY0N0FMYVN6ZDVCZDBmZWxjcUI4clVoTU91ZU9Yay1qRkhpTVZoVWJUaGxyQmEzbi1hb1pjdVBaTlJVYnVOYnhVYXBSeGthU2NsMXc3SHBudWdxUGZhMF9hTFBR?oc=5",
-   "source": "W Korea",
-   "published_at": "2026-10-11T10:07:15+09:00",
    "category": "과학·IT",
    "summary": "",
    "image": ""
@@ -2311,31 +2661,61 @@
    "image": ""
   },
   {
-   "id": "25c83937d5",
-   "title": "10월 12일(음력 9월 2일) 오늘의 운세",
-   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA0ZWtIU01lYnBYS2Z1SmVsWXlsSFV6U0QwYzVFc2JjcFRmdHZmS3kxSlp3OUtzTHcwZWlDOWphVXlNNjFuTHNoS0JvNG5HRno2UkloN1JTN3pjeC1CSjRDSDFrSmNqaE10cUE?oc=5",
-   "source": "경남도민일보",
-   "published_at": "2026-10-11T19:50:00+09:00",
+   "id": "82a976da43",
+   "title": "오늘의 운세- 2026년 10월 12일 (음 9월 2일)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNU2NKYkZuckJPcGdIWnhHY0Fma1JxNjY4M1d4Y29wejhEdWhJY3h1T0gyVmRMSHd2QjkyOWEwSnV5enFLSHI2bzdJdW9kMmFiRXZfNldTQWYxTjU5M0MwdmF6N2l3YXRneS1VanVuanpIMWM0NHNlN3BYOXo2WnFDaF9YM2ZySWhOQzhmRDZn?oc=5",
+   "source": "국제신문",
+   "published_at": "2026-10-11T18:38:00+09:00",
    "category": "문화·생활",
    "summary": "",
    "image": ""
   },
   {
-   "id": "70a6d6ce38",
-   "title": "‘사랑이 온다’ 안희연 돌발 행동, 술렁이는 한가네",
-   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9aV1QzSVBnTVc3cGZtcURjOTA4Mmw4MXdYeDRSTmtwaXlUeHNsWTJzZFo2bmFQWGRFNHRPdEE4VWhfajVTMmUwbHpRSGpVSlhkOXg4NGNQZ1hIZ2ZfeFHSAWNBVV95cUxNMlZfNVMwRm1xc0JHSkM4cmk1QVFMUmR3TUU4Sk0tQTZwd1l6TGRoYkpqVUwtdnV3VWRzQlZjd2VocjZvdjVadTR5RDZPR2hQZTZvVEVOdWt1S1Q1SEhiM3ZUVlk?oc=5",
-   "source": "스포츠경향",
-   "published_at": "2026-10-11T17:33:00+09:00",
+   "id": "8fe7249d28",
+   "title": "'중식마녀' 이문정에 \"융통성 없어, 직원 다 도망갈듯\" 맹비난..정지선 '폭발'[핫피플]",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxObG85TVU1TW8yYUY3WkVsYnBPZDhTd2lEWE1BWW92RTd3RFh6NGpQQWFEeWZmLXlOb2xaVzQzV3lCV3Fhd05DWnNsLWxqbUdpU0lnU2M2Zmtvb2tTVFd4RExad3gzLVBsOGs0akxmTjJ6UHI5S1lNMmtxZS1Pcm9odUd4WTBHTVppZm5UMm1FZw?oc=5",
+   "source": "조선일보",
+   "published_at": "2026-10-11T18:26:00+09:00",
    "category": "문화·생활",
    "summary": "",
    "image": ""
   },
   {
-   "id": "9f1ee95aa0",
-   "title": "최희준 예술감독과 수원시향, 말러 마지막 교향곡으로 80분간의 깊은 여정",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Db2dfZi15LUxLOXQxN1hsSWNTZHRKN2d0em9yVmNIOERvQ1pUZXpnNll5UUVqNmRkQjNCVHlBZ3c2SHFpZnFuamRQMFJnY3dBeHJUU2Ytd0dXQlk?oc=5",
-   "source": "경기일보",
-   "published_at": "2026-10-11T16:07:50+09:00",
+   "id": "d757e1844c",
+   "title": "'사랑이 온다' 안희연, 한가네 충격에 빠뜨린 행보 '술렁'",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBNdlFVOVpjOXJ4a2pORTd0WlE2RllYaVFBYUF5cktUZ1h3Z2hVRTNJSDNFaHI3X1lKNTN3V2FrUHNKVUVrNThwaFZNWUFQU29yVVMweTZDVXVXY0ZaLXZsTw?oc=5",
+   "source": "iMBC 연예",
+   "published_at": "2026-10-11T17:01:00+09:00",
+   "category": "문화·생활",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "91aa442d62",
+   "title": "'소문의 낙원'은 실재했다…악뮤, 3만명 앞에 펼쳐낸 신기루 [리뷰]",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE51ajB6LTJGcnN2eUQ4ejYzNWlKejBnUHM0OGw1aXd2OWdlUzJxWllvX0l4VHpsNkRnNmRUOEUyUFhFNk0xWHRHQm92NWNaZUxTYm1uejJFZDYzZw?oc=5",
+   "source": "한국경제",
+   "published_at": "2026-10-11T19:44:58+09:00",
+   "category": "문화·생활",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "fb3f6a7f13",
+   "title": "경남도 '2026 코리아드라마어워즈' 성황…AI 숏폼 드라마 첫 공개",
+   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1pWFpyZ3ZwNFFWTVM0VVp2Z3gyUHliQ2c3RUVmT2d3cFNiaUFIOU5yRHB2Y1JHcTRvdDBBT0lreWQydGticVZDdElaSTBVNWxnZWtORmFhSmJTRFNO?oc=5",
+   "source": "뉴스핌",
+   "published_at": "2026-10-11T18:06:00+09:00",
+   "category": "문화·생활",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "8a1101ec33",
+   "title": "이사한 숙소 무려 100평..리센느 \"화장실 줄 안 서도 돼\" 달라진 생활에 감격 ('8뉴스')",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPbklrLTNHaTRZaWlialQ2djFlQkRZem5xRjk5ZmRDOXFsWm5BN3lYdlVKNjFzeEJETEdwSUZxdE9iZWRWTjVObW5JekxrSmpGNzB0REZRaGdadXF1WXh4RDhDVllObWtnNW15cnJLbHJCSDNNTjNhQjcyMkw1UXIySFF1eHM2ZHNiZjd5UEQ2VQ?oc=5",
+   "source": "조선일보",
+   "published_at": "2026-10-11T20:41:00+09:00",
    "category": "문화·생활",
    "summary": "",
    "image": ""
@@ -2351,6 +2731,26 @@
    "image": ""
   },
   {
+   "id": "3c9d14af39",
+   "title": "뇌 자극하는 ‘투명 OLED 안경’ 개발, 알츠하이머 예방·관리 길 열어",
+   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8yaWxhVEtFVHdzVUY3SkVqSnFmcEN0U3RDVUE2N1Rpa3FsMjliaHoweXFHUms4Q1A0OTNXamNZZlplZWFRXzEyUW1VeGY1ZnZUUlo1OGRXUVBETi1Ca3fSAWNBVV95cUxPRDBjTlVzcEJwUWNzRDhHTHBXdllnUWkxRnhLVUZkRUlXdmM3aEJMYi1PSE8wYXFLbVFUZS1aNlF2OUlJa3Y1SURJa3dxZW5zYjZJSEliZzVSaUlLNU9wemwyLWs?oc=5",
+   "source": "스포츠경향",
+   "published_at": "2026-10-11T20:27:00+09:00",
+   "category": "문화·생활",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "66345986fc",
+   "title": "\"건망증일까, 치매일까?\"… 달라진 알츠하이머병 진단과 치료",
+   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9URW80ODFadVlETzNyeE9CQ2tfdGNOS0hwdDBZUGdWak1JZ293cmFGcl9RanQ2RkRPbFVWMUlHMUpQbzdJVHdyazVHeHJNYUFsQWloQXEtbUdURjRySXN1dUhIRVZhdw?oc=5",
+   "source": "제민일보",
+   "published_at": "2026-10-11T16:30:50+09:00",
+   "category": "문화·생활",
+   "summary": "",
+   "image": ""
+  },
+  {
    "id": "feb404d8a5",
    "title": "혈당 높다면 소량의 술도 안심 못 한다…대장암 위험 48% 높아져",
    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9nc193SEE5cGV2QzVaN2Y3RXgyejc5eVJnS3NURHcyT185UzJ2b0tDRUJPcEhQUGpER1lGOWctaHFwNmhSNDBidDdvVmNLdmFTSVE3UjJkXzVUQllYdUt0WnBRS1pPZHRlbW82TUh1LXRfSkotenNJ?oc=5",
@@ -2361,12 +2761,12 @@
    "image": ""
   },
   {
-   "id": "f9e731df2a",
-   "title": "李대통령, 대구 마트 천장 붕괴에 “인명 구조 총력” 지시",
-   "url": "https://www.chosun.com/politics/blue_house/2026/10/10/4AJ6AZKRJJFVVMIAV2YEI5V4AM/",
-   "source": "chosun.com",
-   "published_at": "2026-10-10T12:22:05+09:00",
-   "category": "정치",
+   "id": "0652737a1d",
+   "title": "시애틀아동병원 독감 양성 어린이 15배 급증…성인 2명 사망,독감 비상",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9fMDBpWEJRSndiclQxcXdpSjVVbnJfb01XbHc5RFJTNzhEcG9YOERaaFdLdGJLd01aYlllRHVPemZLMnRCQU9rZ2hMY1Rzanc2WTZJaVFNeENtSzBqSGJqSjl1WWJnVE5aVVpFQk9yNzXSAXNBVV95cUxOOUNsTlNabFpLck8tMGNLTHNodF8zXzNYcGY5R3Q3R0VsOHpILUgyUExQOThENUtHOHQxbE5tQ0s2VnNvMmh5bk43RzNOVi1zbnFfT1pFWUhQbE9ETjVmWHI5WFQtM1l2VGtmYzFITmM0cUU0?oc=5",
+   "source": "시애틀코리안데일리",
+   "published_at": "2026-10-11T19:35:51+09:00",
+   "category": "문화·생활",
    "summary": "",
    "image": ""
   },
@@ -2376,26 +2776,6 @@
    "url": "https://www.pressian.com/pages/articles/2026101010345347271&amp;ref=rss",
    "source": "pressian.com",
    "published_at": "2026-10-10T19:34:53+09:00",
-   "category": "정치",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "b6e8c58213",
-   "title": "李, 대구 상가건물 천장 붕괴 사고에 “인명 구조 총력” 지시",
-   "url": "https://www.donga.com/news/Politics/article/all/20261010/134817496/1",
-   "source": "donga.com",
-   "published_at": "2026-10-10T21:22:00+09:00",
-   "category": "정치",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "77a256799e",
-   "title": "이재명 대통령, 대구 천장 붕괴 사고에 “인명 구조에 총력 다하라”",
-   "url": "https://www.newscj.com/news/articleView.html?idxno=3439167",
-   "source": "newscj.com",
-   "published_at": "2026-10-10T22:28:16+09:00",
    "category": "정치",
    "summary": "",
    "image": ""
@@ -2439,16 +2819,6 @@
    "category": "정치",
    "summary": "",
    "image": ""
-  },
-  {
-   "id": "d5c5c16074",
-   "title": "국정원 \"美와 다양한 분야 정보협력…정보 제공 총량 줄지 않아\"",
-   "url": "https://www.newsis.com/view/NISX20261011_0003820785",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T18:05:00+09:00",
-   "category": "정치",
-   "summary": "",
-   "image": "https://img1.newsis.com/2024/10/29/NISI20241029_0020577034_web.jpg"
   },
   {
    "id": "4ee845b4b9",
@@ -2871,11 +3241,11 @@
    "image": ""
   },
   {
-   "id": "f1e49eb322",
-   "title": "LG전자, 美 진출 10년 ‘LG 시그니처’ 라인업 확대…북미 프리미엄 가전 공략 강화",
-   "url": "https://www.chosun.com/economy/tech_it/2026/10/11/GQ2TENJVGRSDIOJTHA3TEZBZGU/",
+   "id": "758d394ef2",
+   "title": "“반도체 성과급 잔치에도… 소비 진작 효과는 제한적일 것”",
+   "url": "https://www.chosun.com/economy/economy_general/2026/10/11/GI4WKZRSGQ2TEMJYGVRTINRZGM/",
    "source": "chosun.com",
-   "published_at": "2026-10-11T10:00:00+09:00",
+   "published_at": "2026-10-11T10:19:06+09:00",
    "category": "경제",
    "summary": "",
    "image": ""
@@ -2911,36 +3281,6 @@
    "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/11/134818565.1.jpg"
   },
   {
-   "id": "3fa6f2936a",
-   "title": "역대급 ‘삼성전자 분기 100조원’ 실적에도 하락한 코스피...대체 왜?",
-   "url": "https://www.segye.com/newsView/20261011505460",
-   "source": "segye.com",
-   "published_at": "2026-10-11T18:44:11+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "14d4a460c5",
-   "title": "김천김밥축제 경연 우승작 맛본다…CU, '중화식 고추잡채 김밥' 출시",
-   "url": "https://www.newsis.com/view/NISX20261011_0003820810",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T18:44:19+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0002259943_web.jpg"
-  },
-  {
-   "id": "e8c926b124",
-   "title": "AI 쓰고도 벗어난 법인세 전망치…의존도 높아지며 재정 안정성↓",
-   "url": "https://www.segye.com/newsView/20261009506378",
-   "source": "segye.com",
-   "published_at": "2026-10-11T18:47:58+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009506443.jpg"
-  },
-  {
    "id": "342c96418b",
    "title": "스타벅스, ‘탱크데이’ 논란 5개월 만에 카드 결제액 다시 1위",
    "url": "https://www.womennews.co.kr/news/articleView.html?idxno=283168",
@@ -2949,136 +3289,6 @@
    "category": "경제",
    "summary": "",
    "image": ""
-  },
-  {
-   "id": "0baa7d8acd",
-   "title": "\"공정시간 40% 단축\"…LG디스플레이, '세계 유일' 8세대 RGB 올레드 'FLiPP' 기술 공개",
-   "url": "https://www.newsis.com/view/NISX20261008_0003818584",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T19:00:00+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://img1.newsis.com/2026/10/08/NISI20261008_0002258594_web.jpg"
-  },
-  {
-   "id": "4321828545",
-   "title": "\"요즘 뜨는 디저트로 입맛 저격\" 외식·카페업계, 트렌드 메뉴 우수수[이거 먹어볼까]",
-   "url": "https://www.newsis.com/view/NISX20261008_0003819171",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T19:00:00+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://img1.newsis.com/2026/10/08/NISI20261008_0002258748_web.jpg"
-  },
-  {
-   "id": "498e4a5697",
-   "title": "LG전자, '시그니처' 美 진출 10주년…라인업 확대해 프리미엄 공략 가속",
-   "url": "https://www.newsis.com/view/NISX20261011_0003820812",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T19:00:00+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0002259945_web.jpg"
-  },
-  {
-   "id": "82027a6f57",
-   "title": "존 메이어 “LG 워시타워 알림음으로 노래 만들었죠”…구겐하임 금빛 물들인 ‘시그니처 10주년’",
-   "url": "https://www.donga.com/news/Inter/article/all/20261011/134818121/1",
-   "source": "donga.com",
-   "published_at": "2026-10-11T19:00:00+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/11/134818863.1.jpg"
-  },
-  {
-   "id": "fb8851db6f",
-   "title": "“부모 10년 모셨는데 똑같이 나누라니”…상속 더 받을 수 있나 [상속리포트]",
-   "url": "https://www.donga.com/news/Society/article/all/20261008/134799000/2",
-   "source": "donga.com",
-   "published_at": "2026-10-11T19:00:00+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/08/134798986.3.jpg"
-  },
-  {
-   "id": "a0a2e1236a",
-   "title": "국내 플랫폼 허위조작 신고 2732건… 구글·메타는 ‘묵묵부답’",
-   "url": "https://www.newscj.com/news/articleView.html?idxno=3439283",
-   "source": "newscj.com",
-   "published_at": "2026-10-11T19:03:19+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "4288b9effe",
-   "title": "쌍트로로 뚫고 크레타로 키웠다… 현대차, 인도 1000만대 눈앞",
-   "url": "https://www.newscj.com/news/articleView.html?idxno=3439285",
-   "source": "newscj.com",
-   "published_at": "2026-10-11T19:20:17+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "ec10966871",
-   "title": "연이은 개인정보 유출에도… 올해 주민번호 변경 신청 32%↓",
-   "url": "https://www.newscj.com/news/articleView.html?idxno=3439286",
-   "source": "newscj.com",
-   "published_at": "2026-10-11T19:21:16+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "47f914ec2d",
-   "title": "패션업계 이종 협업 활발…패션 넘어 라이프스타일 공략 ‘속도’ [트렌드]",
-   "url": "https://www.segye.com/newsView/20261011506146",
-   "source": "segye.com",
-   "published_at": "2026-10-11T19:21:56+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "6812ecb1ea",
-   "title": "한국은행·국책은행 해킹 시도 ‘역대 최대’…2026년 들어 102만건 돌파",
-   "url": "https://www.segye.com/newsView/20261011506218",
-   "source": "segye.com",
-   "published_at": "2026-10-11T19:24:30+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/04/20261004507415.jpg"
-  },
-  {
-   "id": "8baff621a9",
-   "title": "美 정부 몰수 비트코인 코인베이스로…매도 신호 ‘촉각’ [코인 브리핑]",
-   "url": "https://www.segye.com/newsView/20261009506051",
-   "source": "segye.com",
-   "published_at": "2026-10-11T19:27:47+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009506101.jpg"
-  },
-  {
-   "id": "93f3e4d669",
-   "title": "‘107조’ 벌어도 안 오르는 삼성전자 주가…‘주주환원’에 쏠리는 눈",
-   "url": "https://www.segye.com/newsView/20261009505524",
-   "source": "segye.com",
-   "published_at": "2026-10-11T19:29:21+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009505522.jpg"
-  },
-  {
-   "id": "5e3860088b",
-   "title": "스타벅스, 부진 털고 반등…투썸 제치고 5개월만 결제액 선두 탈환",
-   "url": "https://www.newsis.com/view/NISX20261011_0003820862",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T19:35:48+09:00",
-   "category": "경제",
-   "summary": "",
-   "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0021483641_web.jpg"
   },
   {
    "id": "efd96328b9",
@@ -3301,26 +3511,6 @@
    "image": ""
   },
   {
-   "id": "4709cbebd0",
-   "title": "이 대통령, 대구 마트 천장 붕괴 사고에 “인명 구조 총력” 지시",
-   "url": "https://www.mediatoday.co.kr/news/articleView.html?idxno=337640",
-   "source": "mediatoday.co.kr",
-   "published_at": "2026-10-10T21:47:03+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "4766c2da21",
-   "title": "대구 마트 천장 붕괴로 38명 부상…李대통령 “인명 구조에 총력” 지시",
-   "url": "https://www.sisajournal.com/news/articleView.html?idxno=389694",
-   "source": "sisajournal.com",
-   "published_at": "2026-10-10T22:33:19+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": "https://cdn.sisajournal.com/news/thumbnail/202610/389694_398393_1739_v150.jpg"
-  },
-  {
    "id": "756ca51d60",
    "title": "경찰, 대구 상가 천장 붕괴 '수사전담팀'…내일 합동감식",
    "url": "https://www.newsis.com/view/NISX20261010_0003820625",
@@ -3361,36 +3551,6 @@
    "image": ""
   },
   {
-   "id": "bf1cabc507",
-   "title": "연휴 마지막날 9시기준 부산-서울 4시간50분…오후 4∼5시 절정",
-   "url": "https://www.segye.com/newsView/20261011504994",
-   "source": "segye.com",
-   "published_at": "2026-10-11T18:09:31+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "8ef39189af",
-   "title": "한글날 연휴 마지막날 서울 방향 혼잡…부산→서울 5시간50분",
-   "url": "https://www.newsis.com/view/NISX20261011_0003820803",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T18:25:57+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "f8daa3ff80",
-   "title": "김호영, 유튜브 출연 미성년 향한 악플에 영상 삭제…“법적 대응 진행”",
-   "url": "https://www.donga.com/news/Entertainment/article/all/20261011/134818496/1",
-   "source": "donga.com",
-   "published_at": "2026-10-11T18:26:19+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/11/134818497.1.jpg"
-  },
-  {
    "id": "222d77ed2b",
    "title": "수배 숨기려 경찰에 친구 주민등록번호 말한 30대 벌금 200만 원",
    "url": "https://www.donga.com/news/Society/article/all/20261011/134818501/1",
@@ -3399,76 +3559,6 @@
    "category": "사회",
    "summary": "",
    "image": ""
-  },
-  {
-   "id": "789daa0267",
-   "title": "한글날 연휴 마지막 날 귀경길 혼잡…부산→서울 5시간 50분",
-   "url": "https://www.donga.com/news/Society/article/all/20261011/134818506/1",
-   "source": "donga.com",
-   "published_at": "2026-10-11T18:27:28+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "5f13e13320",
-   "title": "\"국가대표, 운동만 잘하면 될까\"…AG 병역특례 논란 속 '민족주의'",
-   "url": "https://www.newsis.com/view/NISX20261010_0003820513",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T18:34:00+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": "https://img1.newsis.com/2026/10/10/NISI20261010_0002259763_web.jpg"
-  },
-  {
-   "id": "3f79154dd9",
-   "title": "‘1억 공천헌금’ 혐의 강선우, 14일 1심 선고…검찰, 징역 4년 구형",
-   "url": "https://www.segye.com/newsView/20261009506601",
-   "source": "segye.com",
-   "published_at": "2026-10-11T18:39:02+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009506600.jpg"
-  },
-  {
-   "id": "7748e0e6e4",
-   "title": "‘독감 사망 교사 사망’ 관련 유치원 원장 정직 2개월…성실의무 위반",
-   "url": "https://www.seoul.co.kr/news/newsView.php?id=20261011500010",
-   "source": "seoul.co.kr",
-   "published_at": "2026-10-11T18:45:15+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "72cb4dc5b4",
-   "title": "국선변호인 선정 청구했지만 결정 없이 선고…대법 \"방어권 침해\"",
-   "url": "https://www.newsis.com/view/NISX20261011_0003820827",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T18:46:04+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "e008f68b9d",
-   "title": "‘수십 명 부상’ 대구 상가 천장 붕괴…경찰, 홈캠 확보·합동 감식 돌입 [사건수첩]",
-   "url": "https://www.segye.com/newsView/20261011505528",
-   "source": "segye.com",
-   "published_at": "2026-10-11T18:46:34+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/11/20261011505747.jpg"
-  },
-  {
-   "id": "db0db6c48f",
-   "title": "“어르신 행복을 싣고”… 집 고쳐주고 말벗 돼주는 ‘만능 집배원’ [밀착취재]",
-   "url": "https://www.segye.com/newsView/20261005512771",
-   "source": "segye.com",
-   "published_at": "2026-10-11T18:49:27+09:00",
-   "category": "사회",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/08/20261008517364.jpg"
   },
   {
    "id": "377e0914c3",
@@ -3731,11 +3821,51 @@
    "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0021483701_web.jpg"
   },
   {
+   "id": "d8626e61cd",
+   "title": "트럼프, 백악관 새 대변인에 케이티 재커리아 임명",
+   "url": "https://www.newsis.com/view/NISX20261010_0003820401",
+   "source": "newsis.com",
+   "published_at": "2026-10-10T14:35:57+09:00",
+   "category": "국제",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "0a0e1942e3",
+   "title": "트럼프, 백악관 대변인에 자카리아 임명 발표",
+   "url": "https://www.newsis.com/view/NISX20261010_0003820406",
+   "source": "newsis.com",
+   "published_at": "2026-10-10T15:20:45+09:00",
+   "category": "국제",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "043186b3cc",
+   "title": "트럼프, 백악관 새 대변인에 케이티 재커리아 임명",
+   "url": "https://www.donga.com/news/Inter/article/all/20261010/134817042/1",
+   "source": "donga.com",
+   "published_at": "2026-10-10T15:49:19+09:00",
+   "category": "국제",
+   "summary": "",
+   "image": ""
+  },
+  {
    "id": "61da3043a3",
    "title": "트럼프, 새 대변인에 또 ‘금발 여성’…보수평론가 자카리아",
    "url": "https://www.donga.com/news/Inter/article/all/20261010/134817106/1",
    "source": "donga.com",
    "published_at": "2026-10-10T17:27:00+09:00",
+   "category": "국제",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "a08685b347",
+   "title": "트럼프, 새 백악관 대변인에 보수 평론가 자카리아 임명 “충성스런 지지자”",
+   "url": "https://www.khan.co.kr/article/202610100840001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+   "source": "khan.co.kr",
+   "published_at": "2026-10-10T17:40:00+09:00",
    "category": "국제",
    "summary": "",
    "image": ""
@@ -3756,16 +3886,6 @@
    "url": "https://www.newsis.com/view/NISX20261010_0003820695",
    "source": "newsis.com",
    "published_at": "2026-10-11T06:37:42+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "72b216e2b7",
-   "title": "젤렌스키가 미러 ‘경유 거래’ 비판하자… 트럼프 “우크라, 새 대통령 필요”",
-   "url": "https://www.chosun.com/international/international_general/2026/10/11/GM3GMNJUG44DENJWMNRDENZTME/",
-   "source": "chosun.com",
-   "published_at": "2026-10-11T07:31:15+09:00",
    "category": "국제",
    "summary": "",
    "image": ""
@@ -3831,26 +3951,6 @@
    "image": ""
   },
   {
-   "id": "b5819d4ae6",
-   "title": "황금연휴에도 ‘볼 영화’ 없었다...中 국경절 극장가 참패 이유 [차이나우]",
-   "url": "https://www.segye.com/newsView/20261009502706",
-   "source": "segye.com",
-   "published_at": "2026-10-11T17:12:08+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009502701.jpg"
-  },
-  {
-   "id": "849b2b826a",
-   "title": "포르투갈 축구대표팀 무단 이탈한 호날두…잠정 징계 처분",
-   "url": "https://www.donga.com/news/Inter/article/all/20261011/134818292/1",
-   "source": "donga.com",
-   "published_at": "2026-10-11T17:14:52+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/11/134818293.1.jpg"
-  },
-  {
    "id": "c9ba4dab58",
    "title": "트럼프, ‘경유딜’ 비판한 젤렌스키에 “우크라 새 대통령 필요”",
    "url": "https://www.donga.com/news/Inter/article/all/20261011/134818342/1",
@@ -3879,16 +3979,6 @@
    "category": "국제",
    "summary": "",
    "image": ""
-  },
-  {
-   "id": "781c13fc21",
-   "title": "회사 안 사고 핵심팀만 쏙… 빅테크서 확산하는 ‘인재 인수’ [이귀전의 왜-인재전쟁 ②]",
-   "url": "https://www.segye.com/newsView/20261009506621",
-   "source": "segye.com",
-   "published_at": "2026-10-11T18:00:00+09:00",
-   "category": "국제",
-   "summary": "",
-   "image": "https://www.segye.com/content/image/2026/10/11/20261011506984.jpg"
   },
   {
    "id": "a3d660f115",
@@ -4046,86 +4136,6 @@
    "url": "https://www.seoul.co.kr/news/newsView.php?id=20261010500007",
    "source": "seoul.co.kr",
    "published_at": "2026-10-10T19:08:44+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "8ea9581afa",
-   "title": "대형교회 신자 정보유출에 종교계 불안…불교, 천주교는",
-   "url": "https://www.newsis.com/view/NISX20261008_0003819830",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T15:05:00+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "a84cec5ca7",
-   "title": "2차 세계대전도 막지못한 와인 집념…생테밀리옹 그랑 크뤼로 꽃 피다 [최현태 기자의 와인홀릭]",
-   "url": "https://www.segye.com/newsView/20261011500709",
-   "source": "segye.com",
-   "published_at": "2026-10-11T15:31:48+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "0b6e6b386f",
-   "title": "꽃게 다리 ‘꽉’, 대하 껍질 ‘와작’… 제철 별미 즐기다 치아 상할라",
-   "url": "https://www.segye.com/newsView/20261009503910",
-   "source": "segye.com",
-   "published_at": "2026-10-11T15:32:42+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "21fae88d3c",
-   "title": "선선해도 방심 금물… 가을 야외활동 때 눈 자외선 보호해야",
-   "url": "https://www.segye.com/newsView/20261009505636",
-   "source": "segye.com",
-   "published_at": "2026-10-11T15:33:54+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "dffd5cd367",
-   "title": "돈이 사라져도 신뢰는 사라지지 않는다… ‘세상을 바꾸는 화폐 이야기’",
-   "url": "https://www.segye.com/newsView/20261009506007",
-   "source": "segye.com",
-   "published_at": "2026-10-11T15:34:21+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "3f31e8f947",
-   "title": "오징어가 사라지고 낯선 물고기가 온다… 기후교양서 ‘동해가 보내는 신호’",
-   "url": "https://www.segye.com/newsView/20261009505953",
-   "source": "segye.com",
-   "published_at": "2026-10-11T15:34:31+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "905a543383",
-   "title": "‘낚시의 계절’ 제대로 손맛 보려다 손목·팔꿈치·허리 ‘윽’ 통증 주의 [건강+]",
-   "url": "https://www.segye.com/newsView/20261009505587",
-   "source": "segye.com",
-   "published_at": "2026-10-11T15:35:01+09:00",
-   "category": "문화·생활",
-   "summary": "",
-   "image": ""
-  },
-  {
-   "id": "5b2c0b83ef",
-   "title": "재즈부터 연극까지…청년 예술인 20팀, 릴레이 공연",
-   "url": "https://www.newsis.com/view/NISX20261006_0003815739",
-   "source": "newsis.com",
-   "published_at": "2026-10-11T16:00:00+09:00",
    "category": "문화·생활",
    "summary": "",
    "image": ""
@@ -4331,31 +4341,41 @@
    "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0002259996_web.jpg"
   },
   {
-   "id": "d1d834a84b",
-   "title": "민주당 \"한동훈, 막말로 질문 못 피해‥'딸 논문 대필' 벤슨은 누구?\"",
-   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1pWWNiM19NZmZxS2J5dElWZjhOTnh5aV9uaVhOQmI2a1c1Y0p3ZWlaYUxOdVo1eFg3eEhNRlR0Z0FMS1hQdkZ0MTRoMHRGeDlUXzRhUEY0RXU1WDE1NXE3V0RpeThWZGNMMzd3NjB0LVFWZnFfNDBic9IBeEFVX3lxTE9LTURBMHhRQkVLb2paem50X0tHVWRXY0ZMZjdhSHVwLWk1ZVFFOEYyczdTZnVmcDcyUUhKQ3ppZmlrbUJsSlo1ZUpRNGJrVnotQS1nbGxxV0htVzR3Q1BzRUhYZHJWZzRPV202UGo1OGVndUxLcW5Tbw?oc=5",
-   "source": "MBC 뉴스",
-   "published_at": "2026-10-11T14:51:49+09:00",
+   "id": "421fe87895",
+   "title": "청, 대통령 휴일 일정 이례적 공개…“골프장서 대구 사고 보고받고 지시”",
+   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1CazZZaVNFNFFzSUpON2FNRVJpS1RBSjZjSjYzSkNrS2JhNmEzQjN5dHZfNndQaUpTblY4bzVITV9pSVVDQWozSFNYZWtqNzRoS1dzVEVXQ1BMUnkxOW1Xc2ltYzloSE5ZMW1j?oc=5",
+   "source": "한겨레",
+   "published_at": "2026-10-11T19:23:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
   },
   {
-   "id": "ffd1aa9197",
-   "title": "“내년엔 1200원대도 가능”…‘반도체 달러’ 덕에 원화 강세 계속될까",
-   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5NZzBzZXkzUFR1NEphVnBsZkRPQWtpS3JHNEQxbnlZNjZDX1VpQ2RYQmxqSHYtWlR3Z0dPajh3Sk55SnRHQnBBdXpkT2pkUVdUTFE?oc=5",
-   "source": "매일경제 마켓",
-   "published_at": "2026-10-11T07:33:46+09:00",
+   "id": "bcb76537f0",
+   "title": "임은정 “중수청 1호 감찰 대상 돼 안타깝고 서글퍼…잘 대처하겠다”",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9EQVVoQU1kQjBxUEliMERKUktPV3ZIek94cUpPdThfeGptYlVGWE9NQ0tVRXljcllZNGZSSmQxNk0xU09nNU9ZenZpblpaaHppb0JnQzdWR2Vvb2NKd3VGOVBBLWVwUENoUUFVZjFxLS00Zw?oc=5",
+   "source": "한겨레",
+   "published_at": "2026-10-11T16:00:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
   },
   {
-   "id": "a98d519430",
-   "title": "\"임원 조기 인사로 관세·AI 대응\"…SK 10월, 삼성·LG 11월 단행할듯",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQb0hDODJLemttUzhUZDQwMnRYNlRpM3l2VFpGdU1xbmVXdTBuV2hSVjBvUnVYQlVneE5lVnRLLV9KZFEzWUJ3RkptOVh2ZlljSTRlcjlzSDZLdjlEYVYyV3JZbnhUOFRxRWR0V1RKZUF6NW9lLUViTGxleVBDM0N6dw?oc=5",
-   "source": "이데일리",
-   "published_at": "2026-10-11T18:31:19+09:00",
+   "id": "0b64766c3a",
+   "title": "이 대통령 \"혈세로 호사 누리며 서민 복지 예산 삭감\"…추미애 저격?",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5yQjE2MFphOGdNa2RXamR5UG4yc09fT2taQVhOLWg2UzN5aVNDWndrSUtOTmxzUkkzUjYxWDA5SVlOdGptV0g2c1Nob3VZN3I1Uk5IM2pMQlZXLXdsb2FHa3BMRW51STA?oc=5",
+   "source": "연합뉴스TV",
+   "published_at": "2026-10-11T13:34:00+09:00",
+   "category": "미분류",
+   "summary": "",
+   "image": ""
+  },
+  {
+   "id": "1e2ff1f9e3",
+   "title": "미 국방부, 이란전 사상자 슬그머니 올려…사망 21명·부상 865명",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSlBQWE5uNXZjTV9yMHJfMkwyS295SWNlSW56NVJMV0VfbTRTQ2Y5cmo2MG14Zm1NN3V1N0ZYMFpYRmljampSMmhCZlVoWEJUTGhMbkdwVlJ1aUtMbFNUQS01blc2eVExOVpacU1tSTY1aVlTY2VDdWJPZGlNRG42WGp3?oc=5",
+   "source": "한겨레",
+   "published_at": "2026-10-11T20:24:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -4391,11 +4411,11 @@
    "image": ""
   },
   {
-   "id": "32e172aaa0",
-   "title": "Dungeons & Degenerate Gamblers, PS5와 Nintendo Switch 상륙: 규칙을 비트는 블랙잭 로그라이크",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOaWpoWHE5aExHN2VXWGd2RkIyQ2tOSWlrZ1dsTndhVE9ZV1F3Y3E0Ym9yMV94TWwxNFN0NXdDUnh0NlRISUg0bTdJSmtrSFhobFhzNWtXRG1oS2hKZzF3Y0htd1BwV0lURVREeHlIMGEwTkJaRFN0enE2cHB4cGREVjdpbFlsVHh4amZ4eEF2OEI0cXFRbllV?oc=5",
-   "source": "Martin Cid Magazine",
-   "published_at": "2026-10-11T18:00:00+09:00",
+   "id": "c68ca08774",
+   "title": "한 애호가가 쓰레기 매립지에서 1TB 용량의 삼성 870 EVO 하드 드라이브 4개를 발견했는데, 그 가치는 1300달러가 넘습니다.",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVG9jc241NVdmYk8xQzNNcS1aMXM2eWNPQjVrRlEtbVB4eHUtQW4wTjg3TzIyaXRVYUJZNm9vYWRHb3VxM2N6emRKVUFQVXdnUENsbjljSkkwR1JYa3F6Q25aRDZ5dll5NXo3NVcxR0lWM1hpaWdJY2tmbVU5bFFrVWU1OF9wOWhsNnlaZHl4ei1IUkhkS2UxX2R5S0Ytc01YSk1jN1d2TUFDYXJDQ0NTMDNHYlBkaUNzV0luODFqdnRzMG8?oc=5",
+   "source": "GameGPU",
+   "published_at": "2026-10-11T19:45:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
@@ -4421,17 +4441,107 @@
    "image": ""
   },
   {
-   "id": "8a0fb3f205",
-   "title": "‘후라도 10승 무산’ 삼성 라이온즈, KT에 3-12 패배…사자군단 ‘가을야구’ 대비 올인",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBjT0lrTmxnWVBpTTVVTHQyMmJiQ09QaXlyRGZHXzRQTklDQUhVdUM3Z1F1QUhYNWEwRlBmYlVfdW5KMlJkbG1hTjFhMkVnYVh3WUxqUnFsMF9zSXZzYWVhUWc3cmlzdHdXVzdN?oc=5",
-   "source": "영남일보",
-   "published_at": "2026-10-11T17:54:55+09:00",
+   "id": "6da0944524",
+   "title": "'볼넷 얻고 지구 폭행' KT 최원준, 주장 장성우도 좌시하지 않았다 \"마! 자기 기록 채우러 나왔나\" [오!쎈 대구]",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNi1KVGZmUHduNDJyTHVWbmRUOWxvS2RvYmFWNWp5bVZSUm5SazJEdDJiQnpGMmtjdTlLUEYwTDlFRFYtWkpzdm5NcnRiTXFROW8zSEYtMUhITTBvX0piTWVDTl91ZW1ST0w2WXExSXNULWpheEZpUFo3VmtEaFpNbVgzQQ?oc=5",
+   "source": "조선일보",
+   "published_at": "2026-10-11T18:22:00+09:00",
    "category": "미분류",
    "summary": "",
    "image": ""
   }
  ],
  "groups": [
+  {
+   "id": "g_2348222e07",
+   "rep_id": "2348222e07",
+   "article_ids": [
+    "2348222e07"
+   ],
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 고동욱 기자 = 이재명 대통령은 11일 \"민주주의 공론의 장에서 이성적이며 사실에 기반한 합리적 토론이 사라지면 위험하다\"고 ...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:46:00+09:00",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/08/PYH2026100822070001300_P2.jpg"
+  },
+  {
+   "id": "g_bf0c7bfec4",
+   "rep_id": "bf0c7bfec4",
+   "article_ids": [
+    "cf431e721a",
+    "97cef164ef",
+    "bf0c7bfec4"
+   ],
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 고동욱 설승은 조다운 안정훈 기자 = 청와대는 이재명 대통령이 지난 10일 대구 상가 천장 붕괴 사고 당시 골프장에 있었던 것...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 2,
+   "latest": "2026-10-11T20:33:18+09:00",
+   "image": "https://img.yna.co.kr/photo/cms/2026/05/06/59/PCM20260506000059990_P2.jpg"
+  },
+  {
+   "id": "g_77245b9aef",
+   "rep_id": "77245b9aef",
+   "article_ids": [
+    "4ee845b4b9",
+    "77245b9aef"
+   ],
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 조다운 안정훈 기자 = 더불어민주당은 11일 무소속 한동훈 의원의 딸의 고등학생 시절 대필 의혹을 재차 집중 부각하며 공세를 ...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 2,
+   "latest": "2026-10-11T20:32:12+09:00",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/09/15/PYH2026091522120001300_P2.jpg"
+  },
+  {
+   "id": "g_45e4355f9e",
+   "rep_id": "45e4355f9e",
+   "article_ids": [
+    "45e4355f9e"
+   ],
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 김지헌 기자 = 외교부는 11일 조현 장관이 중동 15개 공관과 상황점검회의를 개최해 중동 지역 정세를 평가하고 현지 체류 재...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:15:05+09:00",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049700504_01_i_P2.jpg"
+  },
+  {
+   "id": "g_a3088701af",
+   "rep_id": "a3088701af",
+   "article_ids": [
+    "f5388eaaed",
+    "ce5f02d9e7",
+    "a3088701af"
+   ],
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 김연정 안정훈 기자 = 여야는 11일 윤호중 행정안전부 장관이 임은정 광주지방중수청장에 대해 감찰을 지시한 것을 두고 \"상식적...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 2,
+   "latest": "2026-10-11T20:10:27+09:00",
+   "image": "https://img.yna.co.kr/photo/cms/2026/10/11/02/PCM20261011000002990_P2.jpg"
+  },
+  {
+   "id": "g_421fe87895",
+   "rep_id": "421fe87895",
+   "article_ids": [
+    "8177a432b3",
+    "421fe87895"
+   ],
+   "category": "정치",
+   "summary": "(서울=연합뉴스) 고동욱 설승은 기자 = 청와대는 이재명 대통령이 지난 10일 대구 상가 천장 붕괴 사고 당시 골프장에 있었던 것은 사실이지만,...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 2,
+   "latest": "2026-10-11T19:23:00+09:00",
+   "image": "https://img.yna.co.kr/photo/cms/2026/05/06/59/PCM20260506000059990_P2.jpg"
+  },
   {
    "id": "g_3ff6bb4905",
    "rep_id": "3ff6bb4905",
@@ -4461,6 +4571,20 @@
    "source_count": 2,
    "latest": "2026-10-11T19:54:33+09:00",
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/09/14/PYH2026091409210006200_P2.jpg"
+  },
+  {
+   "id": "g_d4562365b4",
+   "rep_id": "d4562365b4",
+   "article_ids": [
+    "d4562365b4"
+   ],
+   "category": "경제",
+   "summary": "(세종=연합뉴스) 이대희 기자 = 이형일 부총리 겸 재정경제부 장관은 11일 경제현안간담회를 열고 전통시장 온누리상품권 환급 개선방안, 민생물가...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:27:40+09:00",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/07/PYH2026100706630001300_P2.jpg"
   },
   {
    "id": "g_8025819a3e",
@@ -4509,20 +4633,21 @@
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/09/14/PYH2026091418630001300_P2.jpg"
   },
   {
-   "id": "g_342c96418b",
-   "rep_id": "342c96418b",
+   "id": "g_408db6fcae",
+   "rep_id": "408db6fcae",
    "article_ids": [
     "9bcdffaf09",
     "24a949d745",
     "72e46e5033",
-    "342c96418b"
+    "342c96418b",
+    "408db6fcae"
    ],
    "category": "경제",
-   "summary": "지난 5월 한 시민이 서울 시내 한 스타벅스 매장을 이용하고 있다. 강윤중 기자스타벅스가 ‘탱크데이’ 마케팅 사태 이후 5개월 만에 신용·체크카드 추정 결제액 기준 국내 커피 브랜드 1위 자리에 다시 올랐다.11일 AI 테크기업 아이지에이웍스의 모바일인덱스 집계를 보면, 지난달 스타벅스의 신용·체크카드 추정 결제액은 1210억8000만원으로, 전달(1161···",
+   "summary": "스타벅스가 ‘탱크데이’ 마케팅 사태 이후 5개월 만에 신용·체크카드 추정 결제액 기준 국내 커피 브랜드 1위 자리에 다시 올랐다.11일 인공지능(AI) 테크기업 아이지에이웍스의 모바일인덱스 집계를 보면, 지난달 스타벅스의 신용·체크카드 추정 결제액은 1210억8000만원으로, 전달(1161억2000만원)보다 4.3% 증가했다. 투썸의 지난달 결제액은 110···",
    "summary_src": "feed",
    "status": null,
    "source_count": 4,
-   "latest": "2026-10-11T18:58:36+09:00",
+   "latest": "2026-10-11T20:08:00+09:00",
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/11/PYH2026101104600001300_P2.jpg"
   },
   {
@@ -4555,26 +4680,55 @@
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/09/PYH2026100904360001301_P2.jpg"
   },
   {
-   "id": "g_3fa6f2936a",
-   "rep_id": "3fa6f2936a",
+   "id": "g_b4f8b1e7d5",
+   "rep_id": "b4f8b1e7d5",
    "article_ids": [
-    "c7984573f8",
-    "3fa6f2936a"
+    "41f4aa2e76",
+    "b4f8b1e7d5"
    ],
-   "category": "경제",
-   "summary": "(서울=연합뉴스) 황철환 기자 = 지난 한 주 국내 주식시장은 미국 국채금리 고공행진과 삼성전자 실적발표 직후 셀온(Sell-on·호재 속 가격...",
+   "category": "사회",
+   "summary": "(서울=연합뉴스) 이의진 기자 = 서울대에서 최근 6년간 해킹 피해로 유출된 개인정보 규모가 1천건이 넘는 것으로 11일 파악됐다.",
    "summary_src": "feed",
    "status": null,
    "source_count": 2,
-   "latest": "2026-10-11T18:44:11+09:00",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/08/PYH2026100818220001300_P2.jpg"
+   "latest": "2026-10-11T20:33:23+09:00",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011050100004_01_i_P2.jpg"
+  },
+  {
+   "id": "g_7ac0fc1c34",
+   "rep_id": "7ac0fc1c34",
+   "article_ids": [
+    "7ac0fc1c34"
+   ],
+   "category": "사회",
+   "summary": "(서울=연합뉴스) 이의진 기자 = 월요일인 12일은 전국이 흐리고 수도권 등 중부지방에는 소나기 소식이 있겠다.",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:00:01+09:00",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/09/PYH2026100903260001300_P2.jpg"
+  },
+  {
+   "id": "g_1b011bdec8",
+   "rep_id": "1b011bdec8",
+   "article_ids": [
+    "1b011bdec8",
+    "7116b51ebc"
+   ],
+   "category": "사회",
+   "summary": "(수원=연합뉴스) 김지원 기자 = 말다툼을 벌이던 아내의 머리에 돌을 내리쳐 다치게 한 70대 남성이 경찰에 붙잡혔다.",
+   "summary_src": "feed",
+   "status": "상황 종료",
+   "source_count": 2,
+   "latest": "2026-10-11T20:20:00+09:00",
+   "image": "https://img.yna.co.kr/photo/cms/2025/08/05/26/PCM20250805000026990_P2.jpg"
   },
   {
    "id": "g_2c3960ba18",
    "rep_id": "2c3960ba18",
    "article_ids": [
     "5c92d0c743",
-    "2c5a1bd1c2",
+    "532887daae",
     "2c3960ba18"
    ],
    "category": "사회",
@@ -4586,31 +4740,33 @@
    "image": "https://img.yna.co.kr/photo/cms/2026/06/24/00/PCM20260624000300011_P2.jpg"
   },
   {
-   "id": "g_f625e909c8",
-   "rep_id": "f625e909c8",
+   "id": "g_3950d18b69",
+   "rep_id": "3950d18b69",
    "article_ids": [
-    "f625e909c8"
+    "f625e909c8",
+    "3950d18b69"
    ],
    "category": "사회",
-   "summary": "(창원=연합뉴스) 허광무 기자 = 10일 경남 창원의 고철 자재창고에서 발생한 화재가 꼬박 하루가 지나도록 진화되지 않고 있다.",
+   "summary": "화재 현장. 창원소방본부 제공지난 10일 오후 경남 창원의 고철 자재창고에서 발생한 화재가 이틀째 꺼지지 않고 있다.11일 창원소방본부에 따르면 불은 지난 10일 오후 6시 55분쯤 성산구의 한 철강 공장 내 창고에서 발생했다.일반 철골 구조로 된 창고 내부에는 2만t으로 추정되는 고철 더미가 보관된 것으로 파악됐다.화재 발생 이후 연기와 타는 냄새가 퍼지···",
    "summary_src": "feed",
    "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:30:53+09:00",
+   "source_count": 2,
+   "latest": "2026-10-11T20:15:00+09:00",
    "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011045600057_02_i_P2.jpg"
   },
   {
-   "id": "g_5cd7fed7a1",
-   "rep_id": "5cd7fed7a1",
+   "id": "g_2c3a051999",
+   "rep_id": "2c3a051999",
    "article_ids": [
-    "5cd7fed7a1"
+    "5cd7fed7a1",
+    "2c3a051999"
    ],
    "category": "사회",
    "summary": "(서울=연합뉴스) 정윤주 기자 = 이화영 전 경기도 평화부지사를 회유한 의혹을 받는 '고검장 출신 변호사'가 고발한 연어·술파티 의혹 보고서 유...",
    "summary_src": "feed",
    "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:26:17+09:00",
+   "source_count": 2,
+   "latest": "2026-10-11T19:47:40+09:00",
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/04/14/PYH2026041410590001300_P2.jpg"
   },
   {
@@ -4646,53 +4802,19 @@
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/09/PYH2026100903810005100_P2.jpg"
   },
   {
-   "id": "g_76c1df6fe3",
-   "rep_id": "76c1df6fe3",
+   "id": "g_d4e0321ea3",
+   "rep_id": "d4e0321ea3",
    "article_ids": [
     "4318ed0a9a",
-    "76c1df6fe3"
+    "d4e0321ea3"
    ],
    "category": "사회",
-   "summary": "11일 오전 전남광주 북구 용봉동 패션의거리 인근 인도에 설치된 김성한 전 프로야구 해태 타이거즈 선수의 조형물이 파손돼 있다. 연합뉴스 제공전남광주 북구 한 인도에 세워진 야구선수를 기념하는 조형물이 파손돼 경찰이 수사에 나섰다.11일 광주 북부경찰서와 용봉패션의거리상인회에 따르면 전날 오전 3시 40분쯤 북구 용봉패션의거리 인근 인도에 설치된 김성한 전···",
+   "summary": "(전남광주=연합뉴스) 정다움 기자 = 전남광주 북구 한 인도에 세워진 야구선수를 기념하는 조형물이 파손돼 경찰이 수사에 나섰다.",
    "summary_src": "feed",
    "status": null,
    "source_count": 2,
-   "latest": "2026-10-11T19:19:00+09:00",
+   "latest": "2026-10-11T19:36:53+09:00",
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/11/PYH2026101108060005400_P2.jpg"
-  },
-  {
-   "id": "g_edad5309a8",
-   "rep_id": "edad5309a8",
-   "article_ids": [
-    "90c2f143b8",
-    "676f7b20e2",
-    "63227f9115",
-    "edad5309a8"
-   ],
-   "category": "사회",
-   "summary": "11일 오전 울산종합운동장에서 울산소방본부 구급대원이 2026 울산마라톤대회 도중 탈진한 참가자를 응급처치하고 있다. 연합뉴스11일 오전 울산에서 열린 ‘2026 울산마라톤대회’에서 21명의 참가자가 열탈진 등 증세를 보여 병원으로 이송됐다.일부 참가자들은 ‘급수대 물이 부족했다’고 주장해 탈수 원인에 대해 울산시 등 관계 기관이 조사할 방침이다.울산소방본···",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 3,
-   "latest": "2026-10-11T19:07:00+09:00",
-   "image": "https://img.yna.co.kr/photo/cms/2021/07/15/28/PCM20210715000128990_P2.jpg"
-  },
-  {
-   "id": "g_789daa0267",
-   "rep_id": "789daa0267",
-   "article_ids": [
-    "0adebfa797",
-    "bf1cabc507",
-    "8ef39189af",
-    "789daa0267"
-   ],
-   "category": "사회",
-   "summary": "(서울=연합뉴스) 전재훈 기자 = 한글날 사흘 연휴 마지막 날인 11일 오전 귀경 차량이 몰리며 서울 방향 고속도로에서 정체가 발생할 전망이다.",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 4,
-   "latest": "2026-10-11T18:27:28+09:00",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/09/27/PYH2026092704660001300_P2.jpg"
   },
   {
    "id": "g_ebc347d284",
@@ -4725,21 +4847,6 @@
    "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/08/AKR20261008172400064_01_i_P2.jpg"
   },
   {
-   "id": "g_72cb4dc5b4",
-   "rep_id": "72cb4dc5b4",
-   "article_ids": [
-    "3dae4900b0",
-    "72cb4dc5b4"
-   ],
-   "category": "사회",
-   "summary": "(서울=연합뉴스) 이미령 기자 = 1심에서 실형을 선고받은 피고인이 항소심에서 국선변호인 선정을 청구했는데 법원이 아무런 결정을 하지 않고 선고...",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 2,
-   "latest": "2026-10-11T18:46:04+09:00",
-   "image": "https://img.yna.co.kr/photo/cms/2018/12/04/39/PCM20181204011139990_P2.jpg"
-  },
-  {
    "id": "g_8198566327",
    "rep_id": "8198566327",
    "article_ids": [
@@ -4756,19 +4863,74 @@
    "image": "https://img.yna.co.kr/photo/yna/YH/2026/07/28/PYH2026072814220001300_P2.jpg"
   },
   {
+   "id": "g_182229883d",
+   "rep_id": "182229883d",
+   "article_ids": [
+    "182229883d"
+   ],
+   "category": "국제",
+   "summary": "(베이징=연합뉴스) 한종구 특파원 = 중국과 파키스탄이 이달 중하순 중국 신장위구르자치구에서 처음으로 육군 합동훈련을 실시한다.",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:31:25+09:00",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049600083_01_i_P2.jpg"
+  },
+  {
+   "id": "g_a7aa5eec5b",
+   "rep_id": "a7aa5eec5b",
+   "article_ids": [
+    "a7aa5eec5b"
+   ],
+   "category": "국제",
+   "summary": "(하노이=연합뉴스) 박진형 특파원 = 파키스탄 정부가 북서부 카이베르 파크툰크와주에 비상사태를 선포, 제1야당 파키스탄정의운동(PTI)이 이끄는...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:28:49+09:00",
+   "image": "https://img.yna.co.kr/photo/reuters/2026/10/11/PRU20261011257801009_P2.jpg"
+  },
+  {
+   "id": "g_374038936b",
+   "rep_id": "374038936b",
+   "article_ids": [
+    "374038936b"
+   ],
+   "category": "국제",
+   "summary": "(도쿄=연합뉴스) 이도연 특파원 = 일본인 10명 중 7명 이상이 중국의 대만 관련 무력 사용에 위기감을 느끼지만, 자위대의 전투 참여에는 대다...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:23:27+09:00",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049900073_01_i_P2.jpg"
+  },
+  {
+   "id": "g_b6ca6b4fa1",
+   "rep_id": "b6ca6b4fa1",
+   "article_ids": [
+    "b6ca6b4fa1"
+   ],
+   "category": "국제",
+   "summary": "(카이로=연합뉴스) 김상훈 특파원 = 아프리카 북동부 지부티 앞바다에서 이주민을 태운 선박이 침몰해 최소 109명이 숨지고 116명이 실종됐다고...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T19:59:46+09:00",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011048500079_01_i_P2.jpg"
+  },
+  {
    "id": "g_c7f02b7290",
    "rep_id": "c7f02b7290",
    "article_ids": [
     "efc408a879",
     "3b4e5e9f3e",
-    "ffc0352cbd",
     "c7f02b7290"
    ],
    "category": "국제",
    "summary": "(카이로=연합뉴스) 김상훈 특파원 = 사우디아라비아 수도 리야드 공항을 공격해 엄청난 인명 피해를 초래했던 예멘의 친이란 반군 후티가 또다시 사...",
    "summary_src": "feed",
    "status": null,
-   "source_count": 3,
+   "source_count": 2,
    "latest": "2026-10-11T19:12:30+09:00",
    "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011039751079_01_i_P2.jpg"
   },
@@ -4844,92 +5006,21 @@
    "image": "https://img.yna.co.kr/photo/ap/2026/10/10/PAP20261010031801009_P2.jpg"
   },
   {
-   "id": "g_4503f37139",
-   "rep_id": "4503f37139",
-   "article_ids": [
-    "4503f37139"
-   ],
-   "category": "국제",
-   "summary": "(런던=연합뉴스) 김지연 특파원 = 영국 정보기관 수장들이 인공지능(AI)을 중대한 국가안보 위협이라고 정부에 경고했다고 일간 더타임스가 11일...",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:49:15+09:00",
-   "image": "https://img.yna.co.kr/photo/ap/2025/10/16/PAP20251016191701009_P2.jpg"
-  },
-  {
-   "id": "g_17f5156225",
-   "rep_id": "17f5156225",
-   "article_ids": [
-    "17f5156225"
-   ],
-   "category": "국제",
-   "summary": "(베이징=연합뉴스) 정성조 특파원 = 애플의 팀 쿡 의장이 지난달 최고경영자(CEO) 퇴임 후 처음으로 중국을 방문했다.",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:41:10+09:00",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011041000083_01_i_P2.jpg"
-  },
-  {
-   "id": "g_9ffca2aafe",
-   "rep_id": "9ffca2aafe",
-   "article_ids": [
-    "9ffca2aafe"
-   ],
-   "category": "국제",
-   "summary": "(이스탄불=연합뉴스) 김동호 특파원 = 스페이스X의 스타링크 위성인터넷으로 우크라이나를 지원해온 일론 머스크 테슬라 최고경영자(CEO)가 우크라...",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:15:02+09:00",
-   "image": "https://img.yna.co.kr/photo/reuters/2026/10/09/PRU20261009306701009_P2.jpg"
-  },
-  {
-   "id": "g_51a033a84d",
-   "rep_id": "51a033a84d",
-   "article_ids": [
-    "9278b73cb2",
-    "51a033a84d"
-   ],
-   "category": "국제",
-   "summary": "(서울=연합뉴스) 고일환 기자 = 시베리아 방역 연구소에서 원인불명의 폐렴 사망이 보고된 뒤 일주일이 넘었지만 러시아 당국은 사망 원인 병원체를...",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 2,
-   "latest": "2026-10-11T17:57:04+09:00",
-   "image": "https://img.yna.co.kr/photo/reuters/2026/10/08/PRU20261008220401009_P2.jpg"
-  },
-  {
-   "id": "g_012e32d7b7",
-   "rep_id": "012e32d7b7",
-   "article_ids": [
-    "012e32d7b7"
-   ],
-   "category": "국제",
-   "summary": "(상하이=연합뉴스) 차병섭 특파원 = 최태원 SK그룹 회장이 11일(현지시간) 호남 반도체 클러스터 사업과 관련해 \"우리도 최대한 빠른 속도로 ...",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:07:22+09:00",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011036900089_01_i_P2.jpg"
-  },
-  {
-   "id": "g_59b3324053",
-   "rep_id": "59b3324053",
+   "id": "g_b8f88d64d4",
+   "rep_id": "b8f88d64d4",
    "article_ids": [
     "b7c5dc1b32",
     "8111f9e744",
-    "9d5d0947ba",
     "2f3c41dc40",
-    "59b3324053"
+    "59b3324053",
+    "b8f88d64d4"
    ],
    "category": "국제",
-   "summary": "지난 1일(현지시간) 바티칸시국의 바티칸 정원에서 교황 레오 14세가 어린이들과 함께 묵주 기도(성모 마리아 기도)를 봉헌하고 있다. EPA연합뉴스레오 14세 교황이 세계 사형제도 반대의 날인 10일(현지시간) 사형제도를 “인간 존엄성에 대한 공격”이라고 비판했다. 최근 미 국방부의 총기 난사범에 대한 사형 집행 생중계 결정을 겨냥한 것으로 풀이된다.교황은···",
+   "summary": "레오 14세, 이란전쟁 고강도 비판 이어 트럼프와 다시 대립 고조공화당 의원들도 “야만적 관행” 반발…밴스 부통령 “난 안 볼 것”레오 14세 교황(사진)이 세계 사형제도반대의날인 10일(현지시간) 사형제도를 “인간 존엄성에 대한 공격”이라고 비판했다. 최근 미 국방부의 총기 난사범에 대한 사형 집행 생중계 결정을 겨냥한 것으로 풀이된다.교황은 이날 엑스에···",
    "summary_src": "feed",
    "status": null,
-   "source_count": 5,
-   "latest": "2026-10-11T16:53:00+09:00",
+   "source_count": 4,
+   "latest": "2026-10-11T20:56:01+09:00",
    "image": "https://img.yna.co.kr/photo/reuters/2026/10/09/PRU20261009013701009_P2.jpg"
   },
   {
@@ -4939,7 +5030,6 @@
     "60293877e7",
     "c857021b51",
     "00bb27e662",
-    "72b216e2b7",
     "e08914b8e5",
     "c398cf6123",
     "c9ba4dab58",
@@ -4952,6 +5042,48 @@
    "source_count": 5,
    "latest": "2026-10-11T18:00:00+09:00",
    "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011002200071_01_i_P2.jpg"
+  },
+  {
+   "id": "g_4572c1ea4a",
+   "rep_id": "4572c1ea4a",
+   "article_ids": [
+    "4572c1ea4a"
+   ],
+   "category": "문화·생활",
+   "summary": "(서울=연합뉴스) 조윤희 기자 = 뮤지컬 '스위니토드'가 4년 만에 10주년 기념 공연으로 돌아온다.",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:27:00+09:00",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011049800005_02_i_P2.jpg"
+  },
+  {
+   "id": "g_8b75043d98",
+   "rep_id": "8b75043d98",
+   "article_ids": [
+    "8b75043d98"
+   ],
+   "category": "문화·생활",
+   "summary": "(대전=연합뉴스) 이재림 기자 = 대전 서구는 9일부터 사흘간 샘머리·보라매공원 일원에서 연 2026 대전 서구 아트페스티벌을 성공적으로 마무리...",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:00:01+09:00",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011024800063_01_i_P2.jpg"
+  },
+  {
+   "id": "g_5a07da7a93",
+   "rep_id": "5a07da7a93",
+   "article_ids": [
+    "5a07da7a93"
+   ],
+   "category": "문화·생활",
+   "summary": "(공주=연합뉴스) 김준호 기자 = 충남의 대표 역사문화축제인 제72회 백제문화제가 11일 공주에서 폐막식을 끝으로 9일간 일정을 마무리했다.",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:00:01+09:00",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/04/PYH2026100402570006300_P2.jpg"
   },
   {
    "id": "g_ca40895d17",
@@ -5024,48 +5156,6 @@
    "image": "https://img.yna.co.kr/photo/cms/2018/08/14/62/PCM20180814000262005_P2.jpg"
   },
   {
-   "id": "g_1b2dc896a0",
-   "rep_id": "1b2dc896a0",
-   "article_ids": [
-    "1b2dc896a0"
-   ],
-   "category": "문화·생활",
-   "summary": "그룹 방탄소년단(BTS)이 월드투어 '아리랑'의 일환으로 지난 7일과 9∼10일 페루 리마에서 데뷔 후 첫 공연을 열고 3일간 15만1천500여 명의 관객을 모았다. 이번 공연으로 페루 통상관광부는 5만 명 이상이 리마를 찾아 약 251억 원 규모의 관광 경제효과가 발생할 것으로 내다봤다. 페루 공연을 성공적으로 마친 방탄소년단은 칠레 산티아고에 이어 아르헨티나와 브라질에서 남미 투어를 이어갈 예정이다.",
-   "summary_src": "ai",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:50:41+09:00",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011034400005_01_i_P2.jpg"
-  },
-  {
-   "id": "g_502cec796a",
-   "rep_id": "502cec796a",
-   "article_ids": [
-    "502cec796a"
-   ],
-   "category": "문화·생활",
-   "summary": "청주 청원생명축제가 열흘간 63만 명의 방문객을 모으고 11일 성황리에 폐막했다. 지난 2일부터 오창읍 미래지농촌테마공원에서 열린 이번 축제는 농특산물 직거래장터와 축산물 판매장, 농산물 경매 행사 등을 운영해 농가 수익 확보에 힘을 보탰다. 또한 수확 체험 프로그램과 시민화합 걷기대회, 비빔밥 퍼포먼스, 야간 레이저쇼 등 다채로운 행사도 함께 진행됐다.",
-   "summary_src": "ai",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:29:11+09:00",
-   "image": "https://img.yna.co.kr/photo/cms/2021/05/10/27/PCM20210510000027064_P2.jpg"
-  },
-  {
-   "id": "g_f771f326ab",
-   "rep_id": "f771f326ab",
-   "article_ids": [
-    "f771f326ab"
-   ],
-   "category": "문화·생활",
-   "summary": "동시 전문지 '동시마중'과 충주작가회의가 주관하는 '제3회 전국동시인대회'가 다음 달 7~8일 충북 충주시 유네스코국제무예센터에서 열린다. 이번 행사는 한국 동시 문학의 현재를 짚어 보고 미래를 조망하기 위해 마련되었으며, '2026 권태응 어린이-어른 시인학교'와 함께 진행된다. 행사 기간에는 권태응문학상 수상자 대담과 동시 이야기, 그림 작가들이 참여하는 '동시와 그림의 만남' 등 다양한 프로그램이 펼쳐질 예정이다. 주최 측은 이번 대회를 기점으로 전국동시인대회를 3년마다 정례화하여 개최할 계획이라고 밝혔다.",
-   "summary_src": "ai",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:18:02+09:00",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/11/AKR20261011033400005_01_i_P2.jpg"
-  },
-  {
    "id": "g_5f68928143",
    "rep_id": "5f68928143",
    "article_ids": [
@@ -5101,6 +5191,293 @@
    "source_count": 3,
    "latest": "2026-10-11T19:46:25+09:00",
    "image": "https://www.segye.com/content/image/2026/10/11/20261011506439.png"
+  },
+  {
+   "id": "g_17782ba449",
+   "rep_id": "17782ba449",
+   "article_ids": [
+    "17782ba449"
+   ],
+   "category": "경제",
+   "summary": "전기차 ‘초급속 충전’ 요금 인상중 4분대 달성, 미 400㎾급 확대국내 망 기준은 여전히 350㎾급인프라·이용 경험 함께 개선해야BMW ‘더 뉴 iX3’ 차량이 인천 영종도 BMW 드라이빙센터에 있는 ‘400㎾ 초급속 충전기’를 이용해 충전을 하고 있다. BMW코리아 제공‘빨리 충전하면 돈을 더 낸다.’ 국내에서는 정부가 공공 전기차 충전요금 체계를 개편···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:30:00+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000308700029031.jpg"
+  },
+  {
+   "id": "g_da7896be36",
+   "rep_id": "da7896be36",
+   "article_ids": [
+    "da7896be36"
+   ],
+   "category": "경제",
+   "summary": "중 전기차 판매 성장세 둔화 속지리·BYD ‘초 단위’ 시간 싸움“물리적 한계” 속 망 확장 경쟁전력 소모·배터리 열화 부담에더 촘촘한 충전·전력망 승부처초급속 뒤처진 한국, 숙제 산적중국 지리그룹의 초고속 충전용 스마트 충전 스테이션에서 전기차가 충전을 하고 있다. 지리 홈페이지 갈무리‘단 4분30초.’ 지난달 23일 중국 저장성 닝보에서 열린 지리자동차···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:29:00+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000308600029081.jpg"
+  },
+  {
+   "id": "g_9074fdfc34",
+   "rep_id": "9074fdfc34",
+   "article_ids": [
+    "4c37aba5f1",
+    "9074fdfc34"
+   ],
+   "category": "경제",
+   "summary": "국내 금융권 해킹 지목된 중국 ‘아르텍스 비공개’, 복사본은 유통314만개가 공유 플랫폼 올라와…개발사의 통제 어려워 악용 소지국내 금융권 해킹에 쓰인 오픈소스 인공지능(AI) 도구의 개발자가 공개를 중단했지만 복사본은 여전히 유통되고 있는 것으로 나타났다. 누구나 가져다 고쳐 쓸 수 있는 개방형 AI의 경우, 한번 풀린 기술은 악용돼도 막기 어려워 사용의···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:14:02+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_dedf81575e",
+   "rep_id": "dedf81575e",
+   "article_ids": [
+    "dedf81575e"
+   ],
+   "category": "경제",
+   "summary": "산업부, 조선·자동차 등 과제 선정인건비 대비 ‘연구수당 20%’ 권고30개 중 14개가 미달, 실효성 의문정부가 제조 명장의 숙련 기술을 인공지능(AI)에 학습시켜 제조업의 경쟁력을 높이려 하지만, 정작 기술을 제공하는 명장에 대한 보상 체계는 허술한 것으로 나타났다.11일 국회 산업통상자원중소벤처기업위원회 전은수 더불어민주당 의원이 한국산업기술기획평가원···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:14:01+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_aff6fd0b57",
+   "rep_id": "aff6fd0b57",
+   "article_ids": [
+    "7445676d30",
+    "aff6fd0b57"
+   ],
+   "category": "경제",
+   "summary": "미국 인공지능(AI) 기업 앤트로픽이 자사 AI 모델 ‘클로드’의 돌발행동이 잇따르자 내부 시험망의 인터넷 접속을 잠정 차단했다. 경찰에 살인사건을 허위로 제보하고, 정부에 비자 신청서 20건을 제출하는 등 허가받지 않은 행동까지 벌인 데 따른 조치다.11일 정보기술(IT) 업계에 따르면 앤트로픽은 지난 9일(현지시간) 보고서에서 일부 고위험 시험에 적용하···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:14:00+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_6859480759",
+   "rep_id": "6859480759",
+   "article_ids": [
+    "6859480759"
+   ],
+   "category": "경제",
+   "summary": "LG전자가 지난 8일(현지시간) LG시그니처 미국 진출 10주년을 맞아 뉴욕 구겐하임 미술관에서 기념갈라쇼를 열었다고 밝혔다. LG전자는 북미 프리미엄·빌트인 가전시장 공략에 나선다.",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:10:04+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000342200028881.jpg"
+  },
+  {
+   "id": "g_e0e1f01872",
+   "rep_id": "e0e1f01872",
+   "article_ids": [
+    "e0e1f01872"
+   ],
+   "category": "경제",
+   "summary": "이달 초 목표치의 30% 안팎 그쳐실적 악화 ‘통매각’ 무산 가능성점포 쪼개 팔면 고용불안 더 커져한글날 연휴 마지막 날인 11일 서울의 한 홈플러스 매장이 한산한 모습을 보이고 있다. 연합뉴스매출 부진을 겪는 홈플러스가 대형마트를 통째로 매각할 인수자를 찾지 못할 경우 분리매각 수순에 들어갈 것으로 전망된다. 11일 유통업계에 따르면 홈플러스의 이달 초 ···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:10:03+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000333500028851.jpg"
+  },
+  {
+   "id": "g_999c75dd3b",
+   "rep_id": "999c75dd3b",
+   "article_ids": [
+    "d4fb257920",
+    "999c75dd3b"
+   ],
+   "category": "경제",
+   "summary": "롯데홈쇼핑이 프랑스 파리에서 K브랜드 수출 플랫폼 ‘이설(Eeseol)’ 팝업 스토어를 열고 국내 중소 브랜드의 유럽 시장 진출을 지원한다고 11일 밝혔다.오는 11월30일까지 ‘뷰티 콤플렉스 스토어’를 콘셉트로 여는 이번 팝업 스토어에는 국내 중소기업 33개사 40여개 브랜드가 참여한다. 스킨케어, 메이크업, 헤어, 보디 등 상품을 비교하고 체험할 수 있···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:10:02+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_40ec19a412",
+   "rep_id": "40ec19a412",
+   "article_ids": [
+    "40ec19a412"
+   ],
+   "category": "경제",
+   "summary": "약 40년간 9차례 실패…출범 1년 고준위위, 사전 준비 작업 마쳐임시시설 2030년 포화…주민 동의 얻을 ‘파격적 인센티브’ 주목출범 1년을 맞은 고준위방사성폐기물관리위원회(고준위위)가 올해 안에 부지 선정을 위한 사전 작업을 마치고 내년부터 공모 절차를 본격화한다. 약 40년간 실패해온 고준위 방사성폐기물 처분장 부지 확보에 다시 시동이 걸리는 것이다.···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:10:01+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_74f54bc605",
+   "rep_id": "74f54bc605",
+   "article_ids": [
+    "758d394ef2",
+    "aaf3fb7567",
+    "74f54bc605"
+   ],
+   "category": "경제",
+   "summary": "국회 예정처 “일시적인 소득 증가”반도체 호황으로 기업 실적과 임금이 크게 늘고 있지만, 소득 증가가 민간소비 확대로 이어지는 효과는 제한적일 것이라는 분석이 나왔다.11일 국회예산정책처가 최근 발표한 ‘2027년 NABO 경제전망: 2026~2030’ 보고서를 보면, 예정처는 내년 민간소비 증가율을 2.0%로 전망했다. 기존 전망치(1.8%)보다 0.2%···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 2,
+   "latest": "2026-10-11T20:10:00+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_b7303e2dbc",
+   "rep_id": "b7303e2dbc",
+   "article_ids": [
+    "b7303e2dbc"
+   ],
+   "category": "경제",
+   "summary": "미래대응기금 놓고 국감서 논쟁목적·사업범위도 ‘포괄적’ 지적정부가 내년 162조원 규모의 미래대응기금(미래기금) 신설을 추진하는 가운데 기금 적립의 효율성과 사업 범위를 둘러싼 논란이 국정감사에서 불거졌다. 지난 8일 국회 재정경제기획위원회 국정감사에서 야당은 국채를 발행하면서 미래기금에 104조4000억원을 쌓는 것은 사실상 ‘빚을 내 저축하는 구조’라고···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:09:01+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_0900f18a73",
+   "rep_id": "0900f18a73",
+   "article_ids": [
+    "0900f18a73"
+   ],
+   "category": "경제",
+   "summary": "적발된 29건 모두 가장 낮은 ‘견책’김미애 의원 “수위 적정성 점검을”한국토지주택공사(LH) 임직원들이 재산 등록과 부동산 취득 제한 관련 의무를 위반하고도 모두 가장 낮은 수준의 징계인 ‘견책’만 받은 것으로 드러났다.국회 국토교통위원회 김미애 국민의힘 의원이 11일 LH에서 제출받아 공개한 자료에 따르면, 2022년부터 올해 8월까지 LH 임직원 징계···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:09:00+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_646cb99115",
+   "rep_id": "646cb99115",
+   "article_ids": [
+    "646cb99115"
+   ],
+   "category": "경제",
+   "summary": "애프터마켓 한 달, 분석해보니한국거래소가 퇴근길(오후 4~8시) 주식 거래가 가능한 애프터마켓을 개장한 지 약 한 달이 되는 가운데 개인 투자자가 가장 많이 사들인 종목은 삼성전자 우선주였다. 반면 외국인은 SK하이닉스를 가장 많이 순매수해 엇갈린 매매 양상을 보였다. 특히 애프터마켓에선 하루 평균 500번의 변동성 완화장치가 발동돼 변동성 관리가 향후 과···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:08:02+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_bd19620010",
+   "rep_id": "bd19620010",
+   "article_ids": [
+    "4b05f88db1",
+    "bd19620010"
+   ],
+   "category": "경제",
+   "summary": "국세청 선정사유 통계 첫 공개개인사업자, 전체 건수의 37%부과세액은 전체의 90% 달해지난해 실시된 국세청의 비정기 세무조사 10건 중 7건 이상은 명백한 탈루 혐의에 따른 것으로 드러났다. 국세청의 비정기 세무조사 선정사유별 통계가 공개된 것은 이번이 처음이다.최근 5년간 비정기 세무조사는 정기조사보다 건수는 적었지만 전체 부과세액에서 차지하는 비율은 ···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:08:01+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_3d5436c4cc",
+   "rep_id": "3d5436c4cc",
+   "article_ids": [
+    "747d02b86e",
+    "3d5436c4cc"
+   ],
+   "category": "경제",
+   "summary": "창립 74주년 기념사에서 밝혀‘AI 기술 경쟁력 확보’도 강조김승연 한화그룹 회장(사진)이 창립 74주년을 맞아 급변하는 경영환경에 대응하기 위해 현실을 직시하고 주인의식과 도전정신을 발휘할 것을 임직원들에게 당부했다.11일 한화그룹에 따르면 김 회장은 지난 9일 임직원에게 전한 창립기념사에서 “낙관주의는 결코 설 자리가 없다”며 “끊임없는 지정학적 분쟁,···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:00:01+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000314900028681.jpg"
+  },
+  {
+   "id": "g_84e79ae5fd",
+   "rep_id": "84e79ae5fd",
+   "article_ids": [
+    "84e79ae5fd"
+   ],
+   "category": "사회",
+   "summary": "마감재 붕괴 사고 현장 가보니국과수·경찰, 붕괴 원인 합동 감식 국립과학수사연구원과 경찰 감식반이 11일 대구 북구 관음동의 한 상가건물 2층에서 전날 발생한 천장 마감재 붕괴 원인을 밝히기 위한 합동 현장 감식을 하고 있다. 연합뉴스대구 북구 관음동 상가건물 천장 마감재 붕괴사고 현장에서 11일 만난 주민 김모씨(51)는 과거에도 건물 천장이 내려앉는 ···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:57:03+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000322400029241.jpg"
+  },
+  {
+   "id": "g_b7657e1c74",
+   "rep_id": "b7657e1c74",
+   "article_ids": [
+    "b7657e1c74"
+   ],
+   "category": "사회",
+   "summary": "병력 자원 부족 탓 폐지론 우세 속도입 취지 맞춰 기준 상향 유지론도입영 연기·대체복무 확대 등 제시2026 아이치·나고야 아시안게임에 출전한 일부 국가대표 선수들의 부적절한 행동을 계기로 병역특례 제도 개편론이 재점화하며 각종 대안이 제시되고 있다.정부는 병역특례를 점차 축소하겠다고 공언하며 폐지 가능성까지 언급하고 있다. 지난 5일 국회 국민동의청원 홈···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:57:02+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_d522d65de4",
+   "rep_id": "d522d65de4",
+   "article_ids": [
+    "d522d65de4"
+   ],
+   "category": "사회",
+   "summary": "한국학대학원, 유학생 유치 목적 운영…빈방은 교직원·내국인 거주교육부 산하 기관인 한국학중앙연구원이 외국인 유학생 유치를 위해 약 170억원을 들여 지은 기숙사의 절반가량이 장기간 공실 상태인 것으로 나타났다. 빈방을 채우기 위해 내국인 학생과 교직원에게도 기숙사를 배정한 것으로 확인됐다.11일 국회 교육위원회 소속 고민정 더불어민주당 의원실이 한국학중앙연···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:57:01+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_cadfd42191",
+   "rep_id": "cadfd42191",
+   "article_ids": [
+    "cadfd42191"
+   ],
+   "category": "사회",
+   "summary": "1967년 시작 이후 이미 세 차례 변경…시, 축제명·방향성 재검토시민들 “콘텐츠 발굴부터 먼저” 전문가들 “지역경제에 도움 돼야”울산공업축제 기간 열린 ‘울산미래박람회’에서 지난 10일 시민들이 확장현실(XR) 등 미래 첨단기술을 체험하고 있다.“축제명이 계속 바뀌는 것 자체가 지역 대표축제로서 정체성을 떨어뜨리는 것 같아요.”울산공업축제 현장에서 지난 ···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:32:01+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000330500029091.jpg"
+  },
+  {
+   "id": "g_76c1df6fe3",
+   "rep_id": "76c1df6fe3",
+   "article_ids": [
+    "76c1df6fe3"
+   ],
+   "category": "사회",
+   "summary": "11일 오전 전남광주 북구 용봉동 패션의거리 인근 인도에 설치된 김성한 전 프로야구 해태 타이거즈 선수의 조형물이 파손돼 있다. 연합뉴스 제공전남광주 북구 한 인도에 세워진 야구선수를 기념하는 조형물이 파손돼 경찰이 수사에 나섰다.11일 광주 북부경찰서와 용봉패션의거리상인회에 따르면 전날 오전 3시 40분쯤 북구 용봉패션의거리 인근 인도에 설치된 김성한 전···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T19:19:00+09:00",
+   "image": ""
   },
   {
    "id": "g_3cbf6ec2db",
@@ -5152,47 +5529,147 @@
    "image": "https://cdn.newscj.com/news/thumbnail/202610/3439281_3559784_5211_v150.jpg"
   },
   {
-   "id": "g_29dcbf57a3",
-   "rep_id": "29dcbf57a3",
+   "id": "g_dea35f7a69",
+   "rep_id": "dea35f7a69",
    "article_ids": [
-    "29dcbf57a3"
+    "31af6e1c3d",
+    "dea35f7a69"
    ],
    "category": "국제",
-   "summary": "도널드 트럼프 미국 대통령이 10일(현지시간) 메릴랜드주 앤드루스 합동기지에 전용기 에어포스원을 타고 도착해 취재진과 대화하고 있다. AP연합뉴스사우디아라비아 수도 리야드의 국제공항이 예멘의 친이란 반군 후티의 공격을 받아 최소 12명이 숨지고 309명이 다쳤다. 미국·이란 전쟁 발발 이후 걸프국에서 발생한 공격 가운데 가장 큰 인명피해다. 사망자에 미국인···",
+   "summary": "청년들, 선관위원장 사퇴 촉구당국, 뉴델리행 열차 운행 중단사지 들려 연행되는 바퀴벌레국민당 지지자 지난 10일 인도 수도 뉴델리에서 유권자 명부 개정 과정에서 발생한 투표권 박탈 사태에 항의하는 시위에 참여했던 바퀴벌레국민당 지지자가 경찰에 연행되고 있다. 로이터연합뉴스인도의 유권자 명부 개정 과정에서 발생한 투표권 박탈 사태에 항의하는 시위가 격화하고 ···",
    "summary_src": "feed",
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T17:24:00+09:00",
-   "image": "https://img.khan.co.kr/news/2026/10/11/rcv.YNA.20261011.PAP20261011152801009_P1.jpg"
+   "latest": "2026-10-11T20:57:00+09:00",
+   "image": ""
   },
   {
-   "id": "g_753cd53980",
-   "rep_id": "753cd53980",
+   "id": "g_851c3fac73",
+   "rep_id": "851c3fac73",
    "article_ids": [
-    "753cd53980"
+    "851c3fac73"
    ],
    "category": "국제",
-   "summary": "조란 맘다니 뉴욕 시장이 팔레스타인 무장정파 하마스의 이스라엘 공격 3주기를 맞아 지난 7일(현지시간) 뉴욕에서 열린 집회에 참석하고 있다. AP연합뉴스조란 맘다니 뉴욕시장 당선을 계기로 미국 민주당 내 진보 진영의 정치자금 지형이 달라지고 있다. 기술·의료 분야에서 일하는 젊은 후원자들이 진보 성향 후보들에게 거액을 대기 시작하면서다. 친이스라엘 로비 단···",
+   "summary": "미국인 1명 포함 최소 12명 사망이란전 발발 후 최대 인명 피해사우디아라비아 수도 리야드의 국제공항이 예멘의 친이란 반군 후티의 공격을 받아 최소 12명이 숨지고 309명이 다쳤다. 미국·이란 전쟁 발발 이후 걸프국에서 발생한 공격 가운데 가장 큰 인명피해다. 사망자에 미국인 1명도 포함된 가운데 도널드 트럼프 미국 대통령은 군사 개입 가능성을 시사했다.···",
    "summary_src": "feed",
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T17:08:00+09:00",
-   "image": "https://img.khan.co.kr/news/2026/10/11/rcv.YNA.20261008.PAP20261008217001009_P1.jpg"
+   "latest": "2026-10-11T20:56:02+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
   },
   {
-   "id": "g_ae4ef761b0",
-   "rep_id": "ae4ef761b0",
+   "id": "g_3ca7d6ef63",
+   "rep_id": "3ca7d6ef63",
+   "article_ids": [
+    "3ca7d6ef63"
+   ],
+   "category": "국제",
+   "summary": "반덤핑 조사 등 절차 없이 합의희토류 유럽 수출 협력도 지속‘EU 시장은 지키자’ 절박감 작용중국과 유럽연합(EU)이 중국산 하이브리드카의 대유럽 수출을 현재의 절반 수준으로 줄이는 방안에 합의하며 제2의 무역 충돌을 피했다. 중국이 반덤핑 조사 등 무역 갈등을 고조시키는 절차 없이 합의한 것은 처음이다.11일 AFP통신 등에 따르면 마로시 셰프초비치 EU···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:56:00+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_e047641fd8",
+   "rep_id": "e047641fd8",
+   "article_ids": [
+    "e047641fd8"
+   ],
+   "category": "국제",
+   "summary": "유가 낮추려 제재 일시 해제…러 ‘전쟁 자금줄 조이기’ 기조 뒤집어“우크라 새 대통령 나와야” 젤렌스키에 각 세워…종전 협상 불투명트럼프 “전 세계 경유값 하락할 것” 도널드 트럼프 미국 대통령이 10일(현지시간) 메릴랜드주 앤드루스 공군기지에서 기자들의 질문에 답하고 있다. AP연합뉴스도널드 트럼프 미국 대통령이 중간선거를 앞두고 러시아산 경유 수입을 ···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:19:02+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000333600028981.jpg"
+  },
+  {
+   "id": "g_f21926eee0",
+   "rep_id": "f21926eee0",
+   "article_ids": [
+    "f21926eee0"
+   ],
+   "category": "국제",
+   "summary": "유럽 정상들 “독재자와 거래하는 것은 중대한 실수” 트럼프 비판 잇따라미국과 러시아가 대규모 경유 공급 거래에 합의하자 유럽연합(EU)이 강하게 반발했다. 볼로디미르 젤렌스키 우크라이나 대통령은 유럽 각국 정상들과 통화하며 연대 강화에 나섰다.카야 칼라스 EU 외교안보 고위대표는 10일(현지시간) 엑스에서 “러시아산 디젤 제재를 중단하면 러시아가 전쟁 수행···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:19:01+09:00",
+   "image": "https://img.khan.co.kr/spko/company/Khan_CI_180212.jpg"
+  },
+  {
+   "id": "g_e9146f1027",
+   "rep_id": "e9146f1027",
    "article_ids": [
     "e930b9f1bc",
-    "ae4ef761b0"
+    "ae4ef761b0",
+    "e9146f1027"
    ],
    "category": "국제",
-   "summary": "남아프리카공화국 출신 법학자이자 전 유엔 인권최고대표인 나바네템 필레이가 2026년 노벨 평화상 수상자로 선정된 후 지난 9일(현지시간) 독일 뉘른베르크에서 열린 뉘른베르크 포럼에서 연설하고 있다. AP연합뉴스올해 노벨평화상 수상자인 남아프리카공화국 출신 법조인 나바네템(나비) 필레이가 도널드 트럼프 미국 행정부의 국제형사재판소(ICC) 제재를 “전례 없고···",
+   "summary": "남아공 법조인…‘인권 증진’ 공로미, 수상 발표 직후 자산 동결 조치트럼프 “내가 받아야” 노골적 불만올해 노벨 평화상 수상자인 남아프리카공화국 출신 법조인 나바네템(나비) 필라이(사진)가 도널드 트럼프 미국 행정부의 국제형사재판소(ICC) 제재를 “전례 없고 용납할 수 없는 일”이라고 비판했다. 트럼프 행정부는 필라이 선정이 알려진 직후 ICC 제재를 발···",
    "summary_src": "feed",
    "status": null,
    "source_count": 2,
-   "latest": "2026-10-11T18:58:35+09:00",
+   "latest": "2026-10-11T20:19:00+09:00",
    "image": "https://img1.newsis.com/2026/10/09/NISI20261009_0002259573_web.jpg"
+  },
+  {
+   "id": "g_e8c387dca2",
+   "rep_id": "e8c387dca2",
+   "article_ids": [
+    "e8c387dca2"
+   ],
+   "category": "국제",
+   "summary": "“내 행동은 징계받아야 한다”고 한 크리스티아누 호날두(41·알나스르·사진)가 실제로 포르투갈축구협회(FPF)의 잠정 출전정지 처분을 받았다. FPF는 지난 10일 호날두가 국가대표팀 소집 도중 캠프를 떠난 사안과 관련해 징계 절차를 시작하고 사건을 징계조사위원회에 회부했다고 밝혔다.호날두와 포르투갈 대표팀 갈등은 지난달 유럽축구연맹(UEFA) 네이션스리그···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:05:00+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000312200028761.jpg"
+  },
+  {
+   "id": "g_3a1bb2eac0",
+   "rep_id": "3a1bb2eac0",
+   "article_ids": [
+    "3a1bb2eac0"
+   ],
+   "category": "문화·생활",
+   "summary": "고레에다 감독이 만화 실사화한 ‘룩백’“원작 읽고 ‘왜 창작을 하는가’ 질문해”고레에다 히로카즈 감독의 신작 <룩백>의 ‘후지노’(데구치 나쓰키)와 ‘쿄모토’(마키타 아주)가 함께 만화를 그리고 있다. 메가박스 중앙 제공영화 <룩백> OST(오리지널사운드트랙) 1번 트랙 ‘[Pencil](연필)’은 음악이 아니다. 종이 위 사각사각, ···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:20:01+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000324800028991.jpg"
+  },
+  {
+   "id": "g_8113a21023",
+   "rep_id": "8113a21023",
+   "article_ids": [
+    "8113a21023"
+   ],
+   "category": "문화·생활",
+   "summary": "SNS로 뜬 16세 피아니스트 아이히혼첫 음반에 에튀드 즉흥연주·자작곡까지독일의 16세 피아니스트 유스투스 아이히혼. 유니버설뮤직 제공독일의 16세 피아니스트 유스투스 아이히혼은 클래식 공연장보다 SNS에서 먼저 이름을 알렸다. 그의 팔로어는 80만명이 넘는다. 이 중 20% 정도는 한국인이다. 3년 전 집 거실에서 피아노 치는 모습을 휴대전화로 찍어 올린···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:20:00+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000321600028971.jpg"
+  },
+  {
+   "id": "g_85ee9aa1ad",
+   "rep_id": "85ee9aa1ad",
+   "article_ids": [
+    "85ee9aa1ad"
+   ],
+   "category": "문화·생활",
+   "summary": "18팀 참여…오늘 ‘공범들’ 발매라이브 공연 도중 관객이 춤을 췄다는 이유로 2개월 영업정지 처분을 받은 부산의 라이브 클럽 오방가르드에 연대하는 인디 아티스트 18팀의 컴필레이션 앨범 <공범들>(사진)이 12일 발매된다. 11일 앨범 기획을 맡은 밴드 모임 별에 따르면 <공범들>에 수록된 곡은 스트리밍 사이트에 공개되지 않을 예정이며···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:00:02+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000342400028661.jpg"
   },
   {
    "id": "g_e70351089f",
@@ -5221,20 +5698,6 @@
    "source_count": 1,
    "latest": "2026-10-11T16:32:01+09:00",
    "image": "https://img.khan.co.kr/news/2026/10/11/news-p.v1.20261004.eda5c10915374f928f11f0bcb96024eb_P1.jpg"
-  },
-  {
-   "id": "g_8fb5f19239",
-   "rep_id": "8fb5f19239",
-   "article_ids": [
-    "8fb5f19239"
-   ],
-   "category": "문화·생활",
-   "summary": "SNS 스타 16세 피아니스트 유스투스 아이히혼도이치그라모폰 데뷔 음반 독일 차트 1위도이치그라모폰을 통해 데뷔 앨범을 발표한 16세 피아니스트 유스투스 아이히혼. 유니버설뮤직 제공독일의 16세 피아니스트 유스투스 아이히혼은 클래식 공연장보다 SNS에서 먼저 이름을 알렸다. 그의 팔로어는 80만명이 넘는다. 이 중 20% 정도는 한국인이다. 3년 전···",
-   "summary_src": "feed",
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T16:14:00+09:00",
-   "image": "https://img.khan.co.kr/news/2026/10/11/news-p.v1.20261007.0d8b391d09f0403aa40a6d2a69920e08_P1.jpg"
   },
   {
    "id": "g_1bb9bff3ee",
@@ -5573,76 +6036,6 @@
    "image": ""
   },
   {
-   "id": "g_6507fbbc64",
-   "rep_id": "6507fbbc64",
-   "article_ids": [
-    "6507fbbc64"
-   ],
-   "category": "주식",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T09:00:03+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_7d86c28d00",
-   "rep_id": "7d86c28d00",
-   "article_ids": [
-    "7d86c28d00"
-   ],
-   "category": "주식",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T08:29:26+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_12b5d0ae73",
-   "rep_id": "12b5d0ae73",
-   "article_ids": [
-    "12b5d0ae73"
-   ],
-   "category": "주식",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T08:29:17+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_1103885d90",
-   "rep_id": "1103885d90",
-   "article_ids": [
-    "1103885d90"
-   ],
-   "category": "주식",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T08:28:59+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_e61e41dccd",
-   "rep_id": "e61e41dccd",
-   "article_ids": [
-    "e61e41dccd"
-   ],
-   "category": "주식",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T08:06:40+09:00",
-   "image": ""
-  },
-  {
    "id": "g_51b091e735",
    "rep_id": "51b091e735",
    "article_ids": [
@@ -5884,98 +6277,38 @@
    "image": ""
   },
   {
-   "id": "g_e94d009c75",
-   "rep_id": "e94d009c75",
+   "id": "g_bcb76537f0",
+   "rep_id": "bcb76537f0",
    "article_ids": [
-    "e94d009c75"
+    "c8cc84d8c2",
+    "34adba991c",
+    "bcb76537f0"
    ],
    "category": "정치",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:12:44+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_6b15e2c4b3",
-   "rep_id": "6b15e2c4b3",
-   "article_ids": [
-    "6b15e2c4b3"
-   ],
-   "category": "정치",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:12:30+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_e9cb956b39",
-   "rep_id": "e9cb956b39",
-   "article_ids": [
-    "e9cb956b39"
-   ],
-   "category": "정치",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:12:24+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_a8ca323180",
-   "rep_id": "a8ca323180",
-   "article_ids": [
-    "a8ca323180"
-   ],
-   "category": "정치",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:12:16+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_4766c2da21",
-   "rep_id": "4766c2da21",
-   "article_ids": [
-    "d77aed5f9e",
-    "f9e731df2a",
-    "51585fa977",
-    "b6e8c58213",
-    "4709cbebd0",
-    "77a256799e",
-    "4766c2da21"
-   ],
-   "category": "정치",
-   "summary": "이재명 대통령이 지난 6일 청와대에서 열린 국무회의에서 발언하고 있다. 청와대사진기자단이재명 대통령은 10일 대구에서 발생한 천장 붕괴 사고와 관련해 인명 구조에 총력을 다하라고 지시했다.이 대통령은 이날 김종철 경찰청장 직무대행에게 사고를 보고 받은 뒤, 인명 구조에 총력을 다하고 사고 수습에 만전을 기할 것을 관계 기관에 지시했다고 강유정 청와대 수석 ···",
+   "summary": "(서울=연합뉴스) 양정우 정다움 기자 = 윤호중 행정안전부 장관이 11일 김지용 초대 중대범죄수사청장 후보자를 공개 비판해 온 임은정 광주지방중...",
    "summary_src": "feed",
    "status": null,
-   "source_count": 7,
-   "latest": "2026-10-10T22:33:19+09:00",
-   "image": "https://cdn.sisajournal.com/news/thumbnail/202610/389694_398393_1739_v150.jpg"
+   "source_count": 3,
+   "latest": "2026-10-11T16:00:00+09:00",
+   "image": "https://img.yna.co.kr/photo/cms/2026/10/11/02/PCM20261011000002990_P2.jpg"
   },
   {
-   "id": "g_7748e0e6e4",
-   "rep_id": "7748e0e6e4",
+   "id": "g_eea8d2a12d",
+   "rep_id": "eea8d2a12d",
    "article_ids": [
-    "545d40bd24",
-    "4aab1caf02",
-    "25e73f1eaf",
-    "91ca21ad4c",
-    "7748e0e6e4"
+    "90c2f143b8",
+    "676f7b20e2",
+    "b2fda5fd8d",
+    "edad5309a8",
+    "eea8d2a12d"
    ],
    "category": "사회",
-   "summary": "경기도교육청, 국가공무원법 ‘성실 의무 위반’ 판단강경숙 의원 “솜방망이 처벌, 특별감사 재실시 해야”독감에 시달리다 숨진 부천의 한 유치원 교사가 생전 지인과 나눈 메시지 내용. 전국교직원노동조합 제공경기 부천의 한 사립유치원 교사가 독감으로 고열에 시달리면서도 출근을 계속하다 숨진 사건과 관련해 해당 유치원 원장이 정직 2개월 징계 처분을 받았다.11일···",
+   "summary": "11일 오전 울산종합운동장에서 울산소방본부 구급대원이 2026 울산마라톤대회 도중 탈진한 참가자를 응급처치하고 있다. 연합뉴스11일 오전 울산에서 열린 ‘2026 울산마라톤대회’에서 21명의 참가자가 열탈진 등 증세를 보여 병원으로 이송됐다.일부 참가자들은 ‘급수대 물이 부족했다’고 주장해 탈수 원인에 대해 울산시 등 관계 기관이 조사할 방침이다.울산소방본···",
    "summary_src": "feed",
    "status": null,
-   "source_count": 5,
-   "latest": "2026-10-11T18:45:15+09:00",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/10/08/AKR20261008112600065_01_i_P2.jpg"
+   "source_count": 4,
+   "latest": "2026-10-11T20:11:17+09:00",
+   "image": "https://img.yna.co.kr/photo/cms/2021/07/15/28/PCM20210715000128990_P2.jpg"
   },
   {
    "id": "g_5055b896de",
@@ -6036,34 +6369,6 @@
    "image": "https://static.hankyung.com/img/logo/logo-news-sns.png?v=20201130"
   },
   {
-   "id": "g_52937da2db",
-   "rep_id": "52937da2db",
-   "article_ids": [
-    "52937da2db"
-   ],
-   "category": "국제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:38:43+09:00",
-   "image": "https://img.hankyung.com/photo/202610/AA.46012452.1.jpg"
-  },
-  {
-   "id": "g_8a1d39f2b2",
-   "rep_id": "8a1d39f2b2",
-   "article_ids": [
-    "8a1d39f2b2"
-   ],
-   "category": "국제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T16:52:09+09:00",
-   "image": "https://img.hankyung.com/photo/202610/01.46012171.1.jpg"
-  },
-  {
    "id": "g_a3d660f115",
    "rep_id": "a3d660f115",
    "article_ids": [
@@ -6095,31 +6400,17 @@
    "image": ""
   },
   {
-   "id": "g_4ad237dfd9",
-   "rep_id": "4ad237dfd9",
+   "id": "g_06268fbe98",
+   "rep_id": "06268fbe98",
    "article_ids": [
-    "4ad237dfd9"
+    "06268fbe98"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T10:18:00+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_85f77b20ca",
-   "rep_id": "85f77b20ca",
-   "article_ids": [
-    "85f77b20ca"
-   ],
-   "category": "미분류",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:52:56+09:00",
+   "latest": "2026-10-11T14:48:26+09:00",
    "image": ""
   },
   {
@@ -6151,20 +6442,6 @@
    "image": ""
   },
   {
-   "id": "g_e7b4bde6cb",
-   "rep_id": "e7b4bde6cb",
-   "article_ids": [
-    "e7b4bde6cb"
-   ],
-   "category": "미분류",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T10:41:08+09:00",
-   "image": ""
-  },
-  {
    "id": "g_7a28f42959",
    "rep_id": "7a28f42959",
    "article_ids": [
@@ -6176,6 +6453,20 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-10T21:35:00+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_7d4cb8e347",
+   "rep_id": "7d4cb8e347",
+   "article_ids": [
+    "7d4cb8e347"
+   ],
+   "category": "미분류",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T15:18:00+09:00",
    "image": ""
   },
   {
@@ -6207,6 +6498,34 @@
    "image": ""
   },
   {
+   "id": "g_c4acaa421e",
+   "rep_id": "c4acaa421e",
+   "article_ids": [
+    "c4acaa421e"
+   ],
+   "category": "미분류",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-10T11:19:00+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_a35292374c",
+   "rep_id": "a35292374c",
+   "article_ids": [
+    "a35292374c"
+   ],
+   "category": "미분류",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T11:39:00+09:00",
+   "image": ""
+  },
+  {
    "id": "g_25285eb9ce",
    "rep_id": "25285eb9ce",
    "article_ids": [
@@ -6218,20 +6537,6 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T09:23:00+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_013fd57cf4",
-   "rep_id": "013fd57cf4",
-   "article_ids": [
-    "013fd57cf4"
-   ],
-   "category": "미분류",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T08:21:00+09:00",
    "image": ""
   },
   {
@@ -6319,6 +6624,20 @@
    "image": ""
   },
   {
+   "id": "g_27863b87db",
+   "rep_id": "27863b87db",
+   "article_ids": [
+    "27863b87db"
+   ],
+   "category": "미분류",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-10T21:49:19+09:00",
+   "image": ""
+  },
+  {
    "id": "g_5ce1c83f4e",
    "rep_id": "5ce1c83f4e",
    "article_ids": [
@@ -6330,6 +6649,20 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T19:31:20+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_f502a62964",
+   "rep_id": "f502a62964",
+   "article_ids": [
+    "f502a62964"
+   ],
+   "category": "미분류",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T19:35:00+09:00",
    "image": ""
   },
   {
@@ -6347,17 +6680,17 @@
    "image": ""
   },
   {
-   "id": "g_27863b87db",
-   "rep_id": "27863b87db",
+   "id": "g_345c7efe75",
+   "rep_id": "345c7efe75",
    "article_ids": [
-    "27863b87db"
+    "345c7efe75"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-10T21:49:19+09:00",
+   "latest": "2026-10-11T17:10:00+09:00",
    "image": ""
   },
   {
@@ -6372,20 +6705,6 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-10T19:40:00+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_f502a62964",
-   "rep_id": "f502a62964",
-   "article_ids": [
-    "f502a62964"
-   ],
-   "category": "미분류",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:35:00+09:00",
    "image": ""
   },
   {
@@ -6445,101 +6764,73 @@
    "image": ""
   },
   {
-   "id": "g_9185cd19d6",
-   "rep_id": "9185cd19d6",
+   "id": "g_1966e08db7",
+   "rep_id": "1966e08db7",
    "article_ids": [
-    "9185cd19d6"
+    "1966e08db7"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-10T18:54:05+09:00",
+   "latest": "2026-10-10T21:47:00+09:00",
    "image": ""
   },
   {
-   "id": "g_345c7efe75",
-   "rep_id": "345c7efe75",
+   "id": "g_97b02c0658",
+   "rep_id": "97b02c0658",
    "article_ids": [
-    "345c7efe75"
+    "97b02c0658"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T17:10:00+09:00",
+   "latest": "2026-10-11T11:50:51+09:00",
    "image": ""
   },
   {
-   "id": "g_5f7e7fa571",
-   "rep_id": "5f7e7fa571",
+   "id": "g_8049defaed",
+   "rep_id": "8049defaed",
    "article_ids": [
-    "5f7e7fa571"
-   ],
-   "category": "미분류",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T14:30:36+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_9ecd20280b",
-   "rep_id": "9ecd20280b",
-   "article_ids": [
-    "9ecd20280b"
-   ],
-   "category": "미분류",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-10T08:41:20+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_ed956ded4a",
-   "rep_id": "ed956ded4a",
-   "article_ids": [
-    "ed956ded4a"
+    "8049defaed"
    ],
    "category": "국제",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T18:25:00+09:00",
+   "latest": "2026-10-11T20:22:00+09:00",
    "image": ""
   },
   {
-   "id": "g_e60fd264fd",
-   "rep_id": "e60fd264fd",
+   "id": "g_407db50a47",
+   "rep_id": "407db50a47",
    "article_ids": [
-    "e60fd264fd"
+    "407db50a47"
    ],
    "category": "국제",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T16:55:55+09:00",
+   "latest": "2026-10-11T18:20:00+09:00",
    "image": ""
   },
   {
-   "id": "g_606af3dcfc",
-   "rep_id": "606af3dcfc",
+   "id": "g_996a923d1e",
+   "rep_id": "996a923d1e",
    "article_ids": [
-    "606af3dcfc"
+    "996a923d1e"
    ],
-   "category": "주식",
+   "category": "국제",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T09:23:35+09:00",
+   "latest": "2026-10-11T19:59:00+09:00",
    "image": ""
   },
   {
@@ -6557,17 +6848,31 @@
    "image": ""
   },
   {
-   "id": "g_6815b60a25",
-   "rep_id": "6815b60a25",
+   "id": "g_4f5adb96de",
+   "rep_id": "4f5adb96de",
    "article_ids": [
-    "6815b60a25"
+    "4f5adb96de"
    ],
    "category": "주식",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T10:58:18+09:00",
+   "latest": "2026-10-11T06:07:36+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_685e5acfed",
+   "rep_id": "685e5acfed",
+   "article_ids": [
+    "685e5acfed"
+   ],
+   "category": "경제",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:24:42+09:00",
    "image": ""
   },
   {
@@ -6586,17 +6891,17 @@
    "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0002260007_web.jpg"
   },
   {
-   "id": "g_695b19b398",
-   "rep_id": "695b19b398",
+   "id": "g_3b70cb8b77",
+   "rep_id": "3b70cb8b77",
    "article_ids": [
-    "695b19b398"
+    "3b70cb8b77"
    ],
-   "category": "경제",
+   "category": "주식",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T18:48:24+09:00",
+   "latest": "2026-10-11T08:59:48+09:00",
    "image": ""
   },
   {
@@ -6611,6 +6916,20 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T10:19:49+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_001a41e5c6",
+   "rep_id": "001a41e5c6",
+   "article_ids": [
+    "001a41e5c6"
+   ],
+   "category": "과학·IT",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T19:40:35+09:00",
    "image": ""
   },
   {
@@ -6642,17 +6961,17 @@
    "image": ""
   },
   {
-   "id": "g_bd27262c32",
-   "rep_id": "bd27262c32",
+   "id": "g_a9f0ef96fd",
+   "rep_id": "a9f0ef96fd",
    "article_ids": [
-    "bd27262c32"
+    "a9f0ef96fd"
    ],
    "category": "과학·IT",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T13:03:10+09:00",
+   "latest": "2026-10-11T19:47:18+09:00",
    "image": ""
   },
   {
@@ -6670,20 +6989,6 @@
    "image": ""
   },
   {
-   "id": "g_0c576030b4",
-   "rep_id": "0c576030b4",
-   "article_ids": [
-    "0c576030b4"
-   ],
-   "category": "과학·IT",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T16:01:06+09:00",
-   "image": ""
-  },
-  {
    "id": "g_91b689bd0a",
    "rep_id": "91b689bd0a",
    "article_ids": [
@@ -6698,20 +7003,6 @@
    "image": ""
   },
   {
-   "id": "g_c86210ecdc",
-   "rep_id": "c86210ecdc",
-   "article_ids": [
-    "c86210ecdc"
-   ],
-   "category": "과학·IT",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T10:04:39+09:00",
-   "image": ""
-  },
-  {
    "id": "g_8f1f144bea",
    "rep_id": "8f1f144bea",
    "article_ids": [
@@ -6723,6 +7014,20 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T13:42:52+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_0c576030b4",
+   "rep_id": "0c576030b4",
+   "article_ids": [
+    "0c576030b4"
+   ],
+   "category": "과학·IT",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T16:01:06+09:00",
    "image": ""
   },
   {
@@ -6754,6 +7059,48 @@
    "image": ""
   },
   {
+   "id": "g_4ec8543c30",
+   "rep_id": "4ec8543c30",
+   "article_ids": [
+    "4ec8543c30"
+   ],
+   "category": "과학·IT",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T14:13:13+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_45bcf72cbc",
+   "rep_id": "45bcf72cbc",
+   "article_ids": [
+    "45bcf72cbc"
+   ],
+   "category": "과학·IT",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T14:26:11+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_9cebc5d7bc",
+   "rep_id": "9cebc5d7bc",
+   "article_ids": [
+    "9cebc5d7bc"
+   ],
+   "category": "과학·IT",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T16:01:13+09:00",
+   "image": ""
+  },
+  {
    "id": "g_4ecaed7f4e",
    "rep_id": "4ecaed7f4e",
    "article_ids": [
@@ -6765,20 +7112,6 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T12:10:05+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_879f63f66e",
-   "rep_id": "879f63f66e",
-   "article_ids": [
-    "879f63f66e"
-   ],
-   "category": "과학·IT",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T12:39:43+09:00",
    "image": ""
   },
   {
@@ -6796,6 +7129,20 @@
    "image": ""
   },
   {
+   "id": "g_879f63f66e",
+   "rep_id": "879f63f66e",
+   "article_ids": [
+    "879f63f66e"
+   ],
+   "category": "과학·IT",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T12:39:43+09:00",
+   "image": ""
+  },
+  {
    "id": "g_ec644b2569",
    "rep_id": "ec644b2569",
    "article_ids": [
@@ -6807,20 +7154,6 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T13:01:09+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_45bcf72cbc",
-   "rep_id": "45bcf72cbc",
-   "article_ids": [
-    "45bcf72cbc"
-   ],
-   "category": "과학·IT",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T14:26:11+09:00",
    "image": ""
   },
   {
@@ -6852,20 +7185,6 @@
    "image": ""
   },
   {
-   "id": "g_4ec8543c30",
-   "rep_id": "4ec8543c30",
-   "article_ids": [
-    "4ec8543c30"
-   ],
-   "category": "과학·IT",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T14:13:13+09:00",
-   "image": ""
-  },
-  {
    "id": "g_df6be57251",
    "rep_id": "df6be57251",
    "article_ids": [
@@ -6891,20 +7210,6 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T13:34:00+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_fba526f5c7",
-   "rep_id": "fba526f5c7",
-   "article_ids": [
-    "fba526f5c7"
-   ],
-   "category": "과학·IT",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T10:07:15+09:00",
    "image": ""
   },
   {
@@ -6936,45 +7241,87 @@
    "image": ""
   },
   {
-   "id": "g_25c83937d5",
-   "rep_id": "25c83937d5",
+   "id": "g_82a976da43",
+   "rep_id": "82a976da43",
    "article_ids": [
-    "25c83937d5"
+    "82a976da43"
    ],
    "category": "문화·생활",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T19:50:00+09:00",
+   "latest": "2026-10-11T18:38:00+09:00",
    "image": ""
   },
   {
-   "id": "g_70a6d6ce38",
-   "rep_id": "70a6d6ce38",
+   "id": "g_8fe7249d28",
+   "rep_id": "8fe7249d28",
    "article_ids": [
-    "70a6d6ce38"
+    "8fe7249d28"
    ],
    "category": "문화·생활",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T17:33:00+09:00",
+   "latest": "2026-10-11T18:26:00+09:00",
    "image": ""
   },
   {
-   "id": "g_9f1ee95aa0",
-   "rep_id": "9f1ee95aa0",
+   "id": "g_d757e1844c",
+   "rep_id": "d757e1844c",
    "article_ids": [
-    "9f1ee95aa0"
+    "d757e1844c"
    ],
    "category": "문화·생활",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T16:07:50+09:00",
+   "latest": "2026-10-11T17:01:00+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_91aa442d62",
+   "rep_id": "91aa442d62",
+   "article_ids": [
+    "91aa442d62"
+   ],
+   "category": "문화·생활",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T19:44:58+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_fb3f6a7f13",
+   "rep_id": "fb3f6a7f13",
+   "article_ids": [
+    "fb3f6a7f13"
+   ],
+   "category": "문화·생활",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T18:06:00+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_8a1101ec33",
+   "rep_id": "8a1101ec33",
+   "article_ids": [
+    "8a1101ec33"
+   ],
+   "category": "문화·생활",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:41:00+09:00",
    "image": ""
   },
   {
@@ -6993,6 +7340,34 @@
    "image": "https://img.seoul.co.kr//img/upload/2026/10/11/SSC_20261011085214_O2.jpg"
   },
   {
+   "id": "g_3c9d14af39",
+   "rep_id": "3c9d14af39",
+   "article_ids": [
+    "3c9d14af39"
+   ],
+   "category": "문화·생활",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T20:27:00+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_66345986fc",
+   "rep_id": "66345986fc",
+   "article_ids": [
+    "66345986fc"
+   ],
+   "category": "문화·생활",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T16:30:50+09:00",
+   "image": ""
+  },
+  {
    "id": "g_feb404d8a5",
    "rep_id": "feb404d8a5",
    "article_ids": [
@@ -7004,6 +7379,20 @@
    "status": null,
    "source_count": 1,
    "latest": "2026-10-11T16:30:22+09:00",
+   "image": ""
+  },
+  {
+   "id": "g_0652737a1d",
+   "rep_id": "0652737a1d",
+   "article_ids": [
+    "0652737a1d"
+   ],
+   "category": "문화·생활",
+   "summary": "",
+   "summary_src": null,
+   "status": null,
+   "source_count": 1,
+   "latest": "2026-10-11T19:35:51+09:00",
    "image": ""
   },
   {
@@ -7050,34 +7439,6 @@
    "source_count": 2,
    "latest": "2026-10-11T18:24:35+09:00",
    "image": "https://img1.newsis.com/2026/09/09/NISI20260909_0001561087_web.jpg"
-  },
-  {
-   "id": "g_d5c5c16074",
-   "rep_id": "d5c5c16074",
-   "article_ids": [
-    "d5c5c16074"
-   ],
-   "category": "정치",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:05:00+09:00",
-   "image": "https://img1.newsis.com/2024/10/29/NISI20241029_0020577034_web.jpg"
-  },
-  {
-   "id": "g_4ee845b4b9",
-   "rep_id": "4ee845b4b9",
-   "article_ids": [
-    "4ee845b4b9"
-   ],
-   "category": "정치",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:20:59+09:00",
-   "image": "https://img1.newsis.com/2026/09/02/NISI20260902_0002228273_web.jpg"
   },
   {
    "id": "g_615433087d",
@@ -7279,6 +7640,7 @@
    "id": "g_0ae7ab62e5",
    "rep_id": "0ae7ab62e5",
    "article_ids": [
+    "813f4014cb",
     "f3f07e95a1",
     "0ae7ab62e5",
     "21b0f0f71c",
@@ -7289,7 +7651,7 @@
    "summary": "",
    "summary_src": null,
    "status": null,
-   "source_count": 4,
+   "source_count": 5,
    "latest": "2026-10-11T20:46:47+09:00",
    "image": "https://www.segye.com/content/image/2026/10/11/20261011506716.jpg"
   },
@@ -7455,21 +7817,6 @@
    "image": "https://cdn.newscj.com/news/thumbnail/202610/3439294_3559809_4853_v150.jpg"
   },
   {
-   "id": "g_498e4a5697",
-   "rep_id": "498e4a5697",
-   "article_ids": [
-    "f1e49eb322",
-    "498e4a5697"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 2,
-   "latest": "2026-10-11T19:00:00+09:00",
-   "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0002259945_web.jpg"
-  },
-  {
    "id": "g_beb2a91766",
    "rep_id": "beb2a91766",
    "article_ids": [
@@ -7483,202 +7830,6 @@
    "source_count": 1,
    "latest": "2026-10-11T20:18:58+09:00",
    "image": "https://cdn.newscj.com/news/thumbnail/202610/3439275_3559778_2920_v150.jpg"
-  },
-  {
-   "id": "g_14d4a460c5",
-   "rep_id": "14d4a460c5",
-   "article_ids": [
-    "14d4a460c5"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:44:19+09:00",
-   "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0002259943_web.jpg"
-  },
-  {
-   "id": "g_e8c926b124",
-   "rep_id": "e8c926b124",
-   "article_ids": [
-    "e8c926b124"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:47:58+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009506443.jpg"
-  },
-  {
-   "id": "g_0baa7d8acd",
-   "rep_id": "0baa7d8acd",
-   "article_ids": [
-    "0baa7d8acd"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:00:00+09:00",
-   "image": "https://img1.newsis.com/2026/10/08/NISI20261008_0002258594_web.jpg"
-  },
-  {
-   "id": "g_4321828545",
-   "rep_id": "4321828545",
-   "article_ids": [
-    "4321828545"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:00:00+09:00",
-   "image": "https://img1.newsis.com/2026/10/08/NISI20261008_0002258748_web.jpg"
-  },
-  {
-   "id": "g_82027a6f57",
-   "rep_id": "82027a6f57",
-   "article_ids": [
-    "82027a6f57"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:00:00+09:00",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/11/134818863.1.jpg"
-  },
-  {
-   "id": "g_fb8851db6f",
-   "rep_id": "fb8851db6f",
-   "article_ids": [
-    "fb8851db6f"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:00:00+09:00",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/08/134798986.3.jpg"
-  },
-  {
-   "id": "g_a0a2e1236a",
-   "rep_id": "a0a2e1236a",
-   "article_ids": [
-    "a0a2e1236a"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:03:19+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_4288b9effe",
-   "rep_id": "4288b9effe",
-   "article_ids": [
-    "4288b9effe"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:20:17+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_ec10966871",
-   "rep_id": "ec10966871",
-   "article_ids": [
-    "ec10966871"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:21:16+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_47f914ec2d",
-   "rep_id": "47f914ec2d",
-   "article_ids": [
-    "47f914ec2d"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:21:56+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_6812ecb1ea",
-   "rep_id": "6812ecb1ea",
-   "article_ids": [
-    "6812ecb1ea"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:24:30+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/04/20261004507415.jpg"
-  },
-  {
-   "id": "g_8baff621a9",
-   "rep_id": "8baff621a9",
-   "article_ids": [
-    "8baff621a9"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:27:47+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009506101.jpg"
-  },
-  {
-   "id": "g_93f3e4d669",
-   "rep_id": "93f3e4d669",
-   "article_ids": [
-    "93f3e4d669"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:29:21+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009505522.jpg"
-  },
-  {
-   "id": "g_5e3860088b",
-   "rep_id": "5e3860088b",
-   "article_ids": [
-    "5e3860088b"
-   ],
-   "category": "경제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T19:35:48+09:00",
-   "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0021483641_web.jpg"
   },
   {
    "id": "g_efd96328b9",
@@ -7907,20 +8058,6 @@
    "image": "https://www.segye.com/content/image/2026/10/11/20261011505726.jpg"
   },
   {
-   "id": "g_f8daa3ff80",
-   "rep_id": "f8daa3ff80",
-   "article_ids": [
-    "f8daa3ff80"
-   ],
-   "category": "사회",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:26:19+09:00",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/11/134818497.1.jpg"
-  },
-  {
    "id": "g_377e0914c3",
    "rep_id": "377e0914c3",
    "article_ids": [
@@ -7934,62 +8071,6 @@
    "source_count": 2,
    "latest": "2026-10-11T18:51:39+09:00",
    "image": "https://img.seoul.co.kr//img/upload/2026/10/11/SSC_20261011095138_O2.png"
-  },
-  {
-   "id": "g_5f13e13320",
-   "rep_id": "5f13e13320",
-   "article_ids": [
-    "5f13e13320"
-   ],
-   "category": "사회",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:34:00+09:00",
-   "image": "https://img1.newsis.com/2026/10/10/NISI20261010_0002259763_web.jpg"
-  },
-  {
-   "id": "g_3f79154dd9",
-   "rep_id": "3f79154dd9",
-   "article_ids": [
-    "3f79154dd9"
-   ],
-   "category": "사회",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:39:02+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009506600.jpg"
-  },
-  {
-   "id": "g_e008f68b9d",
-   "rep_id": "e008f68b9d",
-   "article_ids": [
-    "e008f68b9d"
-   ],
-   "category": "사회",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:46:34+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/11/20261011505747.jpg"
-  },
-  {
-   "id": "g_db0db6c48f",
-   "rep_id": "db0db6c48f",
-   "article_ids": [
-    "db0db6c48f"
-   ],
-   "category": "사회",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:49:27+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/08/20261008517364.jpg"
   },
   {
    "id": "g_5a27fc6e86",
@@ -8230,6 +8311,24 @@
    "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0021483701_web.jpg"
   },
   {
+   "id": "g_3ea1d21d6f",
+   "rep_id": "3ea1d21d6f",
+   "article_ids": [
+    "d8626e61cd",
+    "0a0e1942e3",
+    "043186b3cc",
+    "a08685b347",
+    "3ea1d21d6f"
+   ],
+   "category": "국제",
+   "summary": "트럼프 “항상 충성스러운 지지자”보수 성향 정치 평론가인 케이티 자카리아가 신임 백악관 대변인(사진)으로 발탁됐다. 도널드 트럼프 미국 대통령은 9일(현지시간) 트루스소셜에 “자카리아를 백악관 대변인으로 임명하게 된 것을 큰 영광으로 생각한다”며 “그는 처음부터 변함없이 충성스럽고 뛰어난 지지자였으며 마가(MAGA·미국을 다시 위대하게)의 열렬한 팬이자 일···",
+   "summary_src": "feed",
+   "status": null,
+   "source_count": 4,
+   "latest": "2026-10-11T20:00:00+09:00",
+   "image": "https://img.khan.co.kr/news/2026/10/11/l_2026101201000316700028641.jpg"
+  },
+  {
    "id": "g_b8ab5141be",
    "rep_id": "b8ab5141be",
    "article_ids": [
@@ -8260,48 +8359,6 @@
    "source_count": 2,
    "latest": "2026-10-11T18:49:19+09:00",
    "image": "https://img1.newsis.com/2026/10/10/NISI20261010_0002259869_web.jpg"
-  },
-  {
-   "id": "g_b5819d4ae6",
-   "rep_id": "b5819d4ae6",
-   "article_ids": [
-    "b5819d4ae6"
-   ],
-   "category": "국제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:12:08+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/09/20261009502701.jpg"
-  },
-  {
-   "id": "g_849b2b826a",
-   "rep_id": "849b2b826a",
-   "article_ids": [
-    "849b2b826a"
-   ],
-   "category": "국제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T17:14:52+09:00",
-   "image": "https://dimg.donga.com/wps/NEWS/IMAGE/2026/10/11/134818293.1.jpg"
-  },
-  {
-   "id": "g_781c13fc21",
-   "rep_id": "781c13fc21",
-   "article_ids": [
-    "781c13fc21"
-   ],
-   "category": "국제",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:00:00+09:00",
-   "image": "https://www.segye.com/content/image/2026/10/11/20261011506984.jpg"
   },
   {
    "id": "g_42c3df5991",
@@ -8457,118 +8514,6 @@
    "source_count": 2,
    "latest": "2026-10-11T19:56:47+09:00",
    "image": "https://cdn.mediatoday.co.kr/news/thumbnail/202610/337650_484363_3543_v150.jpg"
-  },
-  {
-   "id": "g_8ea9581afa",
-   "rep_id": "8ea9581afa",
-   "article_ids": [
-    "8ea9581afa"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:05:00+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_a84cec5ca7",
-   "rep_id": "a84cec5ca7",
-   "article_ids": [
-    "a84cec5ca7"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:31:48+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_0b6e6b386f",
-   "rep_id": "0b6e6b386f",
-   "article_ids": [
-    "0b6e6b386f"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:32:42+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_21fae88d3c",
-   "rep_id": "21fae88d3c",
-   "article_ids": [
-    "21fae88d3c"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:33:54+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_dffd5cd367",
-   "rep_id": "dffd5cd367",
-   "article_ids": [
-    "dffd5cd367"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:34:21+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_3f31e8f947",
-   "rep_id": "3f31e8f947",
-   "article_ids": [
-    "3f31e8f947"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:34:31+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_905a543383",
-   "rep_id": "905a543383",
-   "article_ids": [
-    "905a543383"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T15:35:01+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_5b2c0b83ef",
-   "rep_id": "5b2c0b83ef",
-   "article_ids": [
-    "5b2c0b83ef"
-   ],
-   "category": "문화·생활",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T16:00:00+09:00",
-   "image": ""
   },
   {
    "id": "g_7bd9a52225",
@@ -8823,45 +8768,31 @@
    "image": "https://img1.newsis.com/2026/10/11/NISI20261011_0002259996_web.jpg"
   },
   {
-   "id": "g_d1d834a84b",
-   "rep_id": "d1d834a84b",
+   "id": "g_0b64766c3a",
+   "rep_id": "0b64766c3a",
    "article_ids": [
-    "d1d834a84b"
+    "0b64766c3a"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T14:51:49+09:00",
+   "latest": "2026-10-11T13:34:00+09:00",
    "image": ""
   },
   {
-   "id": "g_ffd1aa9197",
-   "rep_id": "ffd1aa9197",
+   "id": "g_1e2ff1f9e3",
+   "rep_id": "1e2ff1f9e3",
    "article_ids": [
-    "ffd1aa9197"
+    "1e2ff1f9e3"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T07:33:46+09:00",
-   "image": ""
-  },
-  {
-   "id": "g_a98d519430",
-   "rep_id": "a98d519430",
-   "article_ids": [
-    "a98d519430"
-   ],
-   "category": "미분류",
-   "summary": "",
-   "summary_src": null,
-   "status": null,
-   "source_count": 1,
-   "latest": "2026-10-11T18:31:19+09:00",
+   "latest": "2026-10-11T20:24:00+09:00",
    "image": ""
   },
   {
@@ -8907,17 +8838,17 @@
    "image": ""
   },
   {
-   "id": "g_32e172aaa0",
-   "rep_id": "32e172aaa0",
+   "id": "g_c68ca08774",
+   "rep_id": "c68ca08774",
    "article_ids": [
-    "32e172aaa0"
+    "c68ca08774"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T18:00:00+09:00",
+   "latest": "2026-10-11T19:45:00+09:00",
    "image": ""
   },
   {
@@ -8949,17 +8880,17 @@
    "image": ""
   },
   {
-   "id": "g_8a0fb3f205",
-   "rep_id": "8a0fb3f205",
+   "id": "g_6da0944524",
+   "rep_id": "6da0944524",
    "article_ids": [
-    "8a0fb3f205"
+    "6da0944524"
    ],
    "category": "미분류",
    "summary": "",
    "summary_src": null,
    "status": null,
    "source_count": 1,
-   "latest": "2026-10-11T17:54:55+09:00",
+   "latest": "2026-10-11T18:22:00+09:00",
    "image": ""
   }
  ],
@@ -8986,26 +8917,29 @@
     ]
    },
    {
-    "group_id": "g_37e8f18f4a",
+    "group_id": "g_b8f88d64d4",
     "rank": 3,
-    "score": 14.1,
+    "score": 14.98,
     "reasons": [
-     "5개 언론사 보도",
+     "4개 언론사 보도",
+     "구글 뉴스 주요 뉴스 상위 노출",
      "최근 6시간 내 보도"
     ]
    },
    {
-    "group_id": "g_4766c2da21",
+    "group_id": "g_bcb76537f0",
     "rank": 4,
-    "score": 13.94,
+    "score": 14.4,
     "reasons": [
-     "7개 언론사 보도"
+     "3개 언론사 보도",
+     "구글 뉴스 주요 뉴스 상위 노출",
+     "최근 6시간 내 보도"
     ]
    },
    {
-    "group_id": "g_59b3324053",
+    "group_id": "g_37e8f18f4a",
     "rank": 5,
-    "score": 13.9,
+    "score": 14.04,
     "reasons": [
      "5개 언론사 보도",
      "최근 6시간 내 보도"
@@ -9017,14 +8951,19 @@
   "정치": [
    "g_d67cded331",
    "g_0ae7ab62e5",
+   "g_2348222e07",
    "g_e17211afa7",
+   "g_bf0c7bfec4",
+   "g_77245b9aef",
    "g_272013e686",
    "g_51804023ec",
    "g_1654af24f7",
    "g_9210579459",
+   "g_45e4355f9e",
    "g_f9b1f4dc54",
    "g_3ff6bb4905",
    "g_00099b755e",
+   "g_a3088701af",
    "g_625313b6cc",
    "g_61c87992e7",
    "g_79d010fbd4",
@@ -9036,6 +8975,7 @@
    "g_6aece58e8d",
    "g_1c74fb42d7",
    "g_732f4fa7cb",
+   "g_421fe87895",
    "g_7fe94ddd94",
    "g_666d610ec3",
    "g_9ee0a55545",
@@ -9046,26 +8986,38 @@
    "g_c0cab5d0ac",
    "g_615433087d",
    "g_382cd046f9",
-   "g_4ee845b4b9",
    "g_1a468ab795",
    "g_259b389d00",
-   "g_cbcc519617",
-   "g_e94d009c75",
-   "g_6b15e2c4b3",
-   "g_e9cb956b39",
-   "g_a8ca323180",
-   "g_d5c5c16074"
+   "g_cbcc519617"
   ],
   "경제": [
    "g_51b091e735",
+   "g_17782ba449",
    "g_5c0206074a",
    "g_88713aa775",
+   "g_da7896be36",
+   "g_d4562365b4",
+   "g_685e5acfed",
    "g_21ae92a5ed",
    "g_beb2a91766",
    "g_c24b0110fd",
    "g_3327393f13",
+   "g_9074fdfc34",
+   "g_dedf81575e",
+   "g_aff6fd0b57",
+   "g_6859480759",
+   "g_e0e1f01872",
+   "g_999c75dd3b",
+   "g_40ec19a412",
+   "g_74f54bc605",
+   "g_b7303e2dbc",
+   "g_0900f18a73",
+   "g_646cb99115",
+   "g_bd19620010",
+   "g_408db6fcae",
    "g_78b5bb29e6",
    "g_20cbf0cdd9",
+   "g_3d5436c4cc",
    "g_8025819a3e",
    "g_e858e745aa",
    "g_369ce3a6ff",
@@ -9078,46 +9030,37 @@
    "g_0a73295628",
    "g_0a652e0547",
    "g_efd96328b9",
-   "g_2a6cc157a8",
-   "g_5e3860088b",
-   "g_93f3e4d669",
-   "g_8baff621a9",
-   "g_6812ecb1ea",
-   "g_47f914ec2d",
-   "g_ec10966871",
-   "g_4288b9effe",
-   "g_a0a2e1236a",
-   "g_498e4a5697",
-   "g_0baa7d8acd",
-   "g_4321828545",
-   "g_82027a6f57",
-   "g_fb8851db6f",
-   "g_342c96418b",
-   "g_695b19b398",
-   "g_e8c926b124",
-   "g_14d4a460c5",
-   "g_3fa6f2936a"
+   "g_2a6cc157a8"
   ],
   "사회": [
+   "g_84e79ae5fd",
+   "g_b7657e1c74",
+   "g_d522d65de4",
    "g_52364ae818",
    "g_0ac45995b3",
    "g_8198566327",
+   "g_b4f8b1e7d5",
    "g_1312d0e05f",
+   "g_cadfd42191",
    "g_53af1ca4e6",
    "g_e5dce7b55c",
    "g_be4eaeb6a1",
    "g_2e85ff52d6",
+   "g_1b011bdec8",
+   "g_3950d18b69",
    "g_bbd5d3a0dc",
+   "g_eea8d2a12d",
    "g_ac638655ff",
    "g_6b2d5a9ee7",
+   "g_7ac0fc1c34",
    "g_e633d3cdbe",
    "g_2c3960ba18",
+   "g_2c3a051999",
    "g_fc9968fe11",
+   "g_d4e0321ea3",
    "g_f71d10d0f5",
    "g_6a5566a7ca",
-   "g_f625e909c8",
    "g_72b1e1ed42",
-   "g_5cd7fed7a1",
    "g_f539b06feb",
    "g_0982e564ee",
    "g_76c1df6fe3",
@@ -9125,40 +9068,45 @@
    "g_f7d52967ce",
    "g_3cbf6ec2db",
    "g_570c843fb8",
-   "g_edad5309a8",
    "g_ebc347d284",
    "g_0be518f0e2",
    "g_5a27fc6e86",
    "g_c315b7d9ef",
-   "g_377e0914c3",
-   "g_db0db6c48f",
-   "g_e008f68b9d",
-   "g_72cb4dc5b4",
-   "g_7748e0e6e4",
-   "g_3f79154dd9",
-   "g_5f13e13320",
-   "g_789daa0267",
-   "g_f8daa3ff80"
+   "g_377e0914c3"
   ],
   "국제": [
    "g_88f80f7b19",
+   "g_dea35f7a69",
+   "g_851c3fac73",
+   "g_b8f88d64d4",
+   "g_3ca7d6ef63",
    "g_9528ff0112",
    "g_3d6aef0579",
+   "g_182229883d",
+   "g_a7aa5eec5b",
+   "g_374038936b",
+   "g_8049defaed",
+   "g_e047641fd8",
+   "g_f21926eee0",
+   "g_e9146f1027",
    "g_dacde864a9",
    "g_788f7b6e8d",
+   "g_e8c387dca2",
+   "g_3ea1d21d6f",
+   "g_b6ca6b4fa1",
    "g_b8ab5141be",
+   "g_996a923d1e",
    "g_a3d660f115",
    "g_941e98ba50",
    "g_24c935ee0b",
    "g_c7f02b7290",
    "g_b862ab0834",
-   "g_ae4ef761b0",
    "g_9b42460453",
    "g_e98d6b8767",
    "g_cac71a9077",
    "g_42c3df5991",
    "g_862986bcfc",
-   "g_ed956ded4a",
+   "g_407db50a47",
    "g_3f7d0a6980",
    "g_5055b896de",
    "g_bbad12615d",
@@ -9166,23 +9114,11 @@
    "g_5ad416a581",
    "g_cf005206f6",
    "g_2dc39f2966",
-   "g_37e8f18f4a",
-   "g_781c13fc21",
-   "g_51a033a84d",
-   "g_4503f37139",
-   "g_17f5156225",
-   "g_52937da2db",
-   "g_29dcbf57a3",
-   "g_9ffca2aafe",
-   "g_849b2b826a",
-   "g_b5819d4ae6",
-   "g_753cd53980",
-   "g_012e32d7b7",
-   "g_e60fd264fd",
-   "g_59b3324053",
-   "g_8a1d39f2b2"
+   "g_37e8f18f4a"
   ],
   "과학·IT": [
+   "g_a9f0ef96fd",
+   "g_001a41e5c6",
    "g_ad2050c556",
    "g_c1b964ca66",
    "g_3cffca024a",
@@ -9199,6 +9135,7 @@
    "g_1743b881e4",
    "g_91b689bd0a",
    "g_3431f3f564",
+   "g_9cebc5d7bc",
    "g_0c576030b4",
    "g_9249301ddb",
    "g_d7a9f08a04",
@@ -9211,7 +9148,6 @@
    "g_8f1f144bea",
    "g_6bf06da639",
    "g_db3f3bde2f",
-   "g_bd27262c32",
    "g_ec644b2569",
    "g_e7f226217c",
    "g_b5d70ebe17",
@@ -9220,51 +9156,49 @@
    "g_4ecaed7f4e",
    "g_a42ce6655b",
    "g_34f8fe5885",
-   "g_062b6317ac",
-   "g_fba526f5c7",
-   "g_c86210ecdc"
+   "g_062b6317ac"
   ],
   "문화·생활": [
    "g_ed2f4d3258",
+   "g_8a1101ec33",
+   "g_4572c1ea4a",
+   "g_3c9d14af39",
+   "g_3a1bb2eac0",
+   "g_8113a21023",
    "g_1ec4598308",
+   "g_85ee9aa1ad",
+   "g_8b75043d98",
+   "g_5a07da7a93",
    "g_3b622f74fb",
-   "g_25c83937d5",
    "g_c330137ff6",
+   "g_91aa442d62",
    "g_67575ce3eb",
+   "g_0652737a1d",
    "g_2cd2058a9d",
    "g_d216bd5bed",
+   "g_82a976da43",
    "g_e70351089f",
+   "g_8fe7249d28",
    "g_ca40895d17",
    "g_a6ea28c4e5",
    "g_d01345c1c9",
    "g_a177e6eea9",
+   "g_fb3f6a7f13",
    "g_b5b122b84e",
    "g_2b27d633a4",
    "g_d01b3be736",
    "g_90a6fa9f75",
-   "g_70a6d6ce38",
    "g_5c82fedc0e",
    "g_5344511a09",
+   "g_d757e1844c",
    "g_83029024a2",
    "g_03183fbce7",
    "g_d8be07938e",
+   "g_66345986fc",
    "g_feb404d8a5",
    "g_7bd9a52225",
    "g_78fda37dd0",
-   "g_565b1acb91",
-   "g_8fb5f19239",
-   "g_9f1ee95aa0",
-   "g_5b2c0b83ef",
-   "g_1b2dc896a0",
-   "g_905a543383",
-   "g_3f31e8f947",
-   "g_dffd5cd367",
-   "g_21fae88d3c",
-   "g_0b6e6b386f",
-   "g_a84cec5ca7",
-   "g_502cec796a",
-   "g_f771f326ab",
-   "g_8ea9581afa"
+   "g_565b1acb91"
   ],
   "주식": [
    "g_5bccd650d0",
@@ -9283,66 +9217,59 @@
    "g_8e0d39ef54",
    "g_c1a42d3791",
    "g_06d8a0f751",
-   "g_6815b60a25",
    "g_130487d10f",
-   "g_606af3dcfc",
    "g_31a833e7ee",
+   "g_3b70cb8b77",
    "g_2a7f837cb3",
    "g_a8731a64ec",
    "g_e1ba254719",
    "g_4d3d5d1c85",
+   "g_4f5adb96de",
    "g_e6681f9c89",
    "g_c8ba2710ee",
    "g_28cd86d414",
    "g_9c88b47da1",
-   "g_5ae1992a1e",
-   "g_6507fbbc64",
-   "g_7d86c28d00",
-   "g_12b5d0ae73",
-   "g_1103885d90",
-   "g_e61e41dccd"
+   "g_5ae1992a1e"
   ],
   "미분류": [
+   "g_1e2ff1f9e3",
+   "g_c68ca08774",
    "g_f502a62964",
    "g_5ce1c83f4e",
    "g_2149a73de2",
-   "g_a98d519430",
-   "g_32e172aaa0",
-   "g_8a0fb3f205",
-   "g_85f77b20ca",
+   "g_6da0944524",
    "g_345c7efe75",
    "g_2b7bf2fc79",
    "g_486456a854",
-   "g_d1d834a84b",
+   "g_7d4cb8e347",
+   "g_06268fbe98",
    "g_c13ad10c3d",
    "g_07cfb1d759",
    "g_e09025c4b7",
+   "g_0b64766c3a",
    "g_c51afb7fa6",
    "g_1962097f92",
    "g_a4807fef4c",
    "g_f8e31e9e86",
    "g_41f38e6e22",
    "g_cc66327720",
+   "g_97b02c0658",
+   "g_a35292374c",
    "g_168873d167",
-   "g_e7b4bde6cb",
-   "g_4ad237dfd9",
    "g_3b859c94c9",
    "g_25285eb9ce",
    "g_54707ebd04",
-   "g_ffd1aa9197",
    "g_f217c74da1",
    "g_27863b87db",
+   "g_1966e08db7",
    "g_7a28f42959",
    "g_16e48ff978",
    "g_1109647fb5",
-   "g_9185cd19d6",
-   "g_5f7e7fa571",
    "g_9609c7a6c9",
    "g_5eaa579d57",
+   "g_c4acaa421e",
    "g_a439d1c9c8",
-   "g_70c153325b",
-   "g_9ecd20280b",
-   "g_013fd57cf4"
+   "g_70c153325b"
   ]
  }
 }
