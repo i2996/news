@@ -36,8 +36,8 @@ a{color:inherit}button{font:inherit;color:inherit}ul,ol{list-style:none;margin:0
 .mt{font-size:12px;color:var(--sub)}
 .why{font-size:11px;color:var(--sub);margin-top:4px}
 .tag{font-size:11px;padding:0 6px;border-radius:2px;background:var(--sage);color:var(--sageT);margin-left:4px}.tag.b{background:var(--blue);color:var(--blueT)}
-.ti{display:flex;gap:12px;padding:13px 0;border-bottom:1px dotted var(--sub)}
-.no{font:900 24px/1 var(--serif);min-width:28px}
+.ti{padding:14px 0;border-bottom:1px dotted var(--sub)}.ti .hr{display:flex;gap:10px;align-items:baseline}
+.no{font:900 22px/1.3 var(--serif);min-width:26px}
 .ti h3{font:700 17px/1.45 var(--serif);margin:0 0 3px}
 .dt{background:none;border:0;padding:0;margin-left:8px;font-size:12px;color:var(--blueT);text-decoration:underline}
 details{margin-top:6px}summary{cursor:pointer;font-size:12px;color:var(--blueT)}
@@ -47,9 +47,9 @@ details{margin-top:6px}summary{cursor:pointer;font-size:12px;color:var(--blueT)}
 .tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--ink);margin-top:16px;scrollbar-width:none}
 .tabs button{flex:none;background:none;border:0;border-bottom:3px solid transparent;padding:8px 12px;font-size:14px;color:var(--sub)}
 .tabs button.on{color:var(--ink);font-weight:700;border-color:var(--ink)}
-.lst li{padding:13px 0;border-bottom:1px solid var(--rule);display:flex;gap:12px}.tc{flex:1;min-width:0}
+.lst li{padding:14px 0;border-bottom:1px solid var(--rule)}.tc{flex:1;min-width:0}
 .th{width:86px;height:66px;object-fit:cover;flex:none;filter:grayscale(1) contrast(1.05);border:1px solid var(--rule)}
-.lim{width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.05);margin:8px 0;display:block}.rt{font:700 16px/1.5 var(--serif)}
+.lim{width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1) contrast(1.05);margin:0 0 8px;display:block}.rt{font:700 16px/1.5 var(--serif)}
 .more{width:100%;margin-top:10px;padding:8px;background:none;border:1px solid var(--rule);font-size:13px;color:var(--sub)}
 .empty,.note{font-size:12.5px;color:var(--sub);padding:8px 0}
 .banner{border:1px solid var(--rule);background:var(--soft);padding:12px 14px;margin:18px 0}.banner b{font:700 15px var(--serif)}.banner p{margin:4px 0 0;font-size:13px;color:var(--sub)}
@@ -86,7 +86,7 @@ mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,
 .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.sec p{font-size:13px;color:var(--sub);margin:6px 0}
 #modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
 #modal.show{opacity:1;pointer-events:auto}
-.sheet{background:#F5F5F5;color:#1c1b19;width:100%;max-width:640px;max-height:88vh;overflow:auto;padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-top:4px double #1c1b19;transform:translateY(40px) scale(.98);transition:transform .28s ease}
+.sheet{background:#fffaf0;color:#1c1b19;width:100%;max-width:640px;max-height:88vh;overflow:auto;padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-top:4px double #1c1b19;transform:translateY(40px) scale(.98);transition:transform .28s ease}
 #modal.show .sheet{transform:none}
 .sheet h2{font:900 21px/1.4 var(--serif);margin:4px 0 4px}.sheet .mt{color:#6d665a}
 .s{cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
@@ -102,7 +102,7 @@ mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,
 <body>
 <main>
   <header class="mast"><button class="tb" id="install" hidden>설치</button><h1 class="title">The Press</h1><button class="tb" id="refresh">새로고침</button>
-    <div class="dl"><span id="date"></span><span id="issue"></span><span>신문 한 입</span></div></header>
+    <div class="dl"><span id="date"></span><span id="issue"></span><span>오늘의 조간</span></div></header>
   <section id="vHome">
     <div id="banner"></div>
     <div class="home"><section><div id="lead"></div><div id="top"></div></section><section id="catHead"></section></div>
@@ -111,7 +111,7 @@ mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,
   </section>
   <section id="vNews" hidden><div class="tabs" id="tabs"></div><div id="catList"></div></section>
   <section id="vLog" hidden>
-    <div class="lh"><div><h2>나의 기사 일지</h2><p id="wk"></p></div><div id="wkStamp"></div></div>
+    <div class="lh"><div><h2>나의 독서 일지</h2><p id="wk"></p></div><div id="wkStamp"></div></div>
     <div class="stats"><div class="stat"><b id="sMonth">0</b><span>이번 달 읽은 날</span></div><div class="stat"><b id="sStreak">0</b><span>연속 읽기</span></div><div class="stat"><b id="sToday">0</b><span>오늘 방문</span></div></div>
     <div class="mnav"><button id="prev">‹</button><span id="mTitle"></span><button id="next">›</button></div>
     <div class="grid" id="cal"></div>
@@ -144,7 +144,7 @@ const key = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") 
 const getStats = () => { try { return JSON.parse(store.get("stats") || "{}"); } catch(e) { return {}; } };
 function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:0, r:0}; fn(s[k]); store.set("stats", JSON.stringify(s)); }
 const issueNo = () => Object.values(getStats()).filter(s => s.r).length;            // 제 N호 = 신문을 읽은 누적 일수
-const renderIssue = () => { $("#issue").textContent = `제${issueNo().toLocaleString("ko-KR")}호`; };
+const renderIssue = () => { $("#issue").textContent = `제 ${issueNo().toLocaleString("ko-KR")}호`; };
 function markRead(id, cat){
   bump(o => { o.r = 1; o.a = o.a || []; if(!o.a.includes(id)){ o.a.push(id); o.n = o.n || {}; o.n[cat || "미분류"] = (o.n[cat || "미분류"] || 0) + 1; } if(cat){ (o.c = o.c || {})[cat] = 1; } });
   renderIssue(); renderStrip();
@@ -237,7 +237,7 @@ const detailBtn = (a, g) => `<button class="dt" data-a="${esc(a.id)}" data-g="${
 const complete = t => /[.!?。”"')\]다요]$/.test((t || "").trim());      // 중간에 잘린 매체 요약은 숨김
 const imgTag = (g, cls) => g.image ? `<img class="${cls}" src="${esc(safe(g.image))}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
 const sumOf = g => (g.summary_src === "ai" || (g.summary && complete(g.summary)))
-  ? `<p class="sm">${esc(g.summary)}</p><div class="mt">${g.summary_src === "ai" ? "AI 요약 (원문 본문 기반)" : "매체 제공 요약"}</div>` : "";   // 요약이 없으면 제목만
+  ? `<p class="sm">${esc(g.summary)}<span class="tag">${g.summary_src === "ai" ? "AI 요약" : "매체 제공"}</span></p>` : "";   // 요약이 없으면 제목만
 function related(g){
   const rest = g.article_ids.filter(i => i !== g.rep_id).map(i => A[i]).filter(Boolean).sort((x, y) => new Date(y.published_at) - new Date(x.published_at));
   return rest.length ? `<details><summary>관련 기사 ${rest.length}건 (언론사별 원문)</summary><ul class="rel">${rest.map(a => `<li>${artLink(a)} <span class="mt">${esc(a.source)} · ${when(a.published_at)}</span></li>`).join("")}</ul></details>` : "";
@@ -281,10 +281,10 @@ function renderHome(){
   if(!all.length){ $("#lead").innerHTML = ""; $("#top").innerHTML = `<div class="ch">TOP 5 기사</div><p class="empty">중요도 근거(여러 언론사 보도·노출)가 부족해 TOP 5를 만들지 않았어요. 분야별 뉴스를 확인해 보세요.</p>`; }
   else {
     const f = all[0], fa = A[f.g.rep_id], rest = all.slice(1);   // 1위=헤드라인, 2~6위=TOP 5(01~05)
-    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead"><h2>${artLink(fa)}</h2>${imgTag(f.g, "lim")}<div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g)}${related(f.g)}</div>`;
+    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead">${imgTag(f.g, "lim")}<h2>${artLink(fa)}</h2><div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g)}${related(f.g)}</div>`;
     $("#top").innerHTML = (rest.length ? `<div class="ch">${ranked ? "TOP 5 기사" : "주요 기사"}</div><p class="note">${esc(t.note)}</p><ol>${rest.map(({i, g}, n) => { const a = A[g.rep_id];
-      return `<li class="ti"><span class="no">${ranked ? String(n + 1).padStart(2, "0") : "·"}</span><div class="tc"><h3>${artLink(a)}</h3><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
-        ${sumOf(g)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${related(g)}</div>${imgTag(g, "th")}</li>`; }).join("")}</ol>` : "") + '<div id="topEnd"></div>';
+      return `<li class="ti">${imgTag(g, "lim")}<div class="hr"><span class="no">${ranked ? String(n + 1).padStart(2, "0") : "·"}</span><h3>${artLink(a)}</h3></div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
+        ${sumOf(g)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${related(g)}</li>`; }).join("")}</ol>` : "") + '<div id="topEnd"></div>';
   }
   const by = D.by_category || {};
   $("#catHead").innerHTML = `<div class="ch">분야별 헤드라인</div>` + CATS.map(c => { const g = G[(by[c] || [])[0]], a = g && A[g.rep_id];
@@ -297,7 +297,7 @@ function renderCatList(){
   if(!D || !D.groups.length){ $("#catList").innerHTML = '<p class="empty">표시할 기사가 없어요.</p>'; return; }
   const inTop = new Set(D.top.items.map(i => i.group_id)), ids = (by[catSel] || []).filter(id => G[id]), n = shown[catSel] || 5;
   $("#catList").innerHTML = (ids.length ? `<ul class="lst">${ids.slice(0, n).map(id => { const g = G[id], a = A[g.rep_id];
-    return `<li><div class="tc"><div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${sumOf(g)}${related(g)}</div>${imgTag(g, "th")}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
+    return `<li>${imgTag(g, "lim")}<div class="rt">${artLink(a)}${inTop.has(id) ? '<span class="tag b">TOP</span>' : ""}</div><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>${sumOf(g)}${related(g)}</li>`; }).join("")}</ul>` : '<p class="empty">이 분야의 기사를 아직 찾지 못했어요.</p>') +
     (ids.length > n ? `<button class="more">더 보기 (${ids.length - n})</button>` : "");
 }
 function render(d){
