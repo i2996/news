@@ -144,7 +144,7 @@ const key = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") 
 const getStats = () => { try { return JSON.parse(store.get("stats") || "{}"); } catch(e) { return {}; } };
 function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:0, r:0}; fn(s[k]); store.set("stats", JSON.stringify(s)); }
 const issueNo = () => Object.values(getStats()).filter(s => s.r).length;            // 제 N호 = 신문을 읽은 누적 일수
-const renderIssue = () => { $("#issue").textContent = `제 ${issueNo().toLocaleString("ko-KR")}호`; };
+const renderIssue = () => { $("#issue").textContent = `제${issueNo().toLocaleString("ko-KR")}호`; };
 function markRead(id, cat){
   bump(o => { o.r = 1; o.a = o.a || []; if(!o.a.includes(id)){ o.a.push(id); o.n = o.n || {}; o.n[cat || "미분류"] = (o.n[cat || "미분류"] || 0) + 1; } if(cat){ (o.c = o.c || {})[cat] = 1; } });
   renderIssue(); renderStrip();
