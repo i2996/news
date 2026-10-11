@@ -270,12 +270,12 @@ def build(arts, now, per_cat=40):
     df = Counter(t for a in arts for t in a["tok"])
     w = {t: math.log((len(arts) + 1) / (c + 1)) + 1 for t, c in df.items()}
     groups = [make_group(c, now) for c in cluster(arts, w)]
-    # TOP 5: 근거(여러 언론사 보도 또는 구글 주요 뉴스 상위 노출)가 있는 그룹만, 같은 사건은 1회만
+    # 헤드라인(1위) + TOP 5(2~6위) = 6건: 근거(여러 언론사 보도 또는 구글 주요 뉴스 상위 노출)가 있는 그룹만, 같은 사건은 1회만
     ev = sorted([g for g in groups if (g["source_count"] > 1 or g["tp"] >= 0.4) and g["age"] <= 24],
                 key=lambda g: -g["score"])
-    mode = "ranked" if len(ev) >= 5 else ("list" if ev else "none")
+    mode = "ranked" if len(ev) >= 6 else ("list" if ev else "none")
     top_items = [{"group_id": g["id"], "rank": i + 1 if mode == "ranked" else None, "score": g["score"],
-                  "reasons": g["reasons"]} for i, g in enumerate(ev[:5])]
+                  "reasons": g["reasons"]} for i, g in enumerate(ev[:6])]
     by_cat = {c: [g["id"] for g in sorted((g for g in groups if g["category"] == c), key=lambda g: g["latest"], reverse=True)[:per_cat]]
               for c in CATS + ["미분류"]}
     keep = {i for ids in by_cat.values() for i in ids} | {t["group_id"] for t in top_items}
@@ -290,7 +290,7 @@ def build(arts, now, per_cat=40):
             g.pop(k)
     note = "보도량·노출 신호로 앱이 자동 선정한 결과이며 언론사·편집국의 공식 순위가 아닙니다."
     if mode == "list":
-        note = "여러 언론사가 다룬 주요 이슈가 5개 미만이라 순위 없이 '주요 뉴스'로 보여드려요. " + note
+        note = "주요 이슈가 충분하지 않아 순위 없이 '주요 뉴스'로 보여드려요. " + note
     return out_arts, kg, {"mode": mode, "note": note, "items": top_items}, by_cat
 
 

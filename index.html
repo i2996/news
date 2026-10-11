@@ -93,7 +93,7 @@ mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,
 .hint{font-size:12px;color:#6d665a;border:1px dashed #b9ae95;padding:6px 8px;margin:10px 0}
 @media(min-width:720px){
  .title{font-size:60px}.lead h2{font-size:36px}
- .home{display:grid;grid-template-columns:1.25fr 1fr .8fr}
+ .home{display:grid;grid-template-columns:1.7fr 1fr}
  .home>section{padding:0 22px;border-left:1px solid var(--ink)}.home>section:first-child{border:0;padding-left:0}.home>section:last-child{padding-right:0}
  .sb{grid-template-columns:repeat(3,1fr)}.sm{font-size:15px}
 }
@@ -105,7 +105,7 @@ mark,.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,
     <div class="dl"><span id="date"></span><span id="issue"></span><span>오늘의 조간</span></div></header>
   <section id="vHome">
     <div id="banner"></div>
-    <div class="home"><section id="lead"></section><section id="top"></section><section id="catHead"></section></div>
+    <div class="home"><section><div id="lead"></div><div id="top"></div></section><section id="catHead"></section></div>
     <div class="strip" id="strip"></div>
     <p class="note" id="ios" hidden>아이폰은 공유 버튼 → "홈 화면에 추가"로 설치하세요.</p>
   </section>
@@ -236,9 +236,8 @@ const metaOf = (g, a) => `${esc(a.source)} · ${when(a.published_at)}${g.source_
 const detailBtn = (a, g) => `<button class="dt" data-a="${esc(a.id)}" data-g="${esc(g.id)}">상세·스크랩</button>`;
 const complete = t => /[.!?。”"')\]다요]$/.test((t || "").trim());      // 중간에 잘린 매체 요약은 숨김
 const imgTag = (g, cls) => g.image ? `<img class="${cls}" src="${esc(safe(g.image))}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
-const sumOf = (g, force) => (g.summary_src === "ai" || (g.summary && complete(g.summary)))
-  ? `<p class="sm">${esc(g.summary)}</p><div class="mt">${g.summary_src === "ai" ? "AI 요약 (원문 본문 기반)" : "매체 제공 요약"}</div>`
-  : (force ? '<p class="mt">AI 요약을 준비 중이거나 본문을 읽을 수 없는 기사예요 · 원문에서 확인하세요</p>' : "");
+const sumOf = g => (g.summary_src === "ai" || (g.summary && complete(g.summary)))
+  ? `<p class="sm">${esc(g.summary)}</p><div class="mt">${g.summary_src === "ai" ? "AI 요약 (원문 본문 기반)" : "매체 제공 요약"}</div>` : "";   // 요약이 없으면 제목만
 function related(g){
   const rest = g.article_ids.filter(i => i !== g.rep_id).map(i => A[i]).filter(Boolean).sort((x, y) => new Date(y.published_at) - new Date(x.published_at));
   return rest.length ? `<details><summary>관련 기사 ${rest.length}건 (언론사별 원문)</summary><ul class="rel">${rest.map(a => `<li>${artLink(a)} <span class="mt">${esc(a.source)} · ${when(a.published_at)}</span></li>`).join("")}</ul></details>` : "";
@@ -268,20 +267,29 @@ function sumNote(m){
   if(m.state === "no_key") return '<p class="note">AI 요약: GEMINI_API_KEY가 설정되지 않아 건너뛰었어요.</p>';
   return `<p class="note">AI 요약: 신규 ${m.new}건 · 저장된 요약 ${m.cached}건${m.no_body ? ` · 본문을 읽을 수 없는 기사 ${m.no_body}건` : ""}${m.failed ? ` · API 실패 ${m.failed}건 (${esc(m.error || "원인 불명")})` : ""}</p>`;
 }
+let endObs = null, endTimer = null;
+function watchEnd(all){   // TOP 영역 끝까지 스크롤하면 그날 기사를 읽은 것으로 기록
+  if(endObs) endObs.disconnect(); clearTimeout(endTimer);
+  const el = $("#topEnd"); if(!el || !all.length || !("IntersectionObserver" in window)) return;
+  endObs = new IntersectionObserver(es => es.forEach(e => { clearTimeout(endTimer);
+    if(e.isIntersecting) endTimer = setTimeout(() => { if(!document.hidden) all.forEach(({g}) => { const a = A[g.rep_id]; markRead(a.id, a.category); }); }, 700); }));
+  endObs.observe(el);
+}
 function renderHome(){
-  const t = D.top, items = t.items.map(i => ({i, g: G[i.group_id]})).filter(x => x.g && A[x.g.rep_id]), ranked = t.mode === "ranked";
+  const t = D.top, all = t.items.map(i => ({i, g: G[i.group_id]})).filter(x => x.g && A[x.g.rep_id]), ranked = t.mode === "ranked";
   if(!D.groups.length){ $("#lead").innerHTML = $("#top").innerHTML = $("#catHead").innerHTML = ""; return; }
-  if(!items.length){ $("#lead").innerHTML = ""; $("#top").innerHTML = `<div class="ch">TOP 5 기사</div><p class="empty">중요도 근거(여러 언론사 보도·노출)가 부족해 TOP 5를 만들지 않았어요. 분야별 뉴스를 확인해 보세요.</p>`; }
+  if(!all.length){ $("#lead").innerHTML = ""; $("#top").innerHTML = `<div class="ch">TOP 5 기사</div><p class="empty">중요도 근거(여러 언론사 보도·노출)가 부족해 TOP 5를 만들지 않았어요. 분야별 뉴스를 확인해 보세요.</p>`; }
   else {
-    const f = items[0], fa = A[f.g.rep_id];
-    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead"><h2>${artLink(fa)}</h2>${imgTag(f.g, "lim")}<div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g, true)}${related(f.g)}</div>`;
-    $("#top").innerHTML = `<div class="ch">${ranked ? "TOP 5 기사" : "주요 기사"}</div><p class="note">${esc(t.note)}</p><ol>${items.map(({i, g}, n) => { const a = A[g.rep_id];
-      return `<li class="ti"><span class="no">${ranked ? String(i.rank).padStart(2, "0") : "·"}</span><div class="tc"><h3>${artLink(a)}</h3><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
-        ${n === 0 ? '<div class="why">오늘의 헤드라인 기사</div>' : sumOf(g, true)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${n === 0 ? "" : related(g)}</div>${n === 0 ? "" : imgTag(g, "th")}</li>`; }).join("")}</ol>`;
+    const f = all[0], fa = A[f.g.rep_id], rest = all.slice(1);   // 1위=헤드라인, 2~6위=TOP 5(01~05)
+    $("#lead").innerHTML = `<div class="ch">오늘의 헤드라인</div><div class="lead"><h2>${artLink(fa)}</h2>${imgTag(f.g, "lim")}<div class="mt">${metaOf(f.g, fa)}${detailBtn(fa, f.g)}</div>${sumOf(f.g)}${related(f.g)}</div>`;
+    $("#top").innerHTML = (rest.length ? `<div class="ch">${ranked ? "TOP 5 기사" : "주요 기사"}</div><p class="note">${esc(t.note)}</p><ol>${rest.map(({i, g}, n) => { const a = A[g.rep_id];
+      return `<li class="ti"><span class="no">${ranked ? String(n + 1).padStart(2, "0") : "·"}</span><div class="tc"><h3>${artLink(a)}</h3><div class="mt">${metaOf(g, a)}${detailBtn(a, g)}</div>
+        ${sumOf(g)}<div class="why">${esc((i.reasons || []).join(" · "))}</div>${related(g)}</div>${imgTag(g, "th")}</li>`; }).join("")}</ol>` : "") + '<div id="topEnd"></div>';
   }
   const by = D.by_category || {};
   $("#catHead").innerHTML = `<div class="ch">분야별 헤드라인</div>` + CATS.map(c => { const g = G[(by[c] || [])[0]], a = g && A[g.rep_id];
     return `<div class="hd"><b data-go="${esc(c)}">[${c}] ›</b>${a ? `${artLink(a)}<div class="mt">${metaOf(g, a)}</div>` : '<span class="mt">아직 기사가 없어요</span>'}</div>`; }).join("");
+  watchEnd(all);
 }
 function renderCatList(){
   const by = D ? D.by_category || {} : {}, cats = CATS.concat((by["미분류"] || []).length ? ["미분류"] : []);
