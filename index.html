@@ -138,7 +138,7 @@ const store = {get:k=>{try{return localStorage.getItem(k)}catch(e){return null}}
 const CATS = ["정치","경제","사회","국제","과학·IT","문화·생활","주식"], label = c => c === "미분류" ? "기타" : c;
 const when = iso => { const d = new Date(iso), t = d.toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit",hour12:false}); return d.toDateString() === new Date().toDateString() ? t : `${d.getMonth()+1}/${d.getDate()} ${t}`; };
 const sents = t => ((t || "").match(/[^.!?。]+[.!?。]?\s*/g) || []).map(s => s.trim()).filter(Boolean);
-const nd = new Date(); $("#date").textContent = `${nd.getFullYear()}. ${nd.getMonth()+1}. ${nd.getDate()}. ${"일월화수목금토"[nd.getDay()]}요일`;
+const nd = new Date(); $("#date").textContent = `${nd.getFullYear()}년 ${nd.getMonth()+1}월 ${nd.getDate()}일 ${"일월화수목금토"[nd.getDay()]}요일`;
 
 /* ---------- 기록 (이 기기 localStorage) ---------- */
 const key = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
