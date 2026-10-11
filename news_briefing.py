@@ -5,7 +5,7 @@
 원칙: 샘플/가짜 기사는 만들지 않는다. 수집에 실패해도 실패 상태만 기록한다.
   python news_briefing.py --out briefing.json
 """
-import argparse, hashlib, json, math, os, re, sys, urllib.request
+import argparse, hashlib, json, math, os, re, sys, time, urllib.error, urllib.request
 import xml.etree.ElementTree as ET
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
@@ -293,31 +293,52 @@ def fetch_text(url):
 
 
 def ask_llm(prompt):
-    key = os.environ.get("ANTHROPIC_API_KEY")
+    """Gemini API(무료 등급 가능). 429(분당 한도)면 한 번 기다렸다가 재시도."""
+    key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return None
-    body = json.dumps({"model": os.environ.get("NEWS_SUMMARY_MODEL", "claude-haiku-5-5"), "max_tokens": 600,
-                       "messages": [{"role": "user", "content": prompt}]}).encode()
-    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, headers={
-        "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return json.load(r)["content"][0]["text"].strip()
-    except Exception as e:
-        print(f"  요약 실패: {e}", file=sys.stderr)
-        return None
+    model = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash-lite"
+    body = json.dumps({"contents": [{"parts": [{"text": prompt}]}],
+                       "generationConfig": {"maxOutputTokens": 1000, "temperature": 0.2}}).encode()
+    req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                                 data=body, headers={"x-goog-api-key": key, "content-type": "application/json"})
+    for wait in (0, 25):
+        time.sleep(wait)
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                parts = json.load(r)["candidates"][0]["content"]["parts"]
+            return "".join(p.get("text", "") for p in parts).strip() or None
+        except urllib.error.HTTPError as e:
+            if e.code != 429:
+                print(f"  요약 실패: HTTP {e.code} (GEMINI_MODEL '{model}'이 맞는지 확인)", file=sys.stderr)
+                return None
+        except Exception as e:
+            print(f"  요약 실패: {e}", file=sys.stderr)
+            return None
+    return None
 
 
-def add_summaries(groups, arts, top, prev):
-    """TOP 항목만: 원문이 직접 열리는 기사 본문(최대 2개 매체)을 읽고 요약. 키/본문이 없으면 RSS 요약만 사용(지어내지 않음)."""
+def add_summaries(groups, arts, top, by_cat, prev):
+    """노출되는 모든 그룹을 요약. 같은 대표 기사는 캐시 재사용, 1회 실행당 신규 요약 상한(NEWS_SUMMARY_MAX, 기본 40).
+    우선순위: TOP -> 분야별 최신 기사를 분야 번갈아 가며. 본문을 못 읽으면 요약하지 않음(지어내지 않음)."""
     A, G = {a["id"]: a for a in arts}, {g["id"]: g for g in groups}
-    for it in top["items"]:
-        g = G[it["group_id"]]
+    for g in groups:
         if prev.get(g["rep_id"]):
-            g["summary"], g["summary_src"] = prev[g["rep_id"]], "ai"      # 같은 대표 기사면 재사용(호출 절약)
-            continue
-        if not os.environ.get("ANTHROPIC_API_KEY"):
-            continue
+            g["summary"], g["summary_src"] = prev[g["rep_id"]], "ai"
+    if not os.environ.get("GEMINI_API_KEY"):
+        return
+    order = [i["group_id"] for i in top["items"]]
+    for r in range(15):
+        order += [by_cat[c][r] for c in CATS + ["미분류"] if len(by_cat.get(c, [])) > r]
+    todo, seen = [], set()
+    for gid in order:
+        g = G.get(gid)
+        if g and gid not in seen and g.get("summary_src") != "ai":
+            seen.add(gid)
+            todo.append(g)
+    todo = todo[:int(os.environ.get("NEWS_SUMMARY_MAX", "30"))]
+
+    def work(g):
         texts = []
         for i in [g["rep_id"]] + [x for x in g["article_ids"] if x != g["rep_id"]]:
             a = A[i]
@@ -326,9 +347,23 @@ def add_summaries(groups, arts, top, prev):
                 texts.append(f"[{a['source']}] {a['title']}\n{t}")
             if len(texts) == 2:
                 break
-        s = ask_llm(SUM_PROMPT + "\n\n" + "\n\n".join(texts)) if texts else None
-        if s:
-            g["summary"], g["summary_src"] = s, "ai"
+        if not texts:
+            return g, None, False
+        return g, ask_llm(SUM_PROMPT + "\n\n" + "\n\n".join(texts)), True
+
+    done = fails = 0
+    for g in todo:
+        g, summ, called = work(g)
+        if summ:
+            g["summary"], g["summary_src"], done, fails = summ, "ai", done + 1, 0
+        elif called:
+            fails += 1
+            if fails >= 4:   # 연속 실패 = 일일/분당 한도 가능성 -> 이번 실행은 여기서 중단
+                print("  연속 실패로 이번 실행의 AI 요약을 중단합니다.", file=sys.stderr)
+                break
+        if called:
+            time.sleep(4)    # 무료 등급 분당 한도 보호
+    print(f"  AI 요약 신규 {done}건 (대상 {len(todo)}건, 캐시 재사용 {sum(1 for g in groups if prev.get(g['rep_id']))}건)", file=sys.stderr)
 
 
 def main():
@@ -356,7 +391,7 @@ def main():
             prev = {g["rep_id"]: g["summary"] for g in json.load(open(args.out, encoding="utf-8")).get("groups", []) if g.get("summary_src") == "ai"}
         except Exception:
             pass
-    add_summaries(groups, a_out, top, prev)
+    add_summaries(groups, a_out, top, by_cat, prev)
     data = {"generated_at": now.isoformat(),
             "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds},
             "articles": a_out, "groups": groups, "top": top, "by_category": by_cat}
