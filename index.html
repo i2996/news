@@ -162,7 +162,7 @@ function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:
 const RESTORE_DAYS = ["2026-10-10", "2026-10-11"];   // 데이터 삭제로 사라진 완독일 복구(이미 있으면 그대로 둠)
 (function(){ const s = getStats(); let ch = false; for(const d of RESTORE_DAYS){ const o = s[d] = s[d] || {v:0, r:0}; if(!o.r){ o.r = 1; ch = true; } } if(ch) store.set("stats", JSON.stringify(s)); })();
 const issueNo = () => Object.values(getStats()).filter(s => s.r).length;            // 제 N호 = 신문을 읽은 누적 일수
-const renderIssue = () => { $("#issue").textContent = `제${(issueNo()+62).toLocaleString("ko-KR")}호`; };
+const renderIssue = () => { $("#issue").textContent = `제${issueNo().toLocaleString("ko-KR")}호`; };
 function markRead(id, cat){
   bump(o => { o.r = 1; o.a = o.a || []; if(!o.a.includes(id)){ o.a.push(id); o.n = o.n || {}; o.n[cat || "미분류"] = (o.n[cat || "미분류"] || 0) + 1; } if(cat){ (o.c = o.c || {})[cat] = 1; } });
   renderIssue(); renderStrip();
@@ -276,10 +276,15 @@ const imgBlock = (o, open) => o.image
   ? `<div class="imw" ${open}><img src="${esc(safe(o.image))}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('nm');this.remove()"><span class="cat">${esc(label(o.category || "미분류"))}</span></div>`
   : `<div class="imw nm" ${open}><span class="cat">${esc(label(o.category || "미분류"))}</span></div>`;     // 이미지가 없어도 같은 자리에 분야 표시
 const actHTML = o => `<div class="act"><button class="scbtn" data-a="${esc(o.id)}">☆ 스크랩</button><button class="shbtn" data-a="${esc(o.id)}">공유</button><a class="al" data-id="${esc(o.id)}" data-cat="${esc(o.category)}" href="${esc(safe(o.url))}" target="_blank" rel="noopener">원문 ↗</a></div>`;
+const leadOf = body => { let out = [], n = 0; for(const p of body || []) for(const t of sents(p)){ out.push(t); n += t.length; if(n >= 120 || out.length >= 3) return out.join(" "); } return out.join(" "); };
+function cardText(o){   // 카드 본문: 요약이 있으면 요약, 없으면 추출한 본문의 앞부분(약 2~3문장)
+  if(o.summary) return `<p class="sm">${sentsHTML(o.id, o.summary)}${sumTag(o)}</p>`;
+  const t = leadOf(o.body); return t ? `<p class="sm">${sentsHTML(o.id, t)}<span class="tag">본문 앞부분</span></p>` : "";
+}
 function cardHTML(name, i, o, opt = {}){
   const open = `data-open="${name}:${i}"`, H = opt.lead ? "h2" : "h3";
   return `<article class="cd">${imgBlock(o, open)}<div class="hr">${opt.no ? `<span class="no">${opt.no}</span>` : ""}<${H}><a href="#" class="ot" ${open}>${esc(o.title)}</a></${H}></div>
-    <div class="mt">${metaOf(o)}${opt.top ? '<span class="tag b">TOP</span>' : ""}</div>${o.summary ? `<p class="sm">${sentsHTML(o.id, o.summary)}${sumTag(o)}</p>` : ""}${actHTML(o)}</article>`;
+    <div class="mt">${metaOf(o)}${opt.top ? '<span class="tag b">TOP</span>' : ""}</div>${cardText(o)}${actHTML(o)}</article>`;
 }
 
 /* ---------- 집중형 읽기 화면: 기사 하나 = 한 화면, 스크롤하면 다음 기사 ---------- */
