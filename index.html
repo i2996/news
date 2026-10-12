@@ -162,7 +162,7 @@ function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:
 const RESTORE_DAYS = ["2026-10-10", "2026-10-11"];   // 데이터 삭제로 사라진 완독일 복구(이미 있으면 그대로 둠)
 (function(){ const s = getStats(); let ch = false; for(const d of RESTORE_DAYS){ const o = s[d] = s[d] || {v:0, r:0}; if(!o.r){ o.r = 1; ch = true; } } if(ch) store.set("stats", JSON.stringify(s)); })();
 const issueNo = () => Object.values(getStats()).filter(s => s.r).length;            // 제 N호 = 신문을 읽은 누적 일수
-const renderIssue = () => { $("#issue").textContent = `제${issueNo().toLocaleString("ko-KR")}호`; };
+const renderIssue = () => { $("#issue").textContent = `제${issueNo()+62.toLocaleString("ko-KR")}호`; };
 function markRead(id, cat){
   bump(o => { o.r = 1; o.a = o.a || []; if(!o.a.includes(id)){ o.a.push(id); o.n = o.n || {}; o.n[cat || "미분류"] = (o.n[cat || "미분류"] || 0) + 1; } if(cat){ (o.c = o.c || {})[cat] = 1; } });
   renderIssue(); renderStrip();
