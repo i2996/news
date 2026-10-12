@@ -161,8 +161,9 @@ const getStats = () => { try { return JSON.parse(store.get("stats") || "{}"); } 
 function bump(fn){ const s = getStats(), k = key(new Date()); s[k] = s[k] || {v:0, r:0}; fn(s[k]); store.set("stats", JSON.stringify(s)); }
 const RESTORE_DAYS = ["2026-10-10", "2026-10-11"];   // 데이터 삭제로 사라진 완독일 복구(이미 있으면 그대로 둠)
 (function(){ const s = getStats(); let ch = false; for(const d of RESTORE_DAYS){ const o = s[d] = s[d] || {v:0, r:0}; if(!o.r){ o.r = 1; ch = true; } } if(ch) store.set("stats", JSON.stringify(s)); })();
-const issueNo = () => Object.values(getStats()).filter(s => s.r).length;            // 제 N호 = 신문을 읽은 누적 일수
-const renderIssue = () => { $("#issue").textContent = `제${(issueNo()+62).toLocaleString("ko-KR")}호`; };
+const ISSUE_BASE = 62;                                                              // 제N호에 더해 보여줄 기본값
+const issueNo = () => Object.values(getStats()).filter(s => s.r).length + ISSUE_BASE;   // 제 N호 = 신문을 읽은 누적 일수 + 기본값
+const renderIssue = () => { $("#issue").textContent = `제${issueNo().toLocaleString("ko-KR")}호`; };
 function markRead(id, cat){
   bump(o => { o.r = 1; o.a = o.a || []; if(!o.a.includes(id)){ o.a.push(id); o.n = o.n || {}; o.n[cat || "미분류"] = (o.n[cat || "미분류"] || 0) + 1; } if(cat){ (o.c = o.c || {})[cat] = 1; } });
   renderIssue(); renderStrip();
@@ -263,7 +264,7 @@ function objOf(aid){
   const a = A[aid], g = GBY[aid];
   if(!a || !g) return getScraps().find(s => s.id === aid) || null;     // 이번 브리핑에 없으면 저장해 둔 사본 사용
   const isRep = g.rep_id === aid, sm = (isRep ? g.summary : a.summary) || "", ok = (isRep && g.summary_src === "ai") || complete(sm);
-  const bs = [a, ...g.article_ids.map(i => A[i])].find(x => x && x.body && x.body.length);   // 본문은 같은 사건의 기사 중 추출에 성공한 것
+  const bs = [a, ...g.article_ids.map(i => A[i])].find(x => x && x.body && x.body.length && !/SBS/.test(x.source));   // SBS는 본문이 기사 목록으로 잡혀서 제외   // 본문은 같은 사건의 기사 중 추출에 성공한 것
   return {id: a.id, title: a.title, source: a.source, url: a.url, published_at: a.published_at, category: a.category, image: a.image || (isRep ? g.image : "") || "",
     summary: ok ? sm : "", src: ok ? (isRep && g.summary_src === "ai" ? "ai" : "feed") : null, status: g.status || null, nsrc: g.source_count, why: WHY[g.id] || "",
     body: bs ? bs.body : [], body_src: bs ? bs.source : "", body_more: bs ? !!bs.body_more : false,

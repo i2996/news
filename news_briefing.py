@@ -498,6 +498,13 @@ def prio(top, by_cat, n):
     return order
 
 
+NO_BODY = ("SBS",)   # 본문 추출 결과가 기사 목록 등으로 잘못 잡히는 매체는 본문을 저장하지 않음
+
+
+def nobody(a):
+    return any(k in a["source"] for k in NO_BODY)
+
+
 def fill_pages(arts, groups, top, by_cat, old):
     """원문 페이지에서 대표 이미지(og:image)와 본문 일부를 추출(링크가 직접 열리는 기사만).
     광고·댓글 영역은 건너뛰고, 본문은 NEWS_BODY_CHARS(기본 1200자)까지만 보관. 결과(없음 포함)는 캐시."""
@@ -506,7 +513,7 @@ def fill_pages(arts, groups, top, by_cat, old):
     for a in arts:
         o = old.get(a["id"], {})
         a["image"] = a.get("image") or o.get("image", "")
-        if "body" in o:
+        if "body" in o and not nobody(a):
             a["body"], a["body_more"] = o["body"], o.get("body_more", False)
     todo = []
     for gid in prio(top, by_cat, 40):
@@ -516,7 +523,7 @@ def fill_pages(arts, groups, top, by_cat, old):
         ids = [g["rep_id"]] + [x for x in g["article_ids"] if x != g["rep_id"]]
         if any(A[i].get("body") for i in ids) and any(A[i]["image"] for i in ids):
             continue
-        c = next((A[i] for i in ids if "news.google.com" not in A[i]["url"] and "body" not in A[i]), None)
+        c = next((A[i] for i in ids if "news.google.com" not in A[i]["url"] and "body" not in A[i] and not nobody(A[i])), None)
         if c:
             todo.append(c)
     todo = todo[:int(os.environ.get("NEWS_PAGE_MAX") or 60)]
