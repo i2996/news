@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html import unescape
-from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
 
 KST = timezone(timedelta(hours=9))
 CATS = ["정치", "경제", "사회", "국제", "과학·IT", "문화·생활", "주식"]
@@ -27,26 +27,56 @@ def gt(t):
 
 
 YNA, KHAN, HK = "https://www.yna.co.kr/rss/", "https://www.khan.co.kr/rss/rssdata/", "https://www.hankyung.com/feed/"
-# (매체명 | None=구글이 제공, URL, 분야 | (후보분야...) | None)
+MK, SBS, MBC = "https://www.mk.co.kr/rss/", "https://news.sbs.co.kr/news/", "https://imnews.imbc.com/rss/news/"
+DONGA, CHOSUN, HANI = "https://rss.donga.com/", "https://www.chosun.com/arc/outboundfeeds/rss/", "https://www.hani.co.kr/rss/"
+SBS_HEAD, MK_HEAD = SBS + "headlineRssFeed.do?plink=RSSREADER", MK + "30000001/"
+HEAD = {TOP_URL, SBS_HEAD, MK_HEAD}   # 편집 헤드라인류 피드: 노출 순서를 중요도 신호 중 하나로만 사용
+
+
+def gs(q):   # RSS가 없는 매체는 구글 뉴스 검색(site:)으로 대체 -> 링크가 구글 중계라 본문·이미지는 못 가져옴
+    return f"https://news.google.com/rss/search?q={quote(q)}+when:1d&{GQ}"
+
+
+def sec(src, base, items, suffix=""):   # (분야, 경로) 목록을 피드 튜플로 변환
+    return [(src, base + path + suffix, cat, cat) for cat, path in items]
+
+
+# (매체명 | None=구글이 제공, URL, 분야 | (후보분야...) | None, 표시용 이름)
 # 매체가 직접 분류한 RSS 섹션을 우선 사용하므로 제목 키워드 하나로 분야가 정해지지 않는다.
 FEEDS = [
-    ("연합뉴스", YNA + "politics.xml", "정치"), ("연합뉴스", YNA + "economy.xml", "경제"),
-    ("연합뉴스", YNA + "society.xml", "사회"), ("연합뉴스", YNA + "international.xml", "국제"),
-    ("연합뉴스", YNA + "culture.xml", "문화·생활"),
-    ("경향신문", KHAN + "politic_news.xml", "정치"), ("경향신문", KHAN + "economy_news.xml", "경제"),
-    ("경향신문", KHAN + "society_news.xml", "사회"), ("경향신문", KHAN + "kh_world.xml", "국제"),
-    ("경향신문", KHAN + "culture_news.xml", "문화·생활"),
-    ("한국경제", HK + "finance", "주식"), ("한국경제", HK + "economy", "경제"),
-    ("한국경제", HK + "it", "과학·IT"), ("한국경제", HK + "politics", "정치"),
-    ("한국경제", HK + "society", "사회"), ("한국경제", HK + "international", "국제"),
-    (None, gt("NATION"), ("정치", "사회")), (None, gt("WORLD"), "국제"), (None, gt("BUSINESS"), "경제"),
-    (None, gt("TECHNOLOGY"), "과학·IT"), (None, gt("SCIENCE"), "과학·IT"),
-    (None, gt("ENTERTAINMENT"), "문화·생활"), (None, gt("HEALTH"), "문화·생활"),
-    # 직접 링크를 주는 한국 언론사 RSS 모음(akngs/knews-rss, 커뮤니티 제공·주소 미확인 → 실패하면 앱에 표시됨)
-    *[(None, f"https://akngs.github.io/knews-rss/categories/{n}.xml", c, "knews-rss")
-      for n, c in [("politics", "정치"), ("economy", "경제"), ("society", "사회"), ("international", "국제"),
-                   ("culture", "문화·생활"), ("tech", "과학·IT"), ("it", "과학·IT"), ("science", "과학·IT")]],
-    (None, TOP_URL, None),  # 구글 뉴스 주요 뉴스: 노출 순서를 중요도 신호 중 하나로만 사용
+    # ---- 종합일간지
+    ("한겨레", HANI, None, "전체"),
+    *sec("한겨레", HANI, [("정치", "politics/"), ("경제", "economy/"), ("사회", "society/"), ("국제", "international/"), ("문화·생활", "culture/")]),
+    *sec("경향신문", KHAN, [("정치", "politic_news.xml"), ("경제", "economy_news.xml"), ("사회", "society_news.xml"), ("국제", "kh_world.xml"),
+                         ("문화·생활", "culture_news.xml"), ("과학·IT", "science_news.xml"), ("문화·생활", "life_news.xml")]),
+    ("조선일보", CHOSUN + "?outputType=xml", None, "전체"),
+    *sec("조선일보", CHOSUN + "category/", [("정치", "politics"), ("경제", "economy"), ("사회", "national"), ("국제", "international"), ("문화·생활", "culture-life")], "/?outputType=xml"),
+    ("중앙일보", "https://www.joongang.co.kr/rss", None, "전체"),
+    (None, gs("site:joongang.co.kr"), None, "중앙일보(구글 검색)"),
+    ("동아일보", DONGA + "total.xml", None, "전체"),
+    *sec("동아일보", DONGA, [("정치", "politics.xml"), ("사회", "national.xml"), ("경제", "economy.xml"), ("국제", "international.xml"),
+                           ("과학·IT", "science.xml"), ("문화·생활", "culture.xml")]),
+    # ---- 방송사
+    (None, gs("site:news.kbs.co.kr"), None, "KBS(구글 검색)"),
+    *sec("MBC", MBC, [("정치", "news_01.xml"), ("정치", "news_02.xml"), ("국제", "news_03.xml"), ("경제", "news_04.xml"), ("사회", "news_05.xml"),
+                      ("문화·생활", "news_06.xml"), ("과학·IT", "news_08.xml")]),
+    ("SBS", SBS_HEAD, None, "이 시각 이슈"),
+    ("SBS", SBS + "newsflashRssFeed.do?plink=RSSREADER", None, "최신"),
+    *sec("SBS", SBS + "SectionRssFeed.do?sectionId=", [("정치", "01"), ("경제", "02"), ("사회", "03"), ("국제", "07"), ("문화·생활", "08"), ("문화·생활", "14")], "&plink=RSSREADER"),
+    (None, gs("site:ytn.co.kr"), None, "YTN(구글 검색)"),
+    # ---- 경제지
+    *sec("한국경제", HK, [("주식", "finance"), ("경제", "economy"), ("경제", "realestate"), ("과학·IT", "it"), ("정치", "politics"),
+                        ("사회", "society"), ("국제", "international"), ("문화·생활", "life"), ("문화·생활", "entertainment")]),
+    ("매일경제", MK_HEAD, None, "헤드라인"),
+    *sec("매일경제", MK, [("경제", "30100041/"), ("경제", "50100032/"), ("경제", "50300009/"), ("주식", "50200011/"), ("국제", "30300018/"), ("사회", "50400012/")]),
+    ("매일경제", MK + "50000001/", None, "전체 기사"),
+    # ---- 통신사
+    *sec("연합뉴스", YNA, [("정치", "politics.xml"), ("경제", "economy.xml"), ("사회", "society.xml"), ("국제", "international.xml"), ("문화·생활", "culture.xml")]),
+    # ---- 구글 뉴스
+    (None, gt("NATION"), ("정치", "사회"), "NATION"), (None, gt("WORLD"), "국제", "WORLD"), (None, gt("BUSINESS"), "경제", "BUSINESS"),
+    (None, gt("TECHNOLOGY"), "과학·IT", "TECHNOLOGY"), (None, gt("SCIENCE"), "과학·IT", "SCIENCE"),
+    (None, gt("ENTERTAINMENT"), "문화·생활", "ENTERTAINMENT"), (None, gt("HEALTH"), "문화·생활", "HEALTH"),
+    (None, TOP_URL, None, "주요 뉴스"),  # 구글 뉴스 주요 뉴스
 ]
 
 KW = {  # 분야가 불분명한 피드에서만 사용: 서로 다른 키워드 2개 이상 + 2위와 격차가 있어야 분류
@@ -188,22 +218,27 @@ def collect(hours, now):
         results = list(ex.map(job, FEEDS))
     since, arts, status, seen = now - timedelta(hours=hours), {}, [], {}
     for f, items, err in results:
-        status.append({"name": f"{f[0] or (f[3] if len(f) > 3 else 'Google 뉴스')} · {urlsplit(f[1]).path.rsplit('/', 1)[-1] or 'top'}",
+        status.append({"name": f"{f[0] or 'Google 뉴스'} · {f[3] if len(f) > 3 else urlsplit(f[1]).path.rsplit('/', 1)[-1]}",
                        "ok": err is None, "count": len(items), "error": err})
         for pos, a in enumerate(items):
             if not (since <= a["t"] <= now + timedelta(hours=1)):
                 continue
             fc = f[2]
             cat = fc if isinstance(fc, str) else kw_classify(a["title"], fc)
-            tp = 1 - pos / len(items) if f[1] == TOP_URL else 0
+            tp = 1 - pos / len(items) if f[1] in HEAD else 0
             key, key2 = canon(a["url"]), (a["source"], re.sub(r"\W", "", a["title"]).lower())
             prev = arts.get(key) or seen.get(key2)       # 같은 URL 또는 같은 매체의 동일 제목만 중복 처리
+            rel = isinstance(fc, str)                          # 매체가 직접 분류한 분야인지(키워드 추정보다 우선)
             if prev:
                 prev["tp"] = max(prev["tp"], tp)
-                if prev["cat"] == "미분류" and cat != "미분류":
-                    prev["cat"] = cat
+                if cat != "미분류" and (prev["cat"] == "미분류" or (rel and not prev.get("rel"))):
+                    prev["cat"], prev["rel"] = cat, rel
+                if not prev.get("image") and a.get("image"):
+                    prev["image"] = a["image"]
+                if not prev.get("summary") and a.get("summary"):
+                    prev["summary"] = a["summary"]
                 continue
-            a.update(id=hashlib.sha1(key.encode()).hexdigest()[:10], cat=cat, tp=tp)
+            a.update(id=hashlib.sha1(key.encode()).hexdigest()[:10], cat=cat, tp=tp, rel=rel)
             arts[key] = seen[key2] = a
     for a in arts.values():
         if a["cat"] == "경제" and sum(k in a["title"] for k in KW["주식"]) >= 2:
@@ -290,7 +325,7 @@ def make_group(members, now):
     summ = rep["summary"] or next((a["summary"] for a in reversed(m) if a["summary"]), "")
     reasons = [f"{srcs}개 언론사 보도"] if srcs > 1 else []
     if tp >= 0.4:
-        reasons.append("구글 뉴스 주요 뉴스 상위 노출")
+        reasons.append("주요 뉴스 피드 상위 노출")
     if age <= 6:
         reasons.append("최근 6시간 내 보도")
     return {"id": "g_" + rep["id"], "rep_id": rep["id"], "article_ids": [a["id"] for a in m],
