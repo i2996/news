@@ -332,27 +332,9 @@ async function cardBlob(o){
     blocks.forEach(b => { b.forEach(l => { if(hl.length){ x.fillStyle = "#f3df7a"; x.fillRect(P - 6, y - 36, x.measureText(l).width + 12, 50); } x.fillStyle = "#1c1b19"; x.fillText(l, P, y); y += 60; }); y += 22; }); }
   x.fillStyle = "#6d665a"; x.font = `26px ${SER}`; x.fillText(`${o.source}${o.url ? " · " + o.url.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] : ""}`, P, H - 70);
   const logo = await new Promise(r => { const i = new Image(); i.onload = () => r(i); i.onerror = () => r(null); i.src = "icons/icon-192.png"; });   // 앱 아이콘(같은 출처라 캔버스 저장 가능)
- x.textAlign = "right";
-x.fillStyle = "#6d665a";
-x.globalAlpha = 0.65;
-x.font = '30px "Yeongwol", serif';
-x.fillText("신문 한 입", W - P, H - 66);
-
-if (logo) {
-  const tw = x.measureText("신문 한 입").width;
-  const logoSize = 30;
-
-  x.drawImage(
-    logo,
-    W - P - tw - 10 - logoSize,
-    H - 86,
-    logoSize,
-    logoSize
-  );
-}
-
-x.globalAlpha = 1;
-return await new Promise(r => c.toBlob(r, "image/png"));
+  x.textAlign = "right"; x.fillStyle = "#6d665a"; x.font = '36px Yeongwol, "Noto Serif KR", serif'; x.fillText("신문 한 입", W - P, H - 66);   // 처음 The Press 워터마크와 같은 글꼴·크기·색
+  if(logo){ const tw = x.measureText("신문 한 입").width; x.globalAlpha = 0.65; x.drawImage(logo, W - P - tw - 12 - 44, H - 101, 44, 44); x.globalAlpha = 1; }
+  return await new Promise(r => c.toBlob(r, "image/png"));
 }
 async function shareCard(o){
   const blob = await cardBlob(o), file = new File([blob], "the-press.png", {type: "image/png"});
@@ -400,6 +382,7 @@ function renderStatus(){
   const feeds = st.feeds || [], bad = feeds.filter(x => !x.ok), ko = {ok:"정상", partial:"일부 출처 수집 실패", failed:"수집 실패", empty:"기사 없음", pending:"수집 전"}[st.state] || st.state;
   b.innerHTML = `<p>수집 상태: <b>${esc(ko)}</b>${st.message ? " · " + esc(st.message) : ""}</p>
     <p>수집 기사 ${st.article_count || 0}건${feeds.length ? ` · 출처 ${feeds.length - bad.length}/${feeds.length}곳 성공` : ""}${st.last_success_at ? ` · 마지막 성공 ${when(st.last_success_at)}` : ""}</p>
+    ${feeds.some(x => x.tz_fix) ? `<p class="mt">발행 시각을 9시간 보정한 출처: ${feeds.filter(x => x.tz_fix).map(x => esc(x.name)).join(", ")}</p>` : ""}
     ${bad.length ? `<details><summary>실패한 출처 ${bad.length}곳</summary><ul class="rel">${bad.map(x => `<li>${esc(x.name)} <span class="mt">${esc(x.error || "")}</span></li>`).join("")}</ul></details>` : ""}${sumNote(st.summary)}`;
 }
 let endObs = null, endTimer = null;

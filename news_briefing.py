@@ -199,6 +199,19 @@ def parse_feed(xml, feed_src):
     return out
 
 
+def fix_tz(items, now):
+    """일부 매체 RSS는 한국시간 값을 GMT로 표기해서, 그대로 변환하면 9시간 뒤(미래)로 나온다.
+    가장 최신 기사가 현재보다 1.5시간 넘게 미래이고 9시간을 빼면 현재 이내로 들어오면 그 피드 전체를 -9시간 보정."""
+    if len(items) < 3:
+        return 0
+    top = max(a["t"] for a in items)
+    if top > now + timedelta(hours=1.5) and top - timedelta(hours=9) <= now + timedelta(minutes=30):
+        for a in items:
+            a["t"] -= timedelta(hours=9)
+        return -9
+    return 0
+
+
 def kw_classify(title, allowed=None):
     sc = sorted(((sum(k in title for k in KW[c]), c) for c in (allowed or CATS)), reverse=True)
     second = sc[1][0] if len(sc) > 1 else 0
@@ -218,8 +231,9 @@ def collect(hours, now):
         results = list(ex.map(job, FEEDS))
     since, arts, status, seen = now - timedelta(hours=hours), {}, [], {}
     for f, items, err in results:
+        fix = fix_tz(items, now)
         status.append({"name": f"{f[0] or 'Google 뉴스'} · {f[3] if len(f) > 3 else urlsplit(f[1]).path.rsplit('/', 1)[-1]}",
-                       "ok": err is None, "count": len(items), "error": err})
+                       "ok": err is None, "count": len(items), "error": err, "tz_fix": fix})
         for pos, a in enumerate(items):
             if not (since <= a["t"] <= now + timedelta(hours=1)):
                 continue
