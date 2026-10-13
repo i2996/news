@@ -199,6 +199,16 @@ def parse_feed(xml, feed_src):
     return out
 
 
+FOREIGN = 0   # 이번 실행에서 제외한 한국어가 아닌 기사 수
+
+
+def is_korean(title):
+    """한글이 2자 이상이고 글자(한글·영문·한자·가나) 중 한글 비율이 30% 이상이면 한국어 기사"""
+    hangul = len(re.findall(r"[가-힣]", title))
+    letters = hangul + len(re.findall(r"[A-Za-z\u4e00-\u9fff\u3040-\u30ff]", title))
+    return hangul >= 2 and hangul / max(letters, 1) >= 0.3
+
+
 def fix_tz(items, now):
     """일부 매체 RSS는 한국시간 값을 GMT로 표기해서, 그대로 변환하면 9시간 뒤(미래)로 나온다.
     가장 최신 기사가 현재보다 1.5시간 넘게 미래이고 9시간을 빼면 현재 이내로 들어오면 그 피드 전체를 -9시간 보정."""
@@ -236,6 +246,10 @@ def collect(hours, now):
                        "ok": err is None, "count": len(items), "error": err, "tz_fix": fix})
         for pos, a in enumerate(items):
             if not (since <= a["t"] <= now + timedelta(hours=1)):
+                continue
+            if not is_korean(a["title"]):
+                global FOREIGN
+                FOREIGN += 1                                   # 일본어·중국어·영어 등 외국어 기사는 가져오지 않음
                 continue
             fc = f[2]
             cat = fc if isinstance(fc, str) else kw_classify(a["title"], fc)
@@ -577,7 +591,10 @@ def add_summaries(groups, arts, top, by_cat, prev):
     for g in groups:
         if prev.get(g["rep_id"]):
             g["summary"], g["summary_src"] = prev[g["rep_id"]], "ai"
-    if not os.environ.get("GEMINI_API_KEY"):
+    has_key = bool(os.environ.get("GEMINI_API_KEY"))
+    for g in groups:   # AI 요약이 없는 이유: no_key(키 없음) / queued(처리 대기) / no_body(본문 접근 불가) / failed(API 실패)
+        g["summary_state"] = "ai" if g.get("summary_src") == "ai" else ("queued" if has_key else "no_key")
+    if not has_key:
         return {"state": "no_key"}
     order = prio(top, by_cat, 15)
     todo, seen = [], set()
@@ -606,11 +623,14 @@ def add_summaries(groups, arts, top, by_cat, prev):
         g, summ, called = work(g)
         if not called:
             no_body += 1                    # 본문을 읽을 수 없는 기사(구글 중계 링크 등)
+            g["summary_state"] = "no_body"
             continue
         if summ:
             g["summary"], g["summary_src"], done, fails = summ, "ai", done + 1, 0
+            g["summary_state"] = "ai"
         else:
             failed, fails = failed + 1, fails + 1
+            g["summary_state"] = "failed"
             if fails >= 4:                  # 연속 실패 = 일일/분당 한도 가능성 -> 이번 실행은 중단
                 print("  연속 실패로 이번 실행의 AI 요약을 중단합니다.", file=sys.stderr)
                 break
@@ -651,7 +671,7 @@ def main():
     for a in a_out:
         a.pop("_text", None)                                   # 요약 입력용 임시 텍스트는 저장하지 않음
     data = {"generated_at": now.isoformat(),
-            "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds, "summary": sm},
+            "status": {"state": state, "message": msg, "last_success_at": last_ok, "article_count": len(arts), "feeds": feeds, "summary": sm, "foreign_skipped": FOREIGN},
             "articles": a_out, "groups": groups, "top": top, "by_category": by_cat}
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)

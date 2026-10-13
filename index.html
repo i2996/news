@@ -266,10 +266,11 @@ function objOf(aid){
   const isRep = g.rep_id === aid, sm = (isRep ? g.summary : a.summary) || "", ok = (isRep && g.summary_src === "ai") || complete(sm);
   const bs = [a, ...g.article_ids.map(i => A[i])].find(x => x && x.body && x.body.length && !/SBS/.test(x.source));   // SBS는 본문이 기사 목록으로 잡혀서 제외   // 본문은 같은 사건의 기사 중 추출에 성공한 것
   return {id: a.id, title: a.title, source: a.source, url: a.url, published_at: a.published_at, category: a.category, image: a.image || (isRep ? g.image : "") || "",
-    summary: ok ? sm : "", src: ok ? (isRep && g.summary_src === "ai" ? "ai" : "feed") : null, status: g.status || null, nsrc: g.source_count, why: WHY[g.id] || "",
+    summary: ok ? sm : "", src: ok ? (isRep && g.summary_src === "ai" ? "ai" : "feed") : null, status: g.status || null, nsrc: g.source_count, sstate: g.summary_state || "", why: WHY[g.id] || "",
     body: bs ? bs.body : [], body_src: bs ? bs.source : "", body_more: bs ? !!bs.body_more : false,
     others: g.article_ids.filter(i => i !== aid).map(i => A[i]).filter(Boolean).map(x => ({title: x.title, source: x.source, url: x.url, published_at: x.published_at}))};
 }
+const SSTATE = {no_key: "GEMINI_API_KEY가 설정되지 않았어요", queued: "아직 처리 순서를 기다리는 중이에요(한 번에 30건씩 처리)", no_body: "원문 본문을 읽을 수 없는 기사예요(구글 링크 등)", failed: "요약 생성에 실패했어요(기록 탭 수집 상태 참고)"};
 const sentsHTML = (id, t) => sents(t).map(x => `<span class="s" data-id="${esc(id)}">${esc(x)}</span>`).join(" ");
 const metaOf = o => `${esc(o.source)} · ${when(o.published_at)}${o.nsrc > 1 ? ` · ${o.nsrc}개 언론사` : ""}${o.status ? `<span class="tag">${esc(o.status)}</span>` : ""}`;
 const sumTag = o => `<span class="tag">${o.src === "ai" ? "AI 요약" : "매체 제공"}</span>`;
@@ -295,6 +296,7 @@ function readerSection(id, k){
   const body = (o.body || []).map(p => `<p>${sentsHTML(o.id, p)}</p>`).join("");
   return `<section class="rs" data-k="${k}" data-id="${esc(o.id)}">${imgBlock(o, "")}<div class="mt">${metaOf(o)}</div><h1 class="rh">${esc(o.title)}</h1>
     ${o.summary ? `<p class="rsum">${sentsHTML(o.id, o.summary)}${sumTag(o)}</p>` : ""}
+    ${o.src !== "ai" && SSTATE[o.sstate] ? `<p class="mt">AI 요약 없음 · ${SSTATE[o.sstate]}</p>` : ""}
     ${body ? `<div class="rbt">${body}<p class="mt">${o.body_more ? `… 이하는 원문에서 이어서 읽을 수 있어요` : "원문 본문"} · ${esc(o.body_src)} (광고·댓글 제외)</p></div>` : ""}
     ${o.others && o.others.length ? `<details><summary>같은 사건을 다룬 다른 기사 ${o.others.length}건</summary><ul class="rel">${o.others.map(x => `<li><a href="${esc(safe(x.url))}" target="_blank" rel="noopener">${esc(x.title)}</a> <span class="mt">${esc(x.source)} · ${when(x.published_at)}</span></li>`).join("")}</ul></details>` : ""}
     ${o.why ? `<div class="why">${esc(o.why)}</div>` : ""}${actHTML(o)}</section>`;
@@ -388,6 +390,7 @@ function renderStatus(){
   const feeds = st.feeds || [], bad = feeds.filter(x => !x.ok), ko = {ok:"정상", partial:"일부 출처 수집 실패", failed:"수집 실패", empty:"기사 없음", pending:"수집 전"}[st.state] || st.state;
   b.innerHTML = `<p>수집 상태: <b>${esc(ko)}</b>${st.message ? " · " + esc(st.message) : ""}</p>
     <p>수집 기사 ${st.article_count || 0}건${feeds.length ? ` · 출처 ${feeds.length - bad.length}/${feeds.length}곳 성공` : ""}${st.last_success_at ? ` · 마지막 성공 ${when(st.last_success_at)}` : ""}</p>
+    ${st.foreign_skipped ? `<p class="mt">한국어가 아닌 기사 ${st.foreign_skipped}건은 제외했어요</p>` : ""}
     ${feeds.some(x => x.tz_fix) ? `<p class="mt">발행 시각을 9시간 보정한 출처: ${feeds.filter(x => x.tz_fix).map(x => esc(x.name)).join(", ")}</p>` : ""}
     ${bad.length ? `<details><summary>실패한 출처 ${bad.length}곳</summary><ul class="rel">${bad.map(x => `<li>${esc(x.name)} <span class="mt">${esc(x.error || "")}</span></li>`).join("")}</ul></details>` : ""}${sumNote(st.summary)}`;
 }
