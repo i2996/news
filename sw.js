@@ -26,6 +26,15 @@ self.addEventListener("notificationclick", e => {
   e.waitUntil(clients.matchAll({type: "window"}).then(cs => cs.length ? cs[0].focus() : clients.openWindow("./")));
 });
 
+self.addEventListener("pushsubscriptionchange", e => {
+  e.waitUntil(self.registration.showNotification("푸시 구독 만료됨", {
+    body: "기기의 푸시 구독이 브라우저에 의해 갱신되거나 만료되었습니다. 앱을 열어 푸시를 다시 켜고 GitHub Secrets를 업데이트해 주세요.",
+    icon: "icons/icon-192.png",
+    badge: "icons/icon-192.png",
+    tag: "briefing-sys"
+  }));
+});
+
 // 서버에서 온 웹푸시 (앱이 닫혀 있어도 표시됨)
 self.addEventListener("push", e => {
   let d = {};

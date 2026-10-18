@@ -486,7 +486,8 @@ async function ensureKeys(){
   if(k) return k;
   const kp = await crypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign"]);
   const j = await crypto.subtle.exportKey("jwk", kp.privateKey);
-  k = {priv: j.d, pub: b64u.enc(new Uint8Array([4, ...b64u.dec(j.x), ...b64u.dec(j.y)]))};
+  const pad32 = arr => { if (arr.length >= 32) return arr.slice(arr.length - 32); const res = new Uint8Array(32); res.set(arr, 32 - arr.length); return res; };
+  k = {priv: j.d, pub: b64u.enc(new Uint8Array([4, ...pad32(b64u.dec(j.x)), ...pad32(b64u.dec(j.y))]))};
   store.set("vapid", JSON.stringify(k)); return k;
 }
 async function setupPush(){

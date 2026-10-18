@@ -67,7 +67,8 @@ host = urlsplit(sub["endpoint"]).netloc
 payload = json.dumps({"title": "The Press", "body": "\n".join(lines)}, ensure_ascii=False)
 try:
     webpush(subscription_info=sub, data=payload, vapid_private_key=key,
-            vapid_claims={"sub": "mailto:briefing-bot@users.noreply.github.com"}, timeout=20)
+            vapid_claims={"sub": "https://github.com/"},
+            ttl=86400, headers={"Urgency": "high"}, timeout=20)
     print(f"::notice title=푸시 전송 완료::{host}로 전송했어요.")
 except WebPushException as e:
     resp = getattr(e, "response", None)
