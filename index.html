@@ -128,7 +128,7 @@ nav.bar button.on{color:var(--ink);font-weight:700}nav.bar svg{width:20px;height
     <div class="ch">나의 스크랩북</div><p class="note" style="text-align:center">조각을 누르면 기사가 열려요 · 기사 문장을 두 번 탭하면 형광펜(부분 스크랩)</p><div class="sb" id="sb"></div>
     <div class="ch">분야별 구독 패턴 <span class="mt">(최근 30일 읽은 기사)</span></div><div id="pat"></div>
     <div class="ch">푸시 알림</div>
-    <div class="sec"><p id="pushState"></p><p class="mt" id="pushDiag"></p><div class="row"><button class="btn pri" id="pushOn">구독</button></div>
+    <div class="sec"><p id="pushState"></p><p class="mt" id="pushDiag"></p><details><summary>구독 상태 변화 기록</summary><p class="mt" id="pushLog"></p></details><div class="row"><button class="btn pri" id="pushOn">구독</button></div>
       <div class="row" id="pushCopy" hidden><button class="btn" id="cpSub">① PUSH_SUBSCRIPTION 복사</button><button class="btn" id="cpKey">② VAPID_PRIVATE_KEY 복사</button></div>
       <p>복사한 값은 GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret에 <b>이름 그대로</b> 저장하세요. 매일 아침 7:30에 푸시가 와요.</p></div>
     <div class="ch">ntfy 알림 (더 안정적)</div>
@@ -181,7 +181,7 @@ let hiddenAt = Date.now();
 document.addEventListener("visibilitychange", () => {
   if(document.hidden){ hiddenAt = Date.now(); return; }
   if(Date.now() - hiddenAt > 30 * 60 * 1000) bump(o => { o.v++; });
-  load();
+  logPush(); load();
 });
 
 /* ---------- 스크랩/하이라이트 ---------- */
@@ -501,20 +501,30 @@ async function setupPush(){
   if(!sub) sub = await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: b64u.dec(k.pub)});
   store.set("sub", JSON.stringify(sub.toJSON())); store.set("subAt", new Date().toLocaleString("ko-KR"));
 }
+async function logPush(){   // 구독·권한·서비스워커 상태가 바뀔 때마다 시각과 함께 기록(언제 사라지는지 확인용)
+  let live = null, swr = null; try{ swr = await navigator.serviceWorker.getRegistration(); live = swr && await swr.pushManager.getSubscription(); }catch(e){}
+  const perm = "Notification" in window ? Notification.permission : "denied", st = `${perm}|${swr ? (swr.active ? "sw" : "swwait") : "nosw"}|${live ? "sub" : "nosub"}`;
+  let log = []; try{ log = JSON.parse(store.get("pushLog") || "[]"); }catch(e){}
+  if(!log.length || log[log.length - 1].s !== st){ log.push({t: new Date().toLocaleString("ko-KR"), s: st}); store.set("pushLog", JSON.stringify(log.slice(-8))); }
+}
 async function renderPush(){
+  await logPush();
   let live = null; try{ const reg = await navigator.serviceWorker.getRegistration(); live = reg && await reg.pushManager.getSubscription(); }catch(e){}
   let saved = null; try{ saved = JSON.parse(store.get("sub")); }catch(e){}
   const perm = "Notification" in window ? Notification.permission : "denied", on = perm === "granted" && !!live, was = !!store.get("subAt");
   let swr = null; try{ swr = await navigator.serviceWorker.getRegistration(); }catch(e){}
-  $("#pushDiag").textContent = `진단 · 알림 권한: ${{granted: "허용", default: "미선택", denied: "차단"}[perm] || perm} · 서비스워커: ${swr ? (swr.active ? "활성" : "대기 중") : "없음"} · 브라우저 구독: ${live ? "있음" : "없음"}`;
+  $("#pushDiag").textContent = `진단 · 알림 권한: ${{granted: "허용", default: "미선택", denied: "차단"}[perm] || perm} · 서비스워커: ${swr ? (swr.active ? "활성" : "대기 중") : "없음"} · 브라우저 구독: ${live ? "있음" : "없음"} · 이 기기에 저장된 구독 기록: ${store.get("subAt") ? "있음" : "없음"} · 푸시 키: ${store.get("vapid") ? "있음" : "없음"}`;
   let msg;
   if(perm === "denied") msg = "🔕 알림 권한이 차단돼 있어요. 브라우저 설정에서 이 사이트의 알림을 허용한 뒤 '구독'을 누르세요.";
   else if(on && saved && saved.endpoint !== live.endpoint) msg = "⚠ 구독 정보가 바뀌었어요. 구독을 해제했다가 다시 구독하고 값을 새로 저장하세요.";
   else if(on) msg = `🔔 <b>구독 중</b> · 마지막 구독 ${esc(store.get("subAt") || "")} (구독 주소 끝 …${esc(live.endpoint.slice(-8))})`;
-  else if(was) msg = "⚠ <b>구독이 사라졌어요</b>(브라우저가 지웠거나 해제됨). '구독'을 눌러 다시 켤 수 있지만, 계속 사라지면 아래 ntfy를 쓰는 게 확실해요.";
+  else if(was) msg = "⚠ <b>구독이 사라졌어요</b>(이유는 알 수 없어요). '구독'을 눌러 다시 켤 수 있지만, 계속 사라지면 아래 ntfy를 쓰는 게 확실해요.";
   else msg = "🔕 <b>구독 해제됨</b> · 알림이 오지 않아요. '구독'을 누르면 켜져요.";
   $("#pushState").innerHTML = msg;
   $("#pushCopy").hidden = !(on && !!store.get("vapid")); $("#pushOn").textContent = on ? "구독 해제" : "구독";
+  const KO = {granted: "권한 허용", default: "권한 미선택", denied: "권한 차단", sw: "서비스워커 활성", swwait: "서비스워커 대기", nosw: "서비스워커 없음", sub: "구독 있음", nosub: "구독 없음"};
+  let log = []; try{ log = JSON.parse(store.get("pushLog") || "[]"); }catch(e){}
+  $("#pushLog").innerHTML = log.length ? log.slice().reverse().map(e => `${esc(e.t)} · ${e.s.split("|").map(x => KO[x] || x).join(" · ")}`).join("<br>") : "아직 기록이 없어요.";
   renderNtfy();
 }
 function renderNtfy(){ const t = store.get("ntfyTopic"); $("#ntfyTopic").textContent = t ? "주제: " + t : ""; $("#ntfyCp").hidden = !t; }
@@ -542,7 +552,7 @@ $("#install").onclick = async () => { if(!dp) return; dp.prompt(); await dp.user
 window.addEventListener("appinstalled", () => { $("#install").hidden = true; });
 if(/iphone|ipad/i.test(navigator.userAgent) && !navigator.standalone) $("#ios").hidden = false;
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
-renderIssue(); renderStrip(); load();
+renderIssue(); renderStrip(); load(); logPush();
 </script>
 </body>
 </html>
