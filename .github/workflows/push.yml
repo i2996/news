@@ -18,3 +18,4 @@ jobs:
         env:
           PUSH_SUBSCRIPTION: ${{ secrets.PUSH_SUBSCRIPTION }}
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}             # ntfy 채널(없으면 건너뜀)
