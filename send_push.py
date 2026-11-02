@@ -44,6 +44,7 @@ body = "\n".join(lines)
 
 
 SUB = "mailto:briefing-bot@users.noreply.github.com"   # VAPID 연락처(sub)
+TTL = 12 * 3600   # 기본값 0이면 폰이 절전·오프라인일 때 푸시 서버가 메시지를 바로 버림 → 12시간 보관
 
 
 def vapid_headers(key, endpoint):
@@ -98,12 +99,12 @@ def send_webpush():
     data = json.dumps({"title": "The Press", "body": body}, ensure_ascii=False)
     try:
         try:
-            webpush(subscription_info=sub, data=data, vapid_private_key=key, vapid_claims={"sub": SUB}, timeout=20)
+            webpush(subscription_info=sub, data=data, vapid_private_key=key, vapid_claims={"sub": SUB}, ttl=TTL, headers={"Urgency": "high"}, timeout=20)
         except Exception as e:
             if type(e).__name__ != "VapidException":
                 raise
             print(f"py_vapid가 sub를 거부해서 직접 서명으로 다시 시도해요 ({versions()}): {e}")
-            webpush(subscription_info=sub, data=data, headers=vapid_headers(key, sub["endpoint"]), timeout=20)
+            webpush(subscription_info=sub, data=data, headers={**vapid_headers(key, sub["endpoint"]), "Urgency": "high"}, ttl=TTL, timeout=20)
         return True
     except WebPushException as e:
         resp = getattr(e, "response", None)

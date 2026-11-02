@@ -492,6 +492,10 @@ async function ensureKeys(){
   k = {priv: j.d, pub: b64u.enc(new Uint8Array([4, ...b64u.dec(j.x), ...b64u.dec(j.y)]))};
   store.set("vapid", JSON.stringify(k)); return k;
 }
+async function shareKey(){   // 서비스워커가 구독 갱신(pushsubscriptionchange) 때 같은 키로 재구독할 수 있도록 공개키만 캐시에 저장
+  let k = null; try { k = JSON.parse(store.get("vapid")); } catch(e) {}
+  if(k && k.pub && "caches" in window) try { await (await caches.open("push-meta")).put("vapid-pub", new Response(k.pub)); } catch(e) {}
+}
 async function setupPush(){
   if(!("PushManager" in window)) throw new Error("이 브라우저는 푸시를 지원하지 않아요 (아이폰은 홈 화면에 설치 후 사용)");
   if(await Notification.requestPermission() !== "granted") throw new Error("알림 권한을 허용해야 해요");
@@ -499,7 +503,7 @@ async function setupPush(){
   let sub = await reg.pushManager.getSubscription();
   if(sub){ const ck = sub.options && sub.options.applicationServerKey; if(!ck || b64u.enc(ck) !== k.pub){ await sub.unsubscribe(); sub = null; } }
   if(!sub) sub = await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: b64u.dec(k.pub)});
-  store.set("sub", JSON.stringify(sub.toJSON())); store.set("subAt", new Date().toLocaleString("ko-KR"));
+  store.set("sub", JSON.stringify(sub.toJSON())); store.set("subAt", new Date().toLocaleString("ko-KR")); shareKey();
 }
 async function logPush(){   // 구독·권한·서비스워커 상태가 바뀔 때마다 시각과 함께 기록(언제 사라지는지 확인용)
   let live = null, swr = null; try{ swr = await navigator.serviceWorker.getRegistration(); live = swr && await swr.pushManager.getSubscription(); }catch(e){}
@@ -516,12 +520,12 @@ async function renderPush(){
   $("#pushDiag").textContent = `진단 · 알림 권한: ${{granted: "허용", default: "미선택", denied: "차단"}[perm] || perm} · 서비스워커: ${swr ? (swr.active ? "활성" : "대기 중") : "없음"} · 브라우저 구독: ${live ? "있음" : "없음"} · 이 기기에 저장된 구독 기록: ${store.get("subAt") ? "있음" : "없음"} · 푸시 키: ${store.get("vapid") ? "있음" : "없음"}`;
   let msg;
   if(perm === "denied") msg = "🔕 알림 권한이 차단돼 있어요. 브라우저 설정에서 이 사이트의 알림을 허용한 뒤 '구독'을 누르세요.";
-  else if(on && saved && saved.endpoint !== live.endpoint) msg = "⚠ 구독 정보가 바뀌었어요. 구독을 해제했다가 다시 구독하고 값을 새로 저장하세요.";
+  else if(on && saved && saved.endpoint !== live.endpoint) msg = "⚠ <b>구독 주소가 바뀌었어요</b>(브라우저가 갱신). 구독은 살아 있으니 해제하지 말고, ①을 다시 복사해 GitHub Secret PUSH_SUBSCRIPTION을 새 값으로 바꾸세요.";
   else if(on) msg = `🔔 <b>구독 중</b> · 마지막 구독 ${esc(store.get("subAt") || "")} (구독 주소 끝 …${esc(live.endpoint.slice(-8))})`;
   else if(was) msg = "⚠ <b>구독이 사라졌어요</b>(이유는 알 수 없어요). '구독'을 눌러 다시 켤 수 있지만, 계속 사라지면 아래 ntfy를 쓰는 게 확실해요.";
   else msg = "🔕 <b>구독 해제됨</b> · 알림이 오지 않아요. '구독'을 누르면 켜져요.";
   $("#pushState").innerHTML = msg;
-  $("#pushCopy").hidden = !(on && !!store.get("vapid")); $("#pushOn").textContent = on ? "구독 해제" : "구독";
+  $("#pushCopy").hidden = !(on && !!store.get("vapid")); $("#pushOn").textContent = on ? "구독 해제" : "구독"; if(on) shareKey();
   const KO = {granted: "권한 허용", default: "권한 미선택", denied: "권한 차단", sw: "서비스워커 활성", swwait: "서비스워커 대기", nosw: "서비스워커 없음", sub: "구독 있음", nosub: "구독 없음"};
   let log = []; try{ log = JSON.parse(store.get("pushLog") || "[]"); }catch(e){}
   $("#pushLog").innerHTML = log.length ? log.slice().reverse().map(e => `${esc(e.t)} · ${e.s.split("|").map(x => KO[x] || x).join(" · ")}`).join("<br>") : "아직 기록이 없어요.";
@@ -538,12 +542,18 @@ $("#pushOn").onclick = async () => {   // 켜짐/꺼짐 토글: 구독 중이면
   const btn = $("#pushOn"); btn.disabled = true; btn.textContent = "처리 중…";
   try{
     const reg = await navigator.serviceWorker.getRegistration(), live = reg && await reg.pushManager.getSubscription();
-    if(live && Notification.permission === "granted"){ await live.unsubscribe(); store.set("sub", ""); store.set("subAt", ""); alert("구독을 해제했어요. 다시 받으려면 '구독'을 누르세요."); }
+    if(live && Notification.permission === "granted"){
+      if(!confirm("정말 구독을 해제할까요? 해제하면 알림이 오지 않고, 다시 구독하면 GitHub Secret도 새 값으로 바꿔야 해요.")){ btn.disabled = false; renderPush(); return; }
+      await live.unsubscribe(); store.set("sub", ""); store.set("subAt", ""); alert("구독을 해제했어요. 다시 받으려면 '구독'을 누르세요."); }
     else { await setupPush(); alert("구독했어요. 아래 ①②를 복사해서 GitHub Secrets에 저장하세요."); }
   }catch(e){ alert(e.message); }
   btn.disabled = false; renderPush();
 };
-$("#cpSub").onclick = () => copy(store.get("sub") || "");
+$("#cpSub").onclick = async () => {   // 저장된 옛 값이 아니라 지금 살아 있는 구독을 복사(주소가 바뀌었어도 최신 값)
+  let live = null; try{ const reg = await navigator.serviceWorker.getRegistration(); live = reg && await reg.pushManager.getSubscription(); }catch(e){}
+  if(live){ store.set("sub", JSON.stringify(live.toJSON())); store.set("subAt", store.get("subAt") || new Date().toLocaleString("ko-KR")); }
+  await copy(store.get("sub") || ""); renderPush();
+};
 $("#cpKey").onclick = () => { try { copy(JSON.parse(store.get("vapid")).priv); } catch(e) {} };
 
 let dp;
