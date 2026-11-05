@@ -305,6 +305,18 @@ def prep(a):
     a["tok"] = set(toks)
 
 
+def stem_vocab(arts):
+    """말뭉치에 더 짧은 형태가 있으면 그쪽으로 맞춘다: 세브란스병원서→세브란스병원, 특검법안→특검법, 본회의서→본회의"""
+    vocab = {t for a in arts for t in a["tok"]}
+    def base(t):
+        for k in (1, 2):
+            if len(t) - k >= 3 and not t.isascii() and t[:-k] in vocab:
+                return t[:-k]
+        return t
+    for a in arts:
+        a["tok"] = {base(t) for t in a["tok"]}
+
+
 def link_score(a, b, w):
     """같은 사건일 때만 0보다 큰 값. 애매하면 0(=합치지 않음)."""
     if abs((a["t"] - b["t"]).total_seconds()) > 30 * 3600:
@@ -340,6 +352,43 @@ def cluster(arts, w, link=0.3, avg=0.2):
     return [[arts[i] for i in c] for c in cl.values()]
 
 
+def core(c):   # 그룹의 핵심 단어: 기사 4분의 1 이상에 나온 단어
+    cnt = Counter(t for a in c for t in a["tok"])
+    return {t for t, k in cnt.items() if k >= max(1, len(c) / 4)}
+
+
+def merge_events(cls, w, thr=0.45):
+    """1차 묶음에서 같은 사건이 둘 이상으로 갈라진 경우(제목 표현이 달라서) 핵심 단어로 다시 합친다."""
+    def same(A, B):
+        if abs((max(a["t"] for a in A) - max(b["t"] for b in B)).total_seconds()) > 30 * 3600:
+            return False
+        ca, cb = Counter(a["cat"] for a in A if a["cat"] != "미분류"), Counter(b["cat"] for b in B if b["cat"] != "미분류")
+        x, y = (ca.most_common(1) or [("미분류",)])[0][0], (cb.most_common(1) or [("미분류",)])[0][0]
+        if "미분류" not in (x, y) and x != y and frozenset((x, y)) not in COMPAT:
+            return False
+        ka, kb = core(A), core(B)
+        na, nb_ = ({int(t) for t in k if t.isdigit() and len(t) >= 3} for k in (ka, kb))
+        if na and nb_ and not any(abs(x - y) <= 0.1 * max(x, y) for x in na for y in nb_):
+            return False                                   # 핵심 수치가 다르면 다른 사건 (SKT 5523억 vs 카카오 2403억)
+        sh = ka & kb
+        if len(sh) < 3 or sum(len(t) >= 3 for t in sh) < 1:      # 핵심 단어 3개 이상 공유(고유어 1개 이상)
+            return False
+        return sum(w[t] for t in sh) / min(sum(w[t] for t in ka), sum(w[t] for t in kb)) >= thr
+    cls = sorted(cls, key=len, reverse=True)
+    changed = True
+    while changed:
+        changed = False
+        for i in range(len(cls)):
+            for j in range(i + 1, len(cls)):
+                if same(cls[i], cls[j]):
+                    cls[i] = cls[i] + cls.pop(j)
+                    changed = True
+                    break
+            if changed:
+                break
+    return cls
+
+
 # ---------------------------------------------------------------- 그룹/TOP 5
 def make_group(members, now):
     m = sorted(members, key=lambda a: a["t"])
@@ -366,9 +415,10 @@ def make_group(members, now):
 def build(arts, now, per_cat=40):
     for a in arts:
         prep(a)
+    stem_vocab(arts)
     df = Counter(t for a in arts for t in a["tok"])
     w = {t: math.log((len(arts) + 1) / (c + 1)) + 1 for t, c in df.items()}
-    groups = [make_group(c, now) for c in cluster(arts, w)]
+    groups = [make_group(c, now) for c in merge_events(cluster(arts, w), w)]
     # 헤드라인(1위) + TOP 5(2~6위) = 6건: 근거(여러 언론사 보도 또는 구글 주요 뉴스 상위 노출)가 있는 그룹만, 같은 사건은 1회만
     ev = sorted([g for g in groups if (g["source_count"] > 1 or g["tp"] >= 0.4) and g["age"] <= 24],
                 key=lambda g: -g["score"])

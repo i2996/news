@@ -131,6 +131,7 @@ def send_ntfy():
     msg = {"topic": topic, "title": "The Press", "message": body[:3500], "tags": ["newspaper"], "priority": 3}
     if click:
         msg["click"] = click
+        msg["icon"] = click + "icons/icon-192.png"       # 알림 오른쪽에 앱 아이콘 표시(상단 작은 아이콘은 ntfy 고정)
     req = urllib.request.Request("https://ntfy.sh", data=json.dumps(msg, ensure_ascii=False).encode("utf-8"),
                                  headers={"Content-Type": "application/json"})
     try:
