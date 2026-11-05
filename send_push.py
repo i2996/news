@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
-"""briefing.json의 주요 뉴스 상위 3건을 알림으로 전송 (GitHub Actions에서 실행)
-채널 1) 웹푸시: Secrets PUSH_SUBSCRIPTION, VAPID_PRIVATE_KEY (브라우저 구독이 만료되면 실패할 수 있음)
-채널 2) ntfy  : Secret NTFY_TOPIC (ntfy 앱으로 수신, 구독이 만료되지 않음)
-하나라도 성공하면 성공으로 처리하고, 실패 원인은 Actions 요약 화면의 Annotations에 한글로 표시한다.
+"""briefing.json의 주요 뉴스 상위 3건을 웹푸시로 전송 (GitHub Actions에서 실행)
+Secrets: PUSH_SUBSCRIPTION, VAPID_PRIVATE_KEY. 실패 원인은 Actions 요약 화면의 Annotations에 한글로 표시한다.
 """
 import base64
 import json
 import os
 import sys
 import time
-import urllib.error
-import urllib.request
 from urllib.parse import urlsplit
 
 
@@ -111,7 +107,7 @@ def send_webpush():
         st = getattr(resp, "status_code", None)
         txt = (getattr(resp, "text", "") or "")[:150].replace("\n", " ")
         if st in (404, 410):
-            return f"웹푸시 구독이 만료됐어요(HTTP {st}). 브라우저가 구독을 지운 거예요. 앱 기록 탭에서 '다시 구독' 후 두 값을 새로 저장하거나, 아래 ntfy를 사용하세요."
+            return f"웹푸시 구독이 만료됐어요(HTTP {st}). 브라우저가 구독을 지운 거예요. 삼성 인터넷이면 '웹사이트 알림 자동 차단'을 끄고, 앱 기록 탭에서 '구독' 후 두 값을 새로 저장하세요."
         if st in (400, 401, 403):
             return f"푸시 서버({host})가 거부했어요(HTTP {st}): {txt} — 구독과 VAPID 키가 짝이 안 맞을 수 있어요."
         return f"푸시 서버({host}) 오류 HTTP {st}: {txt or e}"
@@ -119,39 +115,11 @@ def send_webpush():
         return f"웹푸시 전송 중 오류({type(e).__name__}): {str(e)[:150]} [{versions()}]"
 
 
-# ---------- 채널 2: ntfy ----------
-def send_ntfy():
-    topic = os.environ.get("NTFY_TOPIC", "").strip()
-    if not topic:
-        return None
-    if not (1 <= len(topic) <= 64 and all(c.isalnum() or c in "-_" for c in topic)):
-        return "NTFY_TOPIC에는 영문·숫자·-_ 만 쓸 수 있어요(64자 이하). 앱에서 만든 주제 이름을 그대로 저장했는지 확인하세요."
-    repo, owner = os.environ.get("GITHUB_REPOSITORY", "/").split("/")[-1], os.environ.get("GITHUB_REPOSITORY_OWNER", "")
-    click = f"https://{owner}.github.io/" + ("" if repo == f"{owner}.github.io" else repo + "/") if owner else None
-    msg = {"topic": topic, "title": "The Press", "message": body[:3500], "tags": ["newspaper"], "priority": 3}
-    if click:
-        msg["click"] = click
-        msg["icon"] = click + "icons/icon-192.png"       # 알림 오른쪽에 앱 아이콘 표시(상단 작은 아이콘은 ntfy 고정)
-    req = urllib.request.Request("https://ntfy.sh", data=json.dumps(msg, ensure_ascii=False).encode("utf-8"),
-                                 headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=20) as r:
-            return True if 200 <= r.status < 300 else f"ntfy 응답 HTTP {r.status}"
-    except urllib.error.HTTPError as e:
-        return f"ntfy 서버가 거부했어요(HTTP {e.code}). 주제 이름을 확인하거나 잠시 후 다시 시도하세요."
-    except Exception as e:
-        return f"ntfy 전송 중 오류({type(e).__name__}): {str(e)[:150]}"
-
-
-results = {"웹푸시": send_webpush(), "ntfy": send_ntfy()}
-ok = [k for k, v in results.items() if v is True]
-bad = {k: v for k, v in results.items() if isinstance(v, str)}
-if not ok and not bad:
-    ann("error", "푸시 전송 실패", "보낼 곳이 설정되지 않았어요. Secrets에 PUSH_SUBSCRIPTION+VAPID_PRIVATE_KEY 또는 NTFY_TOPIC을 저장하세요.")
+err = send_webpush()
+if err is None:
+    ann("error", "푸시 전송 실패", "Secrets에 PUSH_SUBSCRIPTION과 VAPID_PRIVATE_KEY를 저장하세요.")
     sys.exit(1)
-for k, v in bad.items():
-    ann("warning" if ok else "error", f"{k} 전송 실패", v)
-if ok:
-    ann("notice", "알림 전송 완료", f"{', '.join(ok)}로 보냈어요.")
-    sys.exit(0)
-sys.exit(1)
+if err is not True:
+    ann("error", "웹푸시 전송 실패", err)
+    sys.exit(1)
+ann("notice", "알림 전송 완료", "웹푸시로 보냈어요.")

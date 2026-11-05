@@ -1,21 +1,59 @@
 name: send-push
+# GitHub의 예약 실행은 몇 시간씩 늦거나 건너뛰는 일이 잦아서(실측 3~5시간 지연),
+# 새벽에 여러 번 일찍 깨워 두고, 먼저 시작된 실행이 07:30(KST)까지 기다렸다가 보낸다.
+# 하루 한 번만 보내도록 '보냄' 표시를 캐시에 남기고, 나머지 실행은 그걸 보고 건너뛴다.
 on:
   schedule:
-    - cron: "30 22 * * *"   # 매일 07:30 KST (UTC 22:30)
-  workflow_dispatch:         # 수동 실행(테스트)용
+    - cron: "13 17 * * *"   # 02:13 KST
+    - cron: "43 18 * * *"   # 03:43 KST
+    - cron: "13 20 * * *"   # 05:13 KST
+    - cron: "43 21 * * *"   # 06:43 KST
+  workflow_dispatch:         # 수동 실행(테스트): 기다리지 않고 바로 보냄
 permissions:
   contents: read
+  actions: write             # '오늘 보냄' 캐시 저장용
+concurrency:
+  group: send-push
+  cancel-in-progress: false
 jobs:
   push:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
-      - uses: actions/checkout@v4
+      - id: day
+        run: echo "d=$(TZ=Asia/Seoul date +%F)" >> "$GITHUB_OUTPUT"
+      - id: sent
+        if: github.event_name == 'schedule'
+        uses: actions/cache/restore@v4
+        with:
+          path: .push-sent
+          key: push-sent-${{ steps.day.outputs.d }}
+          lookup-only: true
+      - name: 07:30(KST)까지 대기
+        if: github.event_name == 'schedule' && steps.sent.outputs.cache-hit != 'true'
+        run: |
+          now=$(date +%s); target=$(TZ=Asia/Seoul date -d "$(TZ=Asia/Seoul date +%F) 07:30" +%s)
+          if [ "$now" -lt "$target" ]; then echo "$(( (target - now) / 60 ))분 기다려요"; sleep $(( target - now )); fi
+      - uses: actions/checkout@v4          # 기다린 뒤에 받아야 최신 브리핑으로 보냄
+        if: steps.sent.outputs.cache-hit != 'true'
       - uses: actions/setup-python@v5
+        if: steps.sent.outputs.cache-hit != 'true'
         with:
           python-version: "3.12"
-      - run: pip install pywebpush
-      - run: python send_push.py
+      - if: steps.sent.outputs.cache-hit != 'true'
+        run: pip install pywebpush
+      - if: steps.sent.outputs.cache-hit != 'true'
+        run: python send_push.py
         env:
           PUSH_SUBSCRIPTION: ${{ secrets.PUSH_SUBSCRIPTION }}
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}             # ntfy 채널(없으면 건너뜀)
+      - name: 오늘 보냄 표시
+        if: github.event_name == 'schedule' && steps.sent.outputs.cache-hit != 'true'
+        run: echo "${{ steps.day.outputs.d }}" > .push-sent
+      - if: github.event_name == 'schedule' && steps.sent.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .push-sent
+          key: push-sent-${{ steps.day.outputs.d }}
+      - if: steps.sent.outputs.cache-hit == 'true'
+        run: echo "::notice title=푸시 건너뜀::오늘(${{ steps.day.outputs.d }})은 이미 보냈어요."
