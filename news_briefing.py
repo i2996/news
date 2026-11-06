@@ -27,7 +27,7 @@ def gt(t):
 
 
 YNA, KHAN, HK = "https://www.yna.co.kr/rss/", "https://www.khan.co.kr/rss/rssdata/", "https://www.hankyung.com/feed/"
-MK, SBS, MBC = "https://www.mk.co.kr/rss/", "https://news.sbs.co.kr/news/", "https://imnews.imbc.com/rss/news/"
+MK, SBS = "https://www.mk.co.kr/rss/", "https://news.sbs.co.kr/news/"
 DONGA, CHOSUN, HANI = "https://rss.donga.com/", "https://www.chosun.com/arc/outboundfeeds/rss/", "https://www.hani.co.kr/rss/"
 SBS_HEAD, MK_HEAD = SBS + "headlineRssFeed.do?plink=RSSREADER", MK + "30000001/"
 HEAD = {TOP_URL, SBS_HEAD, MK_HEAD}   # 편집 헤드라인류 피드: 노출 순서를 중요도 신호 중 하나로만 사용
@@ -51,15 +51,13 @@ FEEDS = [
                          ("문화·생활", "culture_news.xml"), ("과학·IT", "science_news.xml"), ("문화·생활", "life_news.xml")]),
     ("조선일보", CHOSUN + "?outputType=xml", None, "전체"),
     *sec("조선일보", CHOSUN + "category/", [("정치", "politics"), ("경제", "economy"), ("사회", "national"), ("국제", "international"), ("문화·생활", "culture-life")], "/?outputType=xml"),
-    ("중앙일보", "https://www.joongang.co.kr/rss", None, "전체"),
     (None, gs("site:joongang.co.kr"), None, "중앙일보(구글 검색)"),
     ("동아일보", DONGA + "total.xml", None, "전체"),
     *sec("동아일보", DONGA, [("정치", "politics.xml"), ("사회", "national.xml"), ("경제", "economy.xml"), ("국제", "international.xml"),
                            ("과학·IT", "science.xml"), ("문화·생활", "culture.xml")]),
     # ---- 방송사
     (None, gs("site:news.kbs.co.kr"), None, "KBS(구글 검색)"),
-    *sec("MBC", MBC, [("정치", "news_01.xml"), ("정치", "news_02.xml"), ("국제", "news_03.xml"), ("경제", "news_04.xml"), ("사회", "news_05.xml"),
-                      ("문화·생활", "news_06.xml"), ("과학·IT", "news_08.xml")]),
+    (None, gs("site:imnews.imbc.com"), None, "MBC(구글 검색)"),   # MBC RSS는 XML 대신 웹페이지를 돌려줘서(10/12부터 매번 실패) 구글 검색으로 대체
     ("SBS", SBS_HEAD, None, "이 시각 이슈"),
     ("SBS", SBS + "newsflashRssFeed.do?plink=RSSREADER", None, "최신"),
     *sec("SBS", SBS + "SectionRssFeed.do?sectionId=", [("정치", "01"), ("경제", "02"), ("사회", "03"), ("국제", "07"), ("문화·생활", "08"), ("문화·생활", "14")], "&plink=RSSREADER"),
@@ -233,7 +231,12 @@ def collect(hours, now):
         try:
             req = urllib.request.Request(f[1], headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=20) as r:
-                return f, parse_feed(r.read(), f[0]), None
+                body = r.read()
+            try:
+                return f, parse_feed(body, f[0]), None
+            except ET.ParseError as e:
+                head = re.sub(r"\s+", " ", body[:300].decode("utf-8", "replace"))[:80]
+                return f, [], f"ParseError: {e} · 받은 내용: {head}"[:160]
         except Exception as e:
             return f, [], f"{type(e).__name__}: {e}"[:100]
 
